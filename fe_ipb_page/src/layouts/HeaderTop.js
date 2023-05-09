@@ -15,10 +15,15 @@ import {
 } from "reactstrap";
 import { ReactComponent as LogoWhite } from "../assets/images/logos/xtremelogowhite.svg";
 import user1 from "../assets/images/users/user1.jpg";
+import { logInState } from "../components/state/loginState";
+import { useRecoilState } from 'recoil';
+import { Navigate } from "react-router-dom";
 
 const HeaderTop = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   const [dropdownOpen, setDropdownOpen] = React.useState(false);
+
+  const [logInData, setLogInData] = useRecoilState(logInState);
 
   const toggle = () => setDropdownOpen((prevState) => !prevState);
   const Handletoggle = () => {
@@ -27,6 +32,14 @@ const HeaderTop = () => {
   const showMobilemenu = () => {
     document.getElementById("sidebarArea").classList.toggle("showSidebar");
   };
+
+  const logOut = () => {
+    setLogInData({});
+    // Navigate('/'); // 여러 에러남,,
+    window.location.href = "http://localhost:3000/";
+  }
+
+
   return (
     <Navbar color="dark" dark expand="md">
       <div className="d-flex align-items-center">
@@ -68,8 +81,26 @@ const HeaderTop = () => {
               날씨
             </Link>
           </NavItem>
+          <NavItem>
+            <>
+            {
+            logInData.isLogIn ?
+            <>
+              <li onClick={logOut}><p className="nav-link">로그아웃</p></li>
+            </> 
+            : 
+            <>
+              <li><Link to="/login" className="nav-link">로그인</Link></li>
+            </>
+            }
+            </>
+          </NavItem>
 
         </Nav>
+        <div>
+          <p>logInData: </p>
+          <p>{logInData.name}님 안녕하세욤!</p>
+        </div>
         
         <Dropdown isOpen={dropdownOpen} toggle={toggle}>
           <DropdownToggle color="dark">
