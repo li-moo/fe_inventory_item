@@ -11,6 +11,8 @@ export const logInState = atom({
     name: '',
     pwd: '',
     store_id: '',
+    area: '',
+    store_name: '',
   },
   effects_UNSTABLE: [persistAtom]
 });
