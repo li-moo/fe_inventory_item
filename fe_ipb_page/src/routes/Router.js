@@ -16,7 +16,9 @@ const Grid = lazy(() => import("../views/ui/Grid"));
 const Tables = lazy(() => import("../views/ui/Tables"));
 const Forms = lazy(() => import("../views/ui/Forms"));
 const Breadcrumbs = lazy(() => import("../views/ui/Breadcrumbs"));
-const Login = lazy(() => import("../components/login/Login.js"));
+const Login = lazy(() => import("../components/pages/login/Login.js"));
+const Staff = lazy(() => import("../components/pages/staff/Staff.js"))
+const Weather = lazy(() => import("../components/pages/weather/Weather.jsx"))
 
 /*****Routes******/
 
@@ -37,6 +39,8 @@ const ThemeRoutes = [
       { path: "/forms", exact: true, element: <Forms /> },
       { path: "/breadcrumbs", exact: true, element: <Breadcrumbs /> },
       { path: "/login", exact: true, element: <Login /> },
+      { path: "/staff", exact: true, element: <Staff /> },
+      { path: "/weather", exact: true, element: <Weather /> },
     ],
   },
 ];

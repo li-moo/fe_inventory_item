@@ -1,19 +1,44 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import axios from 'axios';
 import { Button, Form, Input} from "antd";
-import { logInState } from '../state/loginState';
+import { logInState } from '../../state/loginState';
+import { weatherState } from '../../state/weatherState';
 import { useRecoilState } from 'recoil';
 
 export default function Login() {
 
   const [logInData, setLogInData] = useRecoilState(logInState);
+  const [weatherData, setWeatherData] = useRecoilState(weatherState);
+
+  useEffect(() => {
+    getWeatherInfo();
+  }, [logInData]);
+
+  const getWeatherInfo = async () => {
+    try {
+      const response = await fetch(`http://localhost:8080/staff/weather`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body : JSON.stringify({
+          store_id: logInData.store_id,
+          area: logInData.area
+        })
+      }); 
+      const data = await response.json();
+      console.log("data: ", data);
+      setWeatherData(data.setWeatherData);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
     const onFinish = (values) => {
 
-      const url_be = "http://localhost:8080/api/v1/staff/login";
-      // const url_be = "http://localhost:8080/staff/login";
+      // const url_be = "http://localhost:8080/api/v1/staff/login";
+      const url_be = "http://localhost:8080/staff/login";
 
-  
       axios
       (url_be,
         {
@@ -39,13 +64,17 @@ export default function Login() {
             login_id: staff.login_id,
             name: staff.name,
             pwd: staff.id,
-            store_id: staff.id,
-       
+            store_id: staff.store_id,
+            store_name: staff.store_name,
+            area: staff.area,
+            // area: staff.area,
+            // store_name: staff.store_name,
           })
-          if (staff !== null) {
+          if (staff !== null && staff !== "") {
             console.log("로그인 성공");
             alert(`${staff.name}님 환영합니다.`);
             window.location.href = "http://localhost:3000/";
+            console.log(logInData);
           } else {
             console.log("로그인 실패");
           }
@@ -63,6 +92,7 @@ export default function Login() {
       console.log(logInData);
     };
   
+    
 
   return (
     <div>

@@ -77,7 +77,7 @@ const HeaderTop = () => {
             </Link>
           </NavItem>
           <NavItem>
-            <Link to="/about" className="nav-link">
+            <Link to="/weather" className="nav-link">
               날씨
             </Link>
           </NavItem>
@@ -100,6 +100,8 @@ const HeaderTop = () => {
         <div>
           <p>logInData: </p>
           <p>{logInData.name}님 안녕하세욤!</p>
+          {/* <p>{logInData.store_name}지점</p> */}
+          {/* <p>지역: {logInData.area}</p> */}
         </div>
         
         <Dropdown isOpen={dropdownOpen} toggle={toggle}>
@@ -116,7 +118,7 @@ const HeaderTop = () => {
             <DropdownItem>My Account</DropdownItem>
             <DropdownItem>Edit Profile</DropdownItem>
             <DropdownItem divider />
-            <DropdownItem>My Balance</DropdownItem>
+            <DropdownItem><Link to="/staff">Staff</Link></DropdownItem>
             <DropdownItem>Inbox</DropdownItem>
             <DropdownItem>Logout</DropdownItem>
           </DropdownMenu>
@@ -125,5 +127,6 @@ const HeaderTop = () => {
     </Navbar>
   );
 };
+
 
 export default HeaderTop;
