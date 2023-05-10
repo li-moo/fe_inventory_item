@@ -19,6 +19,8 @@ const Breadcrumbs = lazy(() => import("../views/ui/Breadcrumbs"));
 const Login = lazy(() => import("../components/pages/login/Login.js"));
 const Staff = lazy(() => import("../components/pages/staff/Staff.js"))
 const Weather = lazy(() => import("../components/pages/weather/Weather.jsx"))
+const Product = lazy(() => import("../components/pages/product/Product.jsx"))
+const ProductDetail = lazy(() => import("../components/pages/product/ProductDetaile.jsx"))
 
 /*****Routes******/
 
@@ -41,6 +43,8 @@ const ThemeRoutes = [
       { path: "/login", exact: true, element: <Login /> },
       { path: "/staff", exact: true, element: <Staff /> },
       { path: "/weather", exact: true, element: <Weather /> },
+      { path: "/product", exact: true, element: <Product /> },
+      { path: "/product/detail/:id", exact: true, element: <ProductDetail /> },
     ],
   },
 ];

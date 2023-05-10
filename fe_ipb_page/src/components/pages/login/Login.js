@@ -28,7 +28,7 @@ export default function Login() {
       }); 
       const data = await response.json();
       console.log("data: ", data);
-      setWeatherData(data.setWeatherData);
+      setWeatherData(data);
     } catch (error) {
       console.error(error);
     }
@@ -67,8 +67,6 @@ export default function Login() {
             store_id: staff.store_id,
             store_name: staff.store_name,
             area: staff.area,
-            // area: staff.area,
-            // store_name: staff.store_name,
           })
           if (staff !== null && staff !== "") {
             console.log("로그인 성공");
@@ -90,6 +88,7 @@ export default function Login() {
       console.log(values.pwd);
       console.log("state확인용");
       console.log(logInData);
+      console.log(weatherData);
     };
   
     
