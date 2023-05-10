@@ -1,0 +1,221 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "롯데 빈츠 2입 리미티드기획 408g",
+      "thumbnail": "https://sitem.ssgcdn.com/59/56/18/item/1000530185659_i1_1100.jpg",
+      "price": 5370,
+      "discount": 0,
+      "description": "초콜릿가공품, 대륙식품(주) 덕계공장 경남 양산시 그린공단3길 108 (한국), 원산지: 상세설명참조",
+      "category": "크래커",
+      "brand": "롯데제과",
+      "rating": 4.8
+    },
+    {
+      "id": 2,
+      "name": "킷캣 오리지널 18입",
+      "thumbnail": "https://sitem.ssgcdn.com/21/16/61/item/1000529611621_i1_1100.jpg",
+      "price": 9980,
+      "discount": 0,
+      "description": "킷캣 오리지널 18입, 네슬레코리아 (제조국 : 아랍에미리트)",
+      "category": "초콜릿",
+      "brand": "네슬레코리아 (제조국 : 아랍에미리트)",
+      "rating": 4.9
+    },
+    {
+      "id": 3,
+      "name": "허쉬 다크초콜릿 아사이&블루베리210g",
+      "thumbnail": "https://sitem.ssgcdn.com/90/11/54/item/1000270541190_i1_1100.jpg",
+      "price": 9080,
+      "discount": 0,
+      "description": "허쉬 다크초콜릿 아사이&블루베리210g, 초콜릿가공품",
+      "category": "초콜릿",
+      "brand": "HERSHEY CANADA INC (제조국 : 캐나다)",
+      "rating": 4.8
+    },
+    {
+      "id": 4,
+      "name": "[린트]엑설런스 다크 99% 50g",
+      "thumbnail": "https://sitem.ssgcdn.com/50/75/43/item/1000029437550_i1_1100.jpg",
+      "price": 6860,
+      "discount": 0,
+      "description": "LINDT&SPRUNGLI SAS / (주)농심 / 서울특별시 동작구 여의대방로112(신대방동) (제조국 : 상세설명참조)",
+      "category": "초콜릿",
+      "brand": "(주)농심",
+      "rating": 3.8
+    },
+    {
+      "id": 5,
+      "name": "농심 감튀 레드칠리맛 60g",
+      "thumbnail": "https://sitem.ssgcdn.com/42/65/20/item/1000059206542_i1_1100.jpg",
+      "price": 1360,
+      "discount": 0,
+      "description": "(주)농심, 서울 동작구 여의대방로112(신대방동)",
+      "category": "과자(유처리제품)",
+      "brand": "(주)농심, 서울 동작구 여의대방로112(신대방동)",
+      "rating": 4.8
+    },
+    {
+      "id": 6,
+      "name": "게이샤 헤이즐넛 필링 밀크 초콜릿 150g",
+      "thumbnail": "https://sitem.ssgcdn.com/17/24/06/item/1000262062417_i1_550.jpg",
+      "price": 6380,
+      "discount": 0,
+      "description": "파제르 헤이즐넛필링 밀크초콜릿 150g",
+      "category": "초콜릿가공품",
+      "brand": "FAZER(핀란드)/(주)영남코프레이션 (제조국 : 핀란드)",
+      "rating": 4.8
+    },
+    {
+      "id": 7,
+      "name": "농심 조청유과 96g",
+      "thumbnail": "https://sitem.ssgcdn.com/44/20/83/item/1000020832044_i1_1100.jpg",
+      "price": 1360,
+      "discount": 0,
+      "description": "(주)농심 / 서울특별시 동작구 여의대방로 112(신대방동)",
+      "category": "과자(유탕처리제품)",
+      "brand": "(주)농심",
+      "rating": 4.9
+    },
+    {
+      "id": 8,
+      "name": "[쇼게튼]다크초콜릿 위드 코코아 헤이즐넛 100g",
+      "thumbnail": "https://sitem.ssgcdn.com/60/71/07/item/2097001077160_i1_1100.jpg",
+      "price": 3200,
+      "discount": 0,
+      "description": "설탕,코코아페이스트30.69%,식물성유지,가당유청분말,전지분유,코코아버터2.57%,헤이즐넛1.7%,코코아닙1.7%,크림분말,버터유지,대두레시틴(유화제),저지방코코아분말0.3%,천연바닐라향,바닐라추출물",
+      "category": "초콜릿",
+      "brand": "(주)가온누리코퍼레이션",
+      "rating": 4.8
+    },
+    {
+      "id": 9,
+      "name": "허쉬 후퍼스340g",
+      "thumbnail": "https://sitem.ssgcdn.com/50/60/73/item/1000293736050_i1_1100.jpg",
+      "price": 6780,
+      "discount": 0,
+      "description": "THE HERSHEY COMPANY / 미국 (제조국 : 미국)",
+      "category": "캔디류",
+      "brand": "미성패밀리(주)",
+      "rating": 4.6
+    },
+    {
+      "id": 10,
+      "name": "미에슈코_에스프레소_프랄린 153g",
+      "thumbnail": "https://sitem.ssgcdn.com/60/27/77/item/1000529772760_i1_1100.jpg",
+      "price": 8980,
+      "discount": 0,
+      "description": "미에슈코_에스프레소_프랄린 153g, 폴란드 (제조국 : 폴란드)",
+      "category": "초콜릿가공품",
+      "brand": "(주)천하코퍼레이션",
+      "rating": 5
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "안영진",
+      "email": "beat1103@gmail.com",
+      "password": "1234"
+    },
+    {
+      "id": 2,
+      "name": "허준호",
+      "email": "billythur@naver.com",
+      "password": "1234"
+    },
+    {
+      "id": 3,
+      "name": "이세림",
+      "email": "lsl@gmail.com",
+      "password": "12345"
+    },
+    {
+      "name": "최인규",
+      "email": "484342@gmail.com",
+      "password": "1313",
+      "id": 4
+    },
+    {
+      "name": "모모",
+      "email": "2@gmail.com",
+      "password": "1313",
+      "id": 5
+    },
+    {
+      "name": "qwer",
+      "email": "qwer@gmail.con",
+      "password": "qwer",
+      "id": 6
+    },
+    {
+      "name": "이세림",
+      "email": "lsl@gmail.com",
+      "password": "1234",
+      "id": 7
+    },
+    {
+      "name": "허준호",
+      "email": "123@123",
+      "password": "1564123",
+      "id": 8
+    },
+    {
+      "name": "허준호",
+      "email": "123@123",
+      "password": "1234",
+      "id": 9
+    },
+    {
+      "name": "모모",
+      "password": "1234",
+      "id": 10
+    }
+  ],
+  "carts": [
+    {
+      "userId": 1,
+      "productId": 9,
+      "qty": 2,
+      "id": 1
+    }
+  ],
+  "events": [
+    {
+      "id": 1,
+      "name": "1+1 발렌타인 이벤트",
+      "eventProductList": [
+        {
+          "id": 1,
+          "productId": 1
+        },
+        {
+          "id": 2,
+          "productId": 2
+        },
+        {
+          "id": 3,
+          "productId": 3
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "졸업 축하 이벤트",
+      "eventProductList": [
+        {
+          "id": 1,
+          "productId": 1
+        },
+        {
+          "id": 2,
+          "productId": 9
+        },
+        {
+          "id": 3,
+          "productId": 8
+        }
+      ]
+    }
+  ]
+}

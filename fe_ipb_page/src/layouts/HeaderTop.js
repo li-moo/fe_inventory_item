@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import {
   Navbar,
@@ -16,14 +16,16 @@ import {
 import { ReactComponent as LogoWhite } from "../assets/images/logos/xtremelogowhite.svg";
 import user1 from "../assets/images/users/user1.jpg";
 import { logInState } from "../components/state/loginState";
+import { weatherState } from "../components/state/weatherState";
 import { useRecoilState } from 'recoil';
+import { useRecoilValue } from 'recoil';
 import { Navigate } from "react-router-dom";
+import axios from 'axios';
 
 const HeaderTop = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   const [dropdownOpen, setDropdownOpen] = React.useState(false);
 
-  const [logInData, setLogInData] = useRecoilState(logInState);
 
   const toggle = () => setDropdownOpen((prevState) => !prevState);
   const Handletoggle = () => {
@@ -39,6 +41,93 @@ const HeaderTop = () => {
     window.location.href = "http://localhost:3000/";
   }
 
+  //
+
+  const [logInData, setLogInData] = useRecoilState(logInState);
+  const [weatherData, setWeatherData] = useRecoilState(weatherState);
+
+  useEffect(() => {
+    getWeatherInfo();
+  }, [logInData]);
+
+  const getWeatherInfo = async () => {
+    try {
+      const response = await fetch(`http://localhost:8080/staff/weather`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body : JSON.stringify({
+          store_id: logInData.store_id,
+          area: logInData.area
+        })
+      }); 
+      const data = await response.json();
+      console.log("data: ", data);
+      setWeatherData(data.setWeatherData);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+    const onFinish = (values) => {
+
+      // const url_be = "http://localhost:8080/api/v1/staff/login";
+      const url_be = "http://localhost:8080/staff/login";
+
+      axios
+      (url_be,
+        {
+          method: 'post',
+          headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type': 'application/json',
+            withCredentials: true,
+            mode: 'no-cors'
+          },
+          data: {
+            login_id: values.login_id,
+            pwd: values.pwd
+          }
+        })
+        .then(async function (response) {
+          const staff = response.data;
+          console.log(staff); // staff 정보를 콘솔에 출력
+          setLogInData({
+            ...logInData,
+            isLogIn: true,
+            id: staff.id,
+            login_id: staff.login_id,
+            name: staff.name,
+            pwd: staff.id,
+            store_id: staff.store_id,
+            store_name: staff.store_name,
+            area: staff.area,
+            // area: staff.area,
+            // store_name: staff.store_name,
+          })
+          if (staff !== null && staff !== "") {
+            console.log("로그인 성공");
+            alert(`${staff.name}님 환영합니다.`);
+            window.location.href = "http://localhost:3000/";
+            console.log(logInData);
+          } else {
+            console.log("로그인 실패");
+          }
+        })
+      .catch(function (error) {
+        if (error.response) {
+          console.log(error.response.data);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        }
+      })
+      console.log(values.login_id);
+      console.log(values.pwd);
+      console.log("state확인용");
+      console.log(logInData);
+    };
+  //
 
   return (
     <Navbar color="dark" dark expand="md">
@@ -73,12 +162,13 @@ const HeaderTop = () => {
         <Nav className="me-auto" navbar>
           <NavItem>
             <Link to="/starter" className="nav-link">
-              xx 지점 (xx역)
+              점포: {logInData.store_name}
             </Link>
           </NavItem>
           <NavItem>
             <Link to="/weather" className="nav-link">
-              날씨
+            {/* 날씨: {weatherData.presentWeather} */}
+            {/* 날씨: {weatherdata.presentWeather} */}
             </Link>
           </NavItem>
           <NavItem>
@@ -100,7 +190,8 @@ const HeaderTop = () => {
         <div>
           <p>logInData: </p>
           <p>{logInData.name}님 안녕하세욤!</p>
-          {/* <p>{logInData.store_name}지점</p> */}
+          {/* <p>날씨 정보: {weatherData.presentWeather}</p> */}
+          {/* <p>지점</p> */}
           {/* <p>지역: {logInData.area}</p> */}
         </div>
         

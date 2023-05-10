@@ -14,6 +14,7 @@ import {
 } from "reactstrap";
 import { ReactComponent as LogoWhite } from "../assets/images/logos/xtremelogowhite.svg";
 import user1 from "../assets/images/users/user1.jpg";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -75,7 +76,9 @@ const Header = () => {
               상품 관리
             </DropdownToggle>
             <DropdownMenu end>
-              <DropdownItem>Option 1</DropdownItem>
+              <DropdownItem>
+                <Link to="/product">상품 관리 리스트</Link>
+              </DropdownItem>
               <DropdownItem>Option 2</DropdownItem>
               <DropdownItem divider />
               <DropdownItem>Reset</DropdownItem>
