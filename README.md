@@ -1,2 +1,9 @@
 # fe_inventory_item
-fe_inventory_item ProJect
+
+1. 관리자 
+2. 본사
+3. 점포
+
+---
+ 개발기간 23/04/20 ~ 23/06/20
+
