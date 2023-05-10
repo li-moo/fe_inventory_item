@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Table } from "antd";
+import { Table, Input } from 'antd';
+
+const { Search } = Input;
 
 function StaffList() {
   const [userData, setUserData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
 
   useEffect(() => {
     fetchData();
@@ -13,10 +16,18 @@ function StaffList() {
       const response = await fetch('http://localhost:8080/staff/list');
       const data = await response.json();
       setUserData(data);
+      setFilteredData(data);
       console.log(data);
     } catch (error) {
       console.error(error);
     }
+  };
+
+  const handleSearch = (value) => {
+    const filtered = userData.filter((user) =>
+      user.name.toLowerCase().includes(value.toLowerCase())
+    );
+    setFilteredData(filtered);
   };
 
   const columns = [
@@ -44,8 +55,12 @@ function StaffList() {
 
   return (
     <>
-      <Table dataSource={userData} columns={columns} />
-
+      <Search
+        placeholder="이름으로 검색"
+        onSearch={handleSearch}
+        style={{ width: 200, marginBottom: 16 }}
+      />
+      <Table dataSource={filteredData} columns={columns} />
     </>
   );
 }

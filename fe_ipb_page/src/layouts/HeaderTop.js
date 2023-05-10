@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React  from 'react';
 import { Link } from "react-router-dom";
 import {
   Navbar,
@@ -6,7 +6,7 @@ import {
   Nav,
   NavItem,
   NavbarBrand,
-  UncontrolledDropdown,
+  // UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
@@ -18,8 +18,8 @@ import user1 from "../assets/images/users/user1.jpg";
 import { logInState } from "../components/state/loginState";
 import { weatherState } from "../components/state/weatherState";
 import { useRecoilState } from 'recoil';
-import { useRecoilValue } from 'recoil';
-import { Navigate } from "react-router-dom";
+//import { useRecoilValue } from 'recoil';
+//import { Navigate } from "react-router-dom";
 import axios from 'axios';
 
 const HeaderTop = () => {
@@ -37,38 +37,13 @@ const HeaderTop = () => {
 
   const logOut = () => {
     setLogInData({});
+    setWeatherData({presentWeather: 'test'});
     // Navigate('/'); // 여러 에러남,,
     window.location.href = "http://localhost:3000/";
   }
 
-  //
-
   const [logInData, setLogInData] = useRecoilState(logInState);
   const [weatherData, setWeatherData] = useRecoilState(weatherState);
-
-  useEffect(() => {
-    getWeatherInfo();
-  }, [logInData]);
-
-  const getWeatherInfo = async () => {
-    try {
-      const response = await fetch(`http://localhost:8080/staff/weather`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body : JSON.stringify({
-          store_id: logInData.store_id,
-          area: logInData.area
-        })
-      }); 
-      const data = await response.json();
-      console.log("data: ", data);
-      setWeatherData(data.setWeatherData);
-    } catch (error) {
-      console.error(error);
-    }
-  };
 
     const onFinish = (values) => {
 
@@ -126,6 +101,7 @@ const HeaderTop = () => {
       console.log(values.pwd);
       console.log("state확인용");
       console.log(logInData);
+      console.log(1111111111111111111111, weatherData);
     };
   //
 
@@ -167,32 +143,21 @@ const HeaderTop = () => {
           </NavItem>
           <NavItem>
             <Link to="/weather" className="nav-link">
-            {/* 날씨: {weatherData.presentWeather} */}
-            {/* 날씨: {weatherdata.presentWeather} */}
+            날씨: {weatherData.presentWeather}
             </Link>
           </NavItem>
           <NavItem>
-            <>
             {
-            logInData.isLogIn ?
-            <>
-              <li onClick={logOut}><p className="nav-link">로그아웃</p></li>
-            </> 
+            logInData.isLogIn ?   
+              <p className="nav-link" onClick={logOut}>로그아웃</p>
             : 
-            <>
-              <li><Link to="/login" className="nav-link">로그인</Link></li>
-            </>
+              <Link to="/login" className="nav-link">로그인</Link>      
             }
-            </>
           </NavItem>
-
         </Nav>
         <div>
           <p>logInData: </p>
           <p>{logInData.name}님 안녕하세욤!</p>
-          {/* <p>날씨 정보: {weatherData.presentWeather}</p> */}
-          {/* <p>지점</p> */}
-          {/* <p>지역: {logInData.area}</p> */}
         </div>
         
         <Dropdown isOpen={dropdownOpen} toggle={toggle}>

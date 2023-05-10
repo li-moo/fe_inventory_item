@@ -6,7 +6,7 @@ export const weatherState = atom({
   key: 'weatherState',
   // default: "날씨정보없음",
   default: {
-    presentWeather: '',
+    presentWeather: 'test',
 
   },
   effects_UNSTABLE: [persistAtom]

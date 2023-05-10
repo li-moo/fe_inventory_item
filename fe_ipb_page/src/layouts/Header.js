@@ -3,17 +3,17 @@ import {
   Navbar,
   Collapse,
   Nav,
-  NavItem,
+  // NavItem,
   NavbarBrand,
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
-  Dropdown,
+  // Dropdown,
   Button,
 } from "reactstrap";
-import { ReactComponent as LogoWhite } from "../assets/images/logos/xtremelogowhite.svg";
-import user1 from "../assets/images/users/user1.jpg";
+//import { ReactComponent as LogoWhite } from "../assets/images/logos/xtremelogowhite.svg";
+//import user1 from "../assets/images/users/user1.jpg";
 import { Link } from "react-router-dom";
 
 const Header = () => {
