@@ -4,7 +4,7 @@ import StaffList from './StaffList';
 function Staff() {
   return (
     <>
-    <h2>직원 관리</h2>
+    <h2>직원 리스트</h2>
       <Divider />
     <StaffList />
     </>
