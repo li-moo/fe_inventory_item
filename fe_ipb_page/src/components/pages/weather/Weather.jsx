@@ -1,7 +1,7 @@
 import { useRecoilValue } from 'recoil';
 import { logInState } from '../../state/loginState';
 import { weatherState } from '../../state/weatherState';
-import React, { useState, useEffect } from 'react';
+import React, {  useEffect } from 'react';
 import { Divider } from "antd"; 
 import { useRecoilState } from 'recoil';
 

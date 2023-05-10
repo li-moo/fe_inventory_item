@@ -24,12 +24,13 @@ function ProductList() {
     {
       title: 'ID',
       dataIndex: 'id',
+      key: 'id',
     },
     {
       title: '이름',
       dataIndex: 'name',
       render: (text, record) => (
-        <Link to={`/product/detail/${record.id}`}>{text}</Link>
+        <Link to={`/product/detail/${record.id}`} key={record.id}>{text}</Link>
       ),
     },
     {
@@ -52,7 +53,8 @@ function ProductList() {
 
   return (
     <>
-      <Table dataSource={productData} columns={columns} />
+      {/* <Table dataSource={productData} columns={columns} /> */}
+      <Table dataSource={productData.map(item => ({ ...item, key: item.id }))} columns={columns} />
     </>
   );
 }
