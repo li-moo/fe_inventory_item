@@ -101,7 +101,7 @@ const HeaderTop = () => {
       console.log(values.pwd);
       console.log("state확인용");
       console.log(logInData);
-      console.log(1111111111111111111111, weatherData);
+      console.log("1111", weatherData);
     };
   //
 
