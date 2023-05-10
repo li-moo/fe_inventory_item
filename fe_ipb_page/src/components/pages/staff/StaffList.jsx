@@ -64,17 +64,28 @@ function StaffList() {
     <>
       <h2>스태프 리스트</h2>
       <Divider />
-      <div>
-        {userData.map((user) => (
-          <div key={user.id}>
-            <div>ID: {user.id}</div>
-            <div>이름: {user.name}</div>
-            <div>로그인 ID: {user.login_id}</div>
-            <div>비밀번호: {user.pwd}</div>
-            <div>Store ID: {user.store_id}</div>
-          </div>
-        ))}
-      </div>
+      <table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>이름</th>
+      <th>로그인 ID</th>
+      <th>비밀번호</th>
+      <th>Store ID</th>
+    </tr>
+  </thead>
+  <tbody>
+    {userData.map((user) => (
+      <tr key={user.id}>
+        <td>{user.id}</td>
+        <td>{user.name}</td>
+        <td>{user.login_id}</td>
+        <td>{user.pwd}</td>
+        <td>{user.store_id}</td>
+      </tr>
+    ))}
+  </tbody>
+</table>
     </>
   );
 }
