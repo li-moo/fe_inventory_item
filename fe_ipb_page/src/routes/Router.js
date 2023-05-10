@@ -21,6 +21,7 @@ const Staff = lazy(() => import("../components/pages/staff/Staff.js"))
 const Weather = lazy(() => import("../components/pages/weather/Weather.jsx"))
 const Product = lazy(() => import("../components/pages/product/Product.jsx"))
 const ProductDetail = lazy(() => import("../components/pages/product/ProductDetaile.jsx"))
+const Event = lazy(() => import("../components/pages/event/Event.jsx"))
 
 /*****Routes******/
 
@@ -45,6 +46,7 @@ const ThemeRoutes = [
       { path: "/weather", exact: true, element: <Weather /> },
       { path: "/product", exact: true, element: <Product /> },
       { path: "/product/detail/:id", exact: true, element: <ProductDetail /> },
+      { path: "/event", exact: true, element: <Event /> },
     ],
   },
 ];

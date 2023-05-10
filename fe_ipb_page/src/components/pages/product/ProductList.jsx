@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Table } from "antd";
-import { Link } from "react-router-dom";
+import { Table, Popconfirm, message } from 'antd';
+import { Link } from 'react-router-dom';
 
 function ProductList() {
-  const [productData, setProducData] = useState([]);
+  const [productData, setProductData] = useState([]);
 
   useEffect(() => {
     fetchData();
@@ -13,10 +13,23 @@ function ProductList() {
     try {
       const response = await fetch('http://localhost:8080/product/list');
       const data = await response.json();
-      setProducData(data);
+      setProductData(data);
       console.log(data);
     } catch (error) {
       console.error(error);
+    }
+  };
+
+  const handleDelete = async (id) => {
+    try {
+      await fetch(`http://localhost:8080/product/delete/${id}`, {
+        method: 'DELETE',
+      });
+      message.success('상품이 삭제되었습니다.');
+      fetchData();
+    } catch (error) {
+      console.error(error);
+      message.error('상품 삭제에 실패하였습니다.');
     }
   };
 
@@ -49,71 +62,27 @@ function ProductList() {
       title: '유통기한',
       dataIndex: 'exp',
     },
+    {
+      title: '삭제',
+      dataIndex: 'id',
+      render: (id) => (
+        <Popconfirm
+          title="정말로 삭제하시겠습니까?"
+          onConfirm={() => handleDelete(id)}
+          okText="삭제"
+          cancelText="취소"
+        >
+          <a>삭제</a>
+        </Popconfirm>
+      ),
+    },
   ];
 
   return (
     <>
-      {/* <Table dataSource={productData} columns={columns} /> */}
-      <Table dataSource={productData.map(item => ({ ...item, key: item.id }))} columns={columns} />
+      <Table dataSource={productData.map((item) => ({ ...item, key: item.id }))} columns={columns} />
     </>
   );
 }
 
 export default ProductList;
-
-// function ProductList() {
-//   const [productData, setProducData] = useState([]);
-
-//   useEffect(() => {
-//     fetchData();
-//   }, []);
-
-//   const fetchData = async () => {
-//     try {
-//       const response = await fetch('http://localhost:8080/product/list');
-//       const data = await response.json();
-//       setProducData(data);
-//       console.log(data);
-//     } catch (error) {
-//       console.error(error);
-//     }
-//   };
-
-//   const columns = [
-//     {
-//       title: 'ID',
-//       dataIndex: 'id',
-//     },
-//     {
-//       title: '이름',
-//       dataIndex: 'name',
-//       onCell: (record) => ({
-//         onClick: () => {
-//           console.log(record.id);
-//         },
-//       }),
-//     },
-//     {
-//       title: '수량',
-//       dataIndex: 'qnt',
-//     },
-//     {
-//       title: '가격',
-//       dataIndex: 'price',
-//     },
-//     {
-//       title: 'cost',
-//       dataIndex: 'cost',
-//     },
-//     {
-//       title: 'exp',
-//       dataIndex: 'exp',
-//     },
-//   ];
-
-//   return (
-//     <>
-//       <Table dataSource={productData} columns={columns} />
-//     </>
-//   );
-// }

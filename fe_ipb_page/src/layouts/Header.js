@@ -79,6 +79,9 @@ const Header = () => {
               <DropdownItem>
                 <Link to="/product">상품 관리 리스트</Link>
               </DropdownItem>
+              <DropdownItem>
+                점포 보유 상품 리스트
+              </DropdownItem>
               <DropdownItem>Option 2</DropdownItem>
               <DropdownItem divider />
               <DropdownItem>Reset</DropdownItem>
@@ -90,7 +93,9 @@ const Header = () => {
               발주
             </DropdownToggle>
             <DropdownMenu end>
-              <DropdownItem>Option 1</DropdownItem>
+              <DropdownItem>
+              점포 발주
+              </DropdownItem>
               <DropdownItem>Option 2</DropdownItem>
               <DropdownItem divider />
               <DropdownItem>Reset</DropdownItem>
@@ -126,7 +131,9 @@ const Header = () => {
               이벤트
             </DropdownToggle>
             <DropdownMenu end>
-              <DropdownItem>Option 1</DropdownItem>
+              <DropdownItem>
+              <Link to="/event">이벤트</Link>
+              </DropdownItem>
               <DropdownItem>Option 2</DropdownItem>
               <DropdownItem divider />
               <DropdownItem>Reset</DropdownItem>

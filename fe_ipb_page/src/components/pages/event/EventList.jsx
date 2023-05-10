@@ -3,8 +3,8 @@ import { Table, Input } from 'antd';
 
 const { Search } = Input;
 
-function StaffList() {
-  const [staffData, setstaffData] = useState([]);
+function EventList() {
+  const [eventData, setEventData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
 
   useEffect(() => {
@@ -13,9 +13,9 @@ function StaffList() {
 
   const fetchData = async () => {
     try {
-      const response = await fetch('http://localhost:8080/staff/list');
+      const response = await fetch('http://localhost:8080/eventlist');
       const data = await response.json();
-      setstaffData(data);
+      setEventData(data);
       setFilteredData(data);
       console.log(data);
     } catch (error) {
@@ -24,8 +24,8 @@ function StaffList() {
   };
 
   const handleSearch = (value) => {
-    const filtered = staffData.filter((user) =>
-      user.name.toLowerCase().includes(value.toLowerCase())
+    const filtered = eventData.filter((eventName) =>
+    eventName.name.toLowerCase().includes(value.toLowerCase())
     );
     setFilteredData(filtered);
   };
@@ -36,20 +36,16 @@ function StaffList() {
       dataIndex: 'id',
     },
     {
-      title: '이름',
+      title: '이벤트 이름',
       dataIndex: 'name',
     },
     {
-      title: '로그인 ID',
-      dataIndex: 'login_id',
+      title: '시작 일',
+      dataIndex: 'start_date',
     },
     {
-      title: '비밀번호',
-      dataIndex: 'pwd',
-    },
-    {
-      title: 'Store ID',
-      dataIndex: 'store_id',
+      title: '마지막 일',
+      dataIndex: 'end_date',
     },
   ];
 
@@ -65,4 +61,4 @@ function StaffList() {
   );
 }
 
-export default StaffList;
+export default EventList;
