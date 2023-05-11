@@ -104,6 +104,7 @@ const HeaderTop = () => {
       console.log("1111", weatherData);
     };
   //
+  console.log("logInData.isLogIn", logInData.isLogIn);
 
   return (
     <Navbar color="dark" dark expand="md">
@@ -146,6 +147,7 @@ const HeaderTop = () => {
             날씨: {weatherData.presentWeather}
             </Link>
           </NavItem>
+          {/* // 아이디 패스워드가 부정확해도 로그아웃이 뜨는 문제  */}
           <NavItem>
             {
             logInData.isLogIn ?   
@@ -156,8 +158,7 @@ const HeaderTop = () => {
           </NavItem>
         </Nav>
         <div>
-          <p>logInData: </p>
-          <p>{logInData.name}님 안녕하세욤!</p>
+          <p style={{color: 'white'}}>{logInData.name}님 안녕하세요!</p>
         </div>
         
         <Dropdown isOpen={dropdownOpen} toggle={toggle}>

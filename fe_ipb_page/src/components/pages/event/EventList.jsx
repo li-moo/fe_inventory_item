@@ -4,7 +4,11 @@ import { Table, Input } from 'antd';
 const { Search } = Input;
 
 function EventList() {
+
+  // useState ->  state의 초기값과 해당 state를 변경하는 함수를 반환
   const [eventData, setEventData] = useState([]);
+
+  // 이름으로 검색을 하기 위한 useState
   const [filteredData, setFilteredData] = useState([]);
 
   useEffect(() => {
@@ -13,10 +17,14 @@ function EventList() {
 
   const fetchData = async () => {
     try {
+      // fetch localhost:8080으로 /evnetlist를 받아와서 respose라는 변수 명으로 담는다
+      // reponse를 .json형식으로 바꿔주고 data라는 변수 명으로 데이터를 담는다
       const response = await fetch('http://localhost:8080/eventlist');
       const data = await response.json();
+      // setEventData라는 useState, 에 data를 넣어준다
       setEventData(data);
       setFilteredData(data);
+      // console.log로 제이슨 형식으로 넘어온 data를 콘솔에 찍어본다.
       console.log(data);
     } catch (error) {
       console.error(error);
@@ -56,7 +64,10 @@ function EventList() {
         onSearch={handleSearch}
         style={{ width: 200, marginBottom: 16 }}
       />
-      <Table dataSource={filteredData} columns={columns} />
+      <Table 
+        dataSource={filteredData} 
+        columns={columns} 
+        />
     </>
   );
 }

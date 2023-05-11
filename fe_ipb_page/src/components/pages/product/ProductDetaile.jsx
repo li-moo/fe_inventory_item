@@ -30,7 +30,7 @@ function ProductDetail() {
             <p>category_name: {product.category_name}</p> 
             <h2 >{product.name}</h2>
             {/* // 이미지 없음 //  */}
-            <img src={product.imgname}/>
+            <img src={product.imgname} alt={product.name}/>
             <div >        
               <p>cost: {product.cost}</p>
               <p>exp: {product.exp}</p>
