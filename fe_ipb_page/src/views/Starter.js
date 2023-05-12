@@ -9,40 +9,42 @@ import bg2 from "../assets/images/bg/bg2.jpg";
 import bg3 from "../assets/images/bg/bg3.jpg";
 import bg4 from "../assets/images/bg/bg4.jpg";
 
-const BlogData = [
-  {
-    image: bg1,
-    title: "This is simple blog",
-    subtitle: "2 comments, 1 Like",
-    description:
-      "This is a wider card with supporting text below as a natural lead-in to additional content.",
-    btnbg: "primary",
-  },
-  {
-    image: bg2,
-    title: "Lets be simple blog",
-    subtitle: "2 comments, 1 Like",
-    description:
-      "This is a wider card with supporting text below as a natural lead-in to additional content.",
-    btnbg: "primary",
-  },
-  {
-    image: bg3,
-    title: "Don't Lamp blog",
-    subtitle: "2 comments, 1 Like",
-    description:
-      "This is a wider card with supporting text below as a natural lead-in to additional content.",
-    btnbg: "primary",
-  },
-  {
-    image: bg4,
-    title: "Simple is beautiful",
-    subtitle: "2 comments, 1 Like",
-    description:
-      "This is a wider card with supporting text below as a natural lead-in to additional content.",
-    btnbg: "primary",
-  },
-];
+
+// 네모 카드로 그림이 나오고 
+// const BlogData = [
+//   {
+//     image: bg1,
+//     title: "This is simple blog",
+//     subtitle: "2 comments, 1 Like",
+//     description:
+//       "This is a wider card with supporting text below as a natural lead-in to additional content.",
+//     btnbg: "primary",
+//   },
+//   {
+//     image: bg2,
+//     title: "Lets be simple blog",
+//     subtitle: "2 comments, 1 Like",
+//     description:
+//       "This is a wider card with supporting text below as a natural lead-in to additional content.",
+//     btnbg: "primary",
+//   },
+//   {
+//     image: bg3,
+//     title: "Don't Lamp blog",
+//     subtitle: "2 comments, 1 Like",
+//     description:
+//       "This is a wider card with supporting text below as a natural lead-in to additional content.",
+//     btnbg: "primary",
+//   },
+//   {
+//     image: bg4,
+//     title: "Simple is beautiful",
+//     subtitle: "2 comments, 1 Like",
+//     description:
+//       "This is a wider card with supporting text below as a natural lead-in to additional content.",
+//     btnbg: "primary",
+//   },
+// ];
 
 const Starter = () => {
   return (
@@ -97,12 +99,16 @@ const Starter = () => {
         <Col lg="7" xxl="8" md="12">
           <ProjectTables />
         </Col>
+
+        {/* // 아이콘 그림의 세로 리스트  */}
         <Col md="12" lg="5" xxl="4">
           <Feeds />
         </Col>
       </Row>
+
+
       {/***Blog Cards***/}
-      <Row>
+      {/* <Row>
         {BlogData.map((blg, index) => (
           <Col sm="6" lg="6" xl="3" key={index}>
             <Blog
@@ -114,7 +120,9 @@ const Starter = () => {
             />
           </Col>
         ))}
-      </Row>
+      </Row> */}
+
+
     </div>
   );
 };
