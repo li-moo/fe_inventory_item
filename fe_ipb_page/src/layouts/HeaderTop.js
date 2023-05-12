@@ -177,7 +177,7 @@ const HeaderTop = () => {
             <DropdownItem divider />
             <DropdownItem><Link to="/staff">Staff</Link></DropdownItem>
             <DropdownItem>Inbox</DropdownItem>
-            <DropdownItem>Logout</DropdownItem>
+            <DropdownItem></DropdownItem>
           </DropdownMenu>
         </Dropdown>
       </Collapse>
