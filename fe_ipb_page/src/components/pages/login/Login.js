@@ -104,7 +104,7 @@ export default function Login() {
           <Input placeholder="비밀번호" type="password" size="large" />
         </Form.Item>
         {/* // 버튼에 로딩 기능 추가 할 생각있으면하겠습니다. loading={isLoading} */}
-         <Button size="large" type="primary" htmlType="submit" className="w-full">
+        <Button size="large" type="primary" htmlType="submit" className="w-full">
           로그인
         </Button>
         <a className="inline-block mt-2 text-gray-400">

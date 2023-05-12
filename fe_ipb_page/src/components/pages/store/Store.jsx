@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
-import { Button } from "antd";
+import { Button, Divider } from "antd";
 
 import React from 'react';
+import StoreList from './StoreList';
 function Store() {
   return ( 
     <div>
@@ -9,6 +10,8 @@ function Store() {
       <Button>
         <Link to="/store/add">점포 등록</Link>
       </Button>
+      <Divider/>
+      <StoreList/>
     </div>
   );
 }
