@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { Button, Divider } from "antd";
+import { Link } from 'react-router-dom';
 
 function ProductDetail() {
 
@@ -20,31 +22,32 @@ function ProductDetail() {
       .catch(err => console.log(err))
   }, [id]);
 
-  console.log("product:: ", product);
+  console.log("product: ", product);
 
   return (
-    <div>
-      {
-        product && (
-          <div >
-            <p>category_name: {product.category_name}</p> 
-            <h2 >{product.name}</h2>
-            {/* // 이미지 없음 //  */}
-            <img src={product.imgname} alt={product.name}/>
-            <div >        
-              <p>cost: {product.cost}</p>
-              <p>exp: {product.exp}</p>
-              <p>name: {product.name}</p>
-              <p>price: {product.price}</p>
-              <p>product_code: {product.product_code}</p>
-              <p>qnt: {product.qnt}</p>
-              <p>detail: {product.detail}</p>
-            </div> 
-          </div>
-        )
-      }
-    
+    <>
+          <div>
+        {
+          product && (
+            <div >
+              <p>category_name: {product.category_name}</p> 
+              <h2 >{product.name}</h2>
+              {/* // 이미지 없음 //  */}
+              <img src={product.imgname} alt={product.name}/>
+              <div >        
+                <p>cost: {product.cost}</p>
+                <p>exp: {product.exp}</p>
+                <p>name: {product.name}</p>
+                <p>price: {product.price}</p>
+                <p>product_code: {product.product_code}</p>
+                <p>qnt: {product.qnt}</p>
+                <p>detail: {product.detail}</p>
+              </div> 
+            </div>
+          )
+        }
     </div>
+    </>
   );
 }
 

@@ -88,7 +88,8 @@ const Login = lazy(() => import("../components/pages/login/Login.js"));
 const Staff = lazy(() => import("../components/pages/staff/Staff.js"))
 const StaffAdd = lazy(() => import("../components/pages/staff/StaffAdd.jsx"))
 const Weather = lazy(() => import("../components/pages/weather/Weather.jsx"))
-const Product = lazy(() => import("../components/pages/product/Product.jsx"))
+const Product01 = lazy(() => import("../components/pages/product/Product.jsx"));
+const ProductAdd = lazy(() => import("../components/pages/product/ProductAdd.jsx"));
 const ProductDetail = lazy(() => import("../components/pages/product/ProductDetaile.jsx"))
 const Event = lazy(() => import("../components/pages/event/Event.jsx"))
 const Orders = lazy(() => import("../components/pages/order/Orders.jsx"))
@@ -118,7 +119,8 @@ const ThemeRoutes = [
       { path: "/staff", exact: true, element: <Staff /> },
       { path: "/staff/add", exact: true, element: <StaffAdd /> },
       { path: "/weather", exact: true, element: <Weather /> },,
-      { path: "/product", exact: true, element: <Product /> },
+      { path: "/product", exact: true, element: <Product01 /> },
+      { path: "/product/add", exact: true, element: <ProductAdd /> },
       { path: "/product/detail/:id", exact: true, element: <ProductDetail /> },
       { path: "/event", exact: true, element: <Event /> },
       { path: "/order", exact: true, element: <Orders /> },

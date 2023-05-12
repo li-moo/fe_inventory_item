@@ -18,10 +18,11 @@ function ProductAdd() {
           mode: 'no-cors'
         },
         data: { //post 라면 . . .
-          // store_id: values.store_id,
-          // name: values.name,
-          // login_id: values.login_id,
-          // pwd: values.pwd,
+          product_info_id: values.product_info_id,
+          qnt: values.qnt,
+          price: values.price,
+          cost: values.cost,
+          exp: values.exp,
         }
       }
     ).catch(function (error) {
@@ -45,20 +46,24 @@ function ProductAdd() {
         className='w-1/2'
         onFinish={onFinish}
       >
-        <Form.Item label="점포 아이디" name="store_id">
+        <Form.Item label="프로덕트 인포 아이디" name="product_info_id">
           <Input />
         </Form.Item>
 
-        <Form.Item label="이름" name="name">
+        <Form.Item label="수량" name="qnt">
           <Input />
         </Form.Item>
 
-        <Form.Item label="로그인 아이디" name="login_id">
+        <Form.Item label="판매가" name="price">
           <Input />
         </Form.Item>
 
-        <Form.Item label="패스워드" name="pwd">
+        <Form.Item label="원가" name="cost">
           <Input />
+        </Form.Item>
+        
+        <Form.Item label="유통기한" name="exp">
+          <Input placeholder='예) 2023-12-20' />
         </Form.Item>
 
         <Form.Item>
@@ -66,10 +71,6 @@ function ProductAdd() {
             저장
           </Button>
         </Form.Item>
-
-        <Link to="/staff" className="min-w-[8rem] link-with-icon">
-          <Button> 뒤로가기 </Button>
-        </Link>
         
       </Form>
 
