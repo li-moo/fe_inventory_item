@@ -14,7 +14,7 @@ function ProductList() {
       const response = await fetch('http://localhost:8080/product/list');
       const data = await response.json();
       setProductData(data);
-      console.log(data);
+      console.log("product: ", data);
     } catch (error) {
       console.error(error);
     }

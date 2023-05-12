@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Form, Input, Button, Divider } from 'antd';
 import axios from 'axios';
+import { Link } from "react-router-dom";
 
-function ProductAdd() {
+function StoreAdd() {
 
   const onFinish = (values) => {
-    const url_be = "http://localhost:8080/product/add";
+    const url_be = "http://localhost:8080/store/add";
 
     axios(url_be,
       {
@@ -16,12 +17,12 @@ function ProductAdd() {
           withCredentials: true,
           mode: 'no-cors'
         },
-        data: { //post 라면 . . .
-          product_info_id: values.product_info_id,
-          qnt: values.qnt,
-          price: values.price,
-          cost: values.cost,
-          exp: values.exp,
+        data: { //넣어야 하는 값 (NULL, #{name}, #{location}, #{number}, #{imgname}, #{area})
+          name: values.name,
+          location: values.location,
+          number: values.number,
+          imgname: values.imgname,
+          area: values.area,
         }
       }
     ).catch(function (error) {
@@ -38,31 +39,31 @@ function ProductAdd() {
 
   return (
     <>
-      <h1>Product Add</h1>
+      <h1>Store Add</h1>
       <Divider />
 
       <Form
         className='w-1/2'
         onFinish={onFinish}
       >
-        <Form.Item label="프로덕트 인포 아이디" name="product_info_id">
+        <Form.Item label="점포 이름" name="name">
           <Input />
         </Form.Item>
 
-        <Form.Item label="수량" name="qnt">
+        <Form.Item label="주소" name="location">
           <Input />
         </Form.Item>
 
-        <Form.Item label="판매가" name="price">
-          <Input />
+        <Form.Item label="전화번호" name="number">
+          <Input placeholder='예) 02-1234-5678'/>
         </Form.Item>
 
-        <Form.Item label="원가" name="cost">
+        <Form.Item label="지역" name="area">
           <Input />
         </Form.Item>
         
-        <Form.Item label="유통기한" name="exp">
-          <Input placeholder='예) 2023-12-20' />
+        <Form.Item label="점포 사진" name="imgname">
+          <Input />
         </Form.Item>
 
         <Form.Item>
@@ -77,4 +78,4 @@ function ProductAdd() {
   );
 }
 
-export default ProductAdd;
+export default StoreAdd;
