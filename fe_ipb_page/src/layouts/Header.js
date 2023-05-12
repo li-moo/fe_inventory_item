@@ -304,6 +304,20 @@ const Header = () => {
               <DropdownItem>Reset</DropdownItem>
             </DropdownMenu>
           </UncontrolledDropdown>
+
+          <UncontrolledDropdown inNavbar nav className={style.meCustom}>
+            <DropdownToggle caret nav>
+              점포
+            </DropdownToggle>
+            <DropdownMenu end>
+              <DropdownItem>
+                <Link to='/store'>
+                조회
+                </Link>
+              </DropdownItem>
+            </DropdownMenu>
+          </UncontrolledDropdown>
+
         </Nav>
       </Collapse>
       </Nav>
