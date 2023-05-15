@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { Table, Input } from 'antd';
+import { useRecoilState } from 'recoil';
+import { logInState } from '../../state/loginState';
+import { useNavigate } from 'react-router';
+import checkLogin from '../../globalFunction/checkLogin';
 
 const { Search } = Input;
 
 function StaffList() {
   const [staffData, setstaffData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
+  const [logInData, setLogInData] = useRecoilState(logInState);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchData();
@@ -52,6 +58,13 @@ function StaffList() {
       dataIndex: 'store_id',
     },
   ];
+  useEffect(() => {
+    console.log("enter StaffList.jsx / useEffect()");
+    console.log("loginData: ", logInData);
+    console.log("loginData.isLogin == false: ", logInData.isLogIn === false);
+    checkLogin(logInData, navigate);
+
+  }, [])
 
   return (
     <>
