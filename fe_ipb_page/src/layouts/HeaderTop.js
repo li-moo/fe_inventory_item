@@ -1,4 +1,4 @@
-import React  from 'react';
+import React , {useEffect} from 'react';
 import { Link } from "react-router-dom";
 import {
   Navbar,
@@ -17,16 +17,17 @@ import { ReactComponent as LogoWhite } from "../assets/images/logos/xtremelogowh
 import user1 from "../assets/images/users/user1.jpg";
 import { logInState } from "../components/state/loginState";
 import { weatherState } from "../components/state/weatherState";
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 //import { useRecoilValue } from 'recoil';
-//import { Navigate } from "react-router-dom";
+// import { Navigate } from "react-router-dom";
 import axios from 'axios';
-
+import { useNavigate } from 'react-router-dom';
 const HeaderTop = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   const [dropdownOpen, setDropdownOpen] = React.useState(false);
 
-
+  const navigate = useNavigate();
+  
   const toggle = () => setDropdownOpen((prevState) => !prevState);
   const Handletoggle = () => {
     setIsOpen(!isOpen);
@@ -36,14 +37,19 @@ const HeaderTop = () => {
   };
 
   const logOut = () => {
-    setLogInData({});
+    setLogInData({
+      isLogIn: false
+    });
     setWeatherData({presentWeather: 'test'});
-    // Navigate('/'); // 여러 에러남,,
-    window.location.href = "http://localhost:3000/";
+    alert("로그아웃에 성공했습니다!");
+    navigate(`/login`);
+
   }
 
   const [logInData, setLogInData] = useRecoilState(logInState);
   const [weatherData, setWeatherData] = useRecoilState(weatherState);
+  const loginCheck = useRecoilValue(logInState);
+  const [isLogin, setIsLogin] = React.useState(logInData.isLogIn);
 
     const onFinish = (values) => {
 
@@ -105,7 +111,13 @@ const HeaderTop = () => {
     };
   //
   console.log("logInData.isLogIn", logInData.isLogIn);
-
+  useEffect(() => {
+    console.log("useEffect/logInData", logInData)
+    console.log("useEffect/logInData.isLogin === false", logInData.isLogIn === false)
+    if (logInData.isLogIn === false) {
+      navigate(`/login`);
+    }
+  },[loginCheck]);
   return (
     <Navbar color="dark" dark expand="md">
       <div className="d-flex align-items-center">
