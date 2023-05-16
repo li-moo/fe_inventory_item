@@ -4,14 +4,8 @@ import { useParams, useNavigate } from 'react-router-dom';
 
 
 const StaffUpdate = () => {
-  const { id } = useParams();
+  const { id } = useParams(); // useparams -> staffList에서 줬던 params을 넘겨줌 
   const [stateId, setStateId] = useState(id);
-
-  // useEffect (() => {
-  //   // setStateId(id);
-  //   console.log(">>>>>>id", id)
-    // console.log(">>>>>>stateid", stateId)
-  // }, [id]);
 
   const handleChange = (e) => {
     console.log(">>>>>>stateid", e.target.value)
