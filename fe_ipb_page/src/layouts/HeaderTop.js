@@ -111,13 +111,15 @@ const HeaderTop = () => {
     };
   //
   console.log("logInData.isLogIn", logInData.isLogIn);
+
   useEffect(() => {
-    console.log("useEffect/logInData", logInData)
-    console.log("useEffect/logInData.isLogin === false", logInData.isLogIn === false)
+    console.log("useEffect/logInData", logInData);
+    console.log("useEffect/logInData.isLogin === false", logInData.isLogIn === false);
     if (logInData.isLogIn === false) {
       navigate(`/login`);
     }
   },[loginCheck]);
+
   return (
     <Navbar color="dark" dark expand="md">
       <div className="d-flex align-items-center">
@@ -172,7 +174,6 @@ const HeaderTop = () => {
         <div>
           <p style={{color: 'white'}}>{logInData.name}님 안녕하세요!</p>
         </div>
-        
         <Dropdown isOpen={dropdownOpen} toggle={toggle}>
           <DropdownToggle color="dark">
             <img

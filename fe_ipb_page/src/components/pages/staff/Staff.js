@@ -10,6 +10,9 @@ function Staff() {
     <Button>
       <Link to='/staff/add'>직원 등록하러가기</Link>
     </Button>
+    <Button>
+      <Link to='/staff/Update'>직원 수정하러가기</Link>
+    </Button>
 
       <Divider />
     <StaffList />
