@@ -6,7 +6,14 @@ import Cart from '../cart/Cart';
 import axios from 'axios';
 
 
+// Orders라는 부모 컴포넌트에 OrderProductList, Cart 라는 자식 컴포넌트가 있는데,
+// OrderProductList 에는 본사의 상품 리스트를 뿌려주고 상품담기를 누르면 발주Cart에 추가된다 .
+// Orders에 props로 OrderProductList -> isAdd={isAdd} setIsAdd={setIsAdd} // Cart에는 cartList를 전달해주면서 useEffect를 통해
+// 값이 바뀌면 상태가 변경되서 리랜더링 된다.
+
+
 function Order() {
+
   const [cartList, setCartList] = useState([]);
   const [isAdd, setIsAdd] = useState(false);
 
