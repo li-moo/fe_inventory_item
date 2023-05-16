@@ -4,6 +4,7 @@ import { useRecoilState } from 'recoil';
 import { logInState } from '../../state/loginState';
 import { useNavigate } from 'react-router';
 import checkLogin from '../../globalFunction/checkLogin';
+import { Link } from 'react-router-dom';
 
 const { Search } = Input;
 
@@ -44,6 +45,9 @@ function StaffList() {
     {
       title: '이름',
       dataIndex: 'name',
+      render: (text, record) => (
+        <Link to={`/staff/update/${record.id}`} key={record.id}>{text}</Link>
+      ),
     },
     {
       title: '로그인 ID',
@@ -58,6 +62,7 @@ function StaffList() {
       dataIndex: 'store_id',
     },
   ];
+  
   useEffect(() => {
     console.log("enter StaffList.jsx / useEffect()");
     console.log("loginData: ", logInData);

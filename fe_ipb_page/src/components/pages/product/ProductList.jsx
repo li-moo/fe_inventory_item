@@ -14,7 +14,7 @@ function ProductList() {
       const response = await fetch('http://localhost:8080/product/list');
       const data = await response.json();
       setProductData(data);
-      console.log("product: ", data);
+      console.log(data);
     } catch (error) {
       console.error(error);
     }
@@ -67,6 +67,7 @@ function ProductList() {
       title: '유통기한',
       dataIndex: 'exp',
     },
+    // 삭제 기능 없음
     // {
     //   title: '삭제',
     //   dataIndex: 'id',
