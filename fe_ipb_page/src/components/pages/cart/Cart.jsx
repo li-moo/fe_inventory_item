@@ -6,12 +6,16 @@ function Cart(props) {
   
   const [cartData, setCartData] = useState([]);
 
+  //
+
   useEffect(() => {
     console.log("props.cartData: ", cartData);
     setCartData(props.cartList);
     console.log("props.test: ", props.test);
     // fetchData();
   }, [fetchData]);
+
+  //
 
   async function fetchData(){
 
