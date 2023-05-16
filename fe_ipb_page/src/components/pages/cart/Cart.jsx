@@ -2,13 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { Table, Popconfirm, message, Divider, Button } from 'antd';
 import axios from 'axios';
 
-function Cart() {
+function Cart(props) {
   
   const [cartData, setCartData] = useState([]);
 
   useEffect(() => {
-    fetchData();
-  }, []);
+    console.log("props.cartData: ", cartData);
+    setCartData(props.cartList);
+    console.log("props.test: ", props.test);
+    // fetchData();
+  }, [fetchData]);
 
   async function fetchData(){
 
@@ -33,6 +36,7 @@ function Cart() {
       const response = await axios.get(`http://localhost:8080/cart/cartlist/${storeId}`);
       // console.log("response : " + JSON.stringify(response));
       const data = response["data"];
+      console.log("[GET] cartList/data: ", data);
       setCartData(data);
       // console.log("cart product: ", data);
     } catch (error) {
@@ -68,11 +72,13 @@ function Cart() {
     },
   ];
 
+  console.log("props.cartList", props.cartList);
+
   return (
     <>
       <Table 
         dataSource={
-          cartData.map((item) => ({ ...item, key: item.id }))
+          cartData && cartData.map((item) => ({ ...item, key: item.id }))
         } 
         columns={columns}
       />

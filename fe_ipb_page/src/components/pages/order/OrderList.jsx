@@ -34,7 +34,7 @@ const handleSearchButtonClick = () => {
       dataIndex: 'quantity',
       key: 'quantity',
       
-      
+
     },
     {
       title: '가격',

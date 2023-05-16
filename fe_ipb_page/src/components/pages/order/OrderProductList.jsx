@@ -3,7 +3,7 @@ import { Table, Popconfirm, message, Divider, Button } from 'antd';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-function OrderProductList() {
+function OrderProductList(props) {
   const [productData, setProductData] = useState([]);
 
   useEffect(() => {
@@ -77,6 +77,8 @@ function OrderProductList() {
         console.log(error.response.headers);
       }
     })
+
+    props.setIsAdd(!props.isAdd);
   };
 
 
