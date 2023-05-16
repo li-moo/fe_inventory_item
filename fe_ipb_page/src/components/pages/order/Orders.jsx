@@ -1,12 +1,12 @@
 import React from 'react';
 import { Divider } from "antd";
 import { Container, Row, Col } from 'react-bootstrap';
-import ProductList from '../product/ProductList';
-import Event from '../event/EventList';
-import StoreProductList from '../storeproduct/StoreProductList';
+import OrderProductList from './OrderProductList';
+import Cart from '../cart/Cart';
 
 
 function Order() {
+
   return (
     <>
     <h2>오다 리스트</h2>
@@ -14,10 +14,10 @@ function Order() {
       <Container>
       <Row>
         <Col sm={8} className="bg-gray-300">
-          <StoreProductList />
+          <OrderProductList />
         </Col>
         <Col sm={4} className="bg-gray-600">
-          <Event />
+          <Cart />
         </Col>
       </Row>
 </Container>
