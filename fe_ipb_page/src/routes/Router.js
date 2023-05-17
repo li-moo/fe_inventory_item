@@ -99,6 +99,8 @@ const OrderList = lazy(() => import("../components/pages/order/OrderList.jsx"))
 const Store = lazy(() => import("../components/pages/store/Store.jsx"))
 const StoreAdd = lazy(() => import("../components/pages/store/StoreAdd.jsx"))
 const StoreDetail = lazy(() => import("../components/pages/store/StoreDetail.jsx"))
+const StoreSales = lazy(() => import("../components/pages/sales/StoreSales.jsx"))
+const StoreSalesListCategory = lazy(() => import("../components/pages/sales/StoreSalesListCategory.jsx"))
 
 /*****Routes******/
 
@@ -133,6 +135,8 @@ const ThemeRoutes = [
       { path: "/store", exact: true, element: <Store /> },
       { path: "/store/add", exact: true, element: <StoreAdd /> },
       { path: "/storedetail/:id", exact: true, element: <StoreDetail /> },
+      { path: "/sales/listbystore", exact: true, element: <StoreSales /> },
+      { path: "/sales/listbystore/category", exact: true, element: <StoreSalesListCategory /> },
     ],
   },
 ];

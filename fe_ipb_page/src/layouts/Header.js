@@ -185,10 +185,10 @@ const Header = () => {
 
   const toggle = () => setIsOpen(!isOpen);
 
-  const createDeliveryAddress = () => {
-    // Handle the logic for creating a delivery address here
-    console.log("Creating a delivery address...");
-  };
+  // const createDeliveryAddress = () => {
+  //   // Handle the logic for creating a delivery address here
+  //   console.log("Creating a delivery address...");
+  // };
 
   return (
     <Navbar color="primary" dark expand="md" className={"navbar-custom bg-secondary"}>
@@ -257,6 +257,9 @@ const Header = () => {
                 <DropdownMenu end>
                   <DropdownItem>
                     <Link to="/sales">매출</Link>
+                  </DropdownItem>
+                  <DropdownItem>
+                    <Link to="/sales/listbystore">점포 매출</Link>
                   </DropdownItem>
                   <DropdownItem>Option 2</DropdownItem>
                   <DropdownItem divider />
