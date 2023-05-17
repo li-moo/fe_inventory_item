@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Table, Input } from 'antd';
+import { Table, InputPopconfirm, message , Popconfirm, Input } from 'antd';
 import { useRecoilState } from 'recoil';
 import { logInState } from '../../state/loginState';
 import { useNavigate } from 'react-router';
@@ -36,6 +36,10 @@ function StaffList() {
     );
     setFilteredData(filtered);
   };
+  
+  const handleDelete = (id) => {
+
+  }
 
   const columns = [
     {
