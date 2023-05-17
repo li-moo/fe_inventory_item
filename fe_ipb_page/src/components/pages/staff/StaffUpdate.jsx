@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Form, Input, Button } from 'antd';
+import { Form, Input, Button, message, Modal } from 'antd';
 import { useParams, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
+const { confirm } = Modal;
 
+// 스태프 업데이트 이지만 비밀번호 변경만 있습니다. 
 const StaffUpdate = () => {
   const { id } = useParams(); // useparams -> staffList에서 줬던 params을 넘겨줌 
   const [stateId, setStateId] = useState(id);
@@ -17,6 +20,8 @@ const StaffUpdate = () => {
   const initialValues = {
     id: stateId,
   };
+
+  console.log("StaffUpdate안에 id: ", id);
 
 
   const onFinish = async (values) => {
@@ -35,11 +40,37 @@ const StaffUpdate = () => {
     }
   };
 
+  const handleDelete = () => {
+    confirm({
+      title: '삭제 확인',
+      content: '정말로 삭제하시겠습니까?',
+      okText: '예',
+      cancelText: '아니오',
+      onOk: deleteStaff,
+      onCancel() {
+        console.log('삭제 작업 취소');
+      },
+    });
+  };
+
+  const deleteStaff = async () => {
+    try {
+      await fetch(`http://localhost:8080/staff/delete?id=${id}`, {
+        method: 'DELETE',
+      });
+      message.success('staff가 삭제되었습니다.');
+    } catch (error) {
+      console.error(error);
+      message.error('staff 삭제에 실패하였습니다.');
+    }
+  };
+
 
   return (
-    <Form 
-      initialValues={initialValues}
-      onFinish={onFinish}>
+    <>
+      <Form 
+        initialValues={initialValues}
+        onFinish={onFinish}>
       <Form.Item label="아이디" name="id">
         <Input value={id} onChange={handleChange} readOnly/>
       </Form.Item>
@@ -51,7 +82,18 @@ const StaffUpdate = () => {
           수정하기
         </Button>
       </Form.Item>
+      <Form.Item>
+        <Button type="dashed" htmlType="submit" >
+        <Link to="/staff">뒤로가기</Link> 
+        </Button>
+      </Form.Item>
     </Form>
+
+    <Button type="primary" htmlType="submit" danger onClick={handleDelete}>
+    삭제하기
+    </Button>
+    </>
+
   );
 };
 

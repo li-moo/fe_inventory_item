@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Form, Input, Button, Divider } from 'antd';
+import { Form, Input, Button, Divider, message } from 'antd';
 import axios from 'axios';
 import { Link } from "react-router-dom";
 
@@ -34,7 +34,11 @@ function StaffAdd() {
       }
     })
   };
-
+  
+  function handleSave() {
+    // 알림 메시지 표시
+    message.success('저장되었습니다.');
+  }
 
 
 
@@ -64,7 +68,7 @@ function StaffAdd() {
         </Form.Item>
 
         <Form.Item>
-          <Button type="primary" htmlType="submit">
+          <Button type="primary" htmlType="submit" onClick={handleSave}>
             저장
           </Button>
         </Form.Item>
