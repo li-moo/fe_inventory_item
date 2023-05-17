@@ -89,6 +89,7 @@ function OrderProductList(props) {
       title: 'ID',
       dataIndex: 'id',
       key: 'id',
+      width: 50,
     },
     {
       title: '이름',
@@ -139,7 +140,12 @@ function OrderProductList(props) {
     {/* <h2>점포에서 상품을 담기위해 product에서 장바구니를 담을 때 사용하는 페이지 입니다</h2> */}
     {/* <Divider /> */}
     <>
-      <Table dataSource={productData.map((item) => ({ ...item, key: item.id }))} columns={columns} />
+      <Table 
+        dataSource={productData.map((item) => ({ ...item, key: item.id }))} 
+        columns={columns} 
+        scroll={{y:370,}}
+        pagination={{pageSize: 5000,}}
+      />
     </>
     </>
   );

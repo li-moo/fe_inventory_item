@@ -38,6 +38,7 @@ function Order() {
     .then((res) => {
       console.log('Orders/res = ', res);
       setCartList(res.data);
+      console.log(">>>>>>>>>res.data>>>>>...",res.data);
     })
     .catch((err) => console.log("err: ", err));
 
@@ -45,7 +46,7 @@ function Order() {
 
   return (
     <>
-    <h2>오다 리스트</h2>
+    <h4>발주하기</h4>
       <Divider />
       <Container>
       <Row>
