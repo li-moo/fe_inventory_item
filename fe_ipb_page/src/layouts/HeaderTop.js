@@ -123,6 +123,28 @@ const HeaderTop = () => {
     }
   },[loginCheck]);
 
+  ///
+
+  useEffect(() => {
+    // 초기 실행
+    sayHello();
+
+    // 5초마다 sayHello 함수 호출 -> 5000
+    // 60초마다 sayHello 함수 호출 -> 60 * 1000
+    const interval = setInterval(sayHello, 60 * 1000);
+
+    // 컴포넌트 언마운트 시 clearInterval
+    return () => clearInterval(interval);
+  }, []);
+
+  function sayHello() {
+    console.log("++++++++++++++++++++++++++++++");
+    console.log("안녕하세요");
+
+  }
+  ////
+
+
   return (
     <Navbar color="dark" dark expand="md">
       <div className="d-flex align-items-center">
