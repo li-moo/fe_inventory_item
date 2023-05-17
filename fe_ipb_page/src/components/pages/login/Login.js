@@ -17,7 +17,7 @@ export default function Login() {
   }, [logInData]);
 
   const getWeatherInfo = async () => {
-    try {
+    try { 
       const response = await fetch(`http://localhost:8080/staff/weather`, {
         method: 'POST',
         headers: {
@@ -36,23 +36,6 @@ export default function Login() {
     }
   };
 
-  
-  // useEffect(() => {
-  //   // 초기 실행
-  //   sayHello();
-
-  //   // 5초마다 sayHello 함수 호출
-  //   const interval = setInterval(sayHello, 5000);
-
-  //   // 컴포넌트 언마운트 시 clearInterval
-  //   return () => clearInterval(interval);
-  // }, []);
-
-  // function sayHello() {
-  //   console.log("++++++++++++++++++++++++++++++");
-  //   console.log("안녕하세요");
-
-  // }
 
     const onFinish = (values) => {
 

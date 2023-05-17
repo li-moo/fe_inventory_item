@@ -125,23 +125,48 @@ const HeaderTop = () => {
 
   ///
 
+  // setInterval(callback, delay, [arg1, arg2, ...]);
+
   useEffect(() => {
     // 초기 실행
     sayHello();
-
+    getWeatherInfo();
     // 5초마다 sayHello 함수 호출 -> 5000
     // 60초마다 sayHello 함수 호출 -> 60 * 1000
     const interval = setInterval(sayHello, 60 * 1000);
-
+    // const intervalWeatherInfo = setInterval(getWeatherInfo, 60 * 1000, [logInData.store_id, logInData.area]);
+    const intervalWeatherInfo = setInterval(getWeatherInfo, 3 * 60 * 60 * 1000, [logInData.store_id, logInData.area]);
+    
     // 컴포넌트 언마운트 시 clearInterval
-    return () => clearInterval(interval);
+    // return () => clearInterval(interval);
+    return () => clearInterval(intervalWeatherInfo); //
   }, []);
 
   function sayHello() {
     console.log("++++++++++++++++++++++++++++++");
     console.log("안녕하세요");
-
   }
+  ////
+  const getWeatherInfo = async () => {
+    try { 
+      const response = await fetch(`http://localhost:8080/staff/weather`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body : JSON.stringify({
+          store_id: logInData.store_id,
+          area: logInData.area
+        })
+      }); 
+      const data = await response.json();
+      console.log("data: ", data);
+      setWeatherData(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   ////
 
 
