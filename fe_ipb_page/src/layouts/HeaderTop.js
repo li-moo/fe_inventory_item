@@ -129,11 +129,11 @@ const HeaderTop = () => {
 
   useEffect(() => {
     // 초기 실행
-    sayHello();
+    // sayHello();
     getWeatherInfo();
     // 5초마다 sayHello 함수 호출 -> 5000
     // 60초마다 sayHello 함수 호출 -> 60 * 1000
-    const interval = setInterval(sayHello, 60 * 1000);
+    // const interval = setInterval(sayHello, 60 * 1000);
     // const intervalWeatherInfo = setInterval(getWeatherInfo, 60 * 1000, [logInData.store_id, logInData.area]);
     const intervalWeatherInfo = setInterval(getWeatherInfo, 3 * 60 * 60 * 1000, [logInData.store_id, logInData.area]);
     
@@ -142,10 +142,10 @@ const HeaderTop = () => {
     return () => clearInterval(intervalWeatherInfo); //
   }, []);
 
-  function sayHello() {
-    console.log("++++++++++++++++++++++++++++++");
-    console.log("안녕하세요");
-  }
+  // function sayHello() {
+  //   console.log("++++++++++++++++++++++++++++++");
+  //   console.log("안녕하세요");
+  // }
   ////
   const getWeatherInfo = async () => {
     try { 
