@@ -81,10 +81,10 @@ function Cart(props) {
   return (
     <>
       <Table 
-        dataSource={
-          cartData && cartData.map((item) => ({ ...item, key: item.id }))
-        } 
+        dataSource={cartData && cartData.map((item) => ({ ...item, key: item.id }))} 
         columns={columns}
+        scroll={{y:370,}}
+        pagination={{pageSize: 5000,}}
       />
     </>
   );
