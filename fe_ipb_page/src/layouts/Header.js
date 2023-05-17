@@ -221,13 +221,15 @@ const Header = () => {
                   상품 관리
                 </DropdownToggle>
                 <DropdownMenu end>
-                  <DropdownItem>
+                  {/* <DropdownItem>
                     <Link to="/product">상품 관리 리스트</Link>
+                  </DropdownItem> */}
+                  <DropdownItem>
+                    <Link to="/storeproductlist">보유 상품</Link>
                   </DropdownItem>
-                  <DropdownItem>점포 보유 상품 리스트</DropdownItem>
-                  <DropdownItem>Option 2</DropdownItem>
+                  {/* <DropdownItem>Option 2</DropdownItem>
                   <DropdownItem divider />
-                  <DropdownItem>Reset</DropdownItem>
+                  <DropdownItem>Reset</DropdownItem> */}
                 </DropdownMenu>
               </UncontrolledDropdown>
 
@@ -237,14 +239,14 @@ const Header = () => {
                 </DropdownToggle>
                 <DropdownMenu end>
                   <DropdownItem>
-                    <Link to="/order">점포 발주</Link>
+                    <Link to="/order">발주하기</Link>
                   </DropdownItem>
-                  <DropdownItem>
+                  {/* <DropdownItem>
                     <Link to="/storeproductlist">점포 상품 담기 리스트</Link>
-                  </DropdownItem>
-                  <DropdownItem>Option 2</DropdownItem>
+                  </DropdownItem> */}
+                  {/* <DropdownItem>Option 2</DropdownItem>
                   <DropdownItem divider />
-                  <DropdownItem>Reset</DropdownItem>
+                  <DropdownItem>Reset</DropdownItem> */}
                 </DropdownMenu>
               </UncontrolledDropdown>
 
@@ -263,7 +265,7 @@ const Header = () => {
               </UncontrolledDropdown>
 
 
-          <UncontrolledDropdown inNavbar nav className={style.meCustom}>
+          {/* <UncontrolledDropdown inNavbar nav className={style.meCustom}>
             <DropdownToggle caret nav>
               배송
             </DropdownToggle>
@@ -275,7 +277,7 @@ const Header = () => {
               <DropdownItem divider />
               <DropdownItem>Reset</DropdownItem>
             </DropdownMenu>
-          </UncontrolledDropdown>
+          </UncontrolledDropdown> */}
 
 
           <UncontrolledDropdown inNavbar nav className={style.meCustom}>
