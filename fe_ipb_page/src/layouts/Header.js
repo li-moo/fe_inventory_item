@@ -303,7 +303,9 @@ const Header = () => {
               게시판
             </DropdownToggle>
             <DropdownMenu end>
-              <DropdownItem>Option 1</DropdownItem>
+              <DropdownItem>
+              <Link to="/board">본사 - 게시판 </Link>
+              </DropdownItem>
               <DropdownItem>Option 2</DropdownItem>
               <DropdownItem divider />
               <DropdownItem>Reset</DropdownItem>
