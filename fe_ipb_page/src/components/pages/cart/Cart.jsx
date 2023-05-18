@@ -61,7 +61,8 @@ function Cart(props) {
 
     const handleDeleteCart = async (id) => {
       try {
-        await fetch(`http://localhost:8080/cart/delete/${id}`, {
+        // await fetch(`http://localhost:8080/cart/delete/${id}`, {
+          await fetch(`http://43.202.9.215:8080/cart/delete/${id}`, {
           method: 'DELETE',
         });
         // message.success('상품이 삭제되었습니다.');

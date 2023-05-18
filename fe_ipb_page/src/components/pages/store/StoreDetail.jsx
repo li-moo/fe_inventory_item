@@ -8,7 +8,7 @@ function StoreDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const [store, setStore] = useState();
+  const [store, setStore] = useState([]);
 
 
   useEffect(() => {
@@ -19,6 +19,7 @@ function StoreDetail() {
       .then(data => {
         console.log("store-detail data:", data);
         setStore(data)
+        console.log("store:", store);
       })
       .catch(err => console.log(err))
   }, [id]);
