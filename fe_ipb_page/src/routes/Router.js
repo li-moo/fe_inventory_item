@@ -91,7 +91,8 @@ const StaffUpdate = lazy(() => import("../components/pages/staff/StaffUpdate.jsx
 const Weather = lazy(() => import("../components/pages/weather/Weather.jsx"))
 const Product01 = lazy(() => import("../components/pages/product/Product.jsx"));
 const ProductAdd = lazy(() => import("../components/pages/product/ProductAdd.jsx"));
-const ProductDetail = lazy(() => import("../components/pages/product/ProductDetaile.jsx"))
+// const ProductDetail = lazy(() => import("../components/pages/product/ProductDetaile.jsx"))
+const ProductDetail = lazy(() => import("../components/pages/product/ProductDetail.jsx"))
 const Event = lazy(() => import("../components/pages/event/Event.jsx"))
 const Orders = lazy(() => import("../components/pages/order/Orders.jsx"))
 const StoreProductList01 = lazy(() => import("../components/pages/storeproduct/StoreProductList.jsx"))
