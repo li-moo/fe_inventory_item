@@ -11,7 +11,8 @@ function StoreList() {
 
   const fetchData = async () => {
     try {
-      const response = await fetch('http://localhost:8080/storelist');
+      // const response = await fetch('http://localhost:8080/storelist');
+      const response = await fetch('http://43.202.9.215:8080/storelist');
       const data = await response.json();
       setStoreData(data);
       console.log("store: ", data); 

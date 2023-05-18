@@ -56,7 +56,8 @@ const FeedData = [
 
 const Feeds = () => {
   return (
-    <Card>
+    <>
+    {/* <Card>
       <CardBody>
         <CardTitle tag="h5">Feeds</CardTitle>
         <CardSubtitle className="mb-2 text-muted" tag="h6">
@@ -86,7 +87,9 @@ const Feeds = () => {
           ))}
         </ListGroup>
       </CardBody>
-    </Card>
+    </Card> */}
+    </>
+    
   );
 };
 

@@ -8,7 +8,8 @@ import { Link } from "react-router-dom";
 function StaffAdd() {
 
   const onFinish = (values) => {
-    const url_be = "http://localhost:8080/staff/add";
+    // const url_be = "http://localhost:8080/staff/add";
+    const url_be = "http://43.202.9.215:8080/staff/add";
 
     axios(url_be,
       {

@@ -37,7 +37,8 @@ function Cart(props) {
     console.log("storeId : " + storeId);
 
     try {
-      const response = await axios.get(`http://localhost:8080/cart/cartlist/${storeId}`);
+      // const response = await axios.get(`http://localhost:8080/cart/cartlist/${storeId}`);
+      const response = await axios.get(`http://43.202.9.215:8080/cart/cartlist/${storeId}`);
       // console.log("response : " + JSON.stringify(response));
       const data = response["data"];
       console.log("[GET] cartList/data: ", data);

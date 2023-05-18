@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Table, Popconfirm, message, Divider, Button } from 'antd';
 import { Link } from 'react-router-dom';
+import { useRecoilState } from 'recoil';
+import { logInState } from '../../state/loginState';
 
 function StoreProductList() {
 
   const [storeProductData, setStoreProductData] = useState([]);
+  const [logInData, setLogInData] = useRecoilState(logInState);
 
   useEffect(() => {
     fetchData();
@@ -28,11 +31,16 @@ function StoreProductList() {
     const storeId = logInStateObj["store_id"]
     console.log("storeId : " + storeId);
 
+    console.log(">>. logInData.store_id : " + logInData.store_id);
+
     try {
-      const response = await fetch(`http://localhost:8080/storeproduct/list/${storeId}`);
+      // const response = await fetch(`http://localhost:8080/storeproduct/list/${storeId}`);
+      // const response = await fetch(`http://43.202.9.215:8080/storeproduct/list/${storeId}`);
+      const response = await fetch(`http://43.202.9.215:8080/storeproduct/list/${logInData.store_id}`);
       const data = await response.json();
       setStoreProductData(data);
       console.log(data);
+      console.log(">>>>>.. storeProductData", storeProductData);
     } catch (error) {
       console.error(error);
     }

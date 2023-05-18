@@ -21,7 +21,8 @@ export default function Weather() {
       // const response = await fetch(`http://localhost:8080/staff/weather?area=${area}`, {
       // const response = await fetch(`http://localhost:8080/staff/weather?area=${logInState.area}`, {
       // const response = await fetch(`http://localhost:8080/staff/weather?area=busan`, {
-      const response = await fetch(`http://localhost:8080/staff/weather`, {
+      // const response = await fetch(`http://localhost:8080/staff/weather`, {
+        const response = await fetch(`http://43.202.9.215:8080/staff/weather`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

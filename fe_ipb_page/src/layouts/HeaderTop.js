@@ -14,7 +14,7 @@ import {
   Button,
 } from "reactstrap";
 import { ReactComponent as LogoWhite } from "../assets/images/logos/xtremelogowhite.svg";
-import user1 from "../assets/images/users/user1.jpg";
+import user05 from "../assets/images/users/user05.jpg";
 import { logInState } from "../components/state/loginState";
 import { weatherState } from "../components/state/weatherState";
 import { useRecoilState, useRecoilValue } from 'recoil';
@@ -57,7 +57,8 @@ const HeaderTop = () => {
     const onFinish = (values) => {
 
       // const url_be = "http://localhost:8080/api/v1/staff/login";
-      const url_be = "http://localhost:8080/staff/login";
+      // const url_be = "http://localhost:8080/staff/login";
+      const url_be = "http://http://43.202.9.215:8080/staff/login";
 
       axios
       (url_be,
@@ -93,7 +94,8 @@ const HeaderTop = () => {
           if (staff !== null && staff !== "") {
             console.log("로그인 성공");
             alert(`${staff.name}님 환영합니다.`);
-            window.location.href = "http://localhost:3000/";
+            // window.location.href = "http://localhost:3000/";
+            navigate(`/`);
             console.log(logInData);
           } else {
             console.log("로그인 실패");
@@ -149,7 +151,8 @@ const HeaderTop = () => {
   ////
   const getWeatherInfo = async () => {
     try { 
-      const response = await fetch(`http://localhost:8080/staff/weather`, {
+      // const response = await fetch(`http://localhost:8080/staff/weather`, {
+        const response = await fetch(`http://43.202.9.215:8080/staff/weather`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -171,18 +174,18 @@ const HeaderTop = () => {
 
 
   return (
-    <Navbar color="dark" dark expand="md">
+    <Navbar color="primary" dark expand="md" className={"navbar-custom bg-secondary"} >
       <div className="d-flex align-items-center">
-        <NavbarBrand href="/" className="d-lg-none">
+        {/* <NavbarBrand href="/" className="d-lg-none">
           <LogoWhite />
-        </NavbarBrand>
-        <Button
+        </NavbarBrand> */}
+        {/* <Button
           color="dark"
           className="d-lg-none"
           onClick={() => showMobilemenu()}
         >
           <i className="bi bi-list"></i>
-        </Button>
+        </Button> */}
       </div>
       <div className="hstack gap-2">
         <Button
@@ -227,7 +230,7 @@ const HeaderTop = () => {
         <Dropdown isOpen={dropdownOpen} toggle={toggle}>
           <DropdownToggle color="dark">
             <img
-              src={user1}
+              src={user05}
               alt="profile"
               className="rounded-circle"
               width="30"
