@@ -103,6 +103,7 @@ function OrderProductList(props) {
         <Link to={`/product/detail/${record.id}`} key={record.id}>{text}</Link>
       ),
       // 모달 창으로 리펙토링 해야함
+      sorter: (a, b) => a.name.localeCompare(b.name),
     },
     {
       title: '발주가능수량',

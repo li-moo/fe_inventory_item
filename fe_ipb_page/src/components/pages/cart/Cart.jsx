@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Table, Popconfirm, message, Divider, Button } from 'antd';
+import { Table, Popconfirm, message, Divider, Button, Input, Space } from 'antd';
 import axios from 'axios';
 
 function Cart(props) {
   
   const [cartData, setCartData] = useState([]);
-
-  //
 
   useEffect(() => {
     console.log("props.cartData: ", cartData);
@@ -15,7 +13,6 @@ function Cart(props) {
     // fetchData();
   }, [fetchData]);
 
-  //
 
   async function fetchData(){
 
@@ -62,10 +59,43 @@ function Cart(props) {
   //   }
   // };
 
+    const handleDeleteCart = async (id) => {
+      try {
+        await fetch(`http://localhost:8080/cart/delete/${id}`, {
+          method: 'DELETE',
+        });
+        // message.success('상품이 삭제되었습니다.');
+        fetchData();
+      } catch (error) {
+        console.error(error);
+        // message.error('상품 삭제에 실패하였습니다.');
+      }
+    };
+
+    // const handleQuantityChange = async (id, value) => {
+    //   try {
+    //     await axios.put(`http://localhost:8080/cart/update/${id}`, { qnt: value });
+    //     fetchData();
+    //   } catch (error) {
+    //     console.error(error);
+    //   }
+    // };
+  
+    // const handleIncrement = (id, value) => {
+    //   handleQuantityChange(id, value + 1);
+    // };
+  
+    // const handleDecrement = (id, value) => {
+    //   if (value > 1) {
+    //     handleQuantityChange(id, value - 1);
+    //   }
+    // };
+
   const columns = [
     {
-      title: '상품아이디',
+      title: 'ID',
       dataIndex: 'product_id',
+      width: 50,
     },
     {
       title: '이름',
@@ -74,6 +104,32 @@ function Cart(props) {
     {
       title: '수량',
       dataIndex: 'qnt',
+      // render: (text, record) => (
+      //   <Space>
+      //     <Button onClick={() => handleDecrement(record.id, text)}>-</Button>
+      //     <Input
+      //       value={1}
+      //       onChange={(e) => handleQuantityChange(record.id, e.target.value)}
+      //     />
+      //     <Button onClick={() => handleIncrement(record.id, text)}>+</Button>
+      //   </Space>
+      // ),
+    },
+    {
+      title: '',
+      dataIndex: 'id',
+      render: (id) => (
+        <Popconfirm
+          title="삭제시겠습니까??"
+          onConfirm={() => handleDeleteCart(id)}
+          okText="네"
+          cancelText="아니오"
+        >
+          <Button>
+          <a>삭제</a>
+          </Button>
+        </Popconfirm>
+      ),
     },
   ];
 

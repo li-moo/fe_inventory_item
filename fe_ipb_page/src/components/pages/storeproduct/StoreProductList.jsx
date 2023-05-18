@@ -68,6 +68,7 @@ function StoreProductList() {
     {
       title: '이름',
       dataIndex: 'product_name',
+      sorter: (a, b) => a.product_name.localeCompare(b.product_name),
       render: (text, record) => (
         <Link to={`/product/detail/${record.id}`} key={record.id}>{text}</Link>
       ),
@@ -85,6 +86,7 @@ function StoreProductList() {
     {
       title: '유통기한',
       dataIndex: 'exp',
+      sorter: (a, b) => a.exp.localeCompare(b.exp),
     },
   ];
 
