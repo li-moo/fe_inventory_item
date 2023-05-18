@@ -12,7 +12,8 @@ function StoreSalesListCategory() {
 
   const fetchData = async () => {
     try {
-      const response = await fetch(`http://localhost:8080/sales/listbystore?store_id=${logInData.store_id}`);
+      // const response = await fetch(`http://localhost:8080/sales/listbystore?store_id=${logInData.store_id}`);
+      const response = await fetch(`http://43.202.9.215:8080/sales/listbystore?store_id=${logInData.store_id}`);
       const data = await response.json();
       setStoreSalesData(data);
     } catch (error) {

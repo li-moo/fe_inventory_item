@@ -17,7 +17,8 @@ function BoardList() {
 
   const fetchData = async () => {
     try {
-      const response = await fetch('http://localhost:8080/board/list');
+      // const response = await fetch('http://localhost:8080/board/list');
+      const response = await fetch('http://43.202.9.215:8080/board/list');
       const data = await response.json();
       setBoardData(data);
       setFilteredData(data);

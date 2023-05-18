@@ -14,6 +14,7 @@ $warning: #ee9d01;
 $dark: #343a40;
 $light: #eaf2fb;
 $secondary: #35363b;
+$HeaderColor: #ffd400;
 
 $theme-colors: (
   "primary": $primary,
@@ -24,6 +25,7 @@ $theme-colors: (
   "danger": $danger,
   "light": $light,
   "dark": $dark,
+  "HeaderColor": $HeaderColor,
   "light-primary": #d6e4f3,
   "light-success": #d5f3f2,
   "light-info": #d3edfa,
@@ -33,7 +35,7 @@ $theme-colors: (
 // scss-docs-start gray-color-variables
 $white: #fff !default;
 $gray-100: #f8f9fa !default;
-$gray-200: #eef5f9 !default;
+$gray-200: #f8f9fa !default;
 $gray-300: #dee2e6 !default;
 $gray-400: #ced4da !default;
 $gray-500: #adb5bd !default;
@@ -51,7 +53,8 @@ $min-contrast-ratio: 2;
 /*******************/
 // Theme body bg & text color
 /********************/
-$body-bg: $gray-200 !default;
+// $body-bg: $gray-200 !default;
+$body-bg: $gray-100 !default;
 $body-color: $gray-900 !default;
 
 /*******************/

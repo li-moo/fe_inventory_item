@@ -50,7 +50,7 @@ const Starter = () => {
   return (
     <div>
       {/***Top Cards***/}
-      <Row>
+      {/* <Row>
         <Col sm="6" lg="3">
           <TopCards
             bg="bg-light-success text-success"
@@ -88,23 +88,24 @@ const Starter = () => {
           />
         </Col>
       </Row>
+      */}
       {/***Sales & Feed***/}
-      <Row>
+      {/* <Row>
         <Col xxl="12">
           <SalesChart />
         </Col>
-      </Row>
+      </Row> */}
       {/***Table ***/}
-      <Row>
+      {/* <Row>
         <Col lg="7" xxl="8" md="12">
           <ProjectTables />
-        </Col>
+        </Col> */}
 
         {/* // 아이콘 그림의 세로 리스트  */}
-        <Col md="12" lg="5" xxl="4">
+        {/* <Col md="12" lg="5" xxl="4">
           <Feeds />
         </Col>
-      </Row>
+      </Row> */} 
 
 
       {/***Blog Cards***/}

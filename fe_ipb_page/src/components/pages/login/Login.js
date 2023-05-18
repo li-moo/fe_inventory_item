@@ -5,12 +5,14 @@ import { logInState } from '../../state/loginState';
 import { weatherState } from '../../state/weatherState';
 import { useRecoilState } from 'recoil';
 import { Alert } from "reactstrap";
+import { Navigate, useNavigate } from 'react-router-dom';
 
 export default function Login() {
 
   // 로그인데이터를 logInState라는 변수명으로 받아온 데이터를 저장 
   const [logInData, setLogInData] = useRecoilState(logInState);
   const [weatherData, setWeatherData] = useRecoilState(weatherState);
+  const navigate = useNavigate();
 
   useEffect(() => {
     getWeatherInfo();
@@ -18,7 +20,8 @@ export default function Login() {
 
   const getWeatherInfo = async () => {
     try { 
-      const response = await fetch(`http://localhost:8080/staff/weather`, {
+      // const response = await fetch(`http://localhost:8080/staff/weather`, {
+      const response = await fetch(`http://43.202.9.215:8080/staff/weather`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -39,7 +42,9 @@ export default function Login() {
 
     const onFinish = (values) => {
 
-      const url_be = "http://localhost:8080/staff/login";
+      // const url_be = "http://localhost:8080/staff/login";
+      const url_be = "http://43.202.9.215:8080/staff/login";
+
       axios
       (url_be,
         {
@@ -72,7 +77,8 @@ export default function Login() {
             })
             console.log("로그인 성공");
             alert(`${staff.name}님 환영합니다.`);
-            window.location.href = "http://localhost:3000/";
+            // window.location.href = "http://localhost:3000/";
+            navigate("/");
             console.log(logInData);
           } else {
             console.log("로그인 실패");

@@ -6,7 +6,8 @@ import { Link } from "react-router-dom";
 function StoreAdd() {
 
   const onFinish = (values) => {
-    const url_be = "http://localhost:8080/store/add";
+    // const url_be = "http://localhost:8080/store/add";
+    const url_be = "http://43.202.9.215:8080/store/add";
 
     axios(url_be,
       {

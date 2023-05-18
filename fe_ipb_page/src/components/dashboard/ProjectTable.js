@@ -56,7 +56,7 @@ const tableData = [
 const ProjectTables = () => {
   return (
     <div>
-      <Card>
+      {/* <Card>
         <CardBody>
           <CardTitle tag="h5">Project Listing</CardTitle>
           <CardSubtitle className="mb-2 text-muted" tag="h6">
@@ -109,7 +109,7 @@ const ProjectTables = () => {
             </tbody>
           </Table>
         </CardBody>
-      </Card>
+      </Card> */}
     </div>
   );
 };
