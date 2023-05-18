@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { Typography, Image, Grid, Button, Divider, Card, Descriptions, Radio} from 'antd';
+import style from './ProductDetail.module.css';
 
 const { Title, Text } = Typography;
 const { Row, Col } = Grid;
@@ -27,6 +28,11 @@ function ProductDetail() {
   }, [id]);
 
   console.log("product: ", product);
+
+  function addComma(num) {
+    var regexp = /\B(?=(\d{3})+(?!\d))/g;
+    return num.toString().replace(regexp, ',');
+  }
 
   // return (
   //   <>
@@ -63,62 +69,30 @@ function ProductDetail() {
             <ul>
               <li>
                 <div className={style.left}>
-                  <p>🔻카테고리: {product.category}</p>
-                  <img src={product.thumbnail} alt={product.description} />
+                  <p>🔻카테고리: {product.category_name}</p>
+                  <img src={product.imgname} alt={product.detail} />
                 </div>
                 <div className={style.right}>
                   <h2>{product.name}</h2>
                   <p>가격: {addComma(product.price)}</p>
-                  <p>할인된 가격: {addComma(product.price - (product.price * product.discount))}</p>
-                  <p>평점: {product.rating}</p>
-                  <p>브랜드: {product.brand}</p>
-                  <div className={style.cartBtn}>
-                    <button
-                      className={style.payBtn}
-                      onClick={handleAddCart}
-                    >
-                      장바구니
-                    </button>
-                    <button
-                      className={style.Btn}
-                    >
-                      바로구매
-                    </button>
-                    <button
-                      style={{
-                        backgroundColor: "#ffb718",
-                        color: "white",
-                      }}
-                      onClick={handlePlusQty}
-                    >
-                      +
-                    </button>
-                    <h6 className={style.qty}> {countQty} </h6>
-                    <button
-                      style={{
-                        backgroundColor: "#ffb718",
-                        color: "white",
-
-                      }}
-                      onClick={handleMinusQty}
-                    >
-                      -
-                    </button>
-
-                  </div>
+                  <p>원가: {addComma(product.cost)}</p>
+                  <p>유통기한: {product.exp}</p>
+                  <p>상품 코드: {product.product_code}</p>
+                  <p>재고량: {product.qnt}</p>
                 </div>
               </li>
             </ul>
 
             <div className={style.ProductDetail}>
               <h4>상품 상세 정보</h4>
-              <p>{product.description}</p>
-              <p>{product.description}</p>
-              <p>{product.description}</p>
-              <p>{product.description}</p>
-              <p>{product.description}</p>
-              <p>{product.description}</p>
-              <p>{product.description}</p>
+              <p>{product.detail}</p>
+              <p>{product.detail}</p>
+              <p>{product.detail}</p>
+              <p>{product.detail}</p>
+              <p>{product.detail}</p>
+              <p>{product.detail}</p>
+              <p>{product.detail}</p>
+              <p>{product.detail}</p>
             </div>
           </div>
 
