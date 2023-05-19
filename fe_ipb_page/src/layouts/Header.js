@@ -25,7 +25,11 @@ const Header = () => {
   // };
 
   return (
-    <Navbar color="primary" dark expand="md" className={"navbar-custom bg-secondary"}>
+    // <div className={style.divHeader}>
+    // <div className={`${style.divHeader} ${style.navbarCustom} ${style.bgSecondary}`}>
+    <div className={`${style.divHeader} ${style.navbarCustom}`}>
+
+          <Navbar color="primary" dark expand="md" className={"navbar-custom bg-secondary"}>
       <div className="d-flex align-items-center">
         <NavbarBrand href="/" className="d-lg-none">
           {/* <LogoWhite /> */}
@@ -163,6 +167,8 @@ const Header = () => {
       </Nav>
       </Collapse>
     </Navbar>
+    </div>
+
   );
 };
 
