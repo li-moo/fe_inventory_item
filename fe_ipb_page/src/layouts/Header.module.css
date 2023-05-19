@@ -1,3 +1,14 @@
+.divHeader {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background-color: red;
+  /* border-radius: 20px; */
+}
+
+.navbar-custom {
+  background-color: var(--secondary-color);
+}
+
 .meCustom {
-  margin-right: 7rem; /* 원하는 간격 값으로 조절하세요. */
+  margin-right: 3rem; /* 원하는 간격 값으로 조절하세요. */
 }
