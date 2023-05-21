@@ -15,6 +15,7 @@ $dark: #343a40;
 $light: #eaf2fb;
 $secondary: #35363b;
 $HeaderColor: #ffd400;
+$varWhite: #FFFFFF;
 
 $theme-colors: (
   "primary": $primary,
@@ -31,6 +32,7 @@ $theme-colors: (
   "light-info": #d3edfa,
   "light-warning": #f8ecdc,
   "light-danger": #f8dddd,
+  "varWhite": #FFFFFF,
 );
 // scss-docs-start gray-color-variables
 $white: #fff !default;

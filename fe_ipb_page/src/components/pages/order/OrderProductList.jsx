@@ -12,18 +12,48 @@ function OrderProductList(props) {
 
   const url_be = "http://43.202.9.215:8080/product/list";
 
-
-  const fetchData = async () => {
-    try {
-      // const response = await fetch('http://localhost:8080/product/list');
-      const response = await fetch(url_be);
-      const data = await response.json();
-      setProductData(data);
-      console.log(data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  /* before */
+  // const fetchData = async () => {
+  //   try {
+  //     // const response = await fetch('http://localhost:8080/product/list');
+  //     const response = await fetch(url_be);
+  //     const data = await response.json();
+  //     setProductData(data);
+  //     console.log(data);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
+  /* after */
+  const fetchData = () => {
+    // fetch(url_be)
+    //   .then((res) => {
+    //     console.log("res: " + res);
+    //     console.log("res.data: ", res.data);
+    //     console.log("res.json(): ", res.json());
+    //     // setProductData(res.data);
+    //     setProductData(res.json());
+    //     return res.data;
+    //   })
+    //   .catch((err) => {
+    //     console.log("err: " + err);
+    //     if (err.status >= 400) {
+    //       alert("존재하지 않는 아이디입니다!");
+    //     }
+    //   })
+    axios(
+      url_be,
+      {
+        method: 'get'
+      }
+    )
+      .then((res) => {
+        console.log("res:", res);
+        console.log("orderProdutList=>res.data:", res.data);
+        setProductData(res.data)
+      })
+      .catch((err) => console.log("orderproductlist/err", err));
+  }
 
   // const handleAddCart = async (id) => {
   //   try {
@@ -132,7 +162,7 @@ function OrderProductList(props) {
           cancelText="아니오"
         >
           <Button>
-          <a>상품담기</a>
+            <a>상품담기</a>
           </Button>
         </Popconfirm>
       ),
@@ -142,17 +172,17 @@ function OrderProductList(props) {
 
   return (
     <>
-    {/* 실제 사용시 <h2></h2> 는 주석 처리나 삭제 해주세요 */}
-    {/* <h2>점포에서 상품을 담기위해 product에서 장바구니를 담을 때 사용하는 페이지 입니다</h2> */}
-    {/* <Divider /> */}
-    <>
-      <Table 
-        dataSource={productData.map((item) => ({ ...item, key: item.id }))} 
-        columns={columns} 
-        scroll={{y:370,}}
-        pagination={{pageSize: 5000,}}
-      />
-    </>
+      {/* 실제 사용시 <h2></h2> 는 주석 처리나 삭제 해주세요 */}
+      {/* <h2>점포에서 상품을 담기위해 product에서 장바구니를 담을 때 사용하는 페이지 입니다</h2> */}
+      {/* <Divider /> */}
+      <>
+        <Table
+          dataSource={productData.map((item) => ({ ...item, key: item.id }))}
+          columns={columns}
+          scroll={{ y: 370, }}
+          pagination={{ pageSize: 5000, }}
+        />
+      </>
     </>
   );
 }

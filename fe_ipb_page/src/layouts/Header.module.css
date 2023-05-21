@@ -1,7 +1,7 @@
 .divHeader {
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  background-color: red;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  background-color: #2962ff;
   /* border-radius: 20px; */
 }
 
@@ -10,5 +10,6 @@
 }
 
 .meCustom {
-  margin-right: 3rem; /* 원하는 간격 값으로 조절하세요. */
+  margin-right: 3rem;
+  /* 원하는 간격 값으로 조절하세요. */
 }

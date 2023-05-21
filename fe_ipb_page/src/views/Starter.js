@@ -8,6 +8,10 @@ import TopCards from "../components/dashboard/TopCards";
 // import bg2 from "../assets/images/bg/bg2.jpg";
 // import bg3 from "../assets/images/bg/bg3.jpg";
 // import bg4 from "../assets/images/bg/bg4.jpg";
+import { useEffect } from "react";
+import { logInState } from "../components/state/loginState";
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { useNavigate } from 'react-router-dom';
 
 
 // 네모 카드로 그림이 나오고 
@@ -47,6 +51,22 @@ import TopCards from "../components/dashboard/TopCards";
 // ];
 
 const Starter = () => {
+
+
+  const navigate = useNavigate();
+  const loginCheck = useRecoilValue(logInState);
+  const [logInData, setLogInData] = useRecoilState(logInState);
+  
+
+  useEffect(() => {
+    console.log("useEffect/logInData", logInData);
+    console.log("useEffect/logInData.isLogin === false", logInData.isLogIn === false);
+    if (logInData.isLogIn === false) {
+      navigate(`/login`);
+    }
+  },[]);
+
+
   return (
     <div>
       {/***Top Cards***/}
