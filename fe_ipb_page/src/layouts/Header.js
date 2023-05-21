@@ -9,6 +9,7 @@ import {
   DropdownMenu,
   DropdownItem,
   Button,
+  Container,
 } from "reactstrap";
 import { Link } from "react-router-dom";
 // import { Icon } from "react-bootstrap-icons";
@@ -28,8 +29,9 @@ const Header = () => {
     // <div className={style.divHeader}>
     // <div className={`${style.divHeader} ${style.navbarCustom} ${style.bgSecondary}`}>
     <div className={`${style.divHeader} ${style.navbarCustom}`}>
+      <Container>
 
-          <Navbar color="primary" dark expand="md" className={"navbar-custom bg-secondary"}>
+      <Navbar color="primary" dark expand="md">
       <div className="d-flex align-items-center">
         <NavbarBrand href="/" className="d-lg-none">
           {/* <LogoWhite /> */}
@@ -167,6 +169,7 @@ const Header = () => {
       </Nav>
       </Collapse>
     </Navbar>
+      </Container>
     </div>
 
   );

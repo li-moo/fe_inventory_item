@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+ import React, { useEffect } from 'react';
 import axios from 'axios';
 import { Button, Form, Input, message} from "antd";
 import { logInState } from '../../state/loginState';
@@ -99,7 +99,7 @@ export default function Login() {
 
   return (
     <div>
-      <Form
+      {/* <Form
         // form={form}
         layout="vertical"
         onFinish={onFinish}
@@ -109,15 +109,45 @@ export default function Login() {
         </Form.Item>
         <Form.Item name="pwd" rules={[{ required: true, message: "비밀번호를 입력해주세요" }]}>
           <Input placeholder="비밀번호" type="password" size="large" />
-        </Form.Item>
+        </Form.Item> */}
         {/* // 버튼에 로딩 기능 추가 할 생각있으면하겠습니다. loading={isLoading} */}
-        <Button size="large" type="primary" htmlType="submit" className="w-full">
+        {/* <Button size="large" type="primary" htmlType="submit" className="w-full">
           로그인
         </Button>
         <a className="inline-block mt-2 text-gray-400">
           비밀번호 찾기
         </a>
-      </Form>
+      </Form> */}
+      <Form
+  // form={form}
+  layout="vertical"
+  onFinish={onFinish}
+  style={{ maxWidth: "60%", minWidth: '300px', margin: "0 auto", paddingTop: '20%' }} // 사이즈 반으로 줄이고 중앙 정렬
+>
+  <h3>삑 그리고 다음</h3>
+  <Form.Item
+    name="login_id"
+    rules={[{ required: true, message: "아이디를 입력해주세요" }]}
+  >
+    <Input size="large" placeholder="아이디" />
+  </Form.Item>
+  <Form.Item
+    name="pwd"
+    rules={[{ required: true, message: "비밀번호를 입력해주세요" }]}
+  >
+    <Input placeholder="비밀번호" type="password" size="large" />
+  </Form.Item>
+  {/* // 버튼에 로딩 기능 추가 할 생각있으면하겠습니다. loading={isLoading} */}
+  <Button
+    size="large"
+    type="primary"
+    htmlType="submit"
+    className="w-full"
+  >
+    로그인
+  </Button>
+  {/* <a className="inline-block mt-2 text-gray-400">비밀번호 찾기</a> */}
+</Form>
 
     </div>
   );
