@@ -8,7 +8,7 @@
   /* padding: 8px; */
   padding: 10px;
   border-bottom: 1px solid #e4e4e4;
-  border-radius: 10px;
+  /* border-radius: 10px; */
 }
 
 .table th {
@@ -35,7 +35,7 @@
   background-color: tomato;
 }
 
-.policyStatement {
+/* .policyStatement {
   display: flex;
   align-items: center;
 }
@@ -48,7 +48,22 @@
 
 .policyStatement > div > p {
   margin-left: 8px;
+} */
+
+.policyStatement {
+  align-items: center;
 }
+
+.policyStatement > div {
+  display: flex;
+  align-items: center;
+
+}
+
+.policyStatement > div > p {
+  margin-left: 8px;
+}
+
 
 .redExp {
   display: inline-block;
@@ -63,7 +78,7 @@
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background-color: yellow;
+  background-color: rgb(255, 234, 0);
 }
 
 .greenExp {
@@ -71,7 +86,7 @@
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background-color: green;
+  background-color: rgb(44, 164, 0);
 }
 
 .blueExp {
@@ -82,3 +97,29 @@
   background-color: blue;
 }
 
+.searchInput {
+  border-radius: 5px;
+  padding: 8px;
+  border: none;
+  /* outline: none; */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  background-repeat: no-repeat;
+  background-position: 95% center;
+  padding-right: 30px; 
+}
+
+.qBtn {
+  display: inline-block;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  background-color: #F0F0F0;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+qBtn:hover {
+  background-color: #E0E0E0;
+}
