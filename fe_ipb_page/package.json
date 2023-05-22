@@ -6,7 +6,7 @@
     "@testing-library/jest-dom": "^5.15.0",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
-    "antd": "^5.4.7",
+    "antd": "^5.5.0",
     "apexcharts": "^3.29.0",
     "axios": "^1.4.0",
     "bootstrap": "^5.1.3",

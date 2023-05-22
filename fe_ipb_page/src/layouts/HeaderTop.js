@@ -22,6 +22,7 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 // import { Navigate } from "react-router-dom";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { message } from "antd";
 
 
 
@@ -44,7 +45,8 @@ const HeaderTop = () => {
       isLogIn: false
     });
     setWeatherData({presentWeather: 'test'});
-    alert("로그아웃에 성공했습니다!");
+    message.info('로그아웃 되었습니다.', 2);
+    //alert("로그아웃에 성공했습니다!");
     navigate(`/login`);
 
   }
