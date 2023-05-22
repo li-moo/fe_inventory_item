@@ -1,10 +1,10 @@
  import React, { useEffect } from 'react';
 import axios from 'axios';
-import { Button, Form, Input, message} from "antd";
+import { Button, Form, Input, message, Alert} from "antd";
 import { logInState } from '../../state/loginState';
 import { weatherState } from '../../state/weatherState';
 import { useRecoilState } from 'recoil';
-import { Alert } from "reactstrap";
+// import { Alert } from "reactstrap";
 import { Navigate, useNavigate } from 'react-router-dom';
 
 export default function Login() {
@@ -76,12 +76,14 @@ export default function Login() {
               area: staff.area,
             })
             console.log("로그인 성공");
-            alert(`${staff.name}님 환영합니다.`);
+            // alert(`${staff.name}님 환영합니다.`);
+            message.success(`${staff.name}님 환영합니다.`, 3);
             // window.location.href = "http://localhost:3000/";
             navigate("/");
             console.log(logInData);
           } else {
             console.log("로그인 실패");
+            message.warning('로그인에 실패 하셨습니다. 다시 시도해주세요.');
           }
         })
       .catch(function (error) {
@@ -122,7 +124,7 @@ export default function Login() {
   // form={form}
   layout="vertical"
   onFinish={onFinish}
-  style={{ maxWidth: "60%", minWidth: '300px', margin: "0 auto", paddingTop: '20%' }} // 사이즈 반으로 줄이고 중앙 정렬
+  style={{ maxWidth: "20%", minWidth: '300px', margin: "0 auto", paddingTop: '20%' }} // 사이즈 반으로 줄이고 중앙 정렬
 >
   <h3>삑 그리고 다음</h3>
   <Form.Item
@@ -137,15 +139,18 @@ export default function Login() {
   >
     <Input placeholder="비밀번호" type="password" size="large" />
   </Form.Item>
-  {/* // 버튼에 로딩 기능 추가 할 생각있으면하겠습니다. loading={isLoading} */}
+
   <Button
     size="large"
     type="primary"
     htmlType="submit"
     className="w-full"
+    style={{ maxWidth: "800px", minWidth: '300px' }}
   >
     로그인
   </Button>
+  {/* // 버튼에 로딩 기능 추가 할 생각있으면하겠습니다. loading={isLoading} */}
+
   {/* <a className="inline-block mt-2 text-gray-400">비밀번호 찾기</a> */}
 </Form>
 
