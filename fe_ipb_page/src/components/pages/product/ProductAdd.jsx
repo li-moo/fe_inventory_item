@@ -5,8 +5,8 @@ import axios from 'axios';
 function ProductAdd() {
 
   const onFinish = (values) => {
-    // const url_be = "http://localhost:8080/product/add";
-    const url_be = "http://43.202.9.215:8080/product/add";
+    const url_be = "http://localhost:8080/product/add";
+    // const url_be = "http://43.202.9.215:8080/product/add";
 
     axios(url_be,
       {

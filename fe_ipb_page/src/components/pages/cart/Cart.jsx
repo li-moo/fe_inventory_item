@@ -34,8 +34,8 @@ function Cart(props) {
     console.log("storeId : " + storeId);
 
     try {
-      // const response = await axios.get(`http://localhost:8080/cart/cartlist/${storeId}`);
-      const response = await axios.get(`http://43.202.9.215:8080/cart/cartlist/${storeId}`);
+      const response = await axios.get(`http://localhost:8080/cart/cartlist/${storeId}`);
+      // const response = await axios.get(`http://43.202.9.215:8080/cart/cartlist/${storeId}`);
       // console.log("response : " + JSON.stringify(response));
       const data = response["data"];
       console.log("[GET] cartList/data: ", data);
@@ -61,8 +61,8 @@ function Cart(props) {
 
     const handleDeleteCart = async (id) => {
       try {
-        // await fetch(`http://localhost:8080/cart/delete/${id}`, {
-          await fetch(`http://43.202.9.215:8080/cart/delete/${id}`, {
+        await fetch(`http://localhost:8080/cart/delete/${id}`, {
+          // await fetch(`http://43.202.9.215:8080/cart/delete/${id}`, {
           method: 'DELETE',
         });
         // message.success('상품이 삭제되었습니다.');

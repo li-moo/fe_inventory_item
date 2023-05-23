@@ -17,8 +17,8 @@ function ProductDetail() {
 
   useEffect(() => {
     console.log(id);
-    // fetch(`http://localhost:8080/product/detail?id=${id}`)
-    fetch(`http://43.202.9.215:8080/product/detail?id=${id}`)
+    fetch(`http://localhost:8080/product/detail?id=${id}`)
+    // fetch(`http://43.202.9.215:8080/product/detail?id=${id}`)
       .then(res => res.json())
       .then(data => {
         console.log("product-detail data:", data);

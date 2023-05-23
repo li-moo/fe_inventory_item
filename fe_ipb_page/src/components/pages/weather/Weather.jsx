@@ -1,7 +1,7 @@
 import { useRecoilValue } from 'recoil';
 import { logInState } from '../../state/loginState';
 import { weatherState } from '../../state/weatherState';
-import React, {  useEffect } from 'react';
+import React, {  useState, useEffect } from 'react';
 import { Divider } from "antd"; 
 import { useRecoilState } from 'recoil';
 
@@ -21,8 +21,9 @@ export default function Weather() {
       // const response = await fetch(`http://localhost:8080/staff/weather?area=${area}`, {
       // const response = await fetch(`http://localhost:8080/staff/weather?area=${logInState.area}`, {
       // const response = await fetch(`http://localhost:8080/staff/weather?area=busan`, {
-      // const response = await fetch(`http://localhost:8080/staff/weather`, {
-        const response = await fetch(`http://43.202.9.215:8080/staff/weather`, {
+      const response = await fetch(`http://localhost:8080/staff/weather`, {
+
+        // const response = await fetch(`http://43.202.9.215:8080/staff/weather`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -46,11 +47,27 @@ export default function Weather() {
     }
   };
 
+  //
+  const [currentDate, setCurrentDate] = useState(new Date());
+
+  useEffect(() => {
+    // 1초마다 현재 날짜와 시간을 업데이트
+    const interval = setInterval(() => {
+      setCurrentDate(new Date());
+    }, 1000);
+
+    // 컴포넌트가 언마운트될 때 interval 정리
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
+  //
+
 
   return(
     <>
     <div>
-      <h3>날씨 정보</h3>
+      <h2>날씨 정보</h2>
       <Divider />
       <p>{logInData.name}님 안녕하세욤!</p>
       <p>현재 지역: {logInData.area}</p>
@@ -61,6 +78,12 @@ export default function Weather() {
             <div>ID: {weather.id}</div>
           </div>
         ))} */}
+    </div>
+    <div>
+      <h2>오늘 날짜 시간</h2>
+      <Divider />
+      <p>{currentDate.toLocaleDateString()}</p>
+      <p>{currentDate.toLocaleTimeString()}</p>
     </div>
     </>
   );

@@ -20,8 +20,8 @@ function StaffList() {
 
   const fetchData = async () => {
     try {
-      // const response = await fetch('http://localhost:8080/staff/list');
-      const response = await fetch('http://43.202.9.215:8080/staff/list');
+      const response = await fetch('http://localhost:8080/staff/list');
+      // const response = await fetch('http://43.202.9.215:8080/staff/list');
       const data = await response.json();
       setstaffData(data);
       setFilteredData(data);

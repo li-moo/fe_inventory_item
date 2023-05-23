@@ -10,7 +10,8 @@ function OrderProductList(props) {
     fetchData();
   }, []);
 
-  const url_be = "http://43.202.9.215:8080/product/list";
+  // const url_be = "http://43.202.9.215:8080/product/list";
+  const url_be = "http://localhost:8080/product/list";
 
   /* before */
   // const fetchData = async () => {
@@ -87,8 +88,8 @@ function OrderProductList(props) {
   console.log("storeId : " + storeId);
 
   const handleAddCart = (id) => {
-    // const url_be = "http://localhost:8080/cart/add";
-    const url_be = "http://43.202.9.215:8080/cart/add";
+    const url_be = "http://localhost:8080/cart/add";
+    // const url_be = "http://43.202.9.215:8080/cart/add";
 
     axios(url_be,
       {
