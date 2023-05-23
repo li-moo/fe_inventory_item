@@ -114,12 +114,13 @@
   border-radius: 50%;
   width: 15px;
   height: 15px;
-  background-color: #F0F0F0;
+  background-color: #dadbe6;
   border: none;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 11px;
+  font-weight: 500;
 }
 
-qBtn:hover {
-  background-color: #E0E0E0;
+.qBtn:hover {
+  border: 0.5px solid rgb(202, 202, 202);
 }
