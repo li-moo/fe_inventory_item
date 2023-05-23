@@ -1,4 +1,4 @@
-import React , {useEffect} from 'react';
+import React , { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import {
   Navbar,
@@ -23,6 +23,18 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { message } from "antd";
+import  style from "./HeaderTop.module.css"
+import { 
+  RiLogoutBoxRLine, 
+  RiSunFill, 
+  RiSunCloudyFill, 
+  RiHeavyShowersLine, 
+  RiFlashlightFill,
+  RiHome4Line
+} from "react-icons/ri";
+import { HiOutlineBell } from "react-icons/hi";
+import todayData from '../components/globalFunction/todayData';
+import CurrentDate from '../components/globalFunction/CurrentDate';
 
 
 
@@ -44,23 +56,28 @@ const HeaderTop = () => {
     setLogInData({
       isLogIn: false
     });
-    setWeatherData({presentWeather: 'test'});
+    setWeatherData({presentWeather: 'CLear'});
     message.info('로그아웃 되었습니다.', 2);
     //alert("로그아웃에 성공했습니다!");
     navigate(`/login`);
 
   }
 
+  const getTodayData = todayData(); // 오늘 날짜를 받아온다 20203-05-23
+  // console.log("todayData", getTodayData)
+
+
   const [logInData, setLogInData] = useRecoilState(logInState);
   const [weatherData, setWeatherData] = useRecoilState(weatherState);
   const loginCheck = useRecoilValue(logInState);
+  // const [isLogin, setIsLogin] = React.useState(logInData.isLogIn);
   const [isLogin, setIsLogin] = React.useState(logInData.isLogIn);
-
+  
     const onFinish = (values) => {
 
       // const url_be = "http://localhost:8080/api/v1/staff/login";
-      // const url_be = "http://localhost:8080/staff/login";
-      const url_be = "http://http://43.202.9.215:8080/staff/login";
+      const url_be = "http://localhost:8080/staff/login";
+      // const url_be = "http://http://43.202.9.215:8080/staff/login";
 
       axios
       (url_be,
@@ -114,7 +131,7 @@ const HeaderTop = () => {
       console.log(values.pwd);
       console.log("state확인용");
       console.log(logInData);
-      console.log("1111", weatherData);
+      console.log("1111weatherData", weatherData);
     };
   //
   console.log("logInData.isLogIn", logInData.isLogIn);
@@ -153,8 +170,8 @@ const HeaderTop = () => {
   ////
   const getWeatherInfo = async () => {
     try { 
-      // const response = await fetch(`http://localhost:8080/staff/weather`, {
-        const response = await fetch(`http://43.202.9.215:8080/staff/weather`, {
+      const response = await fetch(`http://localhost:8080/staff/weather`, {
+        // const response = await fetch(`http://43.202.9.215:8080/staff/weather`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -167,13 +184,11 @@ const HeaderTop = () => {
       const data = await response.json();
       console.log("data: ", data);
       setWeatherData(data);
+      console.log(">>/>>/weatherDatadata.presentWeather: ", weatherData.presentWeather);
     } catch (error) {
       console.error(error);
     }
   };
-
-  ////
-
 
   return (
     <Navbar color="primary" dark expand="md" className={"navbar-custom bg-secondary"} >
@@ -189,6 +204,7 @@ const HeaderTop = () => {
           <i className="bi bi-list"></i>
         </Button> */}
       </div>
+
       <div className="hstack gap-2">
         <Button
           color="dark"
@@ -206,30 +222,59 @@ const HeaderTop = () => {
 
       <Collapse navbar isOpen={isOpen}>
         <Nav className="me-auto" navbar>
+          <div className={style.leftTab}>
+            <NavItem>
+              <Link to="/starter" className="nav-link">
+                {/* {logInData.store_name} */}
+                <RiHome4Line />
+              </Link>
+            </NavItem>
+            <NavItem>
+              <Link to="/weather" className={`nav-link`} >
+                <div className={style.leftTabTab}>
+                <p>{getTodayData}</p>
+                <p><CurrentDate /></p>
+                <p>
+                  {weatherData.presentWeather === "Clear" && <RiSunFill />}
+                  {weatherData.presentWeather === "Rain" && <RiHeavyShowersLine />}
+                  {weatherData.presentWeather === "Clouds" && <RiSunCloudyFill />}
+                  {weatherData.presentWeather === "Thunderstorm" && <RiFlashlightFill />}
+                  {weatherData.presentWeather === "Mist" && <RiFlashlightFill />}
+                </p>
+                </div>
+              </Link>
+            </NavItem>
+          </div>
+
+          <div className={style.rightTab}>
+          <NavItem>
+          <Link to="/starter" className="nav-link">
+          {logInData.store_name}
+            </Link>
+          </NavItem>
+
           <NavItem>
             <Link to="/starter" className="nav-link">
-              점포: {logInData.store_name}
+              <HiOutlineBell /> 
             </Link>
           </NavItem>
-          <NavItem>
-            <Link to="/weather" className="nav-link">
-            날씨: {weatherData.presentWeather}
-            </Link>
-          </NavItem>
-          {/* // 아이디 패스워드가 부정확해도 로그아웃이 뜨는 문제  */}
+
           <NavItem>
             {
             logInData.isLogIn ?   
-              <p className="nav-link" onClick={logOut}>로그아웃</p>
+              <p className="nav-link" onClick={logOut}>
+                <RiLogoutBoxRLine 
+                  // style={{ color: 'white', size: '50px' }}
+                />
+              </p>
             : 
               <Link to="/login" className="nav-link">로그인</Link>      
             }
           </NavItem>
+          </div>
         </Nav>
-        <div>
-          <p style={{color: 'white'}}>{logInData.name}님 안녕하세요!</p>
-        </div>
-        <Dropdown isOpen={dropdownOpen} toggle={toggle}>
+
+        {/* <Dropdown isOpen={dropdownOpen} toggle={toggle}>
           <DropdownToggle color="dark">
             <img
               src={user05}
@@ -240,18 +285,16 @@ const HeaderTop = () => {
           </DropdownToggle>
           <DropdownMenu>
             <DropdownItem header>Info</DropdownItem>
-            <DropdownItem>My Account</DropdownItem>
-            <DropdownItem>Edit Profile</DropdownItem>
             <DropdownItem divider />
             <DropdownItem><Link to="/staff">Staff</Link></DropdownItem>
             <DropdownItem>Inbox</DropdownItem>
             <DropdownItem></DropdownItem>
           </DropdownMenu>
-        </Dropdown>
+        </Dropdown> */}
+
       </Collapse>
     </Navbar>
   );
 };
-
 
 export default HeaderTop;

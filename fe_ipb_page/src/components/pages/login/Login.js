@@ -20,8 +20,8 @@ export default function Login() {
 
   const getWeatherInfo = async () => {
     try { 
-      // const response = await fetch(`http://localhost:8080/staff/weather`, {
-      const response = await fetch(`http://43.202.9.215:8080/staff/weather`, {
+      const response = await fetch(`http://localhost:8080/staff/weather`, {
+      // const response = await fetch(`http://43.202.9.215:8080/staff/weather`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -32,7 +32,7 @@ export default function Login() {
         })
       }); 
       const data = await response.json();
-      console.log("data: ", data);
+      console.log("login/getWeaterInfo -> data: ", data);
       setWeatherData(data);
     } catch (error) {
       console.error(error);
@@ -42,8 +42,8 @@ export default function Login() {
 
     const onFinish = (values) => {
 
-      // const url_be = "http://localhost:8080/staff/login";
-      const url_be = "http://43.202.9.215:8080/staff/login";
+      const url_be = "http://localhost:8080/staff/login";
+      // const url_be = "http://43.202.9.215:8080/staff/login";
 
       axios
       (url_be,

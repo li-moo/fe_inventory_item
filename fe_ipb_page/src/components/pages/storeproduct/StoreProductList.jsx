@@ -34,9 +34,9 @@ function StoreProductList() {
     console.log(">>. logInData.store_id : " + logInData.store_id);
 
     try {
-      // const response = await fetch(`http://localhost:8080/storeproduct/list/${storeId}`);
+      const response = await fetch(`http://localhost:8080/storeproduct/list/${logInData.store_id}`);
       // const response = await fetch(`http://43.202.9.215:8080/storeproduct/list/${storeId}`);
-      const response = await fetch(`http://43.202.9.215:8080/storeproduct/list/${logInData.store_id}`);
+      // const response = await fetch(`http://43.202.9.215:8080/storeproduct/list/${logInData.store_id}`);
       const data = await response.json();
       setStoreProductData(data);
       console.log(data);

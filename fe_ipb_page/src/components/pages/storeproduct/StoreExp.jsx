@@ -62,7 +62,10 @@ function StoreExp() {
     fetchData();
   }, []);
 
-  const url_be = `http://43.202.9.215:8080/storeproduct/list/${logInData.store_id}`;
+  
+
+  const url_be = `http://localhost:8080/storeproduct/list/${logInData.store_id}`;
+  // const url_be = `http://43.202.9.215:8080/storeproduct/list/${logInData.store_id}`;
 
   const fetchData = () => {
     axios(url_be, {
