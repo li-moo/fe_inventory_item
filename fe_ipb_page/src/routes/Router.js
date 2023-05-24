@@ -96,6 +96,7 @@ const StoreDetail = lazy(() => import("../components/pages/store/StoreDetail.jsx
 const StoreSales = lazy(() => import("../components/pages/sales/StoreSales.jsx"))
 const StoreSalesListCategory = lazy(() => import("../components/pages/sales/StoreSalesListCategory.jsx"))
 const Board = lazy(() => import("../components/pages/board/Board.jsx"))
+const HeadOfficeBoard = lazy(() => import("../components/pages/board/HeadOfficeBoard.jsx"))
 const BoardAdd = lazy(() => import("../components/pages/board/BoardAdd.jsx"))
 const EventAdd = lazy(() => import("../components/pages/event/EventAdd.jsx"))
 const EventList = lazy(() => import("../components/pages/event/EventList.jsx"))
@@ -129,6 +130,7 @@ const ThemeRoutes = [
       { path: "/sales/listbystore", exact: true, element: <StoreSales /> },
       { path: "/sales/listbystore/category", exact: true, element: <StoreSalesListCategory /> },
       { path: "/board", exact: true, element: <Board />} ,
+      { path: "/headOffice/board", exact: true, element: <HeadOfficeBoard />} ,
       { path: "/board/add", exact: true, element: <BoardAdd/>} ,
       { path: "/event/eventadd", exact: true, element: <EventAdd/>} ,
       { path: "/event/eventlist", exact: true, element: <EventList/>} ,

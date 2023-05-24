@@ -12,7 +12,6 @@ const { Search } = Input;
 function StoreExp() {
   const [storeProductData, setStoreProductData] = useState([]);
   const [logInData, setLogInData] = useRecoilState(logInState);
-  const [additionalData, setAdditionalData] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
 
   const today = new Date();
@@ -33,6 +32,7 @@ function StoreExp() {
       content: (
         <div>
           <p>오늘 날짜는 {todayDate} 입니다. </p>
+          <p>매일매일 확인해서 신선식품들을 관리 해주세요 </p>
           <div className={styles.policyStatement}>
         <div>
           <p className={styles.redExp}></p>
@@ -101,6 +101,8 @@ function StoreExp() {
     return new Date(a.exp) - new Date(b.exp);
   });
 
+  // console.log("sortedProductssortedProducts>>",sortedProducts);
+
   return (
     <>
         <div>
@@ -132,7 +134,6 @@ function StoreExp() {
             <th>재고</th>
             <th>판매가</th>
             <th>유통기한</th>
-            <th>제조사</th>
             {/* <th>유통기한연산</th>
             <th>유통기한연산CSS</th> */}
           </tr>
@@ -145,7 +146,10 @@ function StoreExp() {
                 <tr key={item.id}>
                   <td>{item.product_code}</td>
                   <td>
-                    <Link to={`/product/detail/${item.id}`}>{item.product_name}</Link>
+                    <Link to={`/product/detail/${item.id}`}>
+                      ({item.brand})
+                      {item.product_name}
+                      </Link>
                   </td>
                   <td>{item.qnt}</td>
                   <td>{item.price}</td>
@@ -159,7 +163,6 @@ function StoreExp() {
                       {item.exp}
                     </div>
                   </td>
-                  <td>{item.brand}</td>
                   {/* <td>{item.addData}</td> */}
                   {/* <td>
                     {item.addData <= -1 && <p className={styles.redExp}></p>}
@@ -182,4 +185,3 @@ function StoreExp() {
 }
 
 export default StoreExp;
-
