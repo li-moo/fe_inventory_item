@@ -6,7 +6,7 @@ import { logInState } from "../../state/loginState";
 
 const { Search } = Input;
 
-function BoardList() {
+function BoardListStore() {
   const [boardData, setBoardData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [logInData, setLogInData] = useRecoilState(logInState);
@@ -37,11 +37,11 @@ function BoardList() {
       key: 'title',
       render: (text, record) => <Link to={`/board/${record.id}`}>{text}</Link>,
     },
-    {
-      title: '내용',
-      dataIndex: 'body_text',
-      key: 'body_text',
-    },
+    // {
+    //   title: '내용',
+    //   dataIndex: 'body_text',
+    //   key: 'body_text',
+    // },
     {
       title: '작성자',
       dataIndex: 'name',
@@ -64,11 +64,11 @@ function BoardList() {
           onSearch={handleSearch}
           style={{ width: 200 }}
         />
-          {logInData.name && (
+          {/* {logInData.name && (
             <Button type="primary">
                 <Link to="/board/add">글쓰기</Link>
             </Button>
-          )}
+          )} */}
 
       </div>
       <Table dataSource={filteredData} columns={columns} />
@@ -76,4 +76,4 @@ function BoardList() {
   );
 }
 
-export default BoardList;
+export default BoardListStore;

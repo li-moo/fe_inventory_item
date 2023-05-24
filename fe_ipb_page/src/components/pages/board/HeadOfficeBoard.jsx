@@ -1,19 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import BoardList from './BoardListStore';
-import BoardListStore from './BoardListStore';
+import BoardList from './BoardList';
 
 
-function Board() {
+function HeadOfficeBoard() {
 
   return (
     <>
     <h2>자유 게시판</h2>
-    <BoardListStore />
+    <BoardList />
     </>
   );
 }
 
-export default Board;
+export default HeadOfficeBoard;
 
 
 // react-router-dom 라이브러리를 사용하여 페이지 라우팅을 구현하면 됩니다.

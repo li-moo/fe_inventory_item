@@ -116,8 +116,13 @@ function Cart(props) {
       //   </Space>
       // ),
     },
+    // {
+    //   title: 'Orders',
+    //   dataIndex: 'orders',
+    //   width: 50,
+    // },
     {
-      title: '',
+      title: '{<Button />}',
       dataIndex: 'id',
       render: (id) => (
         <Popconfirm

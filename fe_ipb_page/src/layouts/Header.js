@@ -147,7 +147,10 @@ const Header = () => {
             </DropdownToggle>
             <DropdownMenu end>
               <DropdownItem>
-              <Link to="/board">본사 - 게시판 </Link>
+              <Link to="/headOffice/board">본사 - 게시판 </Link>
+              </DropdownItem>
+              <DropdownItem>
+              <Link to="/board">점포 - 게시판 </Link>
               </DropdownItem>
               <DropdownItem>Option 2</DropdownItem>
               <DropdownItem divider />

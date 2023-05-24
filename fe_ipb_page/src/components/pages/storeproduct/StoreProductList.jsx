@@ -1,106 +1,194 @@
 import React, { useState, useEffect } from 'react';
-import { Table, Popconfirm, message, Divider, Button } from 'antd';
 import { Link } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import { logInState } from '../../state/loginState';
+import axios from 'axios';
+import styles from './StoreProductList.module.css';
+import { Divider, Input, Modal } from 'antd';
+import { SearchOutlined } from '@ant-design/icons';
+
+const { Search } = Input;
 
 function StoreProductList() {
-
   const [storeProductData, setStoreProductData] = useState([]);
+  const [filteredProductData, setFilteredProductData] = useState([]);
   const [logInData, setLogInData] = useRecoilState(logInState);
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     fetchData();
   }, []);
 
-  const fetchData = async () => {
-    // Local Storage에서 logInState 객체 가져오기, 키 값을 입력해줘야 함
-    // localStorageString는 String 타입입니다
-    const localStorageString = localStorage.getItem('recoil-persist');
-    console.log(localStorageString);
+  //검색
+  const handleSearch = (value) => {
+    console.log(value);
+    setSearchTerm(value);
+  };
 
-    // localStorageString 문자열을 JavaScript 객체로 변환
-    const localStorageobj = JSON.parse(localStorageString);
-    console.log("localStorage : " + localStorageobj);
 
-    // localStorageobj 객체에서 logInState 객체를 꺼냅니다
-    const logInStateObj = localStorageobj["logInState"];
-    console.log("logInState : " + logInStateObj);
+  // const filteredProducts = storeProductData.filter((item) =>
+  // item.product_name.toLowerCase().includes(searchTerm.toLowerCase())
+  // );
+  // const filteredProductData = storeProductData.filter((item) =>
+  // item.product_name.toLowerCase().includes(searchTerm.toLowerCase())
+  // );
+//
 
-    // logInState 객체의 점포아이디 값을 가져옵니다
-    const storeId = logInStateObj["store_id"]
-    console.log("storeId : " + storeId);
+  const filteredProducts = filteredProductData.filter((item) =>
+  item.product_name.toLowerCase().includes(searchTerm.toLowerCase())
+   );
+   console.log("filteredProductData>>>", filteredProductData);
+   console.log("filteredProducts>>>", filteredProducts);
 
-    console.log(">>. logInData.store_id : " + logInData.store_id);
+  const url_be = `http://localhost:8080/storeproduct/list/${logInData.store_id}`;
 
-    try {
-      const response = await fetch(`http://localhost:8080/storeproduct/list/${logInData.store_id}`);
-      // const response = await fetch(`http://43.202.9.215:8080/storeproduct/list/${storeId}`);
-      // const response = await fetch(`http://43.202.9.215:8080/storeproduct/list/${logInData.store_id}`);
-      const data = await response.json();
-      setStoreProductData(data);
-      console.log(data);
-      console.log(">>>>>.. storeProductData", storeProductData);
-    } catch (error) {
-      console.error(error);
+  const fetchData = () => {
+    axios
+      .get(url_be)
+      .then((res) => {
+        console.log("res:", res);
+        console.log("storeProdutList=>res.data:", res.data);
+        setStoreProductData(res.data);
+        setFilteredProductData(res.data);
+      })
+      .catch((err) => console.log("storeProdutList/err", err));
+  };
+
+  const handleCategoryChange = (e) => {
+    const selectedCategory = e.target.value;
+    if (selectedCategory === "") {
+      setFilteredProductData(storeProductData);
+    } else {
+      const filteredData = storeProductData.filter(
+        (item) => item.category_name === selectedCategory
+      );
+      setFilteredProductData(filteredData);
+    }
+  };
+  const handleStorageChange = (e) => {
+    const selectedStorage = e.target.value;
+    if (selectedStorage === "") {
+      setFilteredProductData(storeProductData);
+    } else {
+      const filteredData = storeProductData.filter(
+        (item) => item.storage === selectedStorage
+      );
+      setFilteredProductData(filteredData);
     }
   };
 
-  // const handleAddCart = async (id) => {
-  //   try {
-  //     await fetch(`http://localhost:8080/product/delete/${id}`, {
-  //       method: 'DELETE',
-  //     });
-  //     message.success('상품이 삭제되었습니다.');
-  //     fetchData();
-  //   } catch (error) {
-  //     console.error(error);
-  //     message.error('상품 삭제에 실패하였습니다.');
-  //   }
-  // };
-
-  const columns = [
-    {
-      title: 'ID',
-      dataIndex: 'id',
-      key: 'id',
-    },
-    {
-      title: '이름',
-      dataIndex: 'product_name',
-      sorter: (a, b) => a.product_name.localeCompare(b.product_name),
-      render: (text, record) => (
-        <Link to={`/product/detail/${record.id}`} key={record.id}>{text}</Link>
-      ),
-    },
-    {
-      title: '재고',
-      dataIndex: 'qnt',
-      defaultSortOrder: 'descend',
-      sorter: (a, b) => a.qnt - b.qnt,
-    },
-    {
-      title: '가격',
-      dataIndex: 'product_price',
-    },
-    {
-      title: '유통기한',
-      dataIndex: 'exp',
-      sorter: (a, b) => a.exp.localeCompare(b.exp),
-    },
-  ];
-
-
   return (
     <>
-      <Table 
-        dataSource={storeProductData.map((item) => ({ ...item, key: item.id }))} 
-        columns={columns}
-        scroll={{y:450,}}
-        pagination={{pageSize: 5000,}} 
+      <div>
+        <h2>재고 관리</h2>
+      </div>
+      <div className={styles.schSel}>
+      <select name="productCategory" onChange={handleCategoryChange} className={styles.selectBox}>
+          <option value="">카테고리</option>
+          {storeProductData
+            .reduce((uniqueCategories, product) => {
+              if (!uniqueCategories.includes(product.category_name)) {
+                uniqueCategories.push(product.category_name);
+              }
+              return uniqueCategories;
+            }, [])
+            .map((category, index) => (
+              <option key={index} value={category}>
+                {category}
+              </option>
+            ))}
+        </select>
+        <select name="productStorage" onChange={handleStorageChange} className={styles.selectBox}>
+          <option value="">보관방법</option>
+          {storeProductData
+            .reduce((uniqueCategories, product) => {
+              if (!uniqueCategories.includes(product.storage)) {
+                uniqueCategories.push(product.storage);
+              }
+              return uniqueCategories;
+            }, [])
+            .map((storage, index) => (
+              <option key={index} value={storage}>
+                {storage}
+              </option>
+            ))}
+        </select>
+      <Search
+        value={searchTerm}
+        onChange={(e) => handleSearch(e.target.value)}
+        placeholder="상품 이름으로 검색"
+        enterButton={<SearchOutlined />}
+        className={styles.searchInput}
       />
+        {/* <select name="productCategory" onChange={handleCategoryChange}>
+          <option value="">전체</option>
+          {storeProductData
+            .reduce((uniqueCategories, product) => {
+              if (!uniqueCategories.includes(product.category_name)) {
+                uniqueCategories.push(product.category_name);
+              }
+              return uniqueCategories;
+            }, [])
+            .map((category, index) => (
+              <option key={index} value={category}>
+                {category}
+              </option>
+            ))}
+        </select>
+        <select name="productStorage" onChange={handleStorageChange}>
+          <option value="">전체</option>
+          {storeProductData
+            .reduce((uniqueCategories, product) => {
+              if (!uniqueCategories.includes(product.storage)) {
+                uniqueCategories.push(product.storage);
+              }
+              return uniqueCategories;
+            }, [])
+            .map((storage, index) => (
+              <option key={index} value={storage}>
+                {storage}
+              </option>
+            ))}
+        </select> */}
+      </div>
+
+      <table className={styles.table}>
+        <thead>
+          <tr>
+            <th>자동발주</th>
+            <th>SKU</th>
+            <th>상품 이름</th>
+            <th>재고</th>
+            <th>판매가</th>
+            <th>유통기한</th>
+            <th>보관방법</th>
+          </tr>
+        </thead>
+        <tbody>
+          {/* {sortedProducts.map((item) => ( */}
+          { filteredProductData && filteredProducts.map((item) => (
+   
+            <tr key={item.id}>
+              <td>-</td>
+              <td>{item.product_code}</td>
+              <td>
+                <Link to={`/product/detail/${item.id}`}>
+                  ({item.brand})
+                  {item.product_name}
+                </Link>
+              </td>
+              <td>{item.qnt}</td>
+              <td>{item.price}</td>
+              <td>{item.exp}</td>
+              <td>{item.storage}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </>
   );
 }
 
 export default StoreProductList;
+
+
