@@ -1,0 +1,113 @@
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.table th,
+.table td {
+  /* padding: 8px; */
+  padding: 10px;
+  border-bottom: 1px solid #e4e4e4;
+  /* border-radius: 10px; */
+}
+
+.table th {
+  background-color: #FFFFFF;
+  font-weight: bold;
+  padding: 18px;
+}
+
+.table th:first-child,
+.table td:first-child {
+  text-align: center;
+  width: 10px;
+}
+
+.table th:last-child,
+.table td:last-child {
+  text-align: right;
+}
+
+.table tbody tr:hover {
+  background-color: #FAFAFA;
+}
+
+.exp-column {
+  background-color: tomato;
+}
+
+.policyStatement {
+  align-items: center;
+}
+
+.policyStatement > div {
+  display: flex;
+  align-items: center;
+
+}
+
+.policyStatement > div > p {
+  margin-left: 8px;
+}
+
+
+.redExp {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: red;
+}
+
+.yellowExp {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgb(255, 234, 0);
+}
+
+.greenExp {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgb(44, 164, 0);
+}
+
+.blueExp {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: blue;
+}
+
+.searchInput {
+  border-radius: 5px;
+  padding: 8px;
+  border: none;
+  /* outline: none; */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  background-repeat: no-repeat;
+  background-position: 95% center;
+  padding-right: 30px; 
+}
+
+.qBtn {
+  display: inline-block;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  background-color: #dadbe6;
+  border: none;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.qBtn:hover {
+  border: 0.5px solid rgb(202, 202, 202);
+}
