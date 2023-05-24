@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { AiOutlineShoppingCart } from 'react-icons/ai'; // Replace 'AiOutlineShoppingCart' with the desired icon from react-icons
 
 
-function OrderList() {
+function HeadOfficeOrderList() {
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedTrackingNumber, setSelectedTrackingNumber] = useState(null);
   const [selectedDates, setSelectedDates] = useState([]);
@@ -223,4 +223,4 @@ const handleSearchButtonClick = () => {
       );
     }
     
-    export default OrderList;
+    export default HeadOfficeOrderList;

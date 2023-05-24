@@ -49,7 +49,7 @@ function Order() {
     <>
     <h4>발주하기</h4>
       <Divider />
-      <Container>
+
       <Row>
         <Col sm={8} className="bg-gray-300">
           <OrderProductList 
@@ -64,7 +64,7 @@ function Order() {
           />
         </Col>
       </Row>
-</Container>
+
     </>
   );
 }
