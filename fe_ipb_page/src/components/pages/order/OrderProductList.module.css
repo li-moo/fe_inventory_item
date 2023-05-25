@@ -18,7 +18,9 @@
 .table th {
   background-color: #FFFFFF;
   font-weight: bold;
-  padding: 18px;
+  /* padding: 18px; */
+  padding-top: 12px;
+  padding-bottom: 12px;
   font-size: 13px;
 }
 
