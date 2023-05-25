@@ -174,10 +174,9 @@ function OrderProductList(props) {
   const [productData, setProductData] = useState([]);
   const [logInData, setLogInData] = useRecoilState(logInState);
   const [storeProductData, setStoreProductData] = useState([]);
+  const [qntStoreProductData, setQntStoreProductData] = useState([]);
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+  let dataList = [];
 
   console.log("-->> storeProductData.map.qnt", storeProductData.map.qnt);
 
@@ -210,7 +209,7 @@ function OrderProductList(props) {
   const url_be_stp = `http://localhost:8080/storeproduct/list/${logInData.store_id}`;
 
   useEffect(() => {
-
+    fetchData();
     const getStoreProduct = async () => {
       console.log("[logInData.store_id]: ", logInData.store_id);
       try {
@@ -218,14 +217,19 @@ function OrderProductList(props) {
           .get(url_be_stp);
         console.log("getStoreProduct/res:", res);
         console.log("getStoreProduct/storeProdutList=>res.data:", res.data);
-        console.log("set전 getStoreProduct/storeProductData:", storeProductData);
+        console.log("productData: ", productData);
         setStoreProductData(res.data);
-        console.log("set후 getStoreProduct/storeProductData:", storeProductData);
-        console.log("set후 getStoreProduct/storeProductData.qnt:", storeProductData.qnt);
+
+        const dataList = res.data.map((item, index) => ({
+          ...productData[index],
+          currentQnt: item.qnt,
+        }));
+        setQntStoreProductData(dataList);
+
         const storeProductQntColumn = res.data.map(item => item.qnt);
         console.log("storeProductQntColumn:", storeProductQntColumn);
         // return storeProductQntColumn;
-        return Promise.resolve(storeProductQntColumn);
+        return storeProductQntColumn;
       } catch (err) {
         return console.log("storeProdutList/err", err);
       }
@@ -360,51 +364,51 @@ function OrderProductList(props) {
           pagination={{ pageSize: 5000, }}
         /> */}
 
-        
-      <table className={styles.table}>
-        <thead>
-          <tr>
-            <th>SKU</th>
-            <th>상품 이름</th>
-            <th>본사재고</th>
-            <th>현재고</th>
-            <th>매입가</th>
-            <th>판매가</th>
-            <th>카트담기버튼</th>
-          </tr>
-        </thead>
-        <tbody>
-          {/* {sortedProducts.map((item) => ( */}
-          { productData && productData.map((item) => (
-   
-            <tr key={item.id}>
-              <td>{item.product_code}</td>
-              <td>
-                <Link to={`/product/detail/${item.id}`}>
-                  ({item.brand})
-                  {item.name}
-                </Link>
-              </td>
-              <td>{item.qnt}</td>
-              <td>현재고 넣기</td>
-              <td>{item.cost}</td>
-              <td>{item.price}</td>
-              <td>
-              <Popconfirm
-                title="장바구니에 상품을 담으시겠습니까??"
-                onConfirm={() => handleAddCart(item.id)}
-                okText="네"
-                cancelText="아니오"
-              >
-                <Button>
-                  <a>상품담기</a>
-                </Button>
-              </Popconfirm>
-              </td>
+
+        <table className={styles.table}>
+          <thead>
+            <tr>
+              <th>SKU</th>
+              <th>상품 이름</th>
+              <th>본사재고</th>
+              <th>현재고</th>
+              <th>매입가</th>
+              <th>판매가</th>
+              <th>카트담기버튼</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {/* {sortedProducts.map((item) => ( */}
+            {qntStoreProductData && qntStoreProductData.map((item) => (
+
+              <tr key={item.id}>
+                <td>{item.product_code}</td>
+                <td>
+                  <Link to={`/product/detail/${item.id}`}>
+                    ({item.brand})
+                    {item.name}
+                  </Link>
+                </td>
+                <td>{item.qnt}</td>
+                <td>{item.currentQnt}</td>
+                <td>{item.cost}</td>
+                <td>{item.price}</td>
+                <td>
+                  <Popconfirm
+                    title="장바구니에 상품을 담으시겠습니까??"
+                    onConfirm={() => handleAddCart(item.id)}
+                    okText="네"
+                    cancelText="아니오"
+                  >
+                    <Button>
+                      <a>상품담기</a>
+                    </Button>
+                  </Popconfirm>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </>
     </>
   );
