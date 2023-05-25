@@ -34,26 +34,26 @@ function StoreExp() {
           <p>오늘 날짜는 {todayDate} 입니다. </p>
           <p>매일매일 확인해서 신선식품들을 관리 해주세요 </p>
           <div className={styles.policyStatement}>
-        <div>
-          <p className={styles.redExp}></p>
-          <p>: 유통기한 지남</p>
-        </div>
-        <div>
-          <p className={styles.yellowExp}></p>
-          <p>: D-3</p>
-        </div>
-        <div>
-          <p className={styles.greenExp}></p>
-          <p>: D-5</p>
-        </div>
-        <div>
-          <p className={styles.blueExp}></p>
-          <p>: D-7</p>
-        </div>
-      </div>
+            <div>
+              <p className={styles.redExp}></p>
+              <p>: 유통기한 지남</p>
+            </div>
+            <div>
+              <p className={styles.yellowExp}></p>
+              <p>: D-3</p>
+            </div>
+            <div>
+              <p className={styles.greenExp}></p>
+              <p>: D-5</p>
+            </div>
+            <div>
+              <p className={styles.blueExp}></p>
+              <p>: D-7</p>
+            </div>
+          </div>
         </div>
       ),
-      onOk() {},
+      onOk() { },
     });
   };
 
@@ -62,7 +62,7 @@ function StoreExp() {
     fetchData();
   }, []);
 
-  
+
 
   const url_be = `http://localhost:8080/storeproduct/list/${logInData.store_id}`;
   // const url_be = `http://43.202.9.215:8080/storeproduct/list/${logInData.store_id}`;
@@ -105,16 +105,16 @@ function StoreExp() {
 
   return (
     <>
-        <div>
-          <h2>
-            유통기한 관리{' '}
-            <button className={styles.qBtn}
+      <div>
+        <h2>
+          유통기한 관리{' '}
+          <button className={styles.qBtn}
             onClick={info}>
             ?
-            </button>
-          </h2>
+          </button>
+        </h2>
 
-        </div>
+      </div>
 
 
 
@@ -149,7 +149,7 @@ function StoreExp() {
                     <Link to={`/product/detail/${item.id}`}>
                       ({item.brand})
                       {item.product_name}
-                      </Link>
+                    </Link>
                   </td>
                   <td>{item.qnt}</td>
                   <td>{item.price}</td>

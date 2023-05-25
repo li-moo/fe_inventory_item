@@ -5,7 +5,7 @@
 // import { Link } from 'react-router-dom';
 
 // function Cart(props) {
-  
+
 //   const [cartData, setCartData] = useState([]);
 
 //   useEffect(() => {
@@ -83,11 +83,11 @@
 //     //     console.error(error);
 //     //   }
 //     // };
-  
+
 //     // const handleIncrement = (id, value) => {
 //     //   handleQuantityChange(id, value + 1);
 //     // };
-  
+
 //     // const handleDecrement = (id, value) => {
 //     //   if (value > 1) {
 //     //     handleQuantityChange(id, value - 1);
@@ -152,7 +152,7 @@
 //         <tbody>
 //           {/* {sortedProducts.map((item) => ( */}
 //           { cartData && cartData.map((item) => (
-   
+
 //             <tr key={item.id}>
 //               <td>{item.product_code}</td>
 //               <td>({item.brand}){item.name}</td>
@@ -183,14 +183,14 @@
 // export default Cart;
 
 import React, { useState, useEffect } from 'react';
-import { Table, Popconfirm, message, Divider, Button, Input, Space } from 'antd';
+import { Popconfirm, Button } from 'antd';
 import axios from 'axios';
 import styles from './Cart.module.css'
 import { logInState } from "../../state/loginState";
 import { useRecoilState } from 'recoil';
 
 function Cart(props) {
-  
+
   const [cartData, setCartData] = useState([]);
   const [logInData, setLogInData] = useRecoilState(logInState);
 
@@ -203,7 +203,7 @@ function Cart(props) {
   }, [fetchData]);
 
 
-  async function fetchData(){
+  async function fetchData() {
 
     // // Local Storage에서 logInState 객체 가져오기, 키 값을 입력해줘야 함
     // // localStorageString는 String 타입입니다
@@ -255,56 +255,105 @@ function Cart(props) {
   //   handleDeleteCart();
   // }, []) 
 
-    const handleDeleteCart = async (id) => {
-      try {
-        await fetch(`http://localhost:8080/cart/delete/${id}`, {
-          // await fetch(`http://43.202.9.215:8080/cart/delete/${id}`, {
-          method: 'DELETE',
-        });
-        // message.success('상품이 삭제되었습니다.');
-        fetchData();
-      } catch (error) {
-        console.error(error);
-        // message.error('상품 삭제에 실패하였습니다.');
+  const handleDeleteCart = async (id) => {
+    try {
+      await fetch(`http://localhost:8080/cart/delete/${id}`, {
+        // await fetch(`http://43.202.9.215:8080/cart/delete/${id}`, {
+        method: 'DELETE',
+      });
+      // message.success('상품이 삭제되었습니다.');
+      fetchData();
+    } catch (error) {
+      console.error(error);
+      // message.error('상품 삭제에 실패하였습니다.');
+    }
+  };
+
+  const [quantity, setQuantity] = useState(1);
+
+  const decreaseQuantity = (item) => {
+    if (cartData.qnt > 1) {
+      setQuantity(prevQuantity => cartData.qnt - 1);
+    }
+  };
+
+  const increaseQuantity = (item) => {
+    setQuantity(prevQuantity => cartData.qnt + 1);
+  };
+
+  const handleQuantityChange = (item, newQuantity) => {
+    // 아이템의 수량이 변경될 때 수행할 로직을 작성합니다.
+    // 예를 들어, 아이템의 수량을 업데이트하는 함수를 호출하거나 상태를 업데이트할 수 있습니다.
+
+    // 아이템의 수량을 업데이트하는 함수를 호출하는 예시:
+    // updateItemQuantity(item.id, newQuantity);
+
+    // 상태를 업데이트하는 예시:
+    const updatedCartData = cartData.map((cartItem) => {
+      if (cartItem.id === item.id) {
+        return { ...cartItem, qnt: newQuantity };
       }
-    };
+      return cartItem;
+    });
+
+    setCartData(updatedCartData);
+  };
 
 
   console.log("props.cartList", props.cartList);
 
   return (
     <>
-<table className={styles.table}>
+      <table className={styles.table}>
         <thead>
           <tr>
             <th>SKU</th>
             <th>상품 이름</th>
             <th>수량</th>
-            <th>판매가</th>
-            <th>구매하기버튼</th>
+            {/* <th>판매가</th> */}
+            <th>   <Popconfirm
+              title="구매하시겠습니까?"
+              // onConfirm={() => handleDeleteCart(item.id)}
+              okText="네"
+              cancelText="아니오"
+            >
+              <Button>
+                구매
+              </Button>
+            </Popconfirm></th>
           </tr>
         </thead>
         <tbody>
           {/* {sortedProducts.map((item) => ( */}
-          { cartData && cartData.map((item) => (
-   
+          {cartData && cartData.map((item) => (
+
             <tr key={item.id}>
               <td style={{ width: "10px" }}>{item.product_code}</td>
               <td>({item.brand}){item.name}</td>
-              <td>-{item.qnt}+</td>
-              {/* // 여기에 <input></input> 넣을 수 있게 */}
-              <td>{item.price}</td>
               <td>
-              <Popconfirm
-                title="삭제시겠습니까??"
-                onConfirm={() => handleDeleteCart(item.id)}
-                okText="네"
-                cancelText="아니오"
-              >
-                <Button>
-                <a>삭제</a>
-                </Button>
-              </Popconfirm>
+                <div className={styles.pmBtn}>
+                  {/* <button onClick={increaseQuantity(item)}>+</button> */}
+                  {/* <input type="number" value={quantity} style={{ width: '40px' }} /> */}
+                  {/* <input type="number" value={item.qnt} style={{ width: '40px' }} /> */}
+                  {/* <button onClick={decreaseQuantity(item)}>-</button> */}
+                  <button onClick={() => increaseQuantity(item)}>+</button>
+                  <input type="number" value={item.qnt} style={{ width: '40px' }} onChange={(e) => handleQuantityChange(item, e.target.value)} />
+                  <button onClick={() => decreaseQuantity(item)}>-</button>
+                </div>
+              </td>
+              {/* // 여기에 <input></input> 넣을 수 있게 */}
+              {/* <td>{item.price}</td> */}
+              <td>
+                <Popconfirm
+                  title="삭제시겠습니까??"
+                  onConfirm={() => handleDeleteCart(item.id)}
+                  okText="네"
+                  cancelText="아니오"
+                >
+                  <Button>
+                    <a>삭제</a>
+                  </Button>
+                </Popconfirm>
               </td>
             </tr>
           ))}

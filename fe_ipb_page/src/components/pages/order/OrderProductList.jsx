@@ -184,6 +184,7 @@ function OrderProductList(props) {
   const url_be = "http://localhost:8080/product/list";
 
   const fetchData = () => {
+    const retProductList = [];
     axios(
       url_be,
       {
@@ -200,16 +201,18 @@ function OrderProductList(props) {
         //   addData: productData.qnt
         // }));
         // setStoreProductData(addData)
+        retProductList = res.data;
 
       })
       .catch((err) => console.log("orderproductlist/err", err));
+    return retProductList;
   }
 
   // 현재고를 뽑기 위한 fetch -> qnt
   const url_be_stp = `http://localhost:8080/storeproduct/list/${logInData.store_id}`;
 
   useEffect(() => {
-    fetchData();
+    let productDataList = fetchData();
     const getStoreProduct = async () => {
       console.log("[logInData.store_id]: ", logInData.store_id);
       try {
@@ -220,11 +223,22 @@ function OrderProductList(props) {
         console.log("productData: ", productData);
         setStoreProductData(res.data);
 
+        console.log("productDataList: ", productDataList);
+
         const dataList = res.data.map((item, index) => ({
+          // 받아온 res.data를 item이라는 매개변수로 받음
+          // index = 0, 1, 2, 3, 4 . . .
           ...productData[index],
+          // ...item,
           currentQnt: item.qnt,
+
         }));
-        setQntStoreProductData(dataList);
+        // setQntStoreProductData(dataList);
+        setProductData(dataList)
+
+
+        console.log("---->dataList:", dataList);
+        console.log("---->qntStoreProductData:", qntStoreProductData);
 
         const storeProductQntColumn = res.data.map(item => item.qnt);
         console.log("storeProductQntColumn:", storeProductQntColumn);
@@ -233,6 +247,13 @@ function OrderProductList(props) {
       } catch (err) {
         return console.log("storeProdutList/err", err);
       }
+      // axios()
+      //   .then((res) => {
+      //     return res.data
+      //   })
+      //   .then((res) => {
+      //     console.log("storeProdutList", res);
+      //   })
     };
     getStoreProduct();
   }, []);
@@ -298,56 +319,6 @@ function OrderProductList(props) {
   };
 
 
-
-  const columns = [
-    {
-      title: 'ID',
-      dataIndex: 'id',
-      key: 'id',
-      width: 50,
-    },
-    {
-      title: '이름',
-      dataIndex: 'name',
-      render: (text, record) => (
-        <Link to={`/product/detail/${record.id}`} key={record.id}>{text}</Link>
-      ),
-      // 모달 창으로 리펙토링 해야함
-      sorter: (a, b) => a.name.localeCompare(b.name),
-    },
-    {
-      title: '발주가능수량',
-      dataIndex: 'qnt',
-    },
-    {
-      title: '가격',
-      dataIndex: 'price',
-    },
-    {
-      title: '원가',
-      dataIndex: 'cost',
-    },
-    {
-      title: '유통기한',
-      dataIndex: 'exp',
-    },
-    {
-      title: '',
-      dataIndex: 'id',
-      render: (id) => (
-        <Popconfirm
-          title="장바구니에 상품을 담으시겠습니까??"
-          onConfirm={() => handleAddCart(id)}
-          okText="네"
-          cancelText="아니오"
-        >
-          <Button>
-            <a>상품담기</a>
-          </Button>
-        </Popconfirm>
-      ),
-    },
-  ];
   //
 
 
@@ -378,9 +349,8 @@ function OrderProductList(props) {
             </tr>
           </thead>
           <tbody>
-            {/* {sortedProducts.map((item) => ( */}
-            {qntStoreProductData && qntStoreProductData.map((item) => (
-
+            {/* {qntStoreProductData && qntStoreProductData.map((item) => ( */}
+            {productData && productData.map((item) => (
               <tr key={item.id}>
                 <td>{item.product_code}</td>
                 <td>
