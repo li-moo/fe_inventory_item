@@ -13,7 +13,7 @@ export default function CurrentDate() {
     };
   }, []);
 
-  return <div>{currentDate.toLocaleTimeString()}</div>;
+  return <>{currentDate.toLocaleTimeString()}</>;
 }
 
 // 원래는 js로 작성했으나 오류가 나서 컴포넌트로 작성함
