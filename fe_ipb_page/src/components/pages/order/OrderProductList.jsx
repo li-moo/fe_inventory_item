@@ -163,7 +163,7 @@
 // export default OrderProductList;
 
 import React, { useState, useEffect } from 'react';
-import { Table, Popconfirm, message, Divider, Button } from 'antd';
+import { Popconfirm, Button } from 'antd';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { logInState } from "../../state/loginState";
@@ -176,15 +176,19 @@ function OrderProductList(props) {
   const [storeProductData, setStoreProductData] = useState([]);
   const [qntStoreProductData, setQntStoreProductData] = useState([]);
 
-  let dataList = [];
+  // let dataList = [];
 
   console.log("-->> storeProductData.map.qnt", storeProductData.map.qnt);
 
   // const url_be = "http://43.202.9.215:8080/product/list";
   const url_be = "http://localhost:8080/product/list";
 
+  useEffect(() => {
+    fetchData()
+  }, []);
+
   const fetchData = () => {
-    const retProductList = [];
+    // const retProductList = [];
     axios(
       url_be,
       {
@@ -201,62 +205,62 @@ function OrderProductList(props) {
         //   addData: productData.qnt
         // }));
         // setStoreProductData(addData)
-        retProductList = res.data;
+        // retProductList = res.data;
 
       })
       .catch((err) => console.log("orderproductlist/err", err));
-    return retProductList;
+    // return retProductList;
   }
 
   // 현재고를 뽑기 위한 fetch -> qnt
-  const url_be_stp = `http://localhost:8080/storeproduct/list/${logInData.store_id}`;
+  // const url_be_stp = `http://localhost:8080/storeproduct/list/${logInData.store_id}`;
 
-  useEffect(() => {
-    let productDataList = fetchData();
-    const getStoreProduct = async () => {
-      console.log("[logInData.store_id]: ", logInData.store_id);
-      try {
-        const res = await axios
-          .get(url_be_stp);
-        console.log("getStoreProduct/res:", res);
-        console.log("getStoreProduct/storeProdutList=>res.data:", res.data);
-        console.log("productData: ", productData);
-        setStoreProductData(res.data);
+  // useEffect(() => {
+  //   let productDataList = fetchData();
+  //   const getStoreProduct = async () => {
+  //     console.log("[logInData.store_id]: ", logInData.store_id);
+  //     try {
+  //       const res = await axios
+  //         .get(url_be_stp);
+  //       console.log("getStoreProduct/res:", res);
+  //       console.log("getStoreProduct/storeProdutList=>res.data:", res.data);
+  //       console.log("productData: ", productData);
+  //       setStoreProductData(res.data);
 
-        console.log("productDataList: ", productDataList);
+  //       console.log("productDataList: ", productDataList);
 
-        const dataList = res.data.map((item, index) => ({
-          // 받아온 res.data를 item이라는 매개변수로 받음
-          // index = 0, 1, 2, 3, 4 . . .
-          ...productData[index],
-          // ...item,
-          currentQnt: item.qnt,
+  //       const dataList = res.data.map((item, index) => ({
+  //         // 받아온 res.data를 item이라는 매개변수로 받음
+  //         // index = 0, 1, 2, 3, 4 . . .
+  //         ...productData[index],
+  //         // ...item,
+  //         currentQnt: item.qnt,
 
-        }));
-        // setQntStoreProductData(dataList);
-        setProductData(dataList)
+  //       }));
+  //       // setQntStoreProductData(dataList);
+  //       setProductData(dataList)
 
 
-        console.log("---->dataList:", dataList);
-        console.log("---->qntStoreProductData:", qntStoreProductData);
+  //       console.log("---->dataList:", dataList);
+  //       console.log("---->qntStoreProductData:", qntStoreProductData);
 
-        const storeProductQntColumn = res.data.map(item => item.qnt);
-        console.log("storeProductQntColumn:", storeProductQntColumn);
-        // return storeProductQntColumn;
-        return storeProductQntColumn;
-      } catch (err) {
-        return console.log("storeProdutList/err", err);
-      }
-      // axios()
-      //   .then((res) => {
-      //     return res.data
-      //   })
-      //   .then((res) => {
-      //     console.log("storeProdutList", res);
-      //   })
-    };
-    getStoreProduct();
-  }, []);
+  //       const storeProductQntColumn = res.data.map(item => item.qnt);
+  //       console.log("storeProductQntColumn:", storeProductQntColumn);
+  //       // return storeProductQntColumn;
+  //       return storeProductQntColumn;
+  //     } catch (err) {
+  //       return console.log("storeProdutList/err", err);
+  //     }
+  //     // axios()
+  //     //   .then((res) => {
+  //     //     return res.data
+  //     //   })
+  //     //   .then((res) => {
+  //     //     console.log("storeProdutList", res);
+  //     //   })
+  //   };
+  //   getStoreProduct();
+  // }, []);
   //
   // ??? 재귀호출 ???
   // getStoreProduct()
@@ -360,7 +364,8 @@ function OrderProductList(props) {
                   </Link>
                 </td>
                 <td>{item.qnt}</td>
-                <td>{item.currentQnt}</td>
+                {/* <td>{item.currentQnt}</td> */}
+                <td>현재고</td>
                 <td>{item.cost}</td>
                 <td>{item.price}</td>
                 <td>
