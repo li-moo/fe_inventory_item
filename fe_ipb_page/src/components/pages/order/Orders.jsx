@@ -35,32 +35,32 @@ function Order() {
   useEffect(() => {
     console.log("storeId: ", storeId);
     axios.get(`http://localhost:8080/cart/cartlist/${storeId}`)
-    // axios.get(`http://43.202.9.215:8080/cart/cartlist/${storeId}`)
-    .then((res) => {
-      console.log('Orders/res = ', res);
-      setCartList(res.data);
-      console.log(">>>>>>>>>res.data>>>>>...",res.data);
-    })
-    .catch((err) => console.log("err: ", err));
+      // axios.get(`http://43.202.9.215:8080/cart/cartlist/${storeId}`)
+      .then((res) => {
+        console.log('Orders/res = ', res);
+        setCartList(res.data);
+        console.log(">>>>>>>>>res.data>>>>>...", res.data);
+      })
+      .catch((err) => console.log("err: ", err));
 
-  }, [isAdd]);
+  }, [isAdd, storeId]);
 
   return (
     <>
-    <h4>발주하기</h4>
+      <h2>발주하기</h2>
       <Divider />
 
       <Row>
         <Col sm={8} className="bg-gray-300">
-          <OrderProductList 
+          <OrderProductList
             isAdd={isAdd}
             setIsAdd={setIsAdd}
           />
         </Col>
         <Col sm={4} className="bg-gray-600">
-          <Cart 
-            cartList= {cartList}
-            test="안녕"
+          <Cart
+            cartList={cartList}
+          // test="안녕"
           />
         </Col>
       </Row>

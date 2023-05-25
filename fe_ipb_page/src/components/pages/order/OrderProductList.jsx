@@ -328,17 +328,7 @@ function OrderProductList(props) {
 
   return (
     <>
-      {/* 실제 사용시 <h2></h2> 는 주석 처리나 삭제 해주세요 */}
-      {/* <h2>점포에서 상품을 담기위해 product에서 장바구니를 담을 때 사용하는 페이지 입니다</h2> */}
-      {/* <Divider /> */}
       <>
-        {/* <Table
-          dataSource={productData.map((item) => ({ ...item, key: item.id }))}
-          columns={columns}
-          scroll={{ y: 370, }}
-          pagination={{ pageSize: 5000, }}
-        /> */}
-
 
         <table className={styles.table}>
           <thead>
@@ -354,8 +344,8 @@ function OrderProductList(props) {
           </thead>
           <tbody>
             {/* {qntStoreProductData && qntStoreProductData.map((item) => ( */}
-            {productData && productData.map((item) => (
-              <tr key={item.id}>
+            {productData && productData.map((item, index) => (
+              <tr key={index}>
                 <td>{item.product_code}</td>
                 <td>
                   <Link to={`/product/detail/${item.id}`}>
@@ -376,7 +366,7 @@ function OrderProductList(props) {
                     cancelText="아니오"
                   >
                     <Button>
-                      <a>상품담기</a>
+                      상품담기
                     </Button>
                   </Popconfirm>
                 </td>
