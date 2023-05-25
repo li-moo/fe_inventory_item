@@ -1,0 +1,15 @@
+.dede {
+  display: flex;
+}
+
+.dede > p:first-child{
+  padding-right: 50%;
+}
+
+.Btn3 Button {
+  margin-right: 2%;
+}
+
+.Btn3 a {
+  text-decoration-line: none;
+}

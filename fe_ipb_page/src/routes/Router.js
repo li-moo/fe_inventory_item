@@ -98,8 +98,18 @@ const StoreSalesListCategory = lazy(() => import("../components/pages/sales/Stor
 const Board = lazy(() => import("../components/pages/board/Board.jsx"))
 const HeadOfficeBoard = lazy(() => import("../components/pages/board/HeadOfficeBoard.jsx"))
 const BoardAdd = lazy(() => import("../components/pages/board/BoardAdd.jsx"))
+const BoardDetail = lazy(() => import("../components/pages/board/BoardDetail.jsx"))
+const BoardUpdate = lazy(() => import("../components/pages/board/BoardUpdate.jsx"))
+const BoardEdit = lazy(() => import("../components/pages/board/BoardEdit.jsx"))
 const EventAdd = lazy(() => import("../components/pages/event/EventAdd.jsx"))
 const EventList = lazy(() => import("../components/pages/event/EventList.jsx"))
+
+// const EventDetail = lazy(() => import("../components/pages/event/EventDetail.jsx"))
+// const EventUpdate = lazy(() => import("../components/pages/event/EventUpdate.jsx"))
+
+// const BoardAdd = lazy(() => import("../components/pages/board/BoardAdd.jsx"))
+// const EventAdd = lazy(() => import("../components/pages/event/EventAdd.jsx"))
+// const EventList = lazy(() => import("../components/pages/event/EventList.jsx"))
 
 
 /*****Routes******/
@@ -132,8 +142,18 @@ const ThemeRoutes = [
       { path: "/board", exact: true, element: <Board />} ,
       { path: "/headOffice/board", exact: true, element: <HeadOfficeBoard />} ,
       { path: "/board/add", exact: true, element: <BoardAdd/>} ,
+      { path: "/board/update/:id", exact: true, element: <BoardUpdate /> },
+      { path: "/boarddetail/:id", exact: true, element: <BoardDetail /> },
+      { path: "/board/edit/:id", exact: true, element: <BoardEdit /> },
       { path: "/event/eventadd", exact: true, element: <EventAdd/>} ,
       { path: "/event/eventlist", exact: true, element: <EventList/>} ,
+
+      // { path: "/event/eventdetail/:id", exact: true, element: <EventDetail/>} ,
+      // { path: "/event/eventupdate/:id", exact: true, element: <EventUpdate/>} ,
+      
+      // { path: "/board/add", exact: true, element: <BoardAdd/>} ,
+      // { path: "/event/eventadd", exact: true, element: <EventAdd/>} ,
+      // { path: "/event/eventlist", exact: true, element: <EventList/>} ,
     ],
   },
 ];
