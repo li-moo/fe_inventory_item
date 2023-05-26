@@ -355,7 +355,7 @@ function OrderProductList(props) {
                 </td>
                 <td>{item.qnt}</td>
                 {/* <td>{item.currentQnt}</td> */}
-                <td>현재고</td>
+                <td>{item.store_qnt}</td>
                 <td>{item.cost}</td>
                 <td>{item.price}</td>
                 <td>
