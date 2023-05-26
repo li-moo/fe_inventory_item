@@ -524,34 +524,71 @@ function Cart(props) {
   //   navigate("/order");
   // }
 
-  const increaseQuantity = (item) => {
-    const updatedCartData = cartData.map((cartItem) => {
-      if (cartItem.id === item.id) {
-        return { ...cartItem, qnt: cartItem.qnt + 1 };
-      }
-      return cartItem;
-    });
-    setCartData(updatedCartData);
-    // props.cartList(updatedCartData); // 업데이트
-  };
+  const updateQnt = (tarId, tarQnt) => {
+    const url_be_updateQnt = "http://localhost:8080/cart/update";
+    // const url_be_updateQnt = "http://localhost:8080/cart/update";
 
-  const decreaseQuantity = (item) => {
-    const updatedCartData = cartData.map((cartItem) => {
-      if (cartItem.id === item.id) {
-
-        const newQuantity = cartItem.qnt - 1;
-        // cartItem.qnt가 0보다 작으면 0으로 설정
-        const updatedQuantity = newQuantity < 1 ? 1 : newQuantity;
-        return { ...cartItem, qnt: updatedQuantity };
+    axios(url_be_updateQnt,
+      {
+        method: 'PUT',
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Content-Type': 'application/json',
+          withCredentials: true,
+          mode: 'no-cors'
+        },
+        data: { 
+          // id: cartData.id, // order_cart의 id
+          // qnt: cartData.qnt,
+          // id: cartItem.id, // order_cart의 id
+          // qnt: cartItem.qnt,
+          id: tarId,
+          qnt: tarQnt
+        }
       }
-      return cartItem;
-    });
-    setCartData(updatedCartData);
-    // props.cartList(updatedCartData); // 업데이트
-  };
+    ).catch(function (error) {
+      if (error.response) {
+        console.log(error.response.data);
+        console.log(error.response.status);
+        console.log(error.response.headers);
+      }
+    })
+    // handleInputChange(event) {
+    //   const inputValue = event.target.value;
+    //   this.fetchData(inputValue);
+    // }
+
+    //setAddOrder(true);
+  }
+
+  // const increaseQuantity = (item) => {
+  //   const updatedCartData = cartData.map((cartItem) => {
+  //     if (cartItem.id === item.id) {
+  //       return { ...cartItem, qnt: cartItem.qnt + 1 };
+  //     }
+  //     return cartItem;
+  //   });
+  //   setCartData(updatedCartData);
+  //   // props.cartList(updatedCartData); // 업데이트
+  // };
+
+  // const decreaseQuantity = (item) => {
+  //   const updatedCartData = cartData.map((cartItem) => {
+  //     if (cartItem.id === item.id) {
+
+  //       const newQuantity = cartItem.qnt - 1;
+  //       // cartItem.qnt가 0보다 작으면 0으로 설정
+  //       const updatedQuantity = newQuantity < 1 ? 1 : newQuantity;
+  //       return { ...cartItem, qnt: updatedQuantity };
+  //     }
+  //     return cartItem;
+  //   });
+  //   setCartData(updatedCartData);
+  //   // props.cartList(updatedCartData); // 업데이트
+  // };
 
   console.log("props.cartList", props.cartList);
-  console.log(":517 -> cartData", cartData);
+  console.log(":587 -> cartData", cartData);
 
   return (
     <>
@@ -622,7 +659,12 @@ function Cart(props) {
 
                         setCartData(updatedCartData);
                       }
-                    }}
+                      const tarId = item.id;
+                      // const tarQnt = item.newQuantity
+                      const tarQnt = newQuantity;
+                      updateQnt(tarId, tarQnt);
+                    }
+                  }
                   />
                   {/* <button onClick={() => decreaseQuantity(item)}>-</button> */}
                 </div>
