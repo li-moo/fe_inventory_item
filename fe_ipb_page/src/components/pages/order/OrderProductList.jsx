@@ -163,7 +163,7 @@
 // export default OrderProductList;
 
 import React, { useState, useEffect } from 'react';
-import { Popconfirm, Button } from 'antd';
+import { Popconfirm, Button, Pagination } from 'antd';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { logInState } from "../../state/loginState";
@@ -176,12 +176,24 @@ function OrderProductList(props) {
   const [storeProductData, setStoreProductData] = useState([]);
   const [qntStoreProductData, setQntStoreProductData] = useState([]);
 
+    // 페이지네이션
+    const [currentPage, setCurrentPage] = useState(1);
+    const [pageSize, setPageSize] = useState(10);
+  
+    const handlePageChange = (page, pageSize) => {
+      setCurrentPage(page);
+      setPageSize(pageSize);
+    };
+    //
+
+
   // let dataList = [];
 
   console.log("-->> storeProductData.map.qnt", storeProductData.map.qnt);
 
   // const url_be = "http://43.202.9.215:8080/product/list";
-  const url_be = "http://localhost:8080/product/list";
+  // const url_be = "http://localhost:8080/product/list";
+  const url_be = `http://localhost:8080/product/list?page=${currentPage}&pageSize=${pageSize}`;
 
   useEffect(() => {
     fetchData()
@@ -323,13 +335,9 @@ function OrderProductList(props) {
   };
 
 
-  //
-
-
   return (
     <>
       <>
-
         <table className={styles.table}>
           <thead>
             <tr>
@@ -371,9 +379,16 @@ function OrderProductList(props) {
                   </Popconfirm>
                 </td>
               </tr>
-            ))}
+            ))
+            }
           </tbody>
         </table>
+        <Pagination
+          current={currentPage}
+          pageSize={pageSize}
+          total={productData.length}
+          onChange={handlePageChange}
+        />
       </>
     </>
   );

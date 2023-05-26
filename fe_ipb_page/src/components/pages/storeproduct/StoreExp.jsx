@@ -163,14 +163,14 @@ function StoreExp() {
                       {item.exp}
                     </div>
                   </td>
-                  {/* <td>{item.addData}</td> */}
-                  {/* <td>
+                  {/* <td>{item.addData}</td> 
+                   <td>
                     {item.addData <= -1 && <p className={styles.redExp}></p>}
                     {item.addData > -1 && item.addData <= 3 && <p className={styles.yellowExp}></p>}
                     {item.addData > 3 && item.addData <= 5 && <p className={styles.greenExp}></p>}
                     {item.addData > 5 && item.addData <= 7 && <p className={styles.blueExp}></p>}
                     {item.addData > 7 && <span>{item.addData}</span>}
-                  </td> */}
+                  </td>  */}
                 </tr>
               );
             } else {
