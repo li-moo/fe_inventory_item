@@ -4,7 +4,7 @@ import { useRecoilState } from 'recoil';
 import { logInState } from '../../state/loginState';
 import styles from './StoreExp.module.css';
 import axios from 'axios';
-import { Divider, Input, Modal } from 'antd';
+import { Divider, Input, Modal, Popconfirm, Button } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 
 const { Search } = Input;
@@ -93,7 +93,8 @@ function StoreExp() {
   };
 
   const filteredProducts = storeProductData.filter((item) =>
-    item.product_name.toLowerCase().includes(searchTerm.toLowerCase())
+    item.product_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    item.product_code.toString().toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   // 유통기한별로 테이블 정렬
@@ -106,13 +107,13 @@ function StoreExp() {
   return (
     <>
       <div>
-        <h2>
+        <h4>
           유통기한 관리{' '}
           <button className={styles.qBtn}
             onClick={info}>
             ?
           </button>
-        </h2>
+        </h4>
 
       </div>
 
@@ -121,7 +122,7 @@ function StoreExp() {
       <Search
         value={searchTerm}
         onChange={(e) => handleSearch(e.target.value)}
-        placeholder="상품 이름으로 검색"
+        placeholder="상품 이름, SKU 검색"
         enterButton={<SearchOutlined />}
         className={styles.searchInput}
       />
@@ -134,6 +135,7 @@ function StoreExp() {
             <th>재고</th>
             <th>판매가</th>
             <th>유통기한</th>
+            <th>폐기 버튼</th>
             {/* <th>유통기한연산</th>
             <th>유통기한연산CSS</th> */}
           </tr>
@@ -144,6 +146,7 @@ function StoreExp() {
             if (item.addData <= 7) {
               return (
                 <tr key={item.id}>
+                  <td>-</td>
                   <td>{item.product_code}</td>
                   <td>
                     <Link to={`/product/detail/${item.id}`}>
@@ -163,6 +166,18 @@ function StoreExp() {
                       {item.exp}
                     </div>
                   </td>
+                  <td>
+                    <Popconfirm
+                      title="이 상품을 폐기를 하시겠습니까??"
+                      // onConfirm={() => handleAddCart(item.id)}
+                      okText="네"
+                      cancelText="아니오"
+                    >
+                      <Button >
+                        폐기
+                      </Button>
+                    </Popconfirm>
+                  </td>
                   {/* <td>{item.addData}</td> 
                    <td>
                     {item.addData <= -1 && <p className={styles.redExp}></p>}
@@ -171,6 +186,7 @@ function StoreExp() {
                     {item.addData > 5 && item.addData <= 7 && <p className={styles.blueExp}></p>}
                     {item.addData > 7 && <span>{item.addData}</span>}
                   </td>  */}
+
                 </tr>
               );
             } else {

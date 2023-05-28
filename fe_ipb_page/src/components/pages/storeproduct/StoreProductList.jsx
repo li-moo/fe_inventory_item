@@ -32,13 +32,15 @@ function StoreProductList() {
   // const filteredProductData = storeProductData.filter((item) =>
   // item.product_name.toLowerCase().includes(searchTerm.toLowerCase())
   // );
-//
+  //
 
   const filteredProducts = filteredProductData.filter((item) =>
-  item.product_name.toLowerCase().includes(searchTerm.toLowerCase())
-   );
-   console.log("filteredProductData>>>", filteredProductData);
-   console.log("filteredProducts>>>", filteredProducts);
+    item.product_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    item.product_code.toString().toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  console.log("filteredProductData>>>", filteredProductData);
+  console.log("filteredProducts>>>", filteredProducts);
 
   const url_be = `http://localhost:8080/storeproduct/list/${logInData.store_id}`;
 
@@ -80,10 +82,10 @@ function StoreProductList() {
   return (
     <>
       <div>
-        <h2>재고 관리</h2>
+        <h4>재고 관리</h4>
       </div>
       <div className={styles.schSel}>
-      <select name="productCategory" onChange={handleCategoryChange} className={styles.selectBox}>
+        <select name="productCategory" onChange={handleCategoryChange} className={styles.selectBox}>
           <option value="">카테고리</option>
           {storeProductData
             .reduce((uniqueCategories, product) => {
@@ -113,13 +115,13 @@ function StoreProductList() {
               </option>
             ))}
         </select>
-      <Search
-        value={searchTerm}
-        onChange={(e) => handleSearch(e.target.value)}
-        placeholder="상품 이름으로 검색"
-        enterButton={<SearchOutlined />}
-        className={styles.searchInput}
-      />
+        <Search
+          value={searchTerm}
+          onChange={(e) => handleSearch(e.target.value)}
+          placeholder="상품 이름, SKU 검색"
+          enterButton={<SearchOutlined />}
+          className={styles.searchInput}
+        />
         {/* <select name="productCategory" onChange={handleCategoryChange}>
           <option value="">전체</option>
           {storeProductData
@@ -166,8 +168,8 @@ function StoreProductList() {
         </thead>
         <tbody>
           {/* {sortedProducts.map((item) => ( */}
-          { filteredProductData && filteredProducts.map((item) => (
-   
+          {filteredProductData && filteredProducts.map((item) => (
+
             <tr key={item.id}>
               <td>-</td>
               <td>{item.product_code}</td>
