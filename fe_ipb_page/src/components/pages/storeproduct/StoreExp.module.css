@@ -54,13 +54,13 @@
   align-items: center;
 }
 
-.policyStatement > div {
+.policyStatement>div {
   display: flex;
   align-items: center;
 
 }
 
-.policyStatement > div > p {
+.policyStatement>div>p {
   margin-left: 8px;
 }
 
@@ -78,7 +78,7 @@
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background-color: rgb(255, 234, 0);
+  background-color: rgb(255, 200, 0);
 }
 
 .greenExp {
@@ -94,7 +94,7 @@
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background-color: blue;
+  background-color: dodgerblue;
 }
 
 .searchInput {
@@ -106,7 +106,7 @@
   background-color: #ffffff;
   background-repeat: no-repeat;
   background-position: 95% center;
-  padding-right: 30px; 
+  padding-right: 30px;
 }
 
 .qBtn {
