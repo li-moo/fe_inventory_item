@@ -146,10 +146,9 @@ function StoreExp() {
             if (item.addData <= 7) {
               return (
                 <tr key={item.id}>
-                  <td>-</td>
                   <td>{item.product_code}</td>
                   <td>
-                    <Link to={`/product/detail/${item.id}`}>
+                    <Link to={`/product/detail/${item.id}`} style={{ textDecoration: "none", color: "inherit" }}>
                       ({item.brand})
                       {item.product_name}
                     </Link>

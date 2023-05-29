@@ -484,6 +484,7 @@ function Cart(props) {
       }
     })
     setAddOrder(true);
+    window.location.reload();
   }
   // const handleMaxOrder = () => {
   //   const url_be_maxorder = "http://localhost:8080/orders/maxorder";
@@ -537,7 +538,7 @@ function Cart(props) {
           withCredentials: true,
           mode: 'no-cors'
         },
-        data: { 
+        data: {
           // id: cartData.id, // order_cart의 id
           // qnt: cartData.qnt,
           // id: cartItem.id, // order_cart의 id
@@ -664,7 +665,7 @@ function Cart(props) {
                       const tarQnt = newQuantity;
                       updateQnt(tarId, tarQnt);
                     }
-                  }
+                    }
                   />
                   {/* <button onClick={() => decreaseQuantity(item)}>-</button> */}
                 </div>

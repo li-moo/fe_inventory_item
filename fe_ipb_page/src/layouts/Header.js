@@ -85,6 +85,9 @@ const Header = () => {
                   <DropdownItem>
                     <Link to="/order">발주하기</Link>
                   </DropdownItem>
+                  <DropdownItem>
+                    <Link to="/orderslist">발주내역조회</Link>
+                  </DropdownItem>
                   {/* <DropdownItem>
                     <Link to="/storeproductlist">점포 상품 담기 리스트</Link>
                   </DropdownItem> */}
