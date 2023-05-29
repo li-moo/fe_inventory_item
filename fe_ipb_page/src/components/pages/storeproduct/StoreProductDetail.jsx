@@ -1,18 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import { Typography, Image, Grid, Button, Divider, Card, Descriptions, Radio } from 'antd';
-import style from './ProductDetail.module.css';
+import { Typography, Grid, Button, Modal } from 'antd';
+import styles from './StoreProductDetail.module.css';
 
 const { Title, Text } = Typography;
 const { Row, Col } = Grid;
 
-function ProductDetail() {
+function StoreProductDetail() {
 
   const { id } = useParams();
   const navigate = useNavigate();
 
   const [product, setProduct] = useState();
+
+  const info = () => {
+    Modal.info({
+      title: '유통기한 관리 Tip!',
+      content: (
+        <div>
+        </div>
+      ),
+      onOk() { },
+    });
+  };
 
 
   useEffect(() => {
@@ -39,25 +50,34 @@ function ProductDetail() {
       <div>
         {
           product && (
-            <div className={style.productWrap}>
+            <div className={styles.productWrap}>
               <ul>
                 <li>
-                  <div className={style.left}>
-                    <p>🔻카테고리: {product.category_name}</p>
-                    <img src={product.imgname} alt={product.detail} />
+                  <div className={styles.left}>
+                    {/* <img src={product.imgname} alt={product.detail} /> */}
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlpfr_r51S_nvNI9JSggADR78muK6decmUDA&usqp=CAU" alt={product.detail} />
+                    <p>SKU - QR code</p>
+                    <Button onClick={info}>
+                      자동발주
+                    </Button>
                   </div>
-                  <div className={style.right}>
-                    <h2>{product.name}</h2>
-                    <p>가격: {addComma(product.price)}</p>
-                    <p>원가: {addComma(product.cost)}</p>
+                </li>
+                <li>
+                  <div className={styles.right}>
+                    <p>{product.category_name}</p>
+                    <h4>{product.name}</h4>
+                    <p>SKU: {product.product_code}</p>
+                    <p>제조사: {product.brand}</p>
+                    <p>보관방법: {product.storage}</p>
+                    <p>매입가: {addComma(product.cost)}</p>
+                    <p>판매가: {addComma(product.price)}</p>
                     <p>유통기한: {product.exp}</p>
-                    <p>상품 코드: {product.product_code}</p>
-                    <p>재고량: {product.qnt}</p>
+                    <p>점포 재고량: {product.store_qnt}</p>
                   </div>
                 </li>
               </ul>
 
-              <div className={style.ProductDetail}>
+              <div className={styles.ProductDetail}>
                 <h4>상품 상세 정보</h4>
                 <p>{product.detail}</p>
                 <p>{product.detail}</p>
@@ -69,7 +89,6 @@ function ProductDetail() {
                 <p>{product.detail}</p>
               </div>
             </div>
-
           )
         }
       </div>
@@ -77,4 +96,4 @@ function ProductDetail() {
   );
 }
 
-export default ProductDetail;
+export default StoreProductDetail;
