@@ -44,7 +44,7 @@ function ProductInfoList() {
       title: '상품이름',
       dataIndex: 'name',
       render: (text, record) => (
-        <Link to={`/product/detail/${record.id}`} key={record.id}>{text}</Link>
+        <Link to={`/productinfo/detail/${record.product_code}`} key={record.product_code}>{text}</Link>
       ),
       // Ant Design의 Table 컴포넌트의 columns 속성에 사용되는 객체
       // render는 특정 열(column)의 셀(cell)을 렌더링하는 함수

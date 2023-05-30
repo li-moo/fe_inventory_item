@@ -18,6 +18,7 @@ const Product01 = lazy(() => import("../components/pages/product/Product.jsx"));
 const ProductAdd = lazy(() => import("../components/pages/product/ProductAdd.jsx"));
 const ProductInfoAdd = lazy(() => import("../components/pages/product/ProductInfoAdd.jsx"));
 const ProductInfoList = lazy(() => import("../components/pages/product/ProductInfoList.jsx"));
+const ProductInfoDetail = lazy(() => import("../components/pages/product/ProductInfoDetail.jsx"))
 // const ProductDetail = lazy(() => import("../components/pages/product/ProductDetaile.jsx"))
 const ProductDetail = lazy(() => import("../components/pages/product/ProductDetail.jsx"))
 const StoreProductDetail = lazy(() => import("../components/pages/storeproduct/StoreProductDetail.jsx"))
@@ -66,6 +67,7 @@ const ThemeRoutes = [
       { path: "/product", exact: true, element: <Product01 /> },
       { path: "/productinfo/add", exact: true, element: <ProductInfoAdd /> },
       { path: "/productinfolist", exact: true, element: <ProductInfoList /> },
+      { path: "/productinfo/detail/:id", exact: true, element: <ProductInfoDetail /> },
       { path: "/product/add", exact: true, element: <ProductAdd /> },
       { path: "/product/detail/:id", exact: true, element: <ProductDetail /> },
       { path: "/storeproduct/detail/:id", exact: true, element: <StoreProductDetail /> },
