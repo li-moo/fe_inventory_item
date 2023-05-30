@@ -1,8 +1,9 @@
 .divHeader {
-  border-bottom-left-radius: 25px;
-  border-bottom-right-radius: 25px;
-  background-color: #2962ff;
+  /* border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px; */
+  background-color: #396bf7;
   /* border-radius: 20px; */
+  box-shadow: 2px 2px 4px rgba(8, 62, 41, 0.5);
 }
 
 .navbar-custom {

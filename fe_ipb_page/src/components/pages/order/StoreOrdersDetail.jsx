@@ -74,7 +74,32 @@ function StoreOrdersDetail(props) {
               <td>
                 {item.orders_status === "배송준비중" ? (
                   // <input type="text" value={item.qnt} onChange={handleChange} />
-                  <input type="text" value={item.qnt} />
+                  // <input type="text" value={item.qnt} />
+                  <input
+                  type="number"
+                  value={item.qnt}
+                  style={{ width: '50px' }}
+                  onChange={(e) => {
+                    const newQuantity = parseInt(e.target.value) || item.qnt - 1;
+                    console.log("하이요");
+                    console.log("e.target.value", e.target.value);
+                    if (!isNaN(newQuantity) && newQuantity > 0) {
+                      const updatedCartData = storeOrdersDetailListData.map((SODitem) => {
+                        if (SODitem.id === item.id) {
+                          console.log("이거 실행되긴하나?");
+                          return { ...SODitem, qnt: newQuantity };
+                        }
+                        return SODitem;
+                      });
+
+                      setStoreOrdersDetailListData(updatedCartData);
+                    }
+                    const tarId = item.id;
+                    const tarQnt = newQuantity;
+                    // updateQnt(tarId, tarQnt);
+                  }
+                  }
+                />
                 ) : (
                   item.qnt
                 )}

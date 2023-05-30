@@ -17,4 +17,19 @@
   position: fixed;
   top: 0;
   right: 0;
+  /* top: 0;
+  right: 0; */
+}
+
+.smaller-navbar .navbar-collapse {
+  max-height: 200px; /* 높이를 원하는 값으로 조정하세요 */
+  overflow-y: auto;
+}
+
+.smaller-navbar .navbar-collapse .nav-link {
+  padding: 5px 10px; /* 링크의 패딩을 조정하세요 */
+}
+
+.smaller-navbar .navbar-brand {
+  padding: 5px 10px; /* 브랜드 로고의 패딩을 조정하세요 */
 }
