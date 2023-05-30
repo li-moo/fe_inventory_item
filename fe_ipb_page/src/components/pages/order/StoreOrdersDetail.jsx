@@ -60,7 +60,9 @@ function StoreOrdersDetail(props) {
             <th>SKU Code</th>
             <th>상품 이름</th>
             <th>재고</th>
-            <th>판매가</th>
+            <th>배송상태</th>
+            {/* <th>매입가(cost)</th>
+            <th>판매가(price)</th> */}
           </tr>
         </thead>
         <tbody>
@@ -69,7 +71,14 @@ function StoreOrdersDetail(props) {
             <tr key={item.id}>
               <td>{item.product_code}</td>
               <td>({item.product_info_brand}){item.product_name}</td>
-              <td>{item.qnt}</td>
+              <td>
+                {item.orders_status === "배송준비중" ? (
+                  // <input type="text" value={item.qnt} onChange={handleChange} />
+                  <input type="text" value={item.qnt} />
+                ) : (
+                  item.qnt
+                )}
+              </td>
               <td>{item.orders_status}</td>
             </tr>
           );
