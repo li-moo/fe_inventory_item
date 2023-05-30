@@ -65,10 +65,13 @@ const Header = () => {
                     <Link to="/product">상품 관리 리스트</Link>
                   </DropdownItem> */}
                   <DropdownItem>
-                    <Link to="/storeproductlist">보유 상품</Link>
+                    <Link to="/storeproductlist">재고 관리</Link>
                   </DropdownItem>
                   <DropdownItem>
                     <Link to="/storeexp">유통기한 관리</Link>
+                  </DropdownItem>
+                  <DropdownItem>
+                    <Link to="/product">본사 - 보유 상품</Link>
                   </DropdownItem>
                   {/* <DropdownItem>Option 2</DropdownItem>
                   <DropdownItem divider />
