@@ -18,8 +18,6 @@ import user05 from "../assets/images/users/user05.jpg";
 import { logInState } from "../components/state/loginState";
 import { weatherState } from "../components/state/weatherState";
 import { useRecoilState, useRecoilValue } from 'recoil';
-//import { useRecoilValue } from 'recoil';
-// import { Navigate } from "react-router-dom";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { message } from "antd";
@@ -191,7 +189,8 @@ const HeaderTop = () => {
   };
 
   return (
-    <Navbar color="primary" dark expand="md" className={"navbar-custom bg-secondary"} >
+    // <Navbar color="primary" dark expand="md" className={"navbar-custom bg-secondary"} >
+    <Navbar color="primary" dark expand="md" className={"navbar-custom smaller-navbar "} >
       <div className="d-flex align-items-center">
         {/* <NavbarBrand href="/" className="d-lg-none">
           <LogoWhite />

@@ -60,7 +60,9 @@ function StoreOrdersDetail(props) {
             <th>SKU Code</th>
             <th>상품 이름</th>
             <th>재고</th>
-            <th>판매가</th>
+            <th>배송상태</th>
+            {/* <th>매입가(cost)</th>
+            <th>판매가(price)</th> */}
           </tr>
         </thead>
         <tbody>
@@ -69,7 +71,39 @@ function StoreOrdersDetail(props) {
             <tr key={item.id}>
               <td>{item.product_code}</td>
               <td>({item.product_info_brand}){item.product_name}</td>
-              <td>{item.qnt}</td>
+              <td>
+                {item.orders_status === "배송준비중" ? (
+                  // <input type="text" value={item.qnt} onChange={handleChange} />
+                  // <input type="text" value={item.qnt} />
+                  <input
+                  type="number"
+                  value={item.qnt}
+                  style={{ width: '50px' }}
+                  onChange={(e) => {
+                    const newQuantity = parseInt(e.target.value) || item.qnt - 1;
+                    console.log("하이요");
+                    console.log("e.target.value", e.target.value);
+                    if (!isNaN(newQuantity) && newQuantity > 0) {
+                      const updatedCartData = storeOrdersDetailListData.map((SODitem) => {
+                        if (SODitem.id === item.id) {
+                          console.log("이거 실행되긴하나?");
+                          return { ...SODitem, qnt: newQuantity };
+                        }
+                        return SODitem;
+                      });
+
+                      setStoreOrdersDetailListData(updatedCartData);
+                    }
+                    const tarId = item.id;
+                    const tarQnt = newQuantity;
+                    // updateQnt(tarId, tarQnt);
+                  }
+                  }
+                />
+                ) : (
+                  item.qnt
+                )}
+              </td>
               <td>{item.orders_status}</td>
             </tr>
           );
