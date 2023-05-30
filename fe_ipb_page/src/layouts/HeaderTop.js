@@ -33,7 +33,7 @@ import {
 import { HiOutlineBell } from "react-icons/hi";
 import todayData from '../components/globalFunction/todayData';
 import CurrentDate from '../components/globalFunction/CurrentDate';
-
+import SSEComponent from '../components/SEE/SEEComponent';
 
 
 const HeaderTop = () => {
@@ -290,7 +290,7 @@ const HeaderTop = () => {
             <DropdownItem></DropdownItem>
           </DropdownMenu>
         </Dropdown> */}
-
+       <SSEComponent />
       </Collapse>
     </Navbar>
   );

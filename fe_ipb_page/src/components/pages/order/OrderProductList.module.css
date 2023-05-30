@@ -1,9 +1,9 @@
 .table {
   width: 100%;
   border-collapse: collapse;
-
+  background-color: white;
   overflow: auto;
-  font-size: 10px;
+  font-size: 12px;
 }
 
 .table th,
@@ -22,6 +22,8 @@
   padding-top: 12px;
   padding-bottom: 12px;
   font-size: 13px;
+  border-bottom: 4px solid 	#6496FF;
+  text-align: center;
 }
 
 .table th:first-child,
@@ -35,7 +37,11 @@
 } */
 
 .table tbody tr:hover {
-  background-color: #FAFAFA;
+  background-color: #f6f8fb;
+}
+
+.table td:last-child {
+  text-align: center;
 }
 
 /* .policyStatement {

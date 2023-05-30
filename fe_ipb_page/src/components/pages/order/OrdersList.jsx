@@ -71,7 +71,7 @@ function OrdersList() {
   return (
     <>
       <h4>발주내역</h4>
-      <Divider />
+      {/* <Divider /> */}
       <Row>
         <Col sm={4} className="bg-gray-300">
           <table className={styles.table}>

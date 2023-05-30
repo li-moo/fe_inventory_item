@@ -47,8 +47,7 @@ function Order() {
 
   return (
     <>
-      <h2>발주하기</h2>
-      <Divider />
+      <h4>발주하기</h4>
 
       <Row>
         <Col sm={8} className="bg-gray-300">

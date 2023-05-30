@@ -2,6 +2,7 @@
   width: 100%;
   border-collapse: collapse;
   font-size: 15px;
+  background-color: white;
 }
 
 .table th,
@@ -13,12 +14,14 @@
 }
 
 .table th {
+  text-align: center;
   background-color: #FFFFFF;
   font-weight: bold;
   /* padding: 11px; */
   padding-top: 6px;
   padding-bottom: 6px;
   font-size: 13px;
+  border-bottom: 4px solid 	#6496FF;
 }
 
 .table th:first-child,
@@ -27,14 +30,12 @@
 }
 
 .table th:last-child {
-  text-align: left;
+  border-right: 1px solid rgb(244, 240, 240);
 
 }
 
-
-
 .table tbody tr:hover {
-  background-color: #FAFAFA;
+  background-color: #f6f8fb;
 }
 
 .exp-column {

@@ -1,6 +1,7 @@
 .table {
   width: 100%;
   border-collapse: collapse;
+  background-color: white;
 }
 
 .table th,
@@ -15,20 +16,23 @@
   background-color: #FFFFFF;
   font-weight: bold;
   padding: 18px;
+  text-align: center;
+  border-bottom: 4px solid 	#6496FF;
 }
 
-.table th:first-child,
-.table td:first-child {
-  text-align: center;
-}
 
 .table th:last-child,
 .table td:last-child {
   text-align: right;
 }
 
+th:not(:last-child) {
+  /* border-right: 1px solid #fbfbfb; */
+  box-shadow: 10px 0px 10px 2px rgba(64, 64, 64, 0.2);
+}
+
 .table tbody tr:hover {
-  background-color: #FAFAFA;
+  background-color: #f6f8fb;
 }
 
 .exp-column {

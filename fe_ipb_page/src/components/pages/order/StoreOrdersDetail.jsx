@@ -78,7 +78,8 @@ function StoreOrdersDetail(props) {
                   <input
                   type="number"
                   value={item.qnt}
-                  style={{ width: '50px' }}
+                  style={{ width: '60px' }}
+                  className={styles.numberingInP}
                   onChange={(e) => {
                     const newQuantity = parseInt(e.target.value) || item.qnt - 1;
                     console.log("하이요");
