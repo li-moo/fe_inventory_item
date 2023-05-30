@@ -18,10 +18,10 @@ function ProductAdd() {
           mode: 'no-cors'
         },
         data: { //post 라면 . . .
-          sku: values.sku,
+          product_code: values.product_code,
           name: values.name,
           brand: values.brand,
-          category: values.category,
+          category_id: values.category_id,
           storage: values.storage,
           box_qnt: values.box_qnt,
           detail: values.detail,
@@ -53,7 +53,7 @@ function ProductAdd() {
           <Input />
         </Form.Item>
 
-        <Form.Item label="SKU" name="sku">
+        <Form.Item label="SKU" name="product_code">
           <Input />
         </Form.Item>
 
@@ -65,7 +65,7 @@ function ProductAdd() {
           <Input />
         </Form.Item>
         
-        <Form.Item label="카테고리" name="category">
+        <Form.Item label="카테고리" name="category_id">
           <Input />
         </Form.Item>
 
