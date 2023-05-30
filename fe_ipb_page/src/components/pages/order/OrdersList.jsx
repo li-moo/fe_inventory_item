@@ -11,12 +11,13 @@ function OrdersList() {
 
   const [loginData, setLoginData] = useRecoilState(logInState);
   const [storeOrdersDetailData, setStoreOrdersDetailData] = useState([]);
-  const [storeOrdersDetailListData, setStoreOrdersDetailListData] = useState([]);
+  // const [storeOrdersDetailListData, setStoreOrdersDetailListData] = useState([]);
   const [selectedId, setSelectedId] = useState(null);
+  const [isAddOr, setIsAddOr] = useState(false);
 
   const handleRowClick = (id, ordersDate) => {
     setSelectedId(id);
-    fetchStoreOrdersDetailListData(ordersDate);
+    // fetchStoreOrdersDetailListData(ordersDate);
     console.log("------> ordersDate : ", ordersDate);
   };
 
@@ -24,7 +25,7 @@ function OrdersList() {
 
     fetchStoreOrdersDetailData();
     // fetchStoreOrdersDetailListData();
-  }, []);
+  }, [isAddOr, setIsAddOr]);
 
   console.log("fetch 받은 데이터 logInData.store_id>>>", loginData.store_id);
 
@@ -37,7 +38,7 @@ function OrdersList() {
       method: 'get'
     })
       .then((res) => {
-        console.log("fetch 받은 데이터 res.data>>>", res.data);
+        console.log("> fetchStoreOrdersDetailData > fetch 받은 데이터 res.data>>>", res.data);
         setStoreOrdersDetailData(res.data);
       })
       .catch((err) => console.log("storeexp/err", err))
@@ -46,29 +47,25 @@ function OrdersList() {
   const url_be_detail_list = `http://localhost:8080/orders/store-orders-detail-list`;
   //const url_be_detail_list = `http://localhost:8080/orders/store-orders-detail-list?store_id=${loginData.store_id}&orders_date=${storeOrdersDetailData.orders_date}`;
 
-  console.log(">> loginData.store_id", loginData.store_id);
-  console.log(">> storeOrdersDetailData.orders_date", storeOrdersDetailData.orders_date);
-  console.log("||||||||||||\\>> storeOrdersDetailData.orders_date", storeOrdersDetailData.orders_date);
+  // const fetchStoreOrdersDetailListData = () => {
+  //   axios(url_be_detail_list, {
+  //     method: 'get',
+  //     // data: {
+  //     //   store_id: loginData.store_id,
+  //     //   orders_date: storeOrdersDetailData.orders_date
+  //     // }
+  //     params: {
+  //       store_id: loginData.store_id,
+  //       orders_date: storeOrdersDetailData.orders_date,
+  //     },
+  //   })
+  //     .then((res) => {
+  //       // console.log("fetch-list 받은 데이터 res.data>>>", res.data);
+  //       // setStoreOrdersDetailListData(res.data);
 
-  const fetchStoreOrdersDetailListData = () => {
-    axios(url_be_detail_list, {
-      method: 'get',
-      // data: {
-      //   store_id: loginData.store_id,
-      //   orders_date: storeOrdersDetailData.orders_date
-      // }
-      params: {
-        store_id: loginData.store_id,
-        orders_date: storeOrdersDetailData.orders_date,
-      },
-    })
-      .then((res) => {
-        console.log("fetch-list 받은 데이터 res.data>>>", res.data);
-        setStoreOrdersDetailListData(res.data);
-
-      })
-      .catch((err) => console.log("storeexp/err", err))
-  }
+  //     })
+  //     .catch((err) => console.log("storeexp/err", err))
+  // }
 
 
   return (
@@ -110,17 +107,13 @@ function OrdersList() {
         </Col>
         <Col sm={8} className="bg-gray-600">
           {selectedId && (
-            <><StoreOrdersDetail
-              storeOrdersDetailData={storeOrdersDetailData}
+            <>
+            <StoreOrdersDetail
+              selectedId={selectedId}
             />
-              <div>선택된 ID: {selectedId}</div></>
-
+              {/* <div>선택된 ID: {selectedId}</div> */}
+              </>
           )}
-          {/* <Cart
-            cartList={cartList}
-          // test="안녕"
-          /> */}
-
         </Col>
       </Row >
     </>
