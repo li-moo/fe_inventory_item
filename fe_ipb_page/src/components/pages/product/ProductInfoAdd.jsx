@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Form, Input, Button, Divider } from 'antd';
+import { Form, Input, Button, Divider, message } from 'antd';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-function ProductAdd() {
+function ProductInfoAdd() {
+
+  const navigate = useNavigate();
 
   const onFinish = (values) => {
     const url_be = "http://localhost:8080/productInfo/add";
@@ -28,12 +31,16 @@ function ProductAdd() {
           imgname: values.imgname,
         }
       }
+    ).then(() => {
+        navigate('/productinfolist');
+      }
     ).catch(function (error) {
       if (error.response) {
         console.log(error.response.data);
         console.log(error.response.status);
         console.log(error.response.headers);
       }
+      message.error('상품정보 등록에 실패했습니다');
     })
   };
 
@@ -93,4 +100,4 @@ function ProductAdd() {
   );
 }
 
-export default ProductAdd;
+export default ProductInfoAdd;
