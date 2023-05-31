@@ -20,7 +20,7 @@ import { weatherState } from "../components/state/weatherState";
 import { useRecoilState, useRecoilValue } from 'recoil';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { message } from "antd";
+import { message, Modal} from "antd";
 import  style from "./HeaderTop.module.css"
 import { 
   RiLogoutBoxRLine, 
@@ -42,6 +42,7 @@ const HeaderTop = () => {
 
   const navigate = useNavigate();
   
+
   const toggle = () => setDropdownOpen((prevState) => !prevState);
   const Handletoggle = () => {
     setIsOpen(!isOpen);
@@ -49,7 +50,6 @@ const HeaderTop = () => {
   const showMobilemenu = () => {
     document.getElementById("sidebarArea").classList.toggle("showSidebar");
   };
-
   const logOut = () => {
     setLogInData({
       isLogIn: false
@@ -188,6 +188,22 @@ const HeaderTop = () => {
     }
   };
 
+  //
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
+  //
+
   return (
     // <Navbar color="primary" dark expand="md" className={"navbar-custom bg-secondary"} >
     <Navbar color="primary" dark expand="md" className={"navbar-custom smaller-navbar "} >
@@ -253,11 +269,22 @@ const HeaderTop = () => {
           </NavItem>
 
           <NavItem>
-            <Link to="/starter" className="nav-link">
-              <HiOutlineBell /> 
-            </Link>
+                {/* <div onClick={openModal} className="nav-link">
+                  <p className="nav-link ">
+                  <HiOutlineBell />
+                  </p>
+                </div> */}
           </NavItem>
-
+          {/* // */}
+          <Button type="primary" onClick={showModal}>
+            Open Modal
+          </Button>
+          <Modal title="Basic Modal" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+            <p>Some contents...</p>
+            <p>Some contents...</p>
+            <p>Some contents...</p>
+          </Modal>
+          {/* // */}
           <NavItem>
             {
             logInData.isLogIn ?   
@@ -295,5 +322,6 @@ const HeaderTop = () => {
     </Navbar>
   );
 };
+
 
 export default HeaderTop;

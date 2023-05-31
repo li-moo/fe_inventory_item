@@ -31,7 +31,7 @@ const Header = () => {
     <div className={`${style.divHeader} ${style.navbarCustom}`}>
 
 
-      <Navbar color="primary" dark expand="md">
+      <Navbar dark expand="md">
       <div className="d-flex align-items-center">
         <NavbarBrand href="/" className="d-lg-none">
           {/* <LogoWhite /> */}
