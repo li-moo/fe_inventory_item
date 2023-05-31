@@ -59,7 +59,7 @@ function StoreOrdersDetail(props) {
           <tr>
             <th>SKU Code</th>
             <th>상품 이름</th>
-            <th>재고</th>
+            <th>발주수량</th>
             <th>배송상태</th>
             {/* <th>매입가(cost)</th>
             <th>판매가(price)</th> */}
@@ -78,7 +78,8 @@ function StoreOrdersDetail(props) {
                   <input
                   type="number"
                   value={item.qnt}
-                  style={{ width: '50px' }}
+                  style={{ width: '60px' }}
+                  className={styles.roundedInput}
                   onChange={(e) => {
                     const newQuantity = parseInt(e.target.value) || item.qnt - 1;
                     console.log("하이요");

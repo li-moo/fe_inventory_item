@@ -278,6 +278,7 @@ function Cart(props) {
                     type="number"
                     value={item.qnt}
                     style={{ width: '40px' }}
+                    className={styles.roundedInput}
                     onChange={(e) => {
                       const newQuantity = parseInt(e.target.value) || item.qnt - 1;
                       console.log("하이요");

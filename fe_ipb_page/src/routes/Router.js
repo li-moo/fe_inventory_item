@@ -1,5 +1,6 @@
 import { lazy } from "react";
 import { Navigate } from "react-router-dom";
+import SSETest from "../components/sse/SSETest.jsx";
 
 
 /****Layouts*****/
@@ -41,7 +42,7 @@ const BoardUpdate = lazy(() => import("../components/pages/board/BoardUpdate.jsx
 const BoardEdit = lazy(() => import("../components/pages/board/BoardEdit.jsx"))
 const EventAdd = lazy(() => import("../components/pages/event/EventAdd.jsx"))
 const EventList = lazy(() => import("../components/pages/event/EventList.jsx"))
-
+const SEETest = lazy(() => import("../components/sse/SSETest.jsx"))
 // const EventDetail = lazy(() => import("../components/pages/event/EventDetail.jsx"))
 // const EventUpdate = lazy(() => import("../components/pages/event/EventUpdate.jsx"))
 
@@ -90,6 +91,7 @@ const ThemeRoutes = [
       { path: "/board/edit/:id", exact: true, element: <BoardEdit /> },
       { path: "/event/eventadd", exact: true, element: <EventAdd/>} ,
       { path: "/event/eventlist", exact: true, element: <EventList/>} ,
+      { path: "/sse", exact: true, element: <SSETest/>} ,
 
       // { path: "/event/eventdetail/:id", exact: true, element: <EventDetail/>} ,
       // { path: "/event/eventupdate/:id", exact: true, element: <EventUpdate/>} ,
