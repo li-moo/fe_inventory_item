@@ -1,6 +1,7 @@
 .table {
   width: 100%;
   border-collapse: collapse;
+  background-color: white;
 }
 
 .table th,
@@ -32,7 +33,7 @@ th:not(:last-child) {
 }
 
 .table tbody tr:hover {
-  background-color: #FAFAFA;
+  background-color: #f8f7fa;
 }
 
 .exp-column {
