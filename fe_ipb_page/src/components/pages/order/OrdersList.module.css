@@ -2,6 +2,7 @@
   width: 100%;
   border-collapse: collapse;
   font-size: 15px;
+  background-color: white;
 }
 
 .table th,
@@ -34,7 +35,7 @@
 
 
 .table tbody tr:hover {
-  background-color: #FAFAFA;
+  background-color: #f8f7fa;
 }
 
 .exp-column {

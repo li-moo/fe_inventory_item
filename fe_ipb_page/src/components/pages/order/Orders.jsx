@@ -47,7 +47,7 @@ function Order() {
 
   return (
     <>
-      <h2>발주하기</h2>
+      <h4>발주하기</h4>
       <Divider />
 
       <Row>
