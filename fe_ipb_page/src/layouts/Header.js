@@ -140,6 +140,9 @@ const Header = () => {
               <DropdownItem>
               <Link to="/event">이벤트</Link>
               </DropdownItem>
+              <DropdownItem>
+              <Link to="/sse">sse Test pages</Link>
+              </DropdownItem>
               <DropdownItem>Option 2</DropdownItem>
               <DropdownItem divider />
               <DropdownItem>Reset</DropdownItem>

@@ -50,6 +50,7 @@ function StoreProductList() {
       .then((res) => {
         console.log("res:", res);
         console.log("storeProdutList=>res.data:", res.data);
+        console.log("storeProdutList의 길이=>res.data.length:", res.data.length);
         setStoreProductData(res.data);
         setFilteredProductData(res.data);
       })
