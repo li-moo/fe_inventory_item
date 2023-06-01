@@ -135,6 +135,7 @@ function StoreExp() {
             <th>재고</th>
             <th>판매가</th>
             <th>유통기한</th>
+            <th>--</th>
             <th>폐기 버튼</th>
             {/* <th>유통기한연산</th>
             <th>유통기한연산CSS</th> */}
@@ -165,6 +166,7 @@ function StoreExp() {
                       {item.exp}
                     </div>
                   </td>
+                  <td style={{color: 'gray'}}>{item.addData}</td>
                   <td>
                     <Popconfirm
                       title="이 상품을 폐기를 하시겠습니까??"
