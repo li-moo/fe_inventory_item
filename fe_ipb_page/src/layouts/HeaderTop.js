@@ -28,7 +28,8 @@ import {
   RiSunCloudyFill, 
   RiHeavyShowersLine, 
   RiFlashlightFill,
-  RiHome4Line
+  RiHome4Line,
+  RiMistFill
 } from "react-icons/ri";
 import { HiOutlineBell } from "react-icons/hi";
 import todayData from '../components/globalFunction/todayData';
@@ -248,7 +249,7 @@ const HeaderTop = () => {
                   {weatherData.presentWeather === "Rain" && <RiHeavyShowersLine />}
                   {weatherData.presentWeather === "Clouds" && <RiSunCloudyFill />}
                   {weatherData.presentWeather === "Thunderstorm" && <RiFlashlightFill />}
-                  {weatherData.presentWeather === "Mist" && <RiFlashlightFill />}
+                  {weatherData.presentWeather === "Mist" && <RiMistFill />}
                 </p>
                 </div>
               </Link>
