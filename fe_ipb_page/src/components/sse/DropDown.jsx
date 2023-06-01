@@ -121,6 +121,7 @@ function DropDown({ direction, ...args }) {
       },
     });
 
+    console.log("eventSource", eventSource);
     eventSource.onmessage = (event) => {
       const newMessage = JSON.parse(event.data);
       console.log(">>>>>.messages: ", messages);

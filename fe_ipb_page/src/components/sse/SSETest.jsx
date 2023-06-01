@@ -12,8 +12,12 @@ function SSETest() {
   useEffect(() => {
     // const eventSource = new EventSource('/alarm/sse');
     // const eventSource = new EventSource('http://localhost:8080/alarm/sse');
-    const eventSource = new EventSource(`http://localhost:8080/notifications/expiration?store_id=${loginData.store_id}`);
-
+    // 
+    const eventSource = new EventSource(`http://localhost:8080/notifications/expiration?store_id=${loginData.store_id}`, {
+      headers: {
+        'Content-Type': 'text/event-stream',
+      },
+    });
     // eventSource.onmessage 이벤트 핸들러는 서버로부터 메시지를 수신할 때마다 실행
     //  data 속성에는 서버로부터 받은 메시지의 내용
     eventSource.onmessage = (event) => {
@@ -23,7 +27,7 @@ function SSETest() {
     // SSE 연결 중에 오류가 발생할 경우 실행
     eventSource.onerror = (error) => {
       console.error('EventSource error:', error);
-      console.error('에러가 발생하였습니다.');
+      console.error('SSE-Test: 에러가 발생하였습니다.');
     };
 
     return () => {
@@ -31,7 +35,6 @@ function SSETest() {
     };
   }, []);
 //
-
 
 
   return ( 
