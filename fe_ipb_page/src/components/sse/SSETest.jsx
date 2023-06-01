@@ -35,9 +35,9 @@ function SSETest() {
       <div>
       <h1>Server-Sent Events</h1>
       <ul>
-        {/* {messages.map((message, index) => (
+        {messages.map((message, index) => (
           <li key={index}>{message}</li>
-        ))} */}
+        ))}
       </ul>
     </div>
 {/* // */}

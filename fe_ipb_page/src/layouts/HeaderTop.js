@@ -33,8 +33,18 @@ import {
 import { HiOutlineBell } from "react-icons/hi";
 import todayData from '../components/globalFunction/todayData';
 import CurrentDate from '../components/globalFunction/CurrentDate';
+import MyModal from '../components/sse/MyModal';
+import DropDown from '../components/sse/DropDown';
 
-
+// function MyModal() {
+//   return (
+//     <div className="modal">
+//       <h2>제목</h2>
+//       <p>날짜</p>
+//       <p>상세 내용</p>
+//     </div>
+//   );
+// }
 
 const HeaderTop = () => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -188,21 +198,6 @@ const HeaderTop = () => {
     }
   };
 
-  //
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const showModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const handleOk = () => {
-    setIsModalOpen(false);
-  };
-
-  const handleCancel = () => {
-    setIsModalOpen(false);
-  };
-  //
 
   return (
     // <Navbar color="primary" dark expand="md" className={"navbar-custom bg-secondary"} >
@@ -234,7 +229,6 @@ const HeaderTop = () => {
           )}
         </Button>
       </div>
-
       <Collapse navbar isOpen={isOpen}>
         <Nav className="me-auto" navbar>
           <div className={style.leftTab}>
@@ -269,22 +263,10 @@ const HeaderTop = () => {
           </NavItem>
 
           <NavItem>
-                {/* <div onClick={openModal} className="nav-link">
-                  <p className="nav-link ">
-                  <HiOutlineBell />
-                  </p>
-                </div> */}
+            <div id='classDrop'>
+                <DropDown />
+            </div>
           </NavItem>
-          {/* // */}
-          <Button type="primary" onClick={showModal}>
-            Open Modal
-          </Button>
-          <Modal title="Basic Modal" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
-            <p>Some contents...</p>
-            <p>Some contents...</p>
-            <p>Some contents...</p>
-          </Modal>
-          {/* // */}
           <NavItem>
             {
             logInData.isLogIn ?   
