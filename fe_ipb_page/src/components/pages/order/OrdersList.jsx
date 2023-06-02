@@ -77,7 +77,7 @@ function OrdersList() {
           <table className={styles.table}>
             <thead>
               <tr>
-                <th>ID</th>
+                <th>NUM</th>
                 <th>발주내역</th>
                 <th>배송상태</th>
               </tr>
@@ -109,7 +109,7 @@ function OrdersList() {
           {selectedId && (
             <>
             <StoreOrdersDetail
-              selectedId={selectedId}
+              selectedId={selectedId} //ordersDate
             />
               {/* <div>선택된 ID: {selectedId}</div> */}
               </>

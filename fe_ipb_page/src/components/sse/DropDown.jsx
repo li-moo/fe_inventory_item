@@ -114,28 +114,28 @@ function DropDown({ direction, ...args }) {
 
   const toggle = () => setDropdownOpen((prevState) => !prevState);
 
-  useEffect(() => {
-    const eventSource = new EventSource(`http://localhost:8080/notifications/expiration?store_id=${loginData.store_id}`, {
-      headers: {
-        'Content-Type': 'text/event-stream',
-      },
-    });
+  // useEffect(() => {
+  //   const eventSource = new EventSource(`http://localhost:8080/notifications/expiration?store_id=${loginData.store_id}`, {
+  //     headers: {
+  //       'Content-Type': 'text/event-stream',
+  //     },
+  //   });
 
-    console.log("eventSource", eventSource);
-    eventSource.onmessage = (event) => {
-      const newMessage = JSON.parse(event.data);
-      console.log(">>>>>.messages: ", messages);
-      setMessages((prevMessages) => [...prevMessages, newMessage]);
-    };
+  //   console.log("eventSource", eventSource);
+  //   eventSource.onmessage = (event) => {
+  //     const newMessage = JSON.parse(event.data);
+  //     console.log(">>>>>.messages: ", messages);
+  //     setMessages((prevMessages) => [...prevMessages, newMessage]);
+  //   };
 
-    eventSource.onerror = (error) => {
-      console.error('EventSource error:', error);
-    };
+  //   eventSource.onerror = (error) => {
+  //     console.error('EventSource error:', error);
+  //   };
 
-    return () => {
-      eventSource.close();
-    };
-  }, [loginData.store_id]);
+  //   return () => {
+  //     eventSource.close();
+  //   };
+  // }, [loginData.store_id]);
 
   return (
     <div id='top-myDrop'>
