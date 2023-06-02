@@ -31,7 +31,7 @@ function OrdersList() {
 
   // const url_be = `http://localhost:8080/orders/select-store-orders/${loginData.store_id}`;
   // const url_be = `http://localhost:8080/orders/select-store-orders/${loginData.store_id}`;
-  const url_be = `http://localhost:8080/orders/all`;
+  const url_be = `http://localhost:8080/orders/store-orders-date/${loginData.store_id}`;
 
   const fetchStoreOrdersDetailData = () => {
     axios(url_be, {
