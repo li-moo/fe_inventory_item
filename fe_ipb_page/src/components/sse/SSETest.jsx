@@ -40,7 +40,7 @@ function SSETest() {
       console.log(JSON.parse(e.data)[1].data);
       const onmessageData = JSON.parse(e.data)[1].data
       // setMessages((prev) => [...prev, JSON.parse(e.data)[1].data]);
-      setMessages((prev) => [...prev, JSON.parse(e.data)[1].data]);
+      setMessages((prev) => [...prev, onmessageData]);
     };
 
     eventSource.onerror = (e) => {
