@@ -8,3 +8,19 @@
   border-radius: 5px;
   cursor: pointer;
 }
+
+.alarmRed {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: red;
+}
+
+.alarmblack {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: black;
+}
