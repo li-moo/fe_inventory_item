@@ -53,6 +53,8 @@ function StoreProductList() {
         console.log("storeProdutList의 길이=>res.data.length:", res.data.length);
         setStoreProductData(res.data);
         setFilteredProductData(res.data);
+        // console.log("res.data_auto", res.data._auto);
+        // console.log("res.data.is_auto", res.data.is_auto);
       })
       .catch((err) => console.log("storeProdutList/err", err));
   };
@@ -79,7 +81,6 @@ function StoreProductList() {
       setFilteredProductData(filteredData);
     }
   };
-
   return (
     <>
       <div>
@@ -172,7 +173,10 @@ function StoreProductList() {
           {filteredProductData && filteredProducts.map((item) => (
 
             <tr key={item.id}>
-              <td>-</td>
+              <td>
+              {item._auto === false && 'ffff'}
+              {item._auto === true && 'tttt'}
+              </td>
               <td>{item.product_code}</td>
               <td>
                 <Link to={`/storeproduct/detail/${item.id}`} style={{ textDecoration: "none", color: "inherit" }}>
