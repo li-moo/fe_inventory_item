@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Table, Popconfirm, message } from 'antd';
+import { Table, Popconfirm, message, Divider, Button } from 'antd';
 import { Link } from 'react-router-dom';
 
 function ProductInfoList() {
@@ -68,11 +68,16 @@ function ProductInfoList() {
 
   return (
     <>
-      <Table dataSource={productData.map((item) => ({ ...item, key: item.id }))} columns={columns} />
-      {/* // productData 배열의 각 요소를 매핑하여 key 속성을 추가한 새로운 객체를 생성
-      // 객체 배열을 dataSource 속성에 전달하고
-      // columns는 테이블의 컬럼을 정의하는 객체 배열
-      // key 속성은 Table 컴포넌트에서 각 행을 식별하는 데 사용 */}
+      <h2>상품기본정보</h2>
+      <Divider/>
+      <Button><Link to="/productinfo/add">상품 기본정보 등록</Link></Button>
+      <div>
+        <Table dataSource={productData.map((item) => ({ ...item, key: item.id }))} columns={columns} />
+        {/* // productData 배열의 각 요소를 매핑하여 key 속성을 추가한 새로운 객체를 생성
+        // 객체 배열을 dataSource 속성에 전달하고
+        // columns는 테이블의 컬럼을 정의하는 객체 배열
+        // key 속성은 Table 컴포넌트에서 각 행을 식별하는 데 사용 */}
+      </div>
     </>
   );
 }

@@ -39,7 +39,7 @@ function ProductAdd() {
 
   return (
     <>
-      <h1>Product Add</h1>
+      <h2>상품등록</h2>
       <Divider />
 
       <Form

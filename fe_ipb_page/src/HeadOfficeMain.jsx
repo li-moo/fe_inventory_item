@@ -1,14 +1,14 @@
 import { useRoutes } from "react-router-dom";
-import Themeroutes from "./routes/Router";
+import Themeroutes from "./routes/HeadOfficeRouter";
 
 
 const HeadOfficeMain = () => {
-  const routing = useRoutes(Themeroutes);
+  const headOfficeRouting = useRoutes(Themeroutes);
 
   return (
 
     <>
-    <div className="dark">{routing}</div>
+    <div className="dark">{headOfficeRouting}</div>
     </>
   );
 }

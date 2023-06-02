@@ -41,7 +41,7 @@ function ProductInfoDetail() {
                     <img src={product.imgname} alt={product.detail} />
                   </div>
                   <div className={style.right}>
-                    <p>{product.category_name}</p>
+                    <div>{product.category_name}</div>
                     <h2>{product.name}</h2>
                     <p>SKU: {product.product_code}</p>
                     <p>제조사: {product.brand}</p>
