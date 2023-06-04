@@ -166,7 +166,7 @@ function StoreExp() {
                       {item.exp}
                     </div>
                   </td>
-                  <td style={{color: 'gray'}}>{item.addData}</td>
+                  <td style={{ color: 'gray' }}>{item.addData}</td>
                   <td>
                     <Popconfirm
                       title="이 상품을 폐기를 하시겠습니까??"

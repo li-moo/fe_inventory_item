@@ -43,6 +43,7 @@ const BoardEdit = lazy(() => import("../components/pages/board/BoardEdit.jsx"))
 const EventAdd = lazy(() => import("../components/pages/event/EventAdd.jsx"))
 const EventList = lazy(() => import("../components/pages/event/EventList.jsx"))
 const SEETest = lazy(() => import("../components/sse/SSETest.jsx"))
+const EventAutoOrders = lazy(() => import("../components/pages/auto/EventAutoOrders.jsx"))
 // const EventDetail = lazy(() => import("../components/pages/event/EventDetail.jsx"))
 // const EventUpdate = lazy(() => import("../components/pages/event/EventUpdate.jsx"))
 
@@ -92,13 +93,12 @@ const ThemeRoutes = [
       { path: "/event/eventadd", exact: true, element: <EventAdd/>} ,
       { path: "/event/eventlist", exact: true, element: <EventList/>} ,
       { path: "/sse", exact: true, element: <SSETest/>} ,
-
       // { path: "/event/eventdetail/:id", exact: true, element: <EventDetail/>} ,
       // { path: "/event/eventupdate/:id", exact: true, element: <EventUpdate/>} ,
-      
       // { path: "/board/add", exact: true, element: <BoardAdd/>} ,
       // { path: "/event/eventadd", exact: true, element: <EventAdd/>} ,
       // { path: "/event/eventlist", exact: true, element: <EventList/>} ,
+      { path: "/eventautoorders", exact: true, element: <EventAutoOrders/>} ,
     ],
   },
 ];
