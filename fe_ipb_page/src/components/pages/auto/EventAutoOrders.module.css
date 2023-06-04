@@ -1,0 +1,94 @@
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+}
+
+.table th,
+.table td {
+  /* padding: 8px; */
+  padding: 10px;
+  border-bottom: 1px solid #e4e4e4;
+  /* border-radius: 10px; */
+}
+
+.table th {
+  background-color: #FFFFFF;
+  font-weight: bold;
+  padding: 18px;
+}
+
+.table th:first-child,
+.table td:first-child {
+  text-align: center;
+}
+
+.table th:last-child,
+.table td:last-child {
+  text-align: right;
+}
+
+.table tbody tr:hover {
+  background-color: #f8f7fa;
+}
+
+.exp-column {
+  background-color: tomato;
+}
+
+/* .policyStatement {
+  display: flex;
+  align-items: center;
+}
+
+.policyStatement > div {
+  display: flex;
+  align-items: center;
+  margin-right: 16px;
+}
+
+.policyStatement > div > p {
+  margin-left: 8px;
+} */
+
+.policyStatement {
+  align-items: center;
+}
+
+.policyStatement>div {
+  display: flex;
+  align-items: center;
+
+}
+
+.policyStatement>div>p {
+  margin-left: 8px;
+}
+
+.searchInput {
+  border-radius: 5px;
+  padding: 8px;
+  border: none;
+  /* outline: none; */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  background-repeat: no-repeat;
+  background-position: 95% center;
+  padding-right: 30px;
+}
+
+.qBtn {
+  display: inline-block;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  background-color: #dadbe6;
+  border: none;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.qBtn:hover {
+  border: 0.5px solid rgb(202, 202, 202);
+}

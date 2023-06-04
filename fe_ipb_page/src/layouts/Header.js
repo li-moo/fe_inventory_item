@@ -102,6 +102,17 @@ const Header = () => {
 
               <UncontrolledDropdown inNavbar nav className={style.meCustom}>
                 <DropdownToggle caret nav>
+                  자동 발주
+                </DropdownToggle>
+                <DropdownMenu end>
+                  <DropdownItem>
+                    <Link to="/eventautoorders">이벤트 자동발주</Link>
+                  </DropdownItem>
+                </DropdownMenu>
+              </UncontrolledDropdown>
+
+              <UncontrolledDropdown inNavbar nav className={style.meCustom}>
+                <DropdownToggle caret nav>
                   매출
                 </DropdownToggle>
                 <DropdownMenu end>
