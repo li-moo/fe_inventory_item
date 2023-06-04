@@ -14,17 +14,6 @@ function StoreProductDetail() {
 
   const [product, setProduct] = useState();
 
-  const info = () => {
-    Modal.info({
-      title: '유통기한 관리 Tip!',
-      content: (
-        <div>
-        </div>
-      ),
-      onOk() { },
-    });
-  };
-
 
   useEffect(() => {
     console.log(id);
@@ -44,6 +33,55 @@ function StoreProductDetail() {
     var regexp = /\B(?=(\d{3})+(?!\d))/g;
     return num.toString().replace(regexp, ',');
   }
+
+  const info = () => {
+    // 모달이 켜질때마다 상품의 상세 데이터를 받아온다
+    fetch(`http://localhost:8080/product/detail?id=${id}`)
+      .then(res => res.json())
+      .then(data => {
+        console.log("product-detail data modal:", data);
+        setProduct(data)
+      })
+      .catch(err => console.log(err))
+    Modal.info({
+      // 모달 제목
+      title: '해당 상품을 자동발주 리스트에 추가하시겠습니까?',
+      // 모달 본문
+      content: (
+          <div>
+            {product.name}
+            <div>
+            <input type="number" id="minQnt" placeholder="최소 수량" />
+            <input type="number" id="qnt" placeholder="기준 수량" />
+            </div>
+          </div>
+      ),
+      onOk(){
+        // 54,55 라인에서 사용자가 인풋박스에 입력한 값을 각각 변수에 담습니다
+        const minQnt = document.getElementById('minQnt').value;
+        const qnt = document.getElementById('qnt').value;
+
+        fetch('http://localhost:8080/storeproduct/auto-order', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            product_code: product.product_code,
+            store_product_id: product.id,
+            min_qnt: minQnt,
+            qnt: qnt,
+          }),
+        })
+        .then(res => res.json())
+        .then(data => {
+          console.log('Auto-order response:', data);
+          // 추가로 필요한 작업 수행
+        })
+        .catch(err => console.log(err));
+      },
+    });
+  };
 
   return (
     <>
