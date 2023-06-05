@@ -18,6 +18,7 @@ function ProductList() {
       console.log(data);
     } catch (error) {
       console.error(error);
+      console.error(data);
     }
   };
 

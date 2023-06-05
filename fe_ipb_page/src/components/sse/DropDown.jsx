@@ -103,13 +103,13 @@ function DropDown({ direction, ...args }) {
           <HiOutlineBell />
           <div>{alarmData > 0 && <p className={styles.alarmRed}></p>}</div>
         </DropdownToggle>
-        <DropdownMenu style={{ width: '400px', maxHeight: '200px', overflowY: 'auto' }} {...args}>
+        {/* <DropdownMenu style={{ width: '400px', maxHeight: '200px', overflowY: 'auto' }} {...args}>
           <DropdownItem divider />
           <DropdownItem>{alarmData}</DropdownItem>
           {messages.map((message, index) => (
             <DropdownItem key={index}>{message}</DropdownItem>
           ))}
-        </DropdownMenu>
+        </DropdownMenu> */}
       </Dropdown>
     </div>
   );
