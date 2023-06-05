@@ -59,6 +59,7 @@ function StoreProductList() {
       .catch((err) => console.log("storeProdutList/err", err));
   };
 
+  // 셀렉트 박스
   const handleCategoryChange = (e) => {
     const selectedCategory = e.target.value;
     if (selectedCategory === "") {
@@ -81,6 +82,8 @@ function StoreProductList() {
       setFilteredProductData(filteredData);
     }
   };
+  // 셀렉트 박스
+  
   return (
     <>
       <div>
@@ -124,36 +127,6 @@ function StoreProductList() {
           enterButton={<SearchOutlined />}
           className={styles.searchInput}
         />
-        {/* <select name="productCategory" onChange={handleCategoryChange}>
-          <option value="">전체</option>
-          {storeProductData
-            .reduce((uniqueCategories, product) => {
-              if (!uniqueCategories.includes(product.category_name)) {
-                uniqueCategories.push(product.category_name);
-              }
-              return uniqueCategories;
-            }, [])
-            .map((category, index) => (
-              <option key={index} value={category}>
-                {category}
-              </option>
-            ))}
-        </select>
-        <select name="productStorage" onChange={handleStorageChange}>
-          <option value="">전체</option>
-          {storeProductData
-            .reduce((uniqueCategories, product) => {
-              if (!uniqueCategories.includes(product.storage)) {
-                uniqueCategories.push(product.storage);
-              }
-              return uniqueCategories;
-            }, [])
-            .map((storage, index) => (
-              <option key={index} value={storage}>
-                {storage}
-              </option>
-            ))}
-        </select> */}
       </div>
 
       <table className={styles.table}>
@@ -174,9 +147,8 @@ function StoreProductList() {
 
             <tr key={item.id}>
               <td>
-              {/* {item._auto === false && '-'}
-              {item._auto === true && '●'} */}
-              {item._auto ? '☆' : '-'}
+              {item._auto === false && 'ffff'}
+              {item._auto === true && 'tttt'}
               </td>
               <td>{item.product_code}</td>
               <td>

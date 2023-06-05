@@ -13,50 +13,13 @@ function StoreExpSeven() {
   const [storeProductData, setStoreProductData] = useState([]);
   const [logInData, setLogInData] = useRecoilState(logInState);
   const [searchTerm, setSearchTerm] = useState('');
+  const [filteredProductData, setFilteredProductData] = useState([]);
 
   const today = new Date();
   const year = today.getFullYear();
   const month = String(today.getMonth() + 1).padStart(2, '0');
   const day = String(today.getDate()).padStart(2, '0');
   const todayDate = `${year}-${month}-${day}`;
-
-
-  // function myDivider() {
-  //       <Divider />
-  // }
-
-  // 모달창
-  const info = () => {
-    Modal.info({
-      title: '유통기한 관리 Tip!',
-      content: (
-        <div>
-          <p>오늘 날짜는 {todayDate} 입니다. </p>
-          <p>매일매일 확인해서 신선식품들을 관리 해주세요 </p>
-          <div className={styles.policyStatement}>
-            <div>
-              <p className={styles.redExp}></p>
-              <p>: 유통기한 지남</p>
-            </div>
-            <div>
-              <p className={styles.yellowExp}></p>
-              <p>: D-3</p>
-            </div>
-            <div>
-              <p className={styles.greenExp}></p>
-              <p>: D-5</p>
-            </div>
-            <div>
-              <p className={styles.blueExp}></p>
-              <p>: D-7</p>
-            </div>
-          </div>
-        </div>
-      ),
-      onOk() { },
-    });
-  };
-
 
   useEffect(() => {
     fetchData();
@@ -104,19 +67,74 @@ function StoreExpSeven() {
 
   // console.log("sortedProductssortedProducts>>",sortedProducts);
 
+    // 셀렉트 박스
+    const handleCategoryChange = (e) => {
+      const selectedCategory = e.target.value;
+      if (selectedCategory === "") {
+        setFilteredProductData(storeProductData);
+      } else {
+        const filteredData = storeProductData.filter(
+          (item) => item.category_name === selectedCategory
+        );
+        setFilteredProductData(filteredData);
+      }
+    };
+    const handleStorageChange = (e) => {
+      const selectedStorage = e.target.value;
+      if (selectedStorage === "") {
+        setFilteredProductData(storeProductData);
+      } else {
+        const filteredData = storeProductData.filter(
+          (item) => item.storage === selectedStorage
+        );
+        setFilteredProductData(filteredData);
+      }
+    };
+    // 셀렉트 박스
+
   return (
     <>
-      <div>
-
+       <div>
       </div>
-
-      <Search
-        value={searchTerm}
-        onChange={(e) => handleSearch(e.target.value)}
-        placeholder="상품 이름, SKU 검색"
-        enterButton={<SearchOutlined />}
-        className={styles.searchInput}
-      />
+      <div className={styles.schSel}>
+        <select name="productCategory" onChange={handleCategoryChange} className={styles.selectBox}>
+          <option value="">카테고리</option>
+          {storeProductData
+            .reduce((uniqueCategories, product) => {
+              if (!uniqueCategories.includes(product.category_name)) {
+                uniqueCategories.push(product.category_name);
+              }
+              return uniqueCategories;
+            }, [])
+            .map((category, index) => (
+              <option key={index} value={category}>
+                {category}
+              </option>
+            ))}
+        </select>
+        <select name="productStorage" onChange={handleStorageChange} className={styles.selectBox}>
+          <option value="">보관방법</option>
+          {storeProductData
+            .reduce((uniqueCategories, product) => {
+              if (!uniqueCategories.includes(product.storage)) {
+                uniqueCategories.push(product.storage);
+              }
+              return uniqueCategories;
+            }, [])
+            .map((storage, index) => (
+              <option key={index} value={storage}>
+                {storage}
+              </option>
+            ))}
+        </select>
+        <Search
+          value={searchTerm}
+          onChange={(e) => handleSearch(e.target.value)}
+          placeholder="상품 이름, SKU 검색"
+          enterButton={<SearchOutlined />}
+          className={styles.searchInput}
+        />
+      </div>
 
       <table className={styles.table}>
         <thead>

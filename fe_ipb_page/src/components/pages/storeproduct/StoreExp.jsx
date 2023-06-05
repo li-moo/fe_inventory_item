@@ -220,6 +220,7 @@ function StoreExp() {
   const [storeProductData, setStoreProductData] = useState([]);
   const [logInData, setLogInData] = useRecoilState(logInState);
   const [searchTerm, setSearchTerm] = useState('');
+  const [filteredProductData, setFilteredProductData] = useState([]);
 
   const today = new Date();
   const year = today.getFullYear();
@@ -333,7 +334,30 @@ function StoreExp() {
 
   // console.log("sortedProductssortedProducts>>",sortedProducts);
 
-
+ // 셀렉트 박스
+ const handleCategoryChange = (e) => {
+  const selectedCategory = e.target.value;
+  if (selectedCategory === "") {
+    setFilteredProductData(storeProductData);
+  } else {
+    const filteredData = storeProductData.filter(
+      (item) => item.category_name === selectedCategory
+    );
+    setFilteredProductData(filteredData);
+  }
+};
+const handleStorageChange = (e) => {
+  const selectedStorage = e.target.value;
+  if (selectedStorage === "") {
+    setFilteredProductData(storeProductData);
+  } else {
+    const filteredData = storeProductData.filter(
+      (item) => item.storage === selectedStorage
+    );
+    setFilteredProductData(filteredData);
+  }
+};
+// 셀렉트 박스
 
   return (
     <>
@@ -349,14 +373,56 @@ function StoreExp() {
       </div>
 
 
+      <div>
+        <h4>재고 관리</h4>
+      </div>
+      <div className={styles.schSel}>
+        <select name="productCategory" onChange={handleCategoryChange} className={styles.selectBox}>
+          <option value="">카테고리</option>
+          {storeProductData
+            .reduce((uniqueCategories, product) => {
+              if (!uniqueCategories.includes(product.category_name)) {
+                uniqueCategories.push(product.category_name);
+              }
+              return uniqueCategories;
+            }, [])
+            .map((category, index) => (
+              <option key={index} value={category}>
+                {category}
+              </option>
+            ))}
+        </select>
+        <select name="productStorage" onChange={handleStorageChange} className={styles.selectBox}>
+          <option value="">보관방법</option>
+          {storeProductData
+            .reduce((uniqueCategories, product) => {
+              if (!uniqueCategories.includes(product.storage)) {
+                uniqueCategories.push(product.storage);
+              }
+              return uniqueCategories;
+            }, [])
+            .map((storage, index) => (
+              <option key={index} value={storage}>
+                {storage}
+              </option>
+            ))}
+        </select>
+        <Search
+          value={searchTerm}
+          onChange={(e) => handleSearch(e.target.value)}
+          placeholder="상품 이름, SKU 검색"
+          enterButton={<SearchOutlined />}
+          className={styles.searchInput}
+        />
+      </div>
 
-      <Search
+      {/* <Search
         value={searchTerm}
         onChange={(e) => handleSearch(e.target.value)}
         placeholder="상품 이름, SKU 검색"
         enterButton={<SearchOutlined />}
         className={styles.searchInput}
-      />
+      /> */}
 
       <table className={styles.table}>
         <thead>

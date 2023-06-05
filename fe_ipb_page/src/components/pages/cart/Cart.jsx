@@ -23,8 +23,10 @@ function Cart(props) {
   useEffect(() => {
     setCartData(props.cartList);
     fetchCartData()
+    // handleDeleteCart();
     console.log("useEffect/cartData:", cartData);
     console.log("useEffect/props.cartList:", props.cartList);
+    
   }, [props.cartList]);
 
   // async function fetchData() {
