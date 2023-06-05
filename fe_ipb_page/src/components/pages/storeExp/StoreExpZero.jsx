@@ -14,6 +14,7 @@ function StoreExpZero() {
   const [logInData, setLogInData] = useRecoilState(logInState);
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredProductData, setFilteredProductData] = useState([]);
+  const [refreshExpBtn, setRefreshExpBtn] = useState(false);
 
   const today = new Date();
   const year = today.getFullYear();
@@ -23,7 +24,8 @@ function StoreExpZero() {
 
   useEffect(() => {
     fetchData();
-  }, []);
+    // disposeBtn();
+  }, [refreshExpBtn]);
 
   const url_be = `http://localhost:8080/storeproduct/list/${logInData.store_id}`;
   // const url_be = `http://43.202.9.215:8080/storeproduct/list/${logInData.store_id}`;
@@ -58,8 +60,10 @@ function StoreExpZero() {
         data: {
           id: id,
         }
-      }
-    ).catch(function (error) {
+      })
+      .then(() => {
+        setRefreshExpBtn(!refreshExpBtn);
+      }) .catch(function (error) {
       console.log("error: ", error);
     })
   }
