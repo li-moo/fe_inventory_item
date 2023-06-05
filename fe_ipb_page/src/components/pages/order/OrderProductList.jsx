@@ -185,8 +185,6 @@ function OrderProductList(props) {
       setPageSize(pageSize);
     };
     //
-
-
   // let dataList = [];
 
   console.log("-->> storeProductData.map.qnt", storeProductData.map.qnt);

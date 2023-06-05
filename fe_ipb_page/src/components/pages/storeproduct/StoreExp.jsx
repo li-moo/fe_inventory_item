@@ -374,7 +374,6 @@ const handleStorageChange = (e) => {
 
 
       <div>
-        <h4>재고 관리</h4>
       </div>
       <div className={styles.schSel}>
         <select name="productCategory" onChange={handleCategoryChange} className={styles.selectBox}>
