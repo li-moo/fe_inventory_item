@@ -201,16 +201,18 @@ function StoreExp() {
                     </td>
                     <td style={{color: 'gray'}}>{item.addData}</td>
                     <td>
-                      <Popconfirm
-                        title="이 상품을 폐기를 하시겠습니까??"
-                        // onConfirm={() => handleAddCart(item.id)}
-                        okText="네"
-                        cancelText="아니오"
-                      >
+                      { item.addData <= -1 &&
+                        <Popconfirm
+                          title="이 상품을 폐기를 하시겠습니까??"
+                          // onConfirm={() => handleAddCart(item.id)}
+                          okText="네"
+                          cancelText="아니오"
+                        >
                         <Button >
                           폐기
                         </Button>
                       </Popconfirm>
+                      }
                     </td>
 
                 </tr>
@@ -239,6 +241,7 @@ function StoreExp() {
                   </td>
                   <td style={{color: 'gray'}}>{item.addData}</td>
                   <td>
+                    
                     <Popconfirm
                       title="이 상품을 폐기를 하시겠습니까??"
                       // onConfirm={() => handleAddCart(item.id)}

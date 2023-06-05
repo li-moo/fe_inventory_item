@@ -43,6 +43,28 @@ function StoreExpZero() {
       .catch((err) => console.log("storeexp/err", err))
   }
 
+  const disposeBtn = (id) => {
+    const url_be_disposeBtn = "http://localhost:8080/storeproduct/qntzero";
+
+    console.log("폐기버튼안>id:", id);
+
+    axios(url_be_disposeBtn,
+      {
+        method: 'put',
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Content-Type': 'application/json'
+        },
+        data: {
+          id: id,
+        }
+      }
+    ).catch(function (error) {
+      console.log("error: ", error);
+    })
+  }
+
+
   const subtractDates = (date1, date2) => {
     const oneDay = 24 * 60 * 60 * 1000;
     const diffDays = Math.round((new Date(date2) - new Date(date1)) / oneDay);
@@ -88,6 +110,8 @@ function StoreExpZero() {
       }
     };
     // 셀렉트 박스
+
+
 
   return (
     <>
@@ -183,7 +207,7 @@ function StoreExpZero() {
                   <td>
                     <Popconfirm
                       title="이 상품을 폐기를 하시겠습니까??"
-                      // onConfirm={() => handleAddCart(item.id)}
+                      onConfirm={() => disposeBtn(item.id)}
                       okText="네"
                       cancelText="아니오"
                     >
