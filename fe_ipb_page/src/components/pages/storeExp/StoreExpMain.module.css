@@ -1,0 +1,18 @@
+.mainHeader {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+.mainHeader > div {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+.mainHeader h4 {
+  margin-right: 10px;
+}
+
+.mainHeader button {
+  margin-left: 5px;
+}

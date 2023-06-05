@@ -211,12 +211,17 @@ import styles from './StoreExp.module.css';
 import axios from 'axios';
 import { Divider, Input, Modal, Popconfirm, Button, Tabs } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
+import StoreExp from './StoreExp';
+import StoreExpZero from './StoreExpZero';
+import StoreExpThree from './StoreExpThree';
+import StoreExpFive from './StoreExpFive';
+import StoreExpSeven from './StoreExpSeven';
 
 const { TabPane } = Tabs;
 
 const { Search } = Input;
 
-function StoreExp() {
+function StoreExpMain() {
   const [storeProductData, setStoreProductData] = useState([]);
   const [logInData, setLogInData] = useRecoilState(logInState);
   const [searchTerm, setSearchTerm] = useState('');
@@ -333,139 +338,55 @@ function StoreExp() {
 
   // console.log("sortedProductssortedProducts>>",sortedProducts);
 
-
+  const handleTabChange = (key) => {
+    console.log('Selected Tab:', key);
+  };
 
   return (
     <>
-      <div>
-        <h4>
-          유통기한 관리{' '}
-          <button className={styles.qBtn}
-            onClick={info}>
-            ?
-          </button>
-        </h4>
-
+      <div className={styles.mainHeader}>
+        <div className={styles.headerContent}>
+          <h4>
+            유통기한 관리{' '} 
+            <button className={styles.qBtn}
+              onClick={info}>
+              ?
+            </button>
+          </h4>
+        </div>
+        <div className={styles.tabContainer}>
+          <Tabs onChange={handleTabChange}>
+          <TabPane tab="전체" key="1">
+            <StoreExp />
+          </TabPane>
+          <TabPane tab="d-0" key="2">
+            <StoreExpZero />
+          </TabPane>
+          <TabPane tab="d-3" key="3">
+            <StoreExpThree />
+          </TabPane>
+          <TabPane tab="d-5" key="4">
+            <StoreExpFive />
+          </TabPane>
+          <TabPane tab="d-7" key="5">
+            <StoreExpSeven />
+          </TabPane>
+        </Tabs>
+        </div>
       </div>
 
-
-
+{/* 
       <Search
         value={searchTerm}
         onChange={(e) => handleSearch(e.target.value)}
         placeholder="상품 이름, SKU 검색"
         enterButton={<SearchOutlined />}
         className={styles.searchInput}
-      />
+      /> */}
 
-      <table className={styles.table}>
-        <thead>
-          <tr>
-            <th>SKU Code</th>
-            <th>상품 이름</th>
-            <th>재고</th>
-            <th>판매가</th>
-            <th>유통기한</th>
-            <th>--</th>
-            <th>폐기 버튼</th>
-            {/* <th>유통기한연산</th>
-            <th>유통기한연산CSS</th> */}
-          </tr>
-        </thead>
-        <tbody>
-          {/* {filteredProducts.map((item) => { */}
-          {sortedProducts.map((item) => {
-            if (dupSkuList.includes(item.id) && item.addData <= 7) {
-              return(
-                <tr key={item.id}>
-                  <td></td>
-                    <td>
-                      <Link to={`/product/detail/${item.id}`} style={{ textDecoration: "none", color: "inherit" }}>
-                      </Link>
-                    </td>
-                    <td>{item.qnt}</td>
-                    <td>{item.price}</td>
-                    <td>
-                      <div className={styles.expTd}>
-                        {item.addData <= -1 && <p className={styles.redExp}></p>}
-                        {item.addData > -1 && item.addData <= 3 && <p className={styles.yellowExp}></p>}
-                        {item.addData > 3 && item.addData <= 5 && <p className={styles.greenExp}></p>}
-                        {item.addData > 5 && item.addData <= 7 && <p className={styles.blueExp}></p>}
-                        
-                        {item.exp}
-                      </div>
-                    </td>
-                    <td style={{color: 'gray'}}>{item.addData}</td>
-                    <td>
-                      <Popconfirm
-                        title="이 상품을 폐기를 하시겠습니까??"
-                        // onConfirm={() => handleAddCart(item.id)}
-                        okText="네"
-                        cancelText="아니오"
-                      >
-                        <Button >
-                          폐기
-                        </Button>
-                      </Popconfirm>
-                    </td>
-
-                </tr>
-              )
-            }
-            if (item.addData <= 7) {
-              return (
-                <tr key={item.id}>
-                  <td>{item.product_code}</td>
-                  <td>
-                    <Link to={`/product/detail/${item.id}`} style={{ textDecoration: "none", color: "inherit" }}>
-                      ({item.brand})
-                      {item.product_name}
-                    </Link>
-                  </td>
-                  <td>{item.qnt}</td>
-                  <td>{item.price}</td>
-                  <td>
-                    <div className={styles.expTd}>
-                      {item.addData <= -1 && <p className={styles.redExp}></p>}
-                      {item.addData > -1 && item.addData <= 3 && <p className={styles.yellowExp}></p>}
-                      {item.addData > 3 && item.addData <= 5 && <p className={styles.greenExp}></p>}
-                      {item.addData > 5 && item.addData <= 7 && <p className={styles.blueExp}></p>}
-                      {item.exp}
-                    </div>
-                  </td>
-                  <td style={{color: 'gray'}}>{item.addData}</td>
-                  <td>
-                    <Popconfirm
-                      title="이 상품을 폐기를 하시겠습니까??"
-                      // onConfirm={() => handleAddCart(item.id)}
-                      okText="네"
-                      cancelText="아니오"
-                    >
-                      <Button >
-                        폐기
-                      </Button>
-                    </Popconfirm>
-                  </td>
-                  {/* <td>{item.addData}</td> 
-                   <td>
-                    {item.addData <= -1 && <p className={styles.redExp}></p>}
-                    {item.addData > -1 && item.addData <= 3 && <p className={styles.yellowExp}></p>}
-                    {item.addData > 3 && item.addData <= 5 && <p className={styles.greenExp}></p>}
-                    {item.addData > 5 && item.addData <= 7 && <p className={styles.blueExp}></p>}
-                    {item.addData > 7 && <span>{item.addData}</span>}
-                  </td>  */}
-
-                </tr>
-              );
-            } else {
-              return null;
-            }
-
-          })}
-        </tbody>
-      </table>
+     
     </>
   );
 }
 
-export default StoreExp;
+export default StoreExpMain;

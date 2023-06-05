@@ -15,6 +15,7 @@ function EventAutoOrders() {
 
   useEffect(() => {
     fetchDataEventAutoOrders();
+    updateQnt();
   }, []);
 
   const fetchDataEventAutoOrders = () => {
@@ -61,6 +62,7 @@ function EventAutoOrders() {
 
   return (
     <div>
+      <h4>이벤트 자동발주</h4>
       <table className={styles.table}>
         <thead>
           <tr>
