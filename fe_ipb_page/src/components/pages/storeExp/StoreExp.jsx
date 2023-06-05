@@ -16,6 +16,7 @@ function StoreExp() {
   const [logInData, setLogInData] = useRecoilState(logInState);
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredProductData, setFilteredProductData] = useState([]);
+  const [refreshExpBtn, setRefreshExpBtn] = useState(false);
 
   const today = new Date();
   const year = today.getFullYear();
@@ -25,7 +26,7 @@ function StoreExp() {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [refreshExpBtn]);
 
 
   // const url_be = process.env.REACT_APP_BE_API + `/storeproduct/list/${logInData.store_id}`;
@@ -115,6 +116,28 @@ function StoreExp() {
       }
     };
     // 셀렉트 박스
+    const disposeBtn = (id) => {
+      const url_be_disposeBtn = "http://localhost:8080/storeproduct/qntzero";
+  
+      console.log("폐기버튼안>id:", id);
+  
+      axios(url_be_disposeBtn,
+        {
+          method: 'put',
+          headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type': 'application/json'
+          },
+          data: {
+            id: id,
+          }
+        })
+        .then(() => {
+          setRefreshExpBtn(!refreshExpBtn);
+        }) .catch(function (error) {
+        console.log("error: ", error);
+      })
+    }
 
 
   return (
@@ -204,7 +227,7 @@ function StoreExp() {
                       { item.addData <= -1 &&
                         <Popconfirm
                           title="이 상품을 폐기를 하시겠습니까??"
-                          // onConfirm={() => handleAddCart(item.id)}
+                          onConfirm={() => disposeBtn(item.id)}
                           okText="네"
                           cancelText="아니오"
                         >
