@@ -102,6 +102,17 @@ const Header = () => {
 
               <UncontrolledDropdown inNavbar nav className={style.meCustom}>
                 <DropdownToggle caret nav>
+                  자동발주
+                </DropdownToggle>
+                <DropdownMenu end>
+                  <DropdownItem>
+                    <Link to="/storeautoorderslist">사용자설정</Link>
+                  </DropdownItem>
+                </DropdownMenu>
+              </UncontrolledDropdown>
+
+              <UncontrolledDropdown inNavbar nav className={style.meCustom}>
+                <DropdownToggle caret nav>
                   매출
                 </DropdownToggle>
                 <DropdownMenu end>
@@ -164,19 +175,6 @@ const Header = () => {
               <DropdownItem>Option 2</DropdownItem>
               <DropdownItem divider />
               <DropdownItem>Reset</DropdownItem>
-            </DropdownMenu>
-          </UncontrolledDropdown>
-
-          <UncontrolledDropdown inNavbar nav className={style.meCustom}>
-            <DropdownToggle caret nav>
-              점포
-            </DropdownToggle>
-            <DropdownMenu end>
-              <DropdownItem>
-                <Link to='/store'>
-                조회
-                </Link>
-              </DropdownItem>
             </DropdownMenu>
           </UncontrolledDropdown>
 
