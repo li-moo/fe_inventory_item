@@ -163,18 +163,22 @@
 // export default OrderProductList;
 
 import React, { useState, useEffect } from 'react';
-import { Popconfirm, Button, Pagination } from 'antd';
+import { Popconfirm, Button, Pagination, Input } from 'antd';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { logInState } from "../../state/loginState";
 import { useRecoilState } from 'recoil';
 import styles from './OrderProductList.module.css';
+import { SearchOutlined } from '@ant-design/icons';
+
+const { Search } = Input;
 
 function OrderProductList(props) {
   const [productData, setProductData] = useState([]);
   const [logInData, setLogInData] = useRecoilState(logInState);
   const [storeProductData, setStoreProductData] = useState([]);
   const [qntStoreProductData, setQntStoreProductData] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
 
     // 페이지네이션
     const [currentPage, setCurrentPage] = useState(1);
@@ -332,9 +336,27 @@ function OrderProductList(props) {
     props.setIsAdd(!props.isAdd);
   };
 
+  const handleSearch = (value) => {
+    setSearchTerm(value);
+  };
+
+  const filteredProducts = productData.filter((item) =>
+    item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    item.product_code.toString().toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
 
   return (
     <>
+    <div>
+      <Search
+        value={searchTerm}
+        onChange={(e) => handleSearch(e.target.value)}
+        placeholder="상품 이름, SKU 검색"
+        enterButton={<SearchOutlined />}
+        className={styles.searchInput}
+      />
+    </div>
       <>
         <table className={styles.table}>
           <thead>
@@ -350,7 +372,8 @@ function OrderProductList(props) {
           </thead>
           <tbody>
             {/* {qntStoreProductData && qntStoreProductData.map((item) => ( */}
-            {productData && productData.map((item, index) => (
+            {/* {productData && productData.map((item, index) => ( */}
+            {filteredProducts.map((item, index) => (
               <tr key={index}>
                 <td>{item.product_code}</td>
                 <td>

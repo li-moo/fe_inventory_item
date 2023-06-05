@@ -290,7 +290,6 @@ function StoreExp() {
             } else {
               return null;
             }
-
           })}
         </tbody>
       </table>
