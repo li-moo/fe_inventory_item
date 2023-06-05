@@ -13,12 +13,15 @@ function OrdersList() {
   const [storeOrdersDetailData, setStoreOrdersDetailData] = useState([]);
   // const [storeOrdersDetailListData, setStoreOrdersDetailListData] = useState([]);
   const [selectedId, setSelectedId] = useState(null);
+  const [ordersStatus, setOrdersStatus] = useState(null);
   const [isAddOr, setIsAddOr] = useState(false);
 
-  const handleRowClick = (id, ordersDate) => {
+  const handleRowClick = (id, ordersStatus) => {
     setSelectedId(id);
+    setOrdersStatus(ordersStatus);
     // fetchStoreOrdersDetailListData(ordersDate);
-    console.log("------> ordersDate : ", ordersDate);
+    console.log("------> ordersDate : ", id);
+    console.log("------> ordersDate : ", id);
   };
 
   useEffect(() => {
@@ -86,9 +89,9 @@ function OrdersList() {
               {storeOrdersDetailData.map((item) => (
                 // <tr key={item.id}>
                 // <tr key={item.id} onClick={() => handleRowClick(item.id || item.orders_date)}>
-                <tr key={item.id} onClick={() => handleRowClick(item.orders_date)}>
+                <tr key={item.id} onClick={() => handleRowClick(item.orders_date, item.orders_status)}>
                   <td>{item.id}</td>
-                  <td>{item.orders_date}일자 발주내역</td>
+                  <td>{item.orders_date} 발주내역</td>
                   {/* <td>{new Date(item.orders_date).toISOString().split('T')[0]}일자 발주내역</td> */}
                   {/* <td>{item.delivery_id} */}
                   {/* <td>
@@ -110,6 +113,7 @@ function OrdersList() {
             <>
             <StoreOrdersDetail
               selectedId={selectedId} //ordersDate
+              ordersStatus={ordersStatus}
             />
               {/* <div>선택된 ID: {selectedId}</div> */}
               </>

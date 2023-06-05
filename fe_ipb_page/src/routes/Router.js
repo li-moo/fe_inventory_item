@@ -26,6 +26,7 @@ const StoreProductDetail = lazy(() => import("../components/pages/storeproduct/S
 const Event = lazy(() => import("../components/pages/event/Event.jsx"))
 const Orders = lazy(() => import("../components/pages/order/Orders.jsx"))
 const OrdersList = lazy(() => import("../components/pages/order/OrdersList.jsx"))
+const StoreAutoOrdersList = lazy(() => import("../components/pages/order/StoreAutoOrdersList.jsx"))
 const StoreProductList01 = lazy(() => import("../components/pages/storeproduct/StoreProductList.jsx"))
 // const StoreExp = lazy(() => import("../components/pages/storeproduct/StoreExp.jsx"))
 const StoreExpMain = lazy(() => import("../components/pages/storeExp/StoreExpMain.jsx"))
@@ -77,6 +78,7 @@ const ThemeRoutes = [
       { path: "/event", exact: true, element: <Event /> },
       { path: "/order", exact: true, element: <Orders /> },
       { path: "/orderslist", exact: true, element: <OrdersList /> },
+      { path: "/storeautoorderslist", exact: true, element: <StoreAutoOrdersList /> },
       { path: "/storeproductlist", exact: true, element: <StoreProductList01 /> },
       // { path: "/storeexp", exact: true, element: <StoreExp /> },
       { path: "/storeexp", exact: true, element: <StoreExpMain /> },

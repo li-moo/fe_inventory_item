@@ -174,8 +174,9 @@ function StoreProductList() {
 
             <tr key={item.id}>
               <td>
-              {item._auto === false && 'ffff'}
-              {item._auto === true && 'tttt'}
+              {/* {item._auto === false && '-'}
+              {item._auto === true && '●'} */}
+              {item._auto ? '☆' : '-'}
               </td>
               <td>{item.product_code}</td>
               <td>
