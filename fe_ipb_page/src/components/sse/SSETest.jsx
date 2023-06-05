@@ -80,7 +80,12 @@ function SSETest() {
     };
     
     eventSource.onmessage = (e) => {      
-      console.log(JSON.parse(e.data)[1].data);
+      const firstData = JSON.parse(e.data)[1].data;
+      console.log("firstData ", firstData);
+      const secondData = firstData.trim().split(':')[1].trim();
+
+      // console.log("secondData.JSON.parse(): ", JSON.parse(secondData)); // [StoreProduct(), ...]
+      // console.log("secondData: ", JSON.parse(secondData)); // 공백제거 후 ":" 가준으로 split 한 후 [1] 번째 값을 JSON.parse() 하자!
       const onmessageData = JSON.parse(e.data)[1].data
       // setMessages((prev) => [...prev, JSON.parse(e.data)[1].data]);
       setMessagesLowItem((prev) => [...prev, onmessageData]);
