@@ -27,7 +27,8 @@ const Event = lazy(() => import("../components/pages/event/Event.jsx"))
 const Orders = lazy(() => import("../components/pages/order/Orders.jsx"))
 const OrdersList = lazy(() => import("../components/pages/order/OrdersList.jsx"))
 const StoreProductList01 = lazy(() => import("../components/pages/storeproduct/StoreProductList.jsx"))
-const StoreExp = lazy(() => import("../components/pages/storeproduct/StoreExp.jsx"))
+// const StoreExp = lazy(() => import("../components/pages/storeproduct/StoreExp.jsx"))
+const StoreExpMain = lazy(() => import("../components/pages/storeExp/StoreExpMain.jsx"))
 const HeadOfficeOrderList = lazy(() => import("../components/pages/order/HeadOfficeOrderList.jsx"))
 const Store = lazy(() => import("../components/pages/store/Store.jsx"))
 const StoreAdd = lazy(() => import("../components/pages/store/StoreAdd.jsx"))
@@ -77,7 +78,8 @@ const ThemeRoutes = [
       { path: "/order", exact: true, element: <Orders /> },
       { path: "/orderslist", exact: true, element: <OrdersList /> },
       { path: "/storeproductlist", exact: true, element: <StoreProductList01 /> },
-      { path: "/storeexp", exact: true, element: <StoreExp /> },
+      // { path: "/storeexp", exact: true, element: <StoreExp /> },
+      { path: "/storeexp", exact: true, element: <StoreExpMain /> },
       { path: "/Hdorderslist", exact: true, element: <HeadOfficeOrderList /> },
       { path: "/store", exact: true, element: <Store /> },
       { path: "/store/add", exact: true, element: <StoreAdd /> },

@@ -341,7 +341,7 @@ function OrderProductList(props) {
         <table className={styles.table}>
           <thead>
             <tr>
-              <th>SKU</th>
+            <th>SKU</th>
               <th>상품 이름</th>
               <th>본사재고</th>
               <th>현재고</th>
