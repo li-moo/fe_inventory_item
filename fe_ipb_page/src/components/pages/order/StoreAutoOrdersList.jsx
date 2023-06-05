@@ -11,10 +11,10 @@ const { Search } = Input;
 function StoreAutoOrdersList() {
   const [storeAutoOrdersData, setStoreAutoOrdersData] = useState([]);
   const [logInData, setLogInData] = useRecoilState(logInState);
-  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     fetchData();
+    updateQnt();
   }, []);
 
   const url_be = `http://localhost:8080/auto/getList/${logInData.store_id}`;
@@ -28,6 +28,59 @@ function StoreAutoOrdersList() {
       })
       .catch((err) => console.log("storeProdutList/err", err));
   };
+
+  const updateQnt = (tarId, tarQnt, tarMinQnt) => {
+    const url_be_updateQnt = "http://localhost:8080//auto/qnt-change";
+
+    axios(url_be_updateQnt,
+      {
+        method: 'put',
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Content-Type': 'application/json'
+        },
+        data: {
+          id: tarId,
+          qnt: tarQnt,
+          min_qnt: tarMinQnt,
+        }
+      }
+    ).catch(function (error) {
+      console.log("error: ", error);
+      if (error.response) {
+        console.log(error.response.data);
+        console.log(error.response.status);
+        console.log(error.response.headers);
+      }
+    })
+  }
+
+  const updateMinQnt = (tarId, tarQnt, tarMinQnt) => {
+    const url_be_updateMinQnt = "http://localhost:8080//auto/qnt-change";
+
+    axios(url_be_updateMinQnt,
+      {
+        method: 'put',
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Content-Type': 'application/json'
+        },
+        data: {
+          id: tarId,
+          qnt: tarQnt,
+          min_qnt: tarMinQnt
+        }
+      }
+    ).catch(function (error) {
+      console.log("error: ", error);
+      if (error.response) {
+        console.log(error.response.data);
+        console.log(error.response.status);
+        console.log(error.response.headers);
+      }
+    })
+  }
+
   return (
     <>
       <h4>사용자설정 자동발주</h4>
@@ -44,15 +97,63 @@ function StoreAutoOrdersList() {
           </tr>
         </thead>
         <tbody>
-          {storeAutoOrdersData && storeAutoOrdersData.map((item) => (
+          {storeAutoOrdersData.map((item) => (
 
             <tr key={item.id}>
               <td>{item.product_code}</td>
               <td>{item.product_name}</td>
-              <td>{item.qnt}</td>
-              <td>{item.price}</td>
-              <td>{item.exp}</td>
-              <td>{item.storage}</td>
+              <td>{item.product_cost}</td>
+              <td>{item.product_price}</td>
+              <td>
+                <input
+                    type="number"
+                    value={item.min_qnt}
+                    onChange={(em) => {
+                      const newMinQuantity = parseInt(em.target.value) || item.min_qnt - 1;
+                      console.log("e.target.value", em.target.value);
+                      if (!isNaN(newMinQuantity) && newMinQuantity > 0) {
+                        const updatedListData = storeAutoOrdersData.map((storeAutoItem) => {
+                          if (storeAutoItem.id === item.id) {
+                            return { ...storeAutoItem, min_qnt: newMinQuantity };
+                          }
+                          return storeAutoItem;
+                        });
+
+                        setStoreAutoOrdersData(updatedListData);
+                      }
+                      const tarId = item.id;
+                      const tarQnt = item.qnt;
+                      const tarMinQnt = newMinQuantity;
+                      updateMinQnt(tarId, tarQnt, tarMinQnt);
+                    }
+                    }
+                  />
+              </td>
+              <td>
+                <input
+                  type="number"
+                  value={item.qnt}
+                  onChange={(e) => {
+                    const newQuantity = parseInt(e.target.value) || item.qnt - 1;
+                    console.log("e.target.value", e.target.value);
+                    if (!isNaN(newQuantity) && newQuantity > 0) {
+                      const updatedListData = storeAutoOrdersData.map((storeAutoItem) => {
+                        if (storeAutoItem.id === item.id) {
+                          return { ...storeAutoItem, qnt: newQuantity };
+                        }
+                        return storeAutoItem;
+                      });
+
+                      setStoreAutoOrdersData(updatedListData);
+                    }
+                    const tarId = item.id;
+                    const tarQnt = newQuantity;
+                    const tarMinQnt = item.min_qnt;
+                    updateQnt(tarId, tarQnt, tarMinQnt);
+                  }
+                  }
+                />
+              </td>
             </tr>
           ))}
         </tbody>
