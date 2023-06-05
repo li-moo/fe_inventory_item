@@ -145,7 +145,7 @@ function StoreExpSeven() {
             <th>판매가</th>
             <th>유통기한</th>
             <th>--</th>
-            <th>폐기 버튼</th>
+            {/* <th>폐기 버튼</th> */}
             {/* <th>유통기한연산</th>
             <th>유통기한연산CSS</th> */}
           </tr>
@@ -176,7 +176,7 @@ function StoreExpSeven() {
                     </div>
                   </td>
                   <td style={{ color: 'gray' }}>{item.addData}</td>
-                  <td>
+                  {/* <td>
                     <Popconfirm
                       title="이 상품을 폐기를 하시겠습니까??"
                       // onConfirm={() => handleAddCart(item.id)}
@@ -187,7 +187,7 @@ function StoreExpSeven() {
                         폐기
                       </Button>
                     </Popconfirm>
-                  </td>
+                  </td> */}
                   {/* <td>{item.addData}</td> 
                    <td>
                     {item.addData <= -1 && <p className={styles.redExp}></p>}
