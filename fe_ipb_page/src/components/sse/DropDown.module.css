@@ -24,3 +24,28 @@
   border-radius: 50%;
   background-color: black;
 }
+
+.dropItemMessage {
+  padding: 3px;
+  /* border: 3px solid; */
+}
+
+.dropList {
+  margin: 5px;
+}
+
+.dropItemExpMessage {
+  border: 3px solid rgb(247, 222, 59);
+  border-radius: 10px;
+  padding: 3px;
+  margin: 6px;
+  color: rgb(247, 222, 59);
+}
+
+.dropItemLowMessage {
+  border: 3px solid rgb(80, 206, 80);
+  border-radius: 10px;
+  padding: 3px;
+  margin: 6px;
+  color: rgb(80, 206, 80);
+}

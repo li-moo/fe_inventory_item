@@ -68,22 +68,22 @@ function StoreExp() {
   //   return new Date(a.exp) - new Date(b.exp);
   // });
   const sortedProducts = filteredProducts.sort((a, b) => {
-      const valueA = a.product_code;
-      const valueB = b.product_code;
-      if (valueA < valueB) {
-        return -1;
-      } else if (valueA > valueB) {
-        return 1;
-      } else {
-        return 0;
-      }
+    const valueA = a.product_code;
+    const valueB = b.product_code;
+    if (valueA < valueB) {
+      return -1;
+    } else if (valueA > valueB) {
+      return 1;
+    } else {
+      return 0;
+    }
   });
 
   let groupedProducts = storeProductData;
   let skuList = [];
   let dupSkuList = [];
   for (let i = 0; i < storeProductData.length; i++) {
-    if (!skuList.includes(storeProductData[i].product_code)){
+    if (!skuList.includes(storeProductData[i].product_code)) {
       skuList.push(storeProductData[i].product_code);
     } else {
       dupSkuList.push(storeProductData[i].id);
@@ -92,59 +92,83 @@ function StoreExp() {
 
   // console.log("sortedProductssortedProducts>>",sortedProducts);
 
-    // 셀렉트 박스
-    const handleCategoryChange = (e) => {
-      const selectedCategory = e.target.value;
-      if (selectedCategory === "") {
-        setFilteredProductData(storeProductData);
-      } else {
-        const filteredData = storeProductData.filter(
-          (item) => item.category_name === selectedCategory
-        );
-        setFilteredProductData(filteredData);
-      }
-    };
-    const handleStorageChange = (e) => {
-      const selectedStorage = e.target.value;
-      if (selectedStorage === "") {
-        setFilteredProductData(storeProductData);
-      } else {
-        const filteredData = storeProductData.filter(
-          (item) => item.storage === selectedStorage
-        );
-        setFilteredProductData(filteredData);
-      }
-    };
-    // 셀렉트 박스
-    const disposeBtn = (id) => {
-      const url_be_disposeBtn = "http://localhost:8080/storeproduct/qntzero";
-  
-      console.log("폐기버튼안>id:", id);
-  
-      axios(url_be_disposeBtn,
-        {
-          method: 'put',
-          headers: {
-            'Access-Control-Allow-Origin': '*',
-            'Content-Type': 'application/json'
-          },
-          data: {
-            id: id,
-          }
-        })
-        .then(() => {
-          setRefreshExpBtn(!refreshExpBtn);
-        }) .catch(function (error) {
+  // // 셀렉트 박스
+  // const handleCategoryChange = (e) => {
+  //   const selectedCategory = e.target.value;
+  //   if (selectedCategory === "") {
+  //     setFilteredProductData(storeProductData);
+  //   } else {
+  //     const filteredData = storeProductData.filter(
+  //       (item) => item.category_name === selectedCategory
+  //     );
+  //     setFilteredProductData(filteredData);
+  //   }
+  // };
+  // const handleStorageChange = (e) => {
+  //   const selectedStorage = e.target.value;
+  //   if (selectedStorage === "") {
+  //     setFilteredProductData(storeProductData);
+  //   } else {
+  //     const filteredData = storeProductData.filter(
+  //       (item) => item.storage === selectedStorage
+  //     );
+  //     setFilteredProductData(filteredData);
+  //   }
+  // };
+
+  // 셀렉트 박스
+  const handleCategoryChange = (e) => {
+    const selectedCategory = e.target.value;
+    if (selectedCategory === "") {
+      setFilteredProductData(sortedProducts);
+    } else {
+      const filteredData = sortedProducts.filter(
+        (item) => item.category_name === selectedCategory
+      );
+      setFilteredProductData(filteredData);
+    }
+  };
+  const handleStorageChange = (e) => {
+    const selectedStorage = e.target.value;
+    if (selectedStorage === "") {
+      setFilteredProductData(sortedProducts);
+    } else {
+      const filteredData = sortedProducts.filter(
+        (item) => item.storage === selectedStorage
+      );
+      setFilteredProductData(filteredData);
+    }
+  };
+  // 셀렉트 박스
+  const disposeBtn = (id) => {
+    const url_be_disposeBtn = "http://localhost:8080/storeproduct/qntzero";
+
+    console.log("폐기버튼안>id:", id);
+
+    axios(url_be_disposeBtn,
+      {
+        method: 'put',
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Content-Type': 'application/json'
+        },
+        data: {
+          id: id,
+        }
+      })
+      .then(() => {
+        setRefreshExpBtn(!refreshExpBtn);
+      }).catch(function (error) {
         console.log("error: ", error);
       })
-    }
+  }
 
 
   return (
     <>
 
-<div>
-      {/* </div>
+      <div>
+      </div>
       <div className={styles.schSel}>
         <select name="productCategory" onChange={handleCategoryChange} className={styles.selectBox}>
           <option value="">카테고리</option>
@@ -175,7 +199,7 @@ function StoreExp() {
                 {storage}
               </option>
             ))}
-        </select> */}
+        </select>
         <Search
           value={searchTerm}
           onChange={(e) => handleSearch(e.target.value)}
@@ -200,43 +224,43 @@ function StoreExp() {
           </tr>
         </thead>
         <tbody>
-          {/* {filteredProducts.map((item) => { */}
-          {sortedProducts.map((item) => {
+          {filteredProductData.map((item) => {
+            // {sortedProducts.map((item) => {
             if (dupSkuList.includes(item.id) && item.addData <= 7) {
-              return(
+              return (
                 <tr key={item.id}>
                   <td></td>
-                    <td>
-                      <Link to={`/product/detail/${item.id}`} style={{ textDecoration: "none", color: "inherit" }}>
-                      </Link>
-                    </td>
-                    <td>{item.qnt}</td>
-                    <td>{item.price}</td>
-                    <td>
-                      <div className={styles.expTd}>
-                        {item.addData <= -1 && <p className={styles.redExp}></p>}
-                        {item.addData > -1 && item.addData <= 3 && <p className={styles.yellowExp}></p>}
-                        {item.addData > 3 && item.addData <= 5 && <p className={styles.greenExp}></p>}
-                        {item.addData > 5 && item.addData <= 7 && <p className={styles.blueExp}></p>}
-                        
-                        {item.exp}
-                      </div>
-                    </td>
-                    <td style={{color: 'gray'}}>{item.addData}</td>
-                    <td>
-                      { item.addData <= -1 &&
-                        <Popconfirm
-                          title="이 상품을 폐기를 하시겠습니까??"
-                          onConfirm={() => disposeBtn(item.id)}
-                          okText="네"
-                          cancelText="아니오"
-                        >
+                  <td>
+                    <Link to={`/product/detail/${item.id}`} style={{ textDecoration: "none", color: "inherit" }}>
+                    </Link>
+                  </td>
+                  <td>{item.qnt}</td>
+                  <td>{item.price}</td>
+                  <td>
+                    <div className={styles.expTd}>
+                      {item.addData <= -1 && <p className={styles.redExp}></p>}
+                      {item.addData > -1 && item.addData <= 3 && <p className={styles.yellowExp}></p>}
+                      {item.addData > 3 && item.addData <= 5 && <p className={styles.greenExp}></p>}
+                      {item.addData > 5 && item.addData <= 7 && <p className={styles.blueExp}></p>}
+
+                      {item.exp}
+                    </div>
+                  </td>
+                  <td style={{ color: 'gray' }}>{item.addData}</td>
+                  <td>
+                    {item.addData <= -1 &&
+                      <Popconfirm
+                        title="이 상품을 폐기를 하시겠습니까??"
+                        onConfirm={() => disposeBtn(item.id)}
+                        okText="네"
+                        cancelText="아니오"
+                      >
                         <Button >
                           폐기
                         </Button>
                       </Popconfirm>
-                      }
-                    </td>
+                    }
+                  </td>
 
                 </tr>
               )
@@ -262,9 +286,9 @@ function StoreExp() {
                       {item.exp}
                     </div>
                   </td>
-                  <td style={{color: 'gray'}}>{item.addData}</td>
+                  <td style={{ color: 'gray' }}>{item.addData}</td>
                   <td>
-                    
+
                     <Popconfirm
                       title="이 상품을 폐기를 하시겠습니까??"
                       // onConfirm={() => handleAddCart(item.id)}
