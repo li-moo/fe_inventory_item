@@ -92,7 +92,7 @@ function StoreExpFive() {
 
   return (
     <>
-     <div>
+      <div>
       </div>
       <div className={styles.schSel}>
         <select name="productCategory" onChange={handleCategoryChange} className={styles.selectBox}>
@@ -150,8 +150,8 @@ function StoreExpFive() {
         </thead>
         <tbody>
           {/* {filteredProducts.map((item) => { */}
-          {filteredProductData && filteredProducts.map((item) => {
-            if (item.addData > 3 && item.addData <= 5 ) {
+          {filteredProductData && filteredProductData.map((item) => {
+            if (item.addData > 3 && item.addData <= 5) {
               return (
                 <tr key={item.id}>
                   <td>{item.product_code}</td>

@@ -26,7 +26,7 @@ function Cart(props) {
     // handleDeleteCart();
     console.log("useEffect/cartData:", cartData);
     console.log("useEffect/props.cartList:", props.cartList);
-    
+
   }, [props.cartList]);
 
   // async function fetchData() {

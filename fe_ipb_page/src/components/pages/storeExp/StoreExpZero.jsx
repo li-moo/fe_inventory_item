@@ -63,9 +63,9 @@ function StoreExpZero() {
       })
       .then(() => {
         setRefreshExpBtn(!refreshExpBtn);
-      }) .catch(function (error) {
-      console.log("error: ", error);
-    })
+      }).catch(function (error) {
+        console.log("error: ", error);
+      })
   }
 
 
@@ -90,36 +90,36 @@ function StoreExpZero() {
   });
 
   // console.log("sortedProductssortedProducts>>",sortedProducts);
-    // 셀렉트 박스
-    const handleCategoryChange = (e) => {
-      const selectedCategory = e.target.value;
-      if (selectedCategory === "") {
-        setFilteredProductData(storeProductData);
-      } else {
-        const filteredData = storeProductData.filter(
-          (item) => item.category_name === selectedCategory
-        );
-        setFilteredProductData(filteredData);
-      }
-    };
-    const handleStorageChange = (e) => {
-      const selectedStorage = e.target.value;
-      if (selectedStorage === "") {
-        setFilteredProductData(storeProductData);
-      } else {
-        const filteredData = storeProductData.filter(
-          (item) => item.storage === selectedStorage
-        );
-        setFilteredProductData(filteredData);
-      }
-    };
-    // 셀렉트 박스
+  // 셀렉트 박스
+  const handleCategoryChange = (e) => {
+    const selectedCategory = e.target.value;
+    if (selectedCategory === "") {
+      setFilteredProductData(storeProductData);
+    } else {
+      const filteredData = storeProductData.filter(
+        (item) => item.category_name === selectedCategory
+      );
+      setFilteredProductData(filteredData);
+    }
+  };
+  const handleStorageChange = (e) => {
+    const selectedStorage = e.target.value;
+    if (selectedStorage === "") {
+      setFilteredProductData(storeProductData);
+    } else {
+      const filteredData = storeProductData.filter(
+        (item) => item.storage === selectedStorage
+      );
+      setFilteredProductData(filteredData);
+    }
+  };
+  // 셀렉트 박스
 
 
 
   return (
     <>
-    <div>
+      <div>
       </div>
       <div className={styles.schSel}>
         <select name="productCategory" onChange={handleCategoryChange} className={styles.selectBox}>
@@ -176,8 +176,8 @@ function StoreExpZero() {
           </tr>
         </thead>
         <tbody>
-          {filteredProducts.map((item) => {
-            if (item.addData <= -1 ) {
+          {filteredProductData.map((item) => {
+            if (item.addData <= -1) {
               return (
                 <tr key={item.id}>
                   <td>{item.product_code}</td>
@@ -199,7 +199,7 @@ function StoreExpZero() {
                       {item.exp}
                     </div> */}
                     <div className={styles.expTd}>
-                      {item.addData <= -1  && (
+                      {item.addData <= -1 && (
                         <>
                           <p className={styles.redExp}></p>
                           {item.exp}

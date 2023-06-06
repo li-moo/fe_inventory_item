@@ -12,6 +12,8 @@ function DropDown({ direction, ...args }) {
   const [loginData, setLoginData] = useRecoilState(logInState);
   const [messages, setMessages] = useState([]);
   const [alarmData, setAlarmData] = useRecoilState(alarmState);
+  const [messagesLowItem, setMessagesLowItem] = useState([]);
+  const [cartListData, setCartListData] = useState([]);
 
   // const toggle = () => setDropdownOpen((prevState) => !prevState);
 
@@ -26,30 +28,9 @@ function DropDown({ direction, ...args }) {
 
   useEffect(() => {
     fetchSSE();
-  }, []);
+    fetchLowItemSSE();
+  }, [cartListData]);
 
-  // useEffect(() => {
-  //   const eventSource = new EventSource(`http://localhost:8080/notifications/expiration?store_id=${loginData.store_id}`, {
-  //     headers: {
-  //       'Content-Type': 'text/event-stream',
-  //     },
-  //   });
-
-  //   console.log("eventSource", eventSource);
-  //   eventSource.onmessage = (event) => {
-  //     const newMessage = JSON.parse(event.data);
-  //     console.log(">>>>>.messages: ", messages);
-  //     setMessages((prevMessages) => [...prevMessages, newMessage]);
-  //   };
-
-  //   eventSource.onerror = (error) => {
-  //     console.error('EventSource error:', error);
-  //   };
-
-  //   return () => {
-  //     eventSource.close();
-  //   };
-  // }, [loginData.store_id]);
 
   const fetchSSE = () => {
     const eventSource = new EventSource(url, {
@@ -58,10 +39,6 @@ function DropDown({ direction, ...args }) {
       }
     });
 
-    // eventSource.onopen = (e) => {
-    //   console.log("1. 서버와 연결되셨습니다.");
-
-    // };\
     eventSource.onopen = function (event) {
       if (eventSource.readyState === EventSource.OPEN) {
         console.log('연결 성공');
@@ -96,6 +73,83 @@ function DropDown({ direction, ...args }) {
     };
   };
 
+  const fetchLowItemSSE = () => {
+    const LowItem_url = `http://localhost:8080/notifications/low-inventory/${loginData.store_id}`;
+
+    const eventSource = new EventSource(LowItem_url, {
+      headers: {
+        Accept: 'text/event-stream',
+      }
+    });
+
+    eventSource.onopen = function (event) {
+      if (eventSource.readyState === EventSource.OPEN) {
+        console.log('연결 성공');
+      } else {
+        console.log('연결 실패');
+      }
+    };
+
+    eventSource.onmessage = (e) => {
+      const firstData = JSON.parse(e.data)[1].data;
+      const secondData = JSON.parse(firstData)
+      // const mesage02Data = JSON.parse(mesage01Data.message)
+      // console.log("firstData ", firstData);
+      // console.log("mesage01Data ", secondData);
+      const messageLow = secondData.message;
+      const productsLow = secondData.products;
+      // const thirdData = JSON.parse(secondData)
+      // console.log("messageLow ", messageLow);
+      // // console.log("thirdData ", thirdData);
+      // console.log("secondData.message ", secondData.message);
+      // console.log("secondData.product ", secondData.products);
+      // console.log("productsLow", productsLow);
+      // console.log("productsLow[1]", productsLow[1]);
+      // console.log("productsLow[1].id", productsLow[1].id);
+      let tempCartListData = [];
+      for (var i = 0; i < productsLow.length; i++) {
+        // console.log("productsLow[i]", productsLow[i]);
+        // console.log("productsLow[i]", productsLow[i].id);
+        let cartData = {
+          "product_id": productsLow[i].id,
+          "store_id": loginData.store_id,
+          "qnt": 1
+        };
+        // console.log("cartData", cartData);
+        tempCartListData.push(cartData);
+        // setCartListData([...cartListData, cartData]); -> 285만 유지됨
+      }
+      setCartListData(tempCartListData);
+
+
+      /////////////
+
+      // const secondData = firstData.trim().split(':')[1].trim();
+      // console.log("secondData.JSON.parse(): ", JSON.parse(secondData)); // [StoreProduct(), ...]
+      // console.log("secondData: ", JSON.parse(secondData)); // 공백제거 후 ":" 가준으로 split 한 후 [1] 번째 값을 JSON.parse() 하자!
+      const onmessageData = JSON.parse(e.data)[1].data
+      // setMessages((prev) => [...prev, JSON.parse(e.data)[1].data]);
+      setMessagesLowItem((prev) => [...prev, messageLow]);
+    };
+
+    eventSource.onerror = (e) => {
+      // 종료 또는 에러 발생 시 할 일
+      eventSource.close();
+
+      if (e.error) {
+        console.log("에러가 발생했습니다.");
+        console.log(e);
+      }
+
+      if (e.target.readyState === EventSource.CLOSED) {
+        // 종료 시 할 일
+      }
+      return () => {
+        eventSource.close(); //  SSE 연결 종료
+      };
+    };
+  };
+
   return (
     <div id='top-myDrop'>
       <Dropdown isOpen={dropdownOpen} toggle={toggle} direction={direction} id='top-myDrop--i'>
@@ -103,14 +157,38 @@ function DropDown({ direction, ...args }) {
           <HiOutlineBell />
           <div>{alarmData > 0 && <p className={styles.alarmRed}></p>}</div>
         </DropdownToggle>
-        {/* <DropdownMenu style={{ width: '400px', maxHeight: '200px', overflowY: 'auto' }} {...args}>
-          <DropdownItem divider />
-          <DropdownItem>{alarmData}</DropdownItem>
-          {messages.map((message, index) => (
-            <DropdownItem key={index}>{message}</DropdownItem>
-          ))}
-        </DropdownMenu> */}
+        {/* <DropdownMenu style={{ width: '400px', maxHeight: '200px', overflowY: 'auto' }} {...args}> */}
+        <DropdownMenu style={{ width: '400px', maxHeight: '200px', overflowY: 'auto' }}>
+          <div className={styles.dropList}>
+            {messages.map((message, index) => (
+              <div key={index} className={styles.dropItemExpMessage}>{message}</div>
+            ))}
+            {messagesLowItem.map((message, index) => (
+              <div key={index} className={styles.dropItemLowMessage}>{message}</div>
+            ))}
+          </div>
+
+          {/* /// */}
+          {/* <div>
+            {
+              cartListData.map((item, index) => (
+                <div key={index} className={styles.dropItemMessage}>
+                  <p>{item.product_id}</p>
+                </div>
+              ))
+            }
+          </div> */}
+        </DropdownMenu>
       </Dropdown>
+      {/* <div>
+        {
+          cartListData && cartListData.map((item, index) => (
+            <div key={index} className={styles.dropItemMessage}>
+              <p>{item}</p>
+            </div>
+          ))
+        }
+      </div> */}
     </div>
   );
 }
