@@ -64,6 +64,10 @@ function ProductInfoList() {
       title: '입수',
       dataIndex: 'box_qnt',
     },
+    {
+      title: '안전재고',
+      dataIndex: 'safe_qnt',
+    },
   ];
 
   return (

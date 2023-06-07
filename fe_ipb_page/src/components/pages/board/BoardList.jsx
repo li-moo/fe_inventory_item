@@ -132,8 +132,8 @@ function BoardList() {
   ];
 
   const handleSearch = (value) => {
-    const filtered = boardData.filter((user) =>
-      user.name.toLowerCase().includes(value.toLowerCase())
+    const filtered = boardData.filter((item) =>
+      item.title.toLowerCase().includes(value.toLowerCase())
     );
     setFilteredData(filtered);
   };
@@ -142,14 +142,14 @@ function BoardList() {
     <>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
         <Search
-          placeholder="이름으로 검색"
+          placeholder="제목으로 검색"
           onSearch={handleSearch}
-          style={{ width: 200 }}
+          style={{ width: 300 }}
         />
-        {logInData.name && (
-          <Button type="primary">
-            <Link to="/board/add">글쓰기</Link>
-          </Button>
+        {logInData.store_id === 1 && (
+        <Button type="primary">
+          <Link to="/board/add">글쓰기</Link>
+        </Button>
         )}
       </div>
       <Table dataSource={filteredData} columns={columns} />

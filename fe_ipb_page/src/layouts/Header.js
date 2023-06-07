@@ -122,8 +122,6 @@ const Header = () => {
                   <DropdownItem>
                     <Link to="/sales/listbystore">점포 매출</Link>
                   </DropdownItem>
-                  <DropdownItem divider />
-                  <DropdownItem>Reset</DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
 
@@ -154,9 +152,6 @@ const Header = () => {
               <DropdownItem>
               <Link to="/sse">sse Test pages</Link>
               </DropdownItem>
-              <DropdownItem>Option 2</DropdownItem>
-              <DropdownItem divider />
-              <DropdownItem>Reset</DropdownItem>
             </DropdownMenu>
           </UncontrolledDropdown>
 
@@ -167,14 +162,8 @@ const Header = () => {
             </DropdownToggle>
             <DropdownMenu end>
               <DropdownItem>
-              <Link to="/headOffice/board">본사 - 게시판 </Link>
+              <Link to="/board">게시판</Link>
               </DropdownItem>
-              <DropdownItem>
-              <Link to="/board">점포 - 게시판 </Link>
-              </DropdownItem>
-              <DropdownItem>Option 2</DropdownItem>
-              <DropdownItem divider />
-              <DropdownItem>Reset</DropdownItem>
             </DropdownMenu>
           </UncontrolledDropdown>
 
