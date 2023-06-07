@@ -152,3 +152,22 @@
   white-space: nowrap;
   /* 긴 텍스트가 자동으로 줄바꿈되지 않도록 설정 */
 }
+
+.schSel {
+  display: flex;
+}
+
+.selectBox {
+  border: 0px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #4f4f4f;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.16);
+
+}
+
+.selectBox:focus {
+  border-color: #3186fd;
+  outline: none;
+  box-shadow: 1px 0 5px rgba(67, 94, 193, 0.574);
+}
