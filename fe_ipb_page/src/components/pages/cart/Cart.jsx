@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { Popconfirm, Button } from 'antd';
+import { Popconfirm, Button, Input } from 'antd';
 import axios from 'axios';
 import styles from './Cart.module.css';
 import { logInState } from "../../state/loginState";
 import { useRecoilState } from 'recoil';
 import { avigate, useNavigate } from 'react-router-dom';
 
+const { Search } = Input;
+
 function Cart(props) {
   const [cartData, setCartData] = useState([]);
   const [logInData, setLogInData] = useRecoilState(logInState);
   const [addOrder, setAddOrder] = useState(false);
   const [increQnt, setIncreQnt] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
 
   const navigate = useNavigate();
 
@@ -226,9 +229,28 @@ function Cart(props) {
   console.log("props.cartList", props.cartList);
   console.log(":587 -> cartData", cartData);
 
+  const handleSearch = (value) => {
+    setSearchTerm(value);
+  };
+
+  const filteredProducts = cartData.filter((item) =>
+  item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+  item.product_code.toString().toLowerCase().includes(searchTerm.toLowerCase())
+);
+
   return (
     <>
-      <table className={styles.table}>
+    <div>
+    <Search
+      value={searchTerm}
+      onChange={(e) => handleSearch(e.target.value)}
+      placeholder="상품 이름, SKU 검색"
+      // enterButton={<SearchOutlined />}
+      className={styles.searchInput}
+    />
+    </div>
+    <div style={{ overflowX: 'auto', maxHeight: '400px'}}>
+    <table className={styles.table}>
         <thead>
           <tr>
             <th>SKU</th>
@@ -248,7 +270,8 @@ function Cart(props) {
           </tr>
         </thead>
         <tbody>
-          {cartData && cartData.map((item) => (
+          {/* {cartData && cartData.map((item) => ( */}
+          {filteredProducts && filteredProducts.map((item) => (
             <tr key={item.id}>
               <td style={{ width: "10px" }}>{item.product_code}</td>
               <td>({item.brand}){item.name}</td>
@@ -313,7 +336,9 @@ function Cart(props) {
                   okText="네"
                   cancelText="아니오"
                 >
-                  <Button classNames={styles.conBtn}>
+                  <Button classNames={styles.conBtn}
+                   style={{position: 'static', zIndex: 1 }}
+                  >
                     <a>삭제</a>
                   </Button>
                 </Popconfirm>
@@ -322,6 +347,8 @@ function Cart(props) {
           ))}
         </tbody>
       </table>
+    </div>
+     
     </>
   );
 }

@@ -238,7 +238,7 @@ function OrderProductList(props) {
           value={searchTerm}
           onChange={(e) => handleSearch(e.target.value)}
           placeholder="상품 이름, SKU 검색"
-          enterButton={<SearchOutlined />}
+          // enterButton={<SearchOutlined />}
           className={styles.searchInput}
         />
       </div>
@@ -292,7 +292,7 @@ function OrderProductList(props) {
                     cancelText="아니오"
                   >
                     <Button
-                    style={{zIndex: 1 }}
+                    style={{position: 'static', zIndex: 1 }}
                     >
                       상품담기
                     </Button>
