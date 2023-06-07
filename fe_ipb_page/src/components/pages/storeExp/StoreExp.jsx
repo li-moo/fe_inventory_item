@@ -30,7 +30,7 @@ function StoreExp() {
 
 
   // const url_be = process.env.REACT_APP_BE_API + `/storeproduct/list/${logInData.store_id}`;
-  const url_be = `http://localhost:8080/storeproduct/list/${logInData.store_id}`;
+  const url_be = `http://localhost:8080/storeproduct/listexp/${logInData.store_id}`;
   // const url_be = `http://43.202.9.215:8080/storeproduct/list/${logInData.store_id}`;
 
   const fetchData = () => {
@@ -90,7 +90,9 @@ function StoreExp() {
     }
   }
 
-  // console.log("sortedProductssortedProducts>>",sortedProducts);
+  console.log("sortedProducts.qnt", sortedProducts.qnt)
+
+  console.log("sortedProductssortedProducts>>",sortedProducts);
 
   // // 셀렉트 박스
   // const handleCategoryChange = (e) => {
@@ -166,7 +168,6 @@ function StoreExp() {
 
   return (
     <>
-
       <div>
       </div>
       <div className={styles.schSel}>
@@ -217,8 +218,8 @@ function StoreExp() {
             <th>재고</th>
             <th>판매가</th>
             <th>유통기한</th>
-            <th>--</th>
-            <th>폐기 버튼</th>
+            <th>남은 일</th>
+            <th>{" "}</th>
             {/* <th>유통기한연산</th>
             <th>유통기한연산CSS</th> */}
           </tr>
@@ -255,7 +256,7 @@ function StoreExp() {
                         okText="네"
                         cancelText="아니오"
                       >
-                        <Button >
+                        <Button>
                           폐기
                         </Button>
                       </Popconfirm>
@@ -265,7 +266,7 @@ function StoreExp() {
                 </tr>
               )
             }
-            if (item.addData <= 7) {
+            if ( item.addData <= 7) {
               return (
                 <tr key={item.id}>
                   <td>{item.product_code}</td>

@@ -27,7 +27,7 @@ function StoreExpZero() {
     // disposeBtn();
   }, [refreshExpBtn]);
 
-  const url_be = `http://localhost:8080/storeproduct/list/${logInData.store_id}`;
+  const url_be = `http://localhost:8080/storeproduct/listexp/${logInData.store_id}`;
   // const url_be = `http://43.202.9.215:8080/storeproduct/list/${logInData.store_id}`;
 
   const fetchData = () => {
@@ -169,15 +169,15 @@ function StoreExpZero() {
             <th>재고</th>
             <th>판매가</th>
             <th>유통기한</th>
-            <th>--</th>
-            <th>폐기 버튼</th>
+            <th>남은 일</th>
+            <th>{" "}</th>
             {/* <th>유통기한연산</th>
             <th>유통기한연산CSS</th> */}
           </tr>
         </thead>
         <tbody>
           {filteredProductData.map((item) => {
-            if (item.addData <= -1) {
+            if (item.addData <= -1 && item.qnt > 0) {
               return (
                 <tr key={item.id}>
                   <td>{item.product_code}</td>

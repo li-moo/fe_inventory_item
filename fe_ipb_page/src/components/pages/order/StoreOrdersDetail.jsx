@@ -159,6 +159,7 @@ import axios from 'axios';
 import styles from './StoreOrdersDetail.module.css';
 import { logInState } from '../../state/loginState';
 import { useRecoilState } from 'recoil';
+import { Popconfirm, Button} from 'antd';
 
 function StoreOrdersDetail(props) {
 
@@ -238,6 +239,27 @@ function StoreOrdersDetail(props) {
     //setAddOrder(true);
   }
 
+  const deleteOrder = (id) => {
+    const url_be_deleteOrder = `http://localhost:8080/orders/orderdetail/delete/${id}`;
+
+    axios(url_be_deleteOrder,
+      {
+        method: 'DELETE',
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Content-Type': 'application/json',
+          withCredentials: true,
+          mode: 'no-cors'
+        },
+        data: {
+          id: id,
+        }
+      }
+    ).catch(function (error) {
+      console.log("error-> StoreOrdersDetail:", error)
+    })
+  }
+
 
 
   return (
@@ -254,6 +276,7 @@ function StoreOrdersDetail(props) {
               <th>SKU</th>
               <th>상품이름</th>
               <th>발주수량</th>
+              <th></th>
               {/* <th>매입가(cost)</th>
               <th>판매가(price)</th> */}
             </tr>
@@ -297,6 +320,20 @@ function StoreOrdersDetail(props) {
                   ) : (
                     item.qnt
                   )}
+                </td>
+                <td>
+                  <Popconfirm
+                    title="발주내역을"
+                    onConfirm={() => deleteOrder(item.id)}
+                    okText="네"
+                    cancelText="아니오"
+                  >
+                    <Button
+                    style={{zIndex: 1 }}
+                    >
+                      삭제
+                    </Button>
+                  </Popconfirm>
                 </td>
               </tr>
             );

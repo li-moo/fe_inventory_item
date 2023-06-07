@@ -136,5 +136,54 @@
   font-size: 14px;
   color: #4f4f4f;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.16);
+}
 
+.selectBox:focus {
+  border-color: #3186fd;
+  outline: none;
+  box-shadow: 1px 0 5px rgba(67, 94, 193, 0.574);
+}
+
+.redExpBtn {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: red;
+}
+
+.yellowExpBtn {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: rgb(255, 200, 0);
+}
+
+.greenExpBtn {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: rgb(44, 164, 0);
+}
+
+.blueExpBtn {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: dodgerblue;
+}
+
+.whiteExpBtn {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+}
+
+.expFlexBtn {
+  display: flex;
 }

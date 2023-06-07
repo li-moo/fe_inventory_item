@@ -25,7 +25,7 @@ function StoreExpThree() {
     fetchData();
   }, []);
 
-  const url_be = `http://localhost:8080/storeproduct/list/${logInData.store_id}`;
+  const url_be = `http://localhost:8080/storeproduct/listexp/${logInData.store_id}`;
   // const url_be = `http://43.202.9.215:8080/storeproduct/list/${logInData.store_id}`;
 
   const fetchData = () => {
@@ -149,7 +149,7 @@ function StoreExpThree() {
         </thead>
         <tbody>
           {filteredProductData.map((item) => {
-            if (item.addData > -1 && item.addData <= 3) {
+            if (item.addData > -1 && item.addData <= 3  && item.qnt > 0) {
               return (
                 <tr key={item.id}>
                   <td>{item.product_code}</td>
