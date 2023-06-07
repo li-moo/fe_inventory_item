@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import BoardList from './BoardListStore';
+import BoardList from './BoardList';
 import BoardListStore from './BoardListStore';
 
 
@@ -8,7 +8,7 @@ function Board() {
   return (
     <>
     <h2>자유 게시판</h2>
-    <BoardListStore />
+    <BoardList />
     </>
   );
 }

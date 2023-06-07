@@ -6,10 +6,8 @@ import { Navigate } from "react-router-dom";
 const FullLayout = lazy(() => import("../layouts/HeadOfficeFullLayout.js"));
 
 /***** Pages ****/
-
-const Starter = lazy(() => import("../views/Starter.js"));
-const About = lazy(() => import("../views/About.js"));
 const Login = lazy(() => import("../components/pages/login/Login.js"));
+const HeadOfficeMain = lazy(() => import("../views/HeadOfficeMain.js"));
 const Product = lazy(() => import("../components/pages/product/Product.jsx"));
 const ProductDetail = lazy(() => import("../components/pages/product/ProductDetail.jsx"));
 const ProductAdd = lazy(() => import("../components/pages/product/ProductAdd.jsx"));
@@ -20,20 +18,19 @@ const Staff = lazy(() => import("../components/pages/staff/Staff.js"));
 const StaffAdd = lazy(() => import("../components/pages/staff/StaffAdd.jsx"));
 const StaffUpdate = lazy(() => import("../components/pages/staff/StaffUpdate.jsx"));
 const Weather = lazy(() => import("../components/pages/weather/Weather.jsx"));
+const HeadOfficeOrderList = lazy(() => import("../components/pages/order/HeadOfficeOrderList.jsx"));
 const StoreProductDetail = lazy(() => import("../components/pages/storeproduct/StoreProductDetail.jsx"));
 const Event = lazy(() => import("../components/pages/event/Event.jsx"));
 const Orders = lazy(() => import("../components/pages/order/Orders.jsx"));
 const OrdersList = lazy(() => import("../components/pages/order/OrdersList.jsx"));
 const StoreProductList01 = lazy(() => import("../components/pages/storeproduct/StoreProductList.jsx"));
 const StoreExp = lazy(() => import("../components/pages/storeproduct/StoreExp.jsx"));
-const HeadOfficeOrderList = lazy(() => import("../components/pages/order/HeadOfficeOrderList.jsx"));
 const Store = lazy(() => import("../components/pages/store/Store.jsx"));
 const StoreAdd = lazy(() => import("../components/pages/store/StoreAdd.jsx"));
 const StoreDetail = lazy(() => import("../components/pages/store/StoreDetail.jsx"));
 const StoreSales = lazy(() => import("../components/pages/sales/StoreSales.jsx"));
 const StoreSalesListCategory = lazy(() => import("../components/pages/sales/StoreSalesListCategory.jsx"));
 const Board = lazy(() => import("../components/pages/board/Board.jsx"));
-const HeadOfficeBoard = lazy(() => import("../components/pages/board/HeadOfficeBoard.jsx"));
 const BoardAdd = lazy(() => import("../components/pages/board/BoardAdd.jsx"));
 const BoardDetail = lazy(() => import("../components/pages/board/BoardDetail.jsx"));
 const BoardUpdate = lazy(() => import("../components/pages/board/BoardUpdate.jsx"));
@@ -56,8 +53,8 @@ const ThemeRoutes = [
     path: "/",
     element: <FullLayout />,
     children: [
-      { path: "/", element: <Navigate to="/starter" /> },
-      { path: "/starter", exact: true, element: <Starter /> },
+      { path: "/", element: <Navigate to="/headofficemain" /> },
+      { path: "/headofficemain", exact: true, element: <HeadOfficeMain /> },
       { path: "/login", exact: true, element: <Login /> },
       { path: "/product", exact: true, element: <Product /> },
       { path: "/product/detail/:id", exact: true, element: <ProductDetail /> },
@@ -69,6 +66,7 @@ const ThemeRoutes = [
       { path: "/staff/add", exact: true, element: <StaffAdd /> },
       { path: "/staff/update/:id", exact: true, element: <StaffUpdate /> },
       { path: "/weather", exact: true, element: <Weather /> },
+      { path: "/headofficeorderlist", exact: true, element: <HeadOfficeOrderList /> },
       { path: "/storeproduct/detail/:id", exact: true, element: <StoreProductDetail /> },
       { path: "/event", exact: true, element: <Event /> },
       { path: "/order", exact: true, element: <Orders /> },
@@ -82,7 +80,6 @@ const ThemeRoutes = [
       { path: "/sales/listbystore", exact: true, element: <StoreSales /> },
       { path: "/sales/listbystore/category", exact: true, element: <StoreSalesListCategory /> },
       { path: "/board", exact: true, element: <Board />} ,
-      { path: "/headOffice/board", exact: true, element: <HeadOfficeBoard />} ,
       { path: "/board/add", exact: true, element: <BoardAdd/>} ,
       { path: "/board/update/:id", exact: true, element: <BoardUpdate /> },
       { path: "/boarddetail/:id", exact: true, element: <BoardDetail /> },
