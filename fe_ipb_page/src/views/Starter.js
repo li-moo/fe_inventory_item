@@ -148,8 +148,8 @@ const Starter = () => {
             <Table
               dataSource={filteredData.map((item) => ({ ...item, key: item.id }))}
               columns={expColumns}
-              pagination={false}
-              scroll={{ y: 500, }}
+              pagination={false} // 한 페이지에 보여줄 데이터 수, false는 페이지네이션 삭제
+              scroll={{ y: 500, }} // 스크롤 높이
             />
           </div>
         ),

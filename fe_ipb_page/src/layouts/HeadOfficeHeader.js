@@ -29,8 +29,6 @@ const Header = () => {
     // <div className={style.divHeader}>
     // <div className={`${style.divHeader} ${style.navbarCustom} ${style.bgSecondary}`}>
     <div className={`${style.divHeader} ${style.navbarCustom}`}>
-
-
       <Navbar color="primary" dark expand="md">
       <div className="d-flex align-items-center">
         <NavbarBrand href="/" className="d-lg-none">
@@ -79,7 +77,7 @@ const Header = () => {
                 </DropdownToggle>
                 <DropdownMenu end>
                   <DropdownItem>
-                    <Link to="/orderslist">발주내역조회</Link>
+                    <Link to="/headofficeorderlist">발주내역조회</Link>
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
@@ -89,72 +87,39 @@ const Header = () => {
                   매출
                 </DropdownToggle>
                 <DropdownMenu end>
-                  {/* <DropdownItem>
-                    <Link to="/sales">매출</Link>
-                  </DropdownItem> */}
                   <DropdownItem>
-                    <Link to="/sales/listbystore">점포 매출</Link>
+                    <Link to="/sales/listbystore">전체 매출</Link>
                   </DropdownItem>
-                  <DropdownItem divider />
-                  <DropdownItem>Reset</DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
 
+              <UncontrolledDropdown inNavbar nav className={style.meCustom}>
+                <DropdownToggle caret nav>
+                  이벤트
+                </DropdownToggle>
+                <DropdownMenu end>
+                  <DropdownItem>
+                    <Link to="/event">이벤트</Link>
+                  </DropdownItem>
+                </DropdownMenu>
+              </UncontrolledDropdown>
 
-          {/* <UncontrolledDropdown inNavbar nav className={style.meCustom}>
-            <DropdownToggle caret nav>
-              배송
-            </DropdownToggle>
-            <DropdownMenu end>
-              <DropdownItem>
-                <Link to="/orderslist">배송</Link>
-              </DropdownItem>
-              <DropdownItem>Option 2</DropdownItem>
-              <DropdownItem divider />
-              <DropdownItem>Reset</DropdownItem>
-            </DropdownMenu>
-          </UncontrolledDropdown> */}
-
-
-          <UncontrolledDropdown inNavbar nav className={style.meCustom}>
-            <DropdownToggle caret nav>
-              이벤트
-            </DropdownToggle>
-            <DropdownMenu end>
-              <DropdownItem>
-              <Link to="/event">이벤트</Link>
-              </DropdownItem>
-              <DropdownItem>Option 2</DropdownItem>
-              <DropdownItem divider />
-              <DropdownItem>Reset</DropdownItem>
-            </DropdownMenu>
-          </UncontrolledDropdown>
-
-
-          <UncontrolledDropdown inNavbar nav className={style.meCustom}>
-            <DropdownToggle caret nav>
-              게시판
-            </DropdownToggle>
-            <DropdownMenu end>
-              <DropdownItem>
-              <Link to="/headOffice/board">본사 - 게시판 </Link>
-              </DropdownItem>
-              <DropdownItem>
-              <Link to="/board">점포 - 게시판 </Link>
-              </DropdownItem>
-              <DropdownItem>Option 2</DropdownItem>
-              <DropdownItem divider />
-              <DropdownItem>Reset</DropdownItem>
-            </DropdownMenu>
-          </UncontrolledDropdown>
-
+              <UncontrolledDropdown inNavbar nav className={style.meCustom}>
+                <DropdownToggle caret nav>
+                  게시판
+                </DropdownToggle>
+                <DropdownMenu end>
+                  <DropdownItem>
+                    <Link to="/board">게시판 </Link>
+                  </DropdownItem>
+                </DropdownMenu>
+              </UncontrolledDropdown>
+            </Nav>
+          </Collapse>
         </Nav>
-      </Collapse>
-      </Nav>
       </Collapse>
     </Navbar>
     </div>
-
   );
 };
 
