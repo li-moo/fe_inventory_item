@@ -59,6 +59,8 @@ function StoreProductList() {
       .catch((err) => console.log("storeProdutList/err", err));
   };
 
+
+
   const handleCategoryChange = (e) => {
     const selectedCategory = e.target.value;
     if (selectedCategory === "") {
@@ -124,36 +126,6 @@ function StoreProductList() {
           enterButton={<SearchOutlined />}
           className={styles.searchInput}
         />
-        {/* <select name="productCategory" onChange={handleCategoryChange}>
-          <option value="">전체</option>
-          {storeProductData
-            .reduce((uniqueCategories, product) => {
-              if (!uniqueCategories.includes(product.category_name)) {
-                uniqueCategories.push(product.category_name);
-              }
-              return uniqueCategories;
-            }, [])
-            .map((category, index) => (
-              <option key={index} value={category}>
-                {category}
-              </option>
-            ))}
-        </select>
-        <select name="productStorage" onChange={handleStorageChange}>
-          <option value="">전체</option>
-          {storeProductData
-            .reduce((uniqueCategories, product) => {
-              if (!uniqueCategories.includes(product.storage)) {
-                uniqueCategories.push(product.storage);
-              }
-              return uniqueCategories;
-            }, [])
-            .map((storage, index) => (
-              <option key={index} value={storage}>
-                {storage}
-              </option>
-            ))}
-        </select> */}
       </div>
 
       <table className={styles.table}>
@@ -171,31 +143,31 @@ function StoreProductList() {
         <tbody>
           {/* {sortedProducts.map((item) => ( */}
           {filteredProductData && filteredProducts.map((item) => (
-
-            <tr key={item.id}>
-              <td>
-              {/* {item._auto === false && '-'}
-              {item._auto === true && '●'} */}
-              {item._auto ? '☆' : '-'}
-              </td>
-              <td>{item.product_code}</td>
-              <td>
-                <Link to={`/storeproduct/detail/${item.id}`} style={{ textDecoration: "none", color: "inherit" }}>
-                  ({item.brand})
-                  {item.product_name}
-                </Link>
-              </td>
-              <td>{item.qnt}</td>
-              <td>{item.price}</td>
-              <td>{item.exp}</td>
-              <td>{item.storage}</td>
-            </tr>
+              <tr key={item.id}>
+                <td>
+                {/* {item._auto === false && '-'}
+                {item._auto === true && '●'} */}
+                {item._auto ? '☆' : '-'}
+                </td>
+                <td>{item.product_code}</td>
+                <td>
+                  <Link to={`/storeproduct/detail/${item.id}`} style={{ textDecoration: "none", color: "inherit" }}>
+                    ({item.brand})
+                    {item.product_name}
+                  </Link>
+                </td>
+                <td>{item.qnt}</td>
+                <td>{item.price}</td>
+                <td>{item.exp}</td>
+                <td>{item.storage}</td>
+              </tr>
           ))}
         </tbody>
       </table>
     </>
   );
 }
+
 
 export default StoreProductList;
 

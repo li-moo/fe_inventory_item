@@ -9,7 +9,7 @@ import { SearchOutlined } from '@ant-design/icons';
 
 const { Search } = Input;
 
-function StoreExpZero() {
+function StoreExpZero(props) {
   const [storeProductData, setStoreProductData] = useState([]);
   const [logInData, setLogInData] = useRecoilState(logInState);
   const [searchTerm, setSearchTerm] = useState('');
@@ -41,8 +41,11 @@ function StoreExpZero() {
           addData: subtractDates(todayDate, item.exp),
         }));
         setStoreProductData(addData)
+        setFilteredProductData(res.data);
       })
       .catch((err) => console.log("storeexp/err", err))
+
+      props.setIsClick(!props.isClick);
   }
 
   const disposeBtn = (id) => {

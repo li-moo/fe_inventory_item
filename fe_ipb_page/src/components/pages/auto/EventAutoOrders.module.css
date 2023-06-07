@@ -92,3 +92,16 @@
 .qBtn:hover {
   border: 0.5px solid rgb(202, 202, 202);
 }
+
+.roundedInput {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  /* padding: 10px; */
+  transition: border-color 0.3s ease-in-out;
+}
+
+.roundedInput:focus {
+  border-color: #3186fd;
+  outline: none;
+  box-shadow: 0 0 5px rgba(76, 177, 202, 0.574);
+}

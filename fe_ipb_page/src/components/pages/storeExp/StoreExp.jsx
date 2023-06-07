@@ -11,7 +11,7 @@ const { TabPane } = Tabs;
 
 const { Search } = Input;
 
-function StoreExp() {
+function StoreExp(props) {
   const [storeProductData, setStoreProductData] = useState([]);
   const [logInData, setLogInData] = useRecoilState(logInState);
   const [searchTerm, setSearchTerm] = useState('');
@@ -28,6 +28,7 @@ function StoreExp() {
     fetchData();
   }, [refreshExpBtn]);
 
+  console.log(props.test);
 
   // const url_be = process.env.REACT_APP_BE_API + `/storeproduct/list/${logInData.store_id}`;
   const url_be = `http://localhost:8080/storeproduct/listexp/${logInData.store_id}`;
@@ -44,8 +45,11 @@ function StoreExp() {
           addData: subtractDates(todayDate, item.exp),
         }));
         setStoreProductData(addData)
+        setFilteredProductData(res.data);
       })
       .catch((err) => console.log("storeexp/err", err))
+
+      props.setIsClick(!props.isClick);
   }
 
   const subtractDates = (date1, date2) => {

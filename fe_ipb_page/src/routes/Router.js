@@ -111,7 +111,7 @@
 
 import { lazy } from "react";
 import { Navigate } from "react-router-dom";
-import SSETest from "../components/sse/SSETest.jsx";
+// import SSETest from "../components/sse/SSETest.jsx";
 
 
 /****Layouts*****/
@@ -141,6 +141,10 @@ const StoreAutoOrdersList = lazy(() => import("../components/pages/order/StoreAu
 const StoreProductList01 = lazy(() => import("../components/pages/storeproduct/StoreProductList.jsx"))
 // const StoreExp = lazy(() => import("../components/pages/storeproduct/StoreExp.jsx"))
 const StoreExpMain = lazy(() => import("../components/pages/storeExp/StoreExpMain.jsx"))
+const StoreExpZero = lazy(() => import("../components/pages/storeExp/StoreExpZero.jsx"))
+const StoreExpThree = lazy(() => import("../components/pages/storeExp/StoreExpThree.jsx"))
+const StoreExpFive = lazy(() => import("../components/pages/storeExp/StoreExpFive.jsx"))
+const StoreExpSeven = lazy(() => import("../components/pages/storeExp/StoreExpSeven.jsx"))
 const HeadOfficeOrderList = lazy(() => import("../components/pages/order/HeadOfficeOrderList.jsx"))
 const Store = lazy(() => import("../components/pages/store/Store.jsx"))
 const StoreAdd = lazy(() => import("../components/pages/store/StoreAdd.jsx"))
@@ -155,7 +159,7 @@ const BoardUpdate = lazy(() => import("../components/pages/board/BoardUpdate.jsx
 const BoardEdit = lazy(() => import("../components/pages/board/BoardEdit.jsx"))
 const EventAdd = lazy(() => import("../components/pages/event/EventAdd.jsx"))
 const EventList = lazy(() => import("../components/pages/event/EventList.jsx"))
-const SEETest = lazy(() => import("../components/sse/SSETest.jsx"))
+const SSETest = lazy(() => import("../components/sse/SSETest.jsx"))
 const EventAutoOrders = lazy(() => import("../components/pages/auto/EventAutoOrders.jsx"))
 // const EventDetail = lazy(() => import("../components/pages/event/EventDetail.jsx"))
 // const EventUpdate = lazy(() => import("../components/pages/event/EventUpdate.jsx"))
@@ -193,6 +197,10 @@ const ThemeRoutes = [
       { path: "/storeproductlist", exact: true, element: <StoreProductList01 /> },
       // { path: "/storeexp", exact: true, element: <StoreExp /> },
       { path: "/storeexp", exact: true, element: <StoreExpMain /> },
+      { path: "/storeexp/0", exact: true, element: <StoreExpZero/> },
+      { path: "/storeexp/3", exact: true, element: <StoreExpThree /> },
+      { path: "/storeexp/5", exact: true, element: <StoreExpFive /> },
+      { path: "/storeexp/7", exact: true, element: <StoreExpSeven /> },
       { path: "/Hdorderslist", exact: true, element: <HeadOfficeOrderList /> },
       { path: "/store", exact: true, element: <Store /> },
       { path: "/store/add", exact: true, element: <StoreAdd /> },
