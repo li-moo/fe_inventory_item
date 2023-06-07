@@ -99,7 +99,7 @@ function EventList() {
           />
         </Col>
         <Col span={12} style={{ display: 'flex', justifyContent: 'flex-end' }}>
-          <Link to="/event/eventadd">
+          <Link to="/event/add">
             <Button type="primary" icon={<PlusOutlined />}>
               이벤트 작성
             </Button>
@@ -127,28 +127,34 @@ function EventList() {
       <Row gutter={12}>
         {filteredData.map((event) => (
           <Col span={12} key={event.id}>
-            <Card
-              style={{ marginTop: 12, height: '100%' }}
-              actions={[
-                <EyeOutlined key="show" />,
-                <DeleteOutlined key="delete" onClick={() => handleDeleteModal(event)} />,
-              ]}
+            <Link 
+              to={`/event/detail/${event.id}`} 
+              style={{ textDecoration: 'none' }}
+              key={event.id}
             >
-              <Card.Meta
-                title={<div style={{ textAlign: 'left' }}>{event.name}</div>}
-                description={
-                  <>
-                    <p style={{ textAlign: 'left' }}>시작: {event.start_date}</p>
-                    <p style={{ textAlign: 'left' }}>마지막: {event.end_date}</p>
-                  </>
-                }
-              />
-              <img
-                style={{ width: '100%', marginTop: '16px' }}
-                src={event.image}
-                alt={event.name}
-              />
-            </Card>
+              <Card
+                style={{ marginTop: '50px', height: '100%' }}
+                actions={[
+                  <EyeOutlined key="show" />,
+                  <DeleteOutlined key="delete" onClick={() => handleDeleteModal(event)} />,
+                ]}
+              >
+                <Card.Meta
+                  title={<div style={{ textAlign: 'left' }}>{event.name}</div>}
+                  description={
+                    <>
+                      <p style={{ textAlign: 'left' }}>시작일: {event.start_date}</p>
+                      <p style={{ textAlign: 'left' }}>종료일: {event.end_date}</p>
+                    </>
+                  }
+                />
+                <img
+                  style={{ width: '100%', marginTop: '16px' }}
+                  src={event.imgname}
+                  alt={event.name}
+                />
+              </Card>
+            </Link>
           </Col>
         ))}
       </Row>
