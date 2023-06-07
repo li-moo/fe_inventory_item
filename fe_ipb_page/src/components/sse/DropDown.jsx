@@ -6,6 +6,7 @@ import { logInState } from '../state/loginState';
 import { useRecoilState } from 'recoil';
 import { alarmState } from '../state/alarmState';
 import styles from './DropDown.module.css'
+import { Navigate, useNavigate } from 'react-router-dom';
 
 function DropDown({ direction, ...args }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -14,6 +15,8 @@ function DropDown({ direction, ...args }) {
   const [alarmData, setAlarmData] = useRecoilState(alarmState);
   const [messagesLowItem, setMessagesLowItem] = useState([]);
   const [cartListData, setCartListData] = useState([]);
+  const navigate = useNavigate();
+
 
   // const toggle = () => setDropdownOpen((prevState) => !prevState);
 
@@ -75,7 +78,6 @@ function DropDown({ direction, ...args }) {
 
   const fetchLowItemSSE = () => {
     const LowItem_url = `http://localhost:8080/notifications/low-inventory/${loginData.store_id}`;
-
     const eventSource = new EventSource(LowItem_url, {
       headers: {
         Accept: 'text/event-stream',
@@ -106,20 +108,24 @@ function DropDown({ direction, ...args }) {
       // console.log("productsLow", productsLow);
       // console.log("productsLow[1]", productsLow[1]);
       // console.log("productsLow[1].id", productsLow[1].id);
-      let tempCartListData = [];
-      for (var i = 0; i < productsLow.length; i++) {
-        // console.log("productsLow[i]", productsLow[i]);
-        // console.log("productsLow[i]", productsLow[i].id);
-        let cartData = {
-          "product_id": productsLow[i].id,
-          "store_id": loginData.store_id,
-          "qnt": 1
-        };
-        // console.log("cartData", cartData);
-        tempCartListData.push(cartData);
-        // setCartListData([...cartListData, cartData]); -> 285만 유지됨
-      }
-      setCartListData(tempCartListData);
+
+      //
+      // let tempCartListData = [];
+      // for (var i = 0; i < productsLow.length; i++) {
+      //   // console.log("productsLow[i]", productsLow[i]);
+      //   // console.log("productsLow[i]", productsLow[i].id);
+      //   let cartData = {
+      //     "product_id": productsLow[i].id,
+      //     "store_id": loginData.store_id,
+      //     "qnt": 1
+      //   };
+      //   // console.log("cartData", cartData);
+      //   tempCartListData.push(cartData);
+      //   // setCartListData([...cartListData, cartData]); -> 285만 유지됨
+      // }
+      // setCartListData(tempCartListData);
+      //
+      setCartListData(messageLow)
 
 
       /////////////
@@ -150,6 +156,14 @@ function DropDown({ direction, ...args }) {
     };
   };
 
+  const handleNavigateEXP = () => {
+    navigate("/storeexp");
+  }
+
+  const handleNavigateLOW = () => {
+    navigate("/storeproductlist");
+  }
+
   return (
     <div id='top-myDrop'>
       <Dropdown isOpen={dropdownOpen} toggle={toggle} direction={direction} id='top-myDrop--i'>
@@ -161,10 +175,14 @@ function DropDown({ direction, ...args }) {
         <DropdownMenu style={{ width: '400px', maxHeight: '200px', overflowY: 'auto' }}>
           <div className={styles.dropList}>
             {messages.map((message, index) => (
-              <div key={index} className={styles.dropItemExpMessage}>{message}</div>
+              <div key={index} className={styles.dropItemExpMessage} onClick={handleNavigateEXP}>
+                {message}
+                </div>
             ))}
             {messagesLowItem.map((message, index) => (
-              <div key={index} className={styles.dropItemLowMessage}>{message}</div>
+              <div key={index} className={styles.dropItemLowMessage} onClick={handleNavigateLOW}>
+                {message}
+                </div>
             ))}
           </div>
 

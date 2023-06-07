@@ -142,3 +142,9 @@ th:not(:last-child) {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.16);
 
 }
+
+.selectBox:focus {
+  border-color: #3186fd;
+  outline: none;
+  box-shadow: 1px 0 5px rgba(67, 94, 193, 0.574);
+}

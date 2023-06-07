@@ -49,3 +49,11 @@
   margin: 6px;
   color: rgb(80, 206, 80);
 }
+
+.dropItemExpMessage:hover {
+  background-color: rgb(237, 239, 242);
+}
+
+.dropItemLowMessage:hover {
+  background-color: rgb(237, 239, 242);
+}

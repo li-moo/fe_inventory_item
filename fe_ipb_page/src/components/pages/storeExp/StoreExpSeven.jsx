@@ -27,7 +27,7 @@ function StoreExpSeven() {
 
 
 
-  const url_be = `http://localhost:8080/storeproduct/list/${logInData.store_id}`;
+  const url_be = `http://localhost:8080/storeproduct/listexp/${logInData.store_id}`;
   // const url_be = `http://43.202.9.215:8080/storeproduct/list/${logInData.store_id}`;
 
   const fetchData = () => {
@@ -153,7 +153,7 @@ function StoreExpSeven() {
         <tbody>
           {/* {filteredProducts.map((item) => { */}
           {filteredProductData.map((item) => {
-            if (item.addData > 5 && item.addData <= 7) {
+            if (item.addData > 5 && item.addData <= 7  && item.qnt > 0) {
               return (
                 <tr key={item.id}>
                   <td>{item.product_code}</td>
