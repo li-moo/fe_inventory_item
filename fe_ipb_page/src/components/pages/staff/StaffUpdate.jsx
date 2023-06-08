@@ -98,7 +98,7 @@ const StaffUpdate = () => {
           <Link to="/staff">뒤로가기</Link> 
         </Button>
       </div> */}
-      <div wrapperCol={{ offset: 7, span: 18 }}>
+      <div>
         
       </div>
     </>

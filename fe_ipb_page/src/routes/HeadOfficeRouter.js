@@ -73,7 +73,6 @@ const ThemeRoutes = [
       { path: "/orderslist", exact: true, element: <OrdersList /> },
       { path: "/storeproductlist", exact: true, element: <StoreProductList01 /> },
       { path: "/storeexp", exact: true, element: <StoreExp /> },
-      { path: "/Hdorderslist", exact: true, element: <HeadOfficeOrderList /> },
       { path: "/store", exact: true, element: <Store /> },
       { path: "/store/add", exact: true, element: <StoreAdd /> },
       { path: "/storedetail/:id", exact: true, element: <StoreDetail /> },

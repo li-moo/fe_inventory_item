@@ -5,6 +5,7 @@ import { logInState } from '../../state/loginState';
 import axios from 'axios';
 import { Divider, Input, Modal } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
+import styles from './StoreAutoOrdersList.module.css';
 
 const { Search } = Input;
 
@@ -69,7 +70,7 @@ function StoreAutoOrdersList() {
           id: tarId,
           qnt: tarQnt,
           min_qnt: tarMinQnt
-        }
+        },
       }
     ).catch(function (error) {
       console.log("error: ", error);
@@ -79,13 +80,14 @@ function StoreAutoOrdersList() {
         console.log(error.response.headers);
       }
     })
+    console.log(tarId);
   }
 
   return (
     <>
       <h4>사용자설정 자동발주</h4>
       <Divider/>
-      <table>
+      <table className={styles.table}>
         <thead>
           <tr>
             <th>SKU</th>

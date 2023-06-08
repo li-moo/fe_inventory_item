@@ -106,6 +106,9 @@ const Header = () => {
                 </DropdownToggle>
                 <DropdownMenu end>
                   <DropdownItem>
+                    <Link to="/storeautoorders">사용자설정 자동발주</Link>
+                  </DropdownItem>
+                  <DropdownItem>
                     <Link to="/eventautoorders">이벤트 자동발주</Link>
                   </DropdownItem>
                 </DropdownMenu>

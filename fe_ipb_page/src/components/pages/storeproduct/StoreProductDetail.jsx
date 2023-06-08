@@ -231,7 +231,7 @@ function StoreProductDetail() {
                 <li>
                   <div className={styles.left}>
                     {/* <img src={product.imgname} alt={product.detail} /> */}
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlpfr_r51S_nvNI9JSggADR78muK6decmUDA&usqp=CAU" alt={product.detail} />
+                    <img src={product.imgname} alt={product.detail} />
                     <p>SKU - QR code</p>
                     <Button onClick={info}>
                       자동발주
