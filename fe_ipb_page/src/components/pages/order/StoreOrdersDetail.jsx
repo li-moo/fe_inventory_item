@@ -477,27 +477,33 @@ function StoreOrdersDetail(props) {
                         onChange={(e) => {
                           const newQuantity = parseInt(e.target.value) || item.qnt - 1;
                           if (!isNaN(newQuantity) && newQuantity > 0) {
-                            const updatedCartData = storeOrdersDetailListData.map((SODitem) => {
-                              if (SODitem.id === item.id) {
-                                return { ...SODitem, qnt: newQuantity };
+                            const updatedOrders = groupedOrders[groupId].map((order) => {
+                              if (order.id === item.id) {
+                                return { ...order, qnt: newQuantity };
                               }
-                              return SODitem;
+                              return order;
                             });
-
-                            setStoreOrdersDetailListData(updatedCartData);
+                        
+                            setGroupedOrders({
+                              ...groupedOrders,
+                              [groupId]: updatedOrders,
+                            });
                           }
                           const tarId = item.id;
                           const tarQnt = newQuantity;
                           updateQnt(tarId, tarQnt);
                         }}
                       />
+                      
                     ) : (
                       item.qnt
-                    )}
+                    )
+                    }
                   </td>
+                  {item.orders_status === "배송준비중" ? (
                   <td>
                     <Popconfirm
-                      title="발주내역을"
+                      title="발주내역을 삭제 하시겠습니까?"
                       onConfirm={() => deleteOrder(item.id)}
                       okText="네"
                       cancelText="아니오"
@@ -505,6 +511,9 @@ function StoreOrdersDetail(props) {
                       <Button  style={{position: 'static', zIndex: 1 }}>삭제</Button>
                     </Popconfirm>
                   </td>
+                  ) : (
+                    ''
+                  )}
                 </tr>
               ))}
             </tbody>
