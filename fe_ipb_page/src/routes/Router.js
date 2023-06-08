@@ -158,6 +158,7 @@ const BoardUpdate = lazy(() => import("../components/pages/board/BoardUpdate.jsx
 const BoardEdit = lazy(() => import("../components/pages/board/BoardEdit.jsx"))
 const EventAdd = lazy(() => import("../components/pages/event/EventAdd.jsx"))
 const EventList = lazy(() => import("../components/pages/event/EventList.jsx"))
+const EventDetail = lazy(() => import("../components/pages/event/EventDetail.jsx"))
 const SSETest = lazy(() => import("../components/sse/SSETest.jsx"))
 const EventAutoOrders = lazy(() => import("../components/pages/auto/EventAutoOrders.jsx"))
 // const EventDetail = lazy(() => import("../components/pages/event/EventDetail.jsx"))
@@ -211,8 +212,9 @@ const ThemeRoutes = [
       { path: "/board/update/:id", exact: true, element: <BoardUpdate /> },
       { path: "/boarddetail/:id", exact: true, element: <BoardDetail /> },
       { path: "/board/edit/:id", exact: true, element: <BoardEdit /> },
-      { path: "/event/eventadd", exact: true, element: <EventAdd/>} ,
-      { path: "/event/eventlist", exact: true, element: <EventList/>} ,
+      { path: "/event/add", exact: true, element: <EventAdd/>},
+      { path: "/event/eventlist", exact: true, element: <EventList/>},
+      { path: "/event/detail/:id", exact: true, element: <EventDetail/>},
       { path: "/sse", exact: true, element: <SSETest/>} ,
       // { path: "/event/eventdetail/:id", exact: true, element: <EventDetail/>} ,
       // { path: "/event/eventupdate/:id", exact: true, element: <EventUpdate/>} ,
