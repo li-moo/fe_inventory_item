@@ -29,7 +29,7 @@ function StoreExp() {
 
 
   // const url_be = process.env.REACT_APP_BE_API + `/storeproduct/list/${logInData.store_id}`;
-  const url_be = `http://localhost:8080/storeproduct/list/${logInData.store_id}`;
+  const url_be = `http://localhost:8080/storeproduct/listexp/${logInData.store_id}`;
   // const url_be = `http://43.202.9.215:8080/storeproduct/list/${logInData.store_id}`;
 
   const fetchData = () => {
