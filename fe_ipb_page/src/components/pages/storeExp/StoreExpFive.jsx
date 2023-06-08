@@ -135,8 +135,7 @@ function StoreExpFive() {
             <th>상품 이름</th>
             <th>재고</th>
             <th>판매가</th>
-            <th>유통기한</th>
-            <th>남은 일</th>
+            <th>유통기한{' '}(잔여일)</th>
             <th>{''}</th>
             {/* <th>유통기한연산</th>
             <th>유통기한연산CSS</th> */}
@@ -157,15 +156,18 @@ function StoreExpFive() {
                     <td>{item.price}</td>
                     <td>
                       <div className={styles.expTd}>
+                      <div className={styles.expDiv}>
+                      <p>
                         {item.addData <= -1 && <p className={styles.redExp}></p>}
                         {item.addData > -1 && item.addData <= 3 && <p className={styles.yellowExp}></p>}
                         {item.addData > 3 && item.addData <= 5 && <p className={styles.greenExp}></p>}
                         {item.addData > 5 && item.addData <= 7 && <p className={styles.blueExp}></p>}
-                        
-                        {item.exp}
+                      </p>
+                      <p>{item.exp}</p>{' '}<p style={{ color: 'grey' }}>({item.addData})</p>
+                      </div>
                       </div>
                     </td>
-                    <td style={{color: 'gray'}}>{item.addData}</td>
+                    {/* <td style={{color: 'gray'}}>{item.addData}</td> */}
                 </tr>
               )
             }
@@ -190,7 +192,7 @@ function StoreExpFive() {
                       {item.exp}
                     </div>
                   </td>
-                  <td style={{color: 'gray'}}>{item.addData}</td>
+                  {/* <td style={{color: 'gray'}}>{item.addData}</td> */}
                   {/* <td>{item.addData}</td> 
                    <td>
                     {item.addData <= -1 && <p className={styles.redExp}></p>}

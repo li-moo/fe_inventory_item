@@ -394,14 +394,14 @@ function Cart(props) {
   // }, [props.cartList]);
   useEffect(() => {
     setCartData(props.cartList);
-    // fetchCartData()
+    fetchCartData()
 
     // handleDeleteCart();
     
     // console.log("useEffect/cartData:", cartData);
     // console.log("useEffect/props.cartList:", props.cartList);
 
-  }, [props.cartList]);
+  }, [props.cartList, addOrder]);
 
   // async function fetchData() {
   //   try {
@@ -485,15 +485,19 @@ function Cart(props) {
           store_id: logInData.store_id,
         }
       }
-    ).catch(function (error) {
+     
+    )
+    .then ( () => {
+      fetchCartData();
+    })
+    .catch(function (error) {
       if (error.response) {
         console.log(error.response.data);
         console.log(error.response.status);
         console.log(error.response.headers);
       }
     })
-    setAddOrder(true);
-    window.location.reload();
+    setAddOrder(!addOrder);
   }
   const handleMaxOrder = () => {
     const url_be_maxorder = "http://localhost:8080/orders/maxorder";
@@ -522,14 +526,18 @@ function Cart(props) {
         // }
         data: cartData
       }
-    ).catch(function (error) {
+    )
+    .then ( () => {
+      fetchCartData();
+    })
+    .catch(function (error) {
       if (error.response) {
         console.log(error.response.data);
         console.log(error.response.status);
         console.log(error.response.headers);
       }
     })
-    // setAddOrder(true);
+    setAddOrder(!addOrder);
   }
 
   // if (addOrder) {
@@ -577,12 +585,7 @@ function Cart(props) {
     console.log("??/tarQnt", tarQnt);
     setTarNewQnt(tarQnt);
 
-    // forMAX(tarId, tarQnt, tarProductId)
   }
-
-  // const forMAX = (tarId, tarQnt, tarProductId) => {
-  //   handleMaxOrder(tarId, tarQnt, tarProductId)
-  // }
 
   // const increaseQuantity = (item) => {
   //   const updatedCartData = cartData.map((cartItem) => {
@@ -654,22 +657,8 @@ const handleAddMax = (tarId, tarQnt) => {
         }
       }
     } 
-
-
   }
-
 }
-
-// console.log("propsCartProductQntList>", propsCartProductQntList)
-// for (var i = 0; i < propsCartProductQntList.length; i++){
-//   console.log("되는지 봅세22", [i])
-//   if (propsCartProductQntList[i] >= props.cartList[i].qnt) {
-//     setOrderCartState(true); // 본사 재고가 구매하려는 재고량보다 많을 때
-//   } else {
-//     setOrderCartState(false); // 본사 재고가 구매하려는 재고량보다 적을 때
-//   }
-// }
-
 
   return (
     <>

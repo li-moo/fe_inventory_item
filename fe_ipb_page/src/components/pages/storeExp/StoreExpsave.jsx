@@ -158,12 +158,21 @@ function StoreExpsave() {
                   <td>{item.price}</td>
                   <td>
                     <div className={styles.expTd}>
-                      {item.addData <= -1 && <p className={styles.redExp}></p>}
+                      {/* {item.addData <= -1 && <p className={styles.redExp}></p>}
                       {item.addData > -1 && item.addData <= 3 && <p className={styles.yellowExp}></p>}
                       {item.addData > 3 && item.addData <= 5 && <p className={styles.greenExp}></p>}
                       {item.addData > 5 && item.addData <= 7 && <p className={styles.blueExp}></p>}
                       {item.addData > 7 && <span>{item.addData}</span>}
-                      {item.exp}
+                      {item.exp} */}
+                       <div className={styles.expDiv}>
+                      <p>
+                        {item.addData <= -1 && <p className={styles.redExp}></p>}
+                        {item.addData > -1 && item.addData <= 3 && <p className={styles.yellowExp}></p>}
+                        {item.addData > 3 && item.addData <= 5 && <p className={styles.greenExp}></p>}
+                        {item.addData > 5 && item.addData <= 7 && <p className={styles.blueExp}></p>}
+                      </p>
+                      <p>{item.exp}</p>{' '}<p style={{ color: 'grey' }}>({item.addData})</p>
+                      </div>
                     </div>
                   </td>
                   <td style={{ color: 'gray' }}>{item.addData}</td>

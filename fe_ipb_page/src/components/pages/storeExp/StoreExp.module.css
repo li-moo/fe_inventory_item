@@ -217,3 +217,7 @@
   white-space: nowrap;
   /* 긴 텍스트가 자동으로 줄바꿈되지 않도록 설정 */
 }
+
+.expDiv {
+  display: flex;
+}
