@@ -458,30 +458,6 @@ function StoreExp(props) {
   // });
   //
 
-  const sortedProducts = filteredProductData.sort((a, b) => {
-    const valueA = a.product_code;
-    const valueB = b.product_code;
-    if (valueA < valueB) {
-      return -1;
-    } else if (valueA > valueB) {
-      return 1;
-    } else {
-      return 0;
-    }
-  });
-
-  let groupedProducts = storeProductData;
-  let skuList = [];
-  let dupSkuList = [];
-  for (let i = 0; i < storeProductData.length; i++) {
-    if (!skuList.includes(storeProductData[i].product_code)) {
-      skuList.push(storeProductData[i].product_code);
-    } else {
-      dupSkuList.push(storeProductData[i].id);
-    }
-  }
-
-  //
   // const sortedProducts = filteredProductData.sort((a, b) => {
   //   const valueA = a.product_code;
   //   const valueB = b.product_code;
@@ -494,16 +470,41 @@ function StoreExp(props) {
   //   }
   // });
 
-  // let groupedProducts = filteredProductData;
+  // let groupedProducts = storeProductData;
+  
   // let skuList = [];
   // let dupSkuList = [];
-  // for (let i = 0; i < filteredProductData.length; i++) {
-  //   if (!skuList.includes(filteredProductData[i].product_code)) {
-  //     skuList.push(filteredProductData[i].product_code);
+  // for (let i = 0; i < storeProductData.length; i++) {
+  //   if (!skuList.includes(storeProductData[i].product_code)) {
+  //     skuList.push(storeProductData[i].product_code);
   //   } else {
-  //     dupSkuList.push(filteredProductData[i].id);
+  //     dupSkuList.push(storeProductData[i].id);
   //   }
   // }
+
+  
+  const sortedProducts = filteredProductData.sort((a, b) => {
+    const valueA = a.product_code;
+    const valueB = b.product_code;
+    if (valueA < valueB) {
+      return -1;
+    } else if (valueA > valueB) {
+      return 1;
+    } else {
+      return 0;
+    }
+  });
+
+  let groupedProducts = filteredProductData;
+  let skuList = [];
+  let dupSkuList = [];
+  for (let i = 0; i < filteredProductData.length; i++) {
+    if (!skuList.includes(filteredProductData[i].product_code)) {
+      skuList.push(filteredProductData[i].product_code);
+    } else {
+      dupSkuList.push(filteredProductData[i].id);
+    }
+  }
 
   //
 
