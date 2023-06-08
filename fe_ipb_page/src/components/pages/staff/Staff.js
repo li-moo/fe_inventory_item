@@ -6,10 +6,7 @@ import { Link } from "react-router-dom";
 function Staff() {
   return (
     <>
-    <h2>직원 리스트</h2>
-    <Button>
-      <Link to='/staff/add'>직원 등록하러가기</Link>
-    </Button>
+    <h2>직원 목록</h2>
       <Divider />
     <StaffList />
     </>

@@ -6,10 +6,7 @@ import StoreList from './StoreList';
 function Store() {
   return ( 
     <div>
-      점포관련페이지입니다.
-      <Button>
-        <Link to="/store/add">점포 등록</Link>
-      </Button>
+      <h2>점포 목록</h2>
       <Divider/>
       <StoreList/>
     </div>

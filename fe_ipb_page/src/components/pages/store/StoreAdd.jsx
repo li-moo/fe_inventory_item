@@ -40,34 +40,34 @@ function StoreAdd() {
 
   return (
     <>
-      <h1>Store Add</h1>
+      <h3>점포 등록</h3>
       <Divider />
 
       <Form
         className='w-1/2'
         onFinish={onFinish}
       >
-        <Form.Item label="점포 이름" name="name">
-          <Input />
+        <Form.Item label="점포 이름" name="name" labelCol={{ span: 2 }} wrapperCol={{ span: 12 }}>
+          <Input style={{ width: '50%' }}/>
         </Form.Item>
 
-        <Form.Item label="주소" name="location">
-          <Input />
+        <Form.Item label="주소" name="location" labelCol={{ span: 2 }} wrapperCol={{ span: 12 }}>
+          <Input style={{ width: '50%' }}/>
         </Form.Item>
 
-        <Form.Item label="전화번호" name="number">
-          <Input placeholder='예) 02-1234-5678'/>
+        <Form.Item label="전화번호" name="number" labelCol={{ span: 2 }} wrapperCol={{ span: 12 }}>
+          <Input style={{ width: '50%' }} placeholder='예) 02-1234-5678'/>
         </Form.Item>
 
-        <Form.Item label="지역" name="area">
-          <Input />
+        <Form.Item label="지역" name="area" labelCol={{ span: 2 }} wrapperCol={{ span: 12 }}>
+          <Input style={{ width: '50%' }}/>
         </Form.Item>
         
-        <Form.Item label="점포 사진" name="imgname">
-          <Input />
+        <Form.Item label="점포 사진" name="imgname" labelCol={{ span: 2 }} wrapperCol={{ span: 12 }}>
+          <Input style={{ width: '50%' }}/>
         </Form.Item>
 
-        <Form.Item>
+        <Form.Item wrapperCol={{ offset: 7, span: 18 }}>
           <Button type="primary" htmlType="submit">
             저장
           </Button>

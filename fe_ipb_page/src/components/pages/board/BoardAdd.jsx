@@ -79,7 +79,7 @@ function BoardAdd() {
         </Form.Item>
 
         <Form.Item wrapperCol={{ offset: 7, span: 18 }}>
-          <Button type="primary" htmlType="submit">게시글 작성</Button>
+          <Button type="primary" htmlType="submit">작성완료</Button>
         </Form.Item>
       </Form>
     </>
