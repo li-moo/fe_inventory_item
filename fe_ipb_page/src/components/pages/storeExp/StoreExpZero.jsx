@@ -127,6 +127,7 @@ function StoreExpZero() {
         className={styles.searchInput}
       />
 
+      <div style={{ overflowX: 'auto', maxHeight: '490px' }}>
       <table className={styles.table}>
         <thead>
           <tr>
@@ -234,6 +235,7 @@ function StoreExpZero() {
           })}
         </tbody>
       </table>
+      </div>
     </>
   );
 }

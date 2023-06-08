@@ -127,6 +127,7 @@ function StoreExpFive() {
         className={styles.searchInput}
       />
 
+      <div style={{ overflowX: 'auto', maxHeight: '490px' }}>
       <table className={styles.table}>
         <thead>
           <tr>
@@ -208,6 +209,7 @@ function StoreExpFive() {
           })}
         </tbody>
       </table>
+      </div>
     </>
   );
 }
