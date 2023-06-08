@@ -124,7 +124,7 @@ export default function Login() {
   // form={form}
   layout="vertical"
   onFinish={onFinish}
-  style={{ maxWidth: "20%", minWidth: '300px', margin: "0 auto", paddingTop: '20%' }} // 사이즈 반으로 줄이고 중앙 정렬
+  style={{ maxWidth: "18%", minWidth: '300px', margin: "0 auto", paddingTop: '20%' }} // 사이즈 반으로 줄이고 중앙 정렬
 >
   <h3>삑 그리고 다음</h3>
   <Form.Item
@@ -145,7 +145,13 @@ export default function Login() {
     type="primary"
     htmlType="submit"
     className="w-full"
-    style={{ maxWidth: "800px", minWidth: '300px' }}
+    style={{ 
+      maxWidth: "800px", 
+      minWidth: '300px', 
+      // background: "#7fb1d7", 
+      // borderColor: "#73a7c8",
+      transition: "background-color 0.3s"
+  }}
   >
     로그인
   </Button>

@@ -70,9 +70,9 @@ const Header = () => {
                   <DropdownItem>
                     <Link to="/storeexp">유통기한 관리</Link>
                   </DropdownItem>
-                  <DropdownItem>
+                  {/* <DropdownItem>
                     <Link to="/product">본사 - 보유 상품</Link>
-                  </DropdownItem>
+                  </DropdownItem> */}
                   {/* <DropdownItem>Option 2</DropdownItem>
                   <DropdownItem divider />
                   <DropdownItem>Reset</DropdownItem> */}

@@ -312,10 +312,11 @@ function StoreProductList() {
           value={searchTerm}
           onChange={(e) => handleSearch(e.target.value)}
           placeholder="상품 이름, SKU 검색"
-          enterButton={<SearchOutlined />}
+          // enterButton={<SearchOutlined />}
           className={styles.searchInput}
         />
       </div>
+      <div style={{ overflowX: 'auto', maxHeight: '490px' }}>
 
       <table className={styles.table}>
         <thead>
@@ -351,6 +352,8 @@ function StoreProductList() {
           ))}
         </tbody>
       </table>
+      </div>
+     
     </>
   );
 }

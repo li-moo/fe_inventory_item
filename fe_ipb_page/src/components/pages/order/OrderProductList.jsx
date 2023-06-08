@@ -44,12 +44,6 @@ function OrderProductList(props) {
         setProductData(res.data)
         setFilteredProductData(res.data);
 
-        // const addData = res.data.map((item) => ({
-        //   ...item,
-        //   addData: productData.qnt
-        // }));
-        // setStoreProductData(addData)
-        // retProductList = res.data;
 
       })
       .catch((err) => console.log("orderproductlist/err", err));
@@ -166,8 +160,16 @@ function OrderProductList(props) {
     props.setIsAdd(!props.isAdd);
   };
 
+  // const handleSearch = (value) => {
+  //   setSearchTerm(value);
+  // };
   const handleSearch = (value) => {
     setSearchTerm(value);
+    const filteredData = productData.filter((item) =>
+      item.name.toLowerCase().includes(value.toLowerCase()) ||
+      item.product_code.toString().toLowerCase().includes(value.toLowerCase())
+    );
+    setFilteredProductData(filteredData);
   };
 
   const filteredProducts = productData.filter((item) =>
@@ -253,7 +255,7 @@ function OrderProductList(props) {
       />
     </div> */}
       <>
-      <div style={{ overflowX: 'auto', maxHeight: '400px' }}>
+      <div style={{ overflowX: 'auto', maxHeight: '490px' }}>
       <table className={styles.table}>
           <thead>
             <tr>

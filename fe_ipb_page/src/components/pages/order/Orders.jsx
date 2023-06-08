@@ -60,6 +60,7 @@ function Order() {
         <Col sm={4} className="bg-gray-600">
           <Cart
             cartList={cartList}
+            
           // test="안녕"
           />
         </Col>

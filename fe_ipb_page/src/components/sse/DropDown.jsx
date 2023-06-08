@@ -7,6 +7,8 @@ import { useRecoilState } from 'recoil';
 import { alarmState } from '../state/alarmState';
 import styles from './DropDown.module.css'
 import { Navigate, useNavigate } from 'react-router-dom';
+import { FiAlertCircle } from "react-icons/fi";
+
 
 function DropDown({ direction, ...args }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -146,7 +148,6 @@ function DropDown({ direction, ...args }) {
         console.log("에러가 발생했습니다.");
         console.log(e);
       }
-
       if (e.target.readyState === EventSource.CLOSED) {
         // 종료 시 할 일
       }
@@ -161,11 +162,11 @@ function DropDown({ direction, ...args }) {
   }
 
   const handleNavigateLOW = () => {
-    navigate("/storeproductlist");
+    navigate("/order");
   }
 
   return (
-    <div id='top-myDrop'>
+    <div id='top-myDrop'  style={{position: 'static', zIndex: 1000 }}>
       <Dropdown isOpen={dropdownOpen} toggle={toggle} direction={direction} id='top-myDrop--i'>
         <DropdownToggle id='top-myDrop--ii' style={{ border: 'none', backgroundColor: '#2962FF', color: 'white' }}>
           <HiOutlineBell />
@@ -176,13 +177,15 @@ function DropDown({ direction, ...args }) {
           <div className={styles.dropList}>
             {messages.map((message, index) => (
               <div key={index} className={styles.dropItemExpMessage} onClick={handleNavigateEXP}>
-                {message}
+                {" "}<FiAlertCircle /> {message}
                 </div>
             ))}
             {messagesLowItem.map((message, index) => (
-              <div key={index} className={styles.dropItemLowMessage} onClick={handleNavigateLOW}>
-                {message}
+              <div>                
+                <div key={index} className={styles.dropItemLowMessage} onClick={handleNavigateLOW}>
+                {" "}<FiAlertCircle /> {message}
                 </div>
+              </div>
             ))}
           </div>
 
