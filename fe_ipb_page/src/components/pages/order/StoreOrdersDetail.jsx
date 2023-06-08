@@ -444,10 +444,10 @@ function StoreOrdersDetail(props) {
 
   return (
     <>
-    <div style={{ overflowX: 'auto', maxHeight: '400px' }}>
+    <div style={{ overflowX: 'auto', maxHeight: '490px' }}>
     {Object.entries(groupedOrders).map(([groupId, orders]) => (
         <div key={groupId}>
-          <h6>
+          <h6 style={{ backgroundColor: 'white', padding: '3px', borderBottom: '1px solid #7fb1d7' }}> 
             {/* Group {groupId} */}
             { groupId == 1 && '일반 발주' }
             { groupId == 2 && '자동 발주' }

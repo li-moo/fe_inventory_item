@@ -2,6 +2,7 @@
   width: 100%;
   border-collapse: collapse;
   background-color: white;
+  overflow: auto;
 }
 
 .table th,
@@ -33,7 +34,8 @@ th:not(:last-child) {
 }
 
 .table tbody tr:hover {
-  background-color: #f8f7fa;
+  background-color: #f9f9fa;
+  transition: 0.3s ease-in-out;
 }
 
 .exp-column {
@@ -147,4 +149,20 @@ th:not(:last-child) {
   border-color: #3186fd;
   outline: none;
   box-shadow: 1px 0 5px rgba(67, 94, 193, 0.574);
+}
+
+.table {
+  width: 100%;
+}
+
+.table thead th {
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+}
+
+.table thead th,
+.table tbody td {
+  white-space: nowrap;
+  /* 긴 텍스트가 자동으로 줄바꿈되지 않도록 설정 */
 }

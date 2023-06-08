@@ -36,7 +36,8 @@
 } */
 
 .table tbody tr:hover {
-  background-color: #f8f7fa;
+  background-color: #f9f9fa;
+  transition: 0.3s ease-in-out;
 }
 
 /* .policyStatement {

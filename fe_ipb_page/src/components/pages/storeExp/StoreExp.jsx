@@ -134,8 +134,8 @@ function StoreExp() {
             <th>상품 이름</th>
             <th>재고</th>
             <th>판매가</th>
-            <th>유통기한</th>
-            <th>남은 일</th>
+            <th>유통기한{' '}(잔여일)</th>
+            {/* <th>잔여 일</th> */}
             <th>{''}</th>
             {/* <th>유통기한연산</th>
             <th>유통기한연산CSS</th> */}
