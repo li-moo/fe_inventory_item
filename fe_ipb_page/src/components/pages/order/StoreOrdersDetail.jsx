@@ -437,7 +437,11 @@ function StoreOrdersDetail(props) {
       data: {
         id: id,
       },
-    }).catch(function (error) {
+    })
+    .then ( () => {
+      fetchStoreOrdersDetailListData();
+    })
+    .catch(function (error) {
       console.log("error-> StoreOrdersDetail:", error);
     });
   };
