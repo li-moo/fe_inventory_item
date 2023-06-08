@@ -9,6 +9,7 @@ const { confirm } = Modal;
 const StaffUpdate = () => {
   const { id } = useParams(); // useparams -> staffList에서 줬던 params을 넘겨줌 
   const [stateId, setStateId] = useState(id);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     console.log(">>>>>>stateid", e.target.value)
@@ -51,7 +52,7 @@ const StaffUpdate = () => {
       onCancel() {
         console.log('삭제 작업 취소');
       },
-    });
+    })
   };
 
   const deleteStaff = async () => {
@@ -61,6 +62,7 @@ const StaffUpdate = () => {
         method: 'DELETE',
       });
       message.success('staff가 삭제되었습니다.');
+      navigate("/staff");
     } catch (error) {
       console.error(error);
       message.error('staff 삭제에 실패하였습니다.');
@@ -73,27 +75,32 @@ const StaffUpdate = () => {
       <Form 
         initialValues={initialValues}
         onFinish={onFinish}>
-      <Form.Item label="아이디" name="id">
-        <Input value={id} onChange={handleChange} readOnly/>
+      <Form.Item label="아이디" name="id" labelCol={{ span: 2 }} wrapperCol={{ span: 12 }}>
+        <Input value={id} onChange={handleChange} readOnly style={{ width: '50%' }}/>
       </Form.Item>
-      <Form.Item label="비밀번호" name="pwd">
-        <Input />
+      <Form.Item label="비밀번호" name="pwd" labelCol={{ span: 2 }} wrapperCol={{ span: 12 }}>
+        <Input style={{ width: '50%' }}/>
       </Form.Item>
-      <Form.Item>
+      <Form.Item wrapperCol={{ offset: 6, span: 18 }}>
         <Button type="primary" htmlType="submit">
           수정하기
         </Button>
       </Form.Item>
-      <Form.Item>
-        <Button type="dashed" htmlType="submit" >
-        <Link to="/staff">뒤로가기</Link> 
+      <Form.Item wrapperCol={{ offset: 6, span: 18 }}>
+        <Button type="primary" htmlType="submit" danger onClick={handleDelete} >
+          삭제하기
         </Button>
       </Form.Item>
     </Form>
 
-    <Button type="primary" htmlType="submit" danger onClick={handleDelete}>
-    삭제하기
-    </Button>
+      {/* <div>
+        <Button type="dashed" htmlType="submit" >
+          <Link to="/staff">뒤로가기</Link> 
+        </Button>
+      </div> */}
+      <div wrapperCol={{ offset: 7, span: 18 }}>
+        
+      </div>
     </>
 
   );

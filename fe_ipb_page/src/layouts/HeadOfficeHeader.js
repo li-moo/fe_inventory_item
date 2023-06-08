@@ -82,7 +82,7 @@ const Header = () => {
                 </DropdownMenu>
               </UncontrolledDropdown>
 
-              <UncontrolledDropdown inNavbar nav className={style.meCustom}>
+              {/* <UncontrolledDropdown inNavbar nav className={style.meCustom}>
                 <DropdownToggle caret nav>
                   매출
                 </DropdownToggle>
@@ -91,7 +91,7 @@ const Header = () => {
                     <Link to="/sales/listbystore">전체 매출</Link>
                   </DropdownItem>
                 </DropdownMenu>
-              </UncontrolledDropdown>
+              </UncontrolledDropdown> */}
 
               <UncontrolledDropdown inNavbar nav className={style.meCustom}>
                 <DropdownToggle caret nav>
@@ -114,6 +114,36 @@ const Header = () => {
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
+
+              <UncontrolledDropdown inNavbar nav className={style.meCustom}>
+                <DropdownToggle caret nav>
+                  점포
+                </DropdownToggle>
+                <DropdownMenu end>
+                  <DropdownItem>
+                    <Link to="/store"> 점포조회 </Link>
+                  </DropdownItem>
+                  <DropdownItem>
+                    <Link to="/store/add"> 점포등록 </Link>
+                  </DropdownItem>
+                </DropdownMenu>
+              </UncontrolledDropdown>
+
+              <UncontrolledDropdown inNavbar nav className={style.meCustom}>
+                <DropdownToggle caret nav>
+                  직원
+                </DropdownToggle>
+                <DropdownMenu end>
+                  <DropdownItem>
+                    <Link to="/staff">직원조회</Link>
+                  </DropdownItem>
+                  <DropdownItem>
+                    <Link to="/staff/add">직원등록</Link>
+                  </DropdownItem>
+                </DropdownMenu>
+              </UncontrolledDropdown>
+
+
             </Nav>
           </Collapse>
         </Nav>

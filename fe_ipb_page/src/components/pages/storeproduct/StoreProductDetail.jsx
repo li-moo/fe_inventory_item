@@ -155,7 +155,7 @@ function StoreProductDetail() {
 
   useEffect(() => {
     console.log(id);
-    fetch(`http://localhost:8080/product/detail?id=${id}`)
+    fetch(`http://localhost:8080/storeproduct/detail?id=${id}`)
       // fetch(`http://43.202.9.215:8080/product/detail?id=${id}`)
       .then(res => res.json())
       .then(data => {
@@ -242,13 +242,13 @@ function StoreProductDetail() {
                   <div className={styles.right}>
                     <p>{product.category_name}</p>
                     <h4>{product.name}</h4>
-                    <p>SKU: {product.product_code}</p>
+                    {/* <p>SKU: {product.product_code}</p>
                     <p>제조사: {product.brand}</p>
                     <p>보관방법: {product.storage}</p>
                     <p>매입가: {addComma(product.cost)}</p>
                     <p>판매가: {addComma(product.price)}</p>
                     <p>유통기한: {product.exp}</p>
-                    <p>점포 재고량: {product.store_qnt}</p>
+                    <p>점포 재고량: {product.store_qnt}</p> */}
                   </div>
                 </li>
               </ul>
