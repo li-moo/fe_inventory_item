@@ -56,39 +56,6 @@
   margin-left: 8px;
 }
 
-
-.redExp {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: red;
-}
-
-.yellowExp {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: rgb(255, 234, 0);
-}
-
-.greenExp {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: rgb(44, 164, 0);
-}
-
-.blueExp {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: blue;
-}
-
 .searchInput {
   border-radius: 5px;
   padding: 8px;
