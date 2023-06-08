@@ -376,6 +376,7 @@ function Cart(props) {
   // const [orderCartState, setOrderCartState] = useState(false)
   const [orderCartState, setOrderCartState] = useState(true)
   const [propsCartProductQntList, setPropsCartProductQntList]  = useState([]);
+  const [tarNewQnt, setTarNewQnt]  = useState([props.cartList.qnt]);
 
   const navigate = useNavigate();
 
@@ -477,7 +478,7 @@ function Cart(props) {
         headers: {
           'Access-Control-Allow-Origin': '*',
           'Content-Type': 'application/json',
-          withCredentials: true,
+          
           mode: 'no-cors'
         },
         data: {
@@ -494,7 +495,7 @@ function Cart(props) {
     setAddOrder(true);
     window.location.reload();
   }
-  const handleMaxOrder = (tarId, tarQnt, tarProductId) => {
+  const handleMaxOrder = () => {
     const url_be_maxorder = "http://localhost:8080/orders/maxorder";
     // const url_be = "http://43.202.9.215:8080/orders/maxorder";
 
@@ -507,18 +508,19 @@ function Cart(props) {
           withCredentials: true,
           mode: 'no-cors'
         },
-        data: { //post 라면 . . .
-          // id: cartData.id,
-          // qnt: cartData.qnt,
-          // product_id: cartData.product_id,
-          id: tarId,
-          qnt: tarQnt,
-          product_id: tarProductId,
-          store_id: logInData.store_id,
-          delivery_id: 1,
-          // orders_date: "2023-05-25",
-          orders_type_id: todayDate,
-        }
+        // data: { //post 라면 . . .
+        //   // id: cartData.id,
+        //   // qnt: cartData.qnt,
+        //   // product_id: cartData.product_id,
+        //   id: tarId,
+        //   qnt: tarQnt,
+        //   product_id: tarProductId,
+        //   store_id: logInData.store_id,
+        //   delivery_id: 1,
+        //   // orders_date: "2023-05-25",
+        //   orders_type_id: todayDate,
+        // }
+        data: cartData
       }
     ).catch(function (error) {
       if (error.response) {
@@ -534,7 +536,7 @@ function Cart(props) {
   //   navigate("/order");
   // }
 
-  const updateQnt = (tarId, tarQnt) => {
+  const updateQnt = (tarId, tarQnt, tarProductId) => {
     const url_be_updateQnt = "http://localhost:8080/cart/update";
     // const url_be_updateQnt = "http://localhost:8080/cart/update";
 
@@ -571,8 +573,16 @@ function Cart(props) {
     // }
 
     //setAddOrder(true);
-    handleAddMax();
+    // handleAddMax();
+    console.log("??/tarQnt", tarQnt);
+    setTarNewQnt(tarQnt);
+
+    // forMAX(tarId, tarQnt, tarProductId)
   }
+
+  // const forMAX = (tarId, tarQnt, tarProductId) => {
+  //   handleMaxOrder(tarId, tarQnt, tarProductId)
+  // }
 
   // const increaseQuantity = (item) => {
   //   const updatedCartData = cartData.map((cartItem) => {
@@ -740,8 +750,7 @@ const handleAddMax = (tarId, tarQnt) => {
                       const tarQnt = newQuantity;
                       updateQnt(tarId, tarQnt);
                       console.log("????orderCartState", orderCartState);
-                      handleAddMax(tarId, tarQnt);
-                      handleMaxOrder(tarId, tarQnt, tarProductId)
+                      handleAddMax(tarId, tarQnt, tarProductId);
                     }
                     }
                   />
