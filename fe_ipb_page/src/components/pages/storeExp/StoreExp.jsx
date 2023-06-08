@@ -126,7 +126,7 @@ function StoreExp() {
         // enterButton={<SearchOutlined />}
         className={styles.searchInput}
       />
-
+      <div style={{ overflowX: 'auto', maxHeight: '490px' }}>
       <table className={styles.table}>
         <thead>
           <tr>
@@ -134,8 +134,8 @@ function StoreExp() {
             <th>상품 이름</th>
             <th>재고</th>
             <th>판매가</th>
-            <th>유통기한</th>
-            <th>남은 일</th>
+            <th>유통기한{' '}(잔여일)</th>
+            {/* <th>잔여 일</th> */}
             <th>{''}</th>
             {/* <th>유통기한연산</th>
             <th>유통기한연산CSS</th> */}
@@ -204,18 +204,20 @@ function StoreExp() {
                     </div>
                   </td>
                   <td style={{color: 'gray'}}>{item.addData}</td>
-                  <td>
-                    <Popconfirm
-                      title="이 상품을 폐기를 하시겠습니까??"
-                      onConfirm={() => disposeBtn(item.id)}
-                      okText="네"
-                      cancelText="아니오"
-                    >
-                      <Button >
-                        폐기
-                      </Button>
-                    </Popconfirm>
-                  </td>
+                  {item.addData <= -1 ? (
+                      <td>
+                        <Popconfirm
+                          title="이 상품을 폐기를 하시겠습니까??"
+                          onConfirm={() => disposeBtn(item.id)}
+                          okText="네"
+                          cancelText="아니오"
+                        >
+                          <Button>폐기</Button>
+                        </Popconfirm>
+                      </td>
+                    ) : (
+                      <td></td>
+                    )}
                   {/* <td>{item.addData}</td> 
                    <td>
                     {item.addData <= -1 && <p className={styles.redExp}></p>}
@@ -234,6 +236,8 @@ function StoreExp() {
           })}
         </tbody>
       </table>
+      </div>
+  
     </>
   );
 }

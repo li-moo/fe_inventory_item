@@ -29,7 +29,8 @@
 }
 
 .table tbody tr:hover {
-  background-color: #f8f7fa;
+  background-color: #f9f9fa;
+  transition: 0.3s ease-in-out;
 }
 
 .exp-column {
@@ -186,4 +187,33 @@
 
 .expFlexBtn {
   display: flex;
+}
+
+.tabContainer > button {
+  background-color: #FFFFFF;
+  border-radius: 5px;
+}
+
+.tabContainer > button:focus {
+  border-bottom: #3186fd;
+}
+
+.mainHeader {
+  display: flex;
+}
+
+.table {
+  width: 100%;
+}
+
+.table thead th {
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+}
+
+.table thead th,
+.table tbody td {
+  white-space: nowrap;
+  /* 긴 텍스트가 자동으로 줄바꿈되지 않도록 설정 */
 }

@@ -120,6 +120,7 @@ function StoreExpMain() {
               ?
             </button>
           </h4>
+          </div>
           <div className={styles.tabContainer}>
           <button
             type={activeTab === 'all' ? 'primary' : 'default'}
@@ -144,7 +145,10 @@ function StoreExpMain() {
           <button
             type={activeTab === 'three' ? 'primary' : 'default'}
             onClick={() => handleTabChange('three')}
-            style={{ border: 'none' }}
+            style={{ border: 'none',
+            // backgroundColor: '#FFFFFF'
+          
+          }}
           >
               <div className={styles.expFlexBtn }>
               <div className={styles.yellowExpBtn}></div>
@@ -171,8 +175,12 @@ function StoreExpMain() {
               <div>D-7</div>
             </div>
           </button>
+        
         </div>
-          {activeTab === 'all' && 
+        
+      </div>
+
+      {activeTab === 'all' && 
             <StoreExp 
               isClick={isClick}
               setIsClick={setIsClick}
@@ -197,9 +205,6 @@ function StoreExpMain() {
             <StoreExpSeven 
             />
           }
-        </div>
-        
-      </div>
 
     </>
   );
