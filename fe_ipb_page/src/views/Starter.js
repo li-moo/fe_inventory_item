@@ -75,7 +75,7 @@ const Starter = () => {
   const expColumns = [
     {
       title: 'SKU',
-      dataIndex: 'id',
+      dataIndex: 'product_code',
       key: 'id',
     },
     {
@@ -164,7 +164,7 @@ const Starter = () => {
   const qntColumns = [
     {
       title: 'ID',
-      dataIndex: 'id',
+      dataIndex: 'product_code',
       key: 'id',
     },
     {
