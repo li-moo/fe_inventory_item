@@ -106,7 +106,7 @@ function StoreAutoOrdersList() {
               <td>{item.product_name}</td>
               <td>{item.product_cost}</td>
               <td>{item.product_price}</td>
-              <td>
+              <td className="fifth">
                 <input
                     type="number"
                     value={item.min_qnt}

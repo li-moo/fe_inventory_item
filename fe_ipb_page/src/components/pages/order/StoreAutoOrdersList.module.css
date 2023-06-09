@@ -21,11 +21,22 @@
 .table th:first-child,
 .table td:first-child {
   text-align: center;
+  background-color: #f9ea9f;
+}
+
+.td.fifth{
+  background-color: #fc96e8;
 }
 
 .table th:last-child,
 .table td:last-child {
-  text-align: right;
+  text-align: center;
+  width: 20%;
+  background-color: #b6f2da;
+}
+
+.table td:last-child input{
+  width : 50%;
 }
 
 .table tbody tr:hover {
