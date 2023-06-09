@@ -401,7 +401,7 @@ function Cart(props) {
 
     handleAddMax()
 
-  }, [props.cartList, addOrder, orderCartState]);
+  }, [props.cartList]);
 
   // async function fetchData() {
   //   try {
@@ -723,7 +723,9 @@ const handleAddMax = (tarId, tarQnt) => {
                     title="구매하시겠습니까?"
                     okText="예"
                     cancelText="아니요"
-                    onConfirm={() => handleAddOrder(logInData.store_id)}
+                    // okText="아니요"
+                    // cancelText="예"
+                    // onConfirm={() => handleAddOrder(logInData.store_id)}
                     // onCancel={() => handleAddOrder(logInData.store_id)}
                   >
                     <Button type="primary" ghost>구매</Button>
@@ -737,7 +739,7 @@ const handleAddMax = (tarId, tarQnt) => {
                       onConfirm={() => handleMaxOrder()}
                       onCancel={() => handleAddOrder(logInData.store_id)}
                     >
-                      <Button type="primary" ghost>!구매</Button>
+                      <Button type="primary" danger ghost>구매</Button>
                     </Popconfirm> 
                     // <p>false</p>
                   )}
