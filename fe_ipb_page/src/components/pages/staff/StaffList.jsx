@@ -82,7 +82,7 @@ function StaffList() {
       <Search
         placeholder="이름으로 검색"
         onSearch={handleSearch}
-        style={{ width: 200, marginBottom: 16, position: 'static', zIndex: -1 }}
+        style={{ width: 200, marginBottom: 16, position: 'static', zIndex: 1 }}
       />
       <Table dataSource={filteredData} columns={columns} />
     </>

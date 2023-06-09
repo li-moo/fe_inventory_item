@@ -202,9 +202,10 @@ function OrdersList() {
   return (
     <>
       <h4>발주내역</h4>
-      <Divider />
+      {/* <Divider /> */}
       <Row>
         <Col sm={4} className="bg-gray-300">
+          <div style={{ overflowX: 'auto', maxHeight: '490px' }}>
           <table className={styles.table}>
             <thead>
               <tr>
@@ -234,7 +235,7 @@ function OrdersList() {
               ))}
             </tbody>
           </table>
-
+          </div>
         </Col>
         <Col sm={8} className="bg-gray-600">
           {selectedId && (

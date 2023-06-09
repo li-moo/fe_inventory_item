@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem,  UncontrolledDropdown,} from 'reactstrap';
 import PropTypes from 'prop-types';
 import { HiOutlineBell } from 'react-icons/hi';
 import { logInState } from '../state/loginState';
@@ -166,14 +166,18 @@ function DropDown({ direction, ...args }) {
   }
 
   return (
-    <div id='top-myDrop'  style={{position: 'static', zIndex: 1000 }}>
-      <Dropdown isOpen={dropdownOpen} toggle={toggle} direction={direction} id='top-myDrop--i'>
+    <>
+      <div>
+      <div id='top-myDrop' >
+      <UncontrolledDropdown isOpen={dropdownOpen} toggle={toggle} direction={direction} id='top-myDrop--i'>
         <DropdownToggle id='top-myDrop--ii' style={{ border: 'none', backgroundColor: '#FFFFFF', color: 'grey' }}>
           <HiOutlineBell />
           <div>{alarmData > 0 && <p className={styles.alarmRed}></p>}</div>
         </DropdownToggle>
         {/* <DropdownMenu style={{ width: '400px', maxHeight: '200px', overflowY: 'auto' }} {...args}> */}
-        <DropdownMenu style={{ width: '400px', maxHeight: '200px', overflowY: 'auto' }}>
+        <div> 
+        <DropdownMenu style={{ width: '410px', maxHeight: '200px', overflowY: 'auto', 
+          position: 'static', zIndex: 1000, opacity: 1 }}>
           <div className={styles.dropList}>
             {messages.map((message, index) => (
               <div key={index} className={styles.dropItemExpMessage} onClick={handleNavigateEXP}>
@@ -200,17 +204,12 @@ function DropDown({ direction, ...args }) {
             }
           </div> */}
         </DropdownMenu>
-      </Dropdown>
-      {/* <div>
-        {
-          cartListData && cartListData.map((item, index) => (
-            <div key={index} className={styles.dropItemMessage}>
-              <p>{item}</p>
-            </div>
-          ))
-        }
-      </div> */}
+
+        </div>
+      </UncontrolledDropdown>
     </div>
+      </div>
+    </>
   );
 }
 
