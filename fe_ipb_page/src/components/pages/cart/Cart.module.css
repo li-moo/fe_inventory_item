@@ -125,11 +125,6 @@
   /* 긴 텍스트가 자동으로 줄바꿈되지 않도록 설정 */
 }
 
-/* .conBtn {
-  position: relative;
-  z-index: -1;
-} */
-
 .roundedInput {
   border: 1px solid #ccc;
   border-radius: 5px;

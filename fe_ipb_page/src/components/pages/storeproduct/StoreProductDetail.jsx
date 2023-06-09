@@ -245,7 +245,7 @@ function StoreProductDetail() {
                     <p>제조사: {product.brand}</p>
                     <p>보관방법: {product.price}</p>
                     <p>매입가: {product.price}</p>
-                    <p>판매가: {product.price}</p>
+                    <p>판매가: {product.store_price}</p>
                     <p>유통기한: {product.exp}</p>
                     <p>재고량: {product.qnt}</p>
                     <p>안전 재고량: {product.safe_qnt}</p>
