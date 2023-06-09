@@ -224,6 +224,7 @@ const HeaderTop = () => {
           size="sm"
           className="d-sm-block d-md-none"
           onClick={Handletoggle}
+          // style={{}}
         >
           {isOpen ? (
             <i className="bi bi-x"></i>
@@ -267,7 +268,7 @@ const HeaderTop = () => {
 
           <NavItem>
             <div id='classDrop'>
-                <DropDown />
+                <DropDown  style={{position: 'relative', zIndex: 10000 }}/>
             </div>
           </NavItem>
           <NavItem>
