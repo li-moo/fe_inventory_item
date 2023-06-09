@@ -139,7 +139,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import { Typography, Grid, Button, Modal } from 'antd';
+import { Typography, Grid, Button, Modal, message } from 'antd';
 import styles from './StoreProductDetail.module.css';
 
 const { Title, Text } = Typography;
@@ -159,7 +159,7 @@ function StoreProductDetail() {
       // fetch(`http://43.202.9.215:8080/product/detail?id=${id}`)
       .then(res => res.json())
       .then(data => {
-        console.log("product-detail data:", data);
+        console.log("storeProduct-detail data:", data);
         setProduct(data)
       })
       .catch(err => console.log(err))
@@ -217,6 +217,7 @@ function StoreProductDetail() {
           // 추가로 필요한 작업 수행
         })
         .catch(err => console.log(err));
+        message.success(`자동 발주신청이 되었습니다.`, 3);
       },
     });
   };
@@ -230,6 +231,7 @@ function StoreProductDetail() {
               <ul>
                 <li>
                   <div className={styles.left}>
+                  <p>카테고리: {product.category_name}</p>
                     {/* <img src={product.imgname} alt={product.detail} /> */}
                     <img src={product.imgname} alt={product.detail} />
                     <p>SKU - QR code</p>
@@ -237,30 +239,48 @@ function StoreProductDetail() {
                       자동발주
                     </Button>
                   </div>
-                </li>
-                <li>
                   <div className={styles.right}>
+                    <h4>{product.product_name}</h4>
+                    <p>SKU: {product.product_code}</p>
+                    <p>제조사: {product.brand}</p>
+                    <p>보관방법: {product.price}</p>
+                    <p>매입가: {product.price}</p>
+                    <p>판매가: {product.price}</p>
+                    <p>유통기한: {product.exp}</p>
+                    <p>재고량: {product.qnt}</p>
+                    <p>안전 재고량: {product.safe_qnt}</p>
+                  </div>
+                </li>
+                {/* <li> */}
+                  {/* <div className={styles.right}>
                     <p>{product.category_name}</p>
                     <h4>{product.name}</h4>
-                    {/* <p>SKU: {product.product_code}</p>
+                    <p>SKU: {product.product_code}</p>
                     <p>제조사: {product.brand}</p>
                     <p>보관방법: {product.storage}</p>
                     <p>매입가: {addComma(product.cost)}</p>
                     <p>판매가: {addComma(product.price)}</p>
                     <p>유통기한: {product.exp}</p>
-                    <p>점포 재고량: {product.store_qnt}</p> */}
-                  </div>
-                </li>
+                    <p>점포 재고량: {product.store_qnt}</p>
+                  </div> */}
+                  {/* <div className={styles.right}>
+                    <h4>{product.name}</h4>
+                    <p>SKU: {product.product_code}</p>
+                    <p>제조사: {product.brand}</p>
+                    <p>매입가: {addComma(product.cost)}</p>
+                    <p>판매가: {addComma(product.price)}</p>
+                    <p>유통기한: {product.exp}</p>
+                    <p>재고량: {product.qnt}</p>
+                  </div> */}
+                {/* </li> */}
               </ul>
 
               <div className={styles.ProductDetail}>
-                <h4>상품 상세 정보</h4>
-                <p>{product.detail}</p>
-                <p>{product.detail}</p>
-                <p>{product.detail}</p>
-                <p>{product.detail}</p>
-                <p>{product.detail}</p>
-                <p>{product.detail}</p>
+                <h4>
+                  <div className={styles.line}>
+                    상품 상세 정보
+                  </div>
+                </h4>
                 <p>{product.detail}</p>
                 <p>{product.detail}</p>
               </div>
