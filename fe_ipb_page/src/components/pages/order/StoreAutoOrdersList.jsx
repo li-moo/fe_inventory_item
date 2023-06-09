@@ -83,6 +83,11 @@ function StoreAutoOrdersList() {
     console.log(tarId);
   }
 
+  function addComma(num) {
+    var regexp = /\B(?=(\d{3})+(?!\d))/g;
+    return num.toString().replace(regexp, ',');
+  }
+
   return (
     <>
       <h4>사용자설정 자동발주</h4>
@@ -104,8 +109,8 @@ function StoreAutoOrdersList() {
             <tr key={item.id}>
               <td>{item.product_code}</td>
               <td>{item.product_name}</td>
-              <td>{item.product_cost}</td>
-              <td>{item.product_price}</td>
+              <td>{addComma(item.product_cost)}</td>
+              <td>{addComma(item.product_price)}</td>
               <td className="fifth">
                 <input
                     type="number"

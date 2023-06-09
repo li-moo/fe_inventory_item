@@ -4,6 +4,7 @@ import { useRecoilState } from 'recoil';
 import { logInState } from '../../state/loginState';
 import axios from 'axios';
 import styles from '../auto/EventAutoOrders.module.css';
+import { Link } from 'react-router-dom';
 
 function EventAutoOrders() {
 
@@ -80,7 +81,11 @@ function EventAutoOrders() {
         <tbody>
           {evnetAutoData.map((item) => (
             <tr key={item.id}>
-              <td>{item.name}</td>
+                <td><Link 
+                to={`/event/detail/${item.event_id}`} 
+                style={{ textDecoration: 'none', color: 'inherit'}}
+                key={item.event_id}
+              >{item.name}</Link></td>
               <td>{item.product_name}</td>
               <td>{addComma(item.price)}</td>
               {/* <td>{item.qnt}</td> */}

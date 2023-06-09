@@ -21,22 +21,50 @@
 .table th:first-child,
 .table td:first-child {
   text-align: center;
-  background-color: #f9ea9f;
+  border-right: 1px solid #e4e4e4;
 }
 
-.td.fifth{
-  background-color: #fc96e8;
+.table th:nth-child(2){
+  text-align: center;
+}
+
+
+.table td:nth-child(2){
+  text-align: left;
+}
+
+.table th:nth-child(3),
+.table td:nth-child(3){
+  text-align: center;
+}
+
+.table th:nth-child(4),
+.table td:nth-child(4){
+  text-align: center;
+}
+
+.table th:nth-child(5),
+.table td:nth-child(5){
+  text-align: center;
+  width: 10%;
+}
+
+.table td:nth-child(5) input{
+  width : 50%;
+  border-radius: 5px;
+  border: 1px solid #cbcbcb;
 }
 
 .table th:last-child,
 .table td:last-child {
   text-align: center;
-  width: 20%;
-  background-color: #b6f2da;
+  width: 10%;
 }
 
 .table td:last-child input{
   width : 50%;
+  border-radius: 5px;
+  border: 1px solid #cbcbcb;
 }
 
 .table tbody tr:hover {
