@@ -95,7 +95,7 @@ function EventList() {
           <Search
             placeholder="이름으로 검색"
             onSearch={handleSearch}
-            style={{ height: 32 }}
+            style={{ height: 32, position: 'static', zIndex: -1 }}
           />
         </Col>
         <Col span={12} style={{ display: 'flex', justifyContent: 'flex-end' }}>

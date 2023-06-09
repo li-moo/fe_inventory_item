@@ -62,7 +62,7 @@ function BoardListStore() {
         <Search
           placeholder="이름으로 검색"
           onSearch={handleSearch}
-          style={{ width: 200 }}
+          style={{ width: 200, position: 'static', zIndex: -1  }}
         />
           {/* {logInData.name && (
             <Button type="primary">

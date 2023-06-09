@@ -355,8 +355,6 @@
 
 // export default Cart;
 
-
-
 import React, { useState, useEffect } from 'react';
 import { Popconfirm, Button, Input } from 'antd';
 import axios from 'axios';
@@ -401,7 +399,9 @@ function Cart(props) {
     // console.log("useEffect/cartData:", cartData);
     // console.log("useEffect/props.cartList:", props.cartList);
 
-  }, [props.cartList, addOrder]);
+    handleAddMax()
+
+  }, [props.cartList, addOrder, orderCartState]);
 
   // async function fetchData() {
   //   try {
@@ -660,6 +660,44 @@ const handleAddMax = (tarId, tarQnt) => {
   }
 }
 
+// const handleAddMax = (tarId, tarQnt) => {
+//   // console.log("handleAddMax 실행되는지 확인");
+//   // console.log("props.cartList", props.cartList);
+//   // console.log("props.cartList[0]", props.cartList[0]);
+//   // console.log("cartData.qnt", cartData.qnt);
+
+//   const tempCartProductQntList = [];
+//   for (var i = 0; i < props.cartList.length; i++){
+//     // console.log("되는지 봅세", [i])
+//     // console.log("props.cartList[i].product_qnt", props.cartList[i].product_qnt)
+//     const CartProductQnt = {
+//       "product_qnt": props.cartList[i].product_qnt,
+//       "qnt": props.cartList[i].qnt,
+//       "id": props.cartList[i].id,
+//     };
+//     // console.log("CartProductQnt", CartProductQnt)
+//     tempCartProductQntList.push(CartProductQnt);
+//   }
+//   setPropsCartProductQntList(tempCartProductQntList);
+
+//   // console.log(">>>propsCartProductQntList>>", propsCartProductQntList);
+//   for (var i = 0; i < cartData.length; i++) {
+//     if (cartData[i].id >= tarId) {
+//       for (var j = 0; j < cartData.length; j++) {
+//         // console.log(":::propsCartProductQntList[i]:", propsCartProductQntList[i]);
+//         // if (cartData[j].product_qnt >= tarQnt) {
+//           if (cartData[j].product_qnt >= cartData[j].qnt) {
+//           setOrderCartState(true); // 본사 재고가 구매하려는 재고량보다 많을 때
+//         } else {
+//           setOrderCartState(false); // 본사 재고가 구매하려는 재고량보다 적을 때
+//         }
+//       }
+//     } 
+//   }
+// }
+
+
+
   return (
     <>
     <div>
@@ -669,6 +707,7 @@ const handleAddMax = (tarId, tarQnt) => {
       placeholder="상품 이름, SKU 검색"
       // enterButton={<SearchOutlined />}
       className={styles.searchInput}
+      style={{position: 'static', zIndex: -1 }}
     />
     </div>
     <div style={{ overflowX: 'auto', maxHeight: '490px'}}>
@@ -710,10 +749,9 @@ const handleAddMax = (tarId, tarQnt) => {
           {filteredProducts && filteredProducts.map((item) => (
             <tr key={item.id}>
               <td style={{ width: "10px" }}>{item.product_code}</td>
-              {/* <td>({item.brand}){item.name}</td>  */}
-              {/* <td>({item.brand}){item.name}
-              </td>  */}
-              {item.product_qnt > item.qnt ? (
+
+              {/* <td>({item.brand}){item.name}</td> */}
+              {item.product_qnt >= item.qnt ? (
                 <td style={{ color: "black" }}>
                   ({item.brand}){item.name}
                 </td>
@@ -723,7 +761,6 @@ const handleAddMax = (tarId, tarQnt) => {
                 </td>
               )}
 
-              {/* // style={{ orderCartState ? }}   color: isOrderClicked ? 'red' : 'grey',본사 재고 보다 주문 수량이 많으면 빨강*/ }
               <td>
                 <div className={styles.pmBtn}>
                   <input

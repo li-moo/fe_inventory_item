@@ -144,7 +144,7 @@ function BoardList() {
         <Search
           placeholder="제목으로 검색"
           onSearch={handleSearch}
-          style={{ width: 300 }}
+          style={{ width: 300,position: 'static', zIndex: -1  }}
         />
         {logInData.store_id === 1 && (
         <Button type="primary">

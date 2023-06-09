@@ -309,7 +309,7 @@ const Header = () => {
                     이벤트
                   </DropdownToggle>
                   <DropdownMenu end>
-                    <DropdownItem active>
+                    <DropdownItem>
                       <Link to="/event" style={{ textDecoration: 'none', color: 'grey' }}>이벤트</Link>
                     </DropdownItem>
                     <DropdownItem>
