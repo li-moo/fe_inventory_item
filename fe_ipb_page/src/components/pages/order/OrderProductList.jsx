@@ -201,6 +201,10 @@ function OrderProductList(props) {
   };
 //  // 셀렉트 박스
 
+  function addComma(num) {
+    var regexp = /\B(?=(\d{3})+(?!\d))/g;
+    return num.toString().replace(regexp, ',');
+  }
 
   return (
     <>
@@ -242,6 +246,7 @@ function OrderProductList(props) {
           placeholder="상품 이름, SKU 검색"
           // enterButton={<SearchOutlined />}
           className={styles.searchInput}
+          style={{position: 'static', zIndex: -1 }}
         />
       </div>
 
@@ -276,16 +281,16 @@ function OrderProductList(props) {
               <tr key={index}>
                 <td>{item.product_code}</td>
                 <td>
-                  <Link to={`/product/detail/${item.id}`}>
+                  <Link to={`/product/detail/${item.id}`} style={{ textDecoration: 'none', color: 'black' }}>
                     ({item.brand})
                     {item.name}
                   </Link>
                 </td>
-                <td>{item.qnt}</td>
+                <td>{addComma(item.qnt)}</td>
                 {/* <td>{item.currentQnt}</td> */}
-                <td>{item.store_qnt}</td>
-                <td>{item.cost}</td>
-                <td>{item.price}</td>
+                <td>{addComma(item.store_qnt)}</td>
+                <td>{addComma(item.cost)}</td>
+                <td>{addComma(item.price)}</td>
                 <td>
                   <Popconfirm
                     title="장바구니에 상품을 담으시겠습니까??"

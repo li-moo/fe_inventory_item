@@ -264,6 +264,12 @@ function StoreProductList() {
       item.product_code.toString().toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  function addComma(num) {
+    var regexp = /\B(?=(\d{3})+(?!\d))/g;
+    return num.toString().replace(regexp, ',');
+  }
+
+
   return (
     <>
       <div>
@@ -314,6 +320,7 @@ function StoreProductList() {
           placeholder="상품 이름, SKU 검색"
           // enterButton={<SearchOutlined />}
           className={styles.searchInput}
+          style={{position: 'static', zIndex: -1 }}
         />
       </div>
       <div style={{ overflowX: 'auto', maxHeight: '490px' }}>
@@ -344,8 +351,8 @@ function StoreProductList() {
                   {item.product_name}
                 </Link>
               </td>
-              <td>{item.qnt}</td>
-              <td>{item.price}</td>
+              <td>{addComma(item.qnt)}</td>
+              <td>{addComma(item.price)}</td>
               <td>{item.exp}</td>
               <td>{item.storage}</td>
             </tr>

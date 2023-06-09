@@ -125,6 +125,7 @@ function StoreExpFive() {
         placeholder="상품 이름, SKU 검색"
         // enterButton={<SearchOutlined />}
         className={styles.searchInput}
+        style={{position: 'static', zIndex: -1 }}
       />
 
       <div style={{ overflowX: 'auto', maxHeight: '490px' }}>

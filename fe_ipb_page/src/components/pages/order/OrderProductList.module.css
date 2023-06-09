@@ -172,3 +172,7 @@
   outline: none;
   box-shadow: 1px 0 5px rgba(67, 94, 193, 0.574);
 }
+
+.linkName {
+  text-decoration: none;
+}

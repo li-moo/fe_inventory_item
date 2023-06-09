@@ -168,7 +168,7 @@ function DropDown({ direction, ...args }) {
   return (
     <div id='top-myDrop'  style={{position: 'static', zIndex: 1000 }}>
       <Dropdown isOpen={dropdownOpen} toggle={toggle} direction={direction} id='top-myDrop--i'>
-        <DropdownToggle id='top-myDrop--ii' style={{ border: 'none', backgroundColor: '#2962FF', color: 'white' }}>
+        <DropdownToggle id='top-myDrop--ii' style={{ border: 'none', backgroundColor: '#FFFFFF', color: 'grey' }}>
           <HiOutlineBell />
           <div>{alarmData > 0 && <p className={styles.alarmRed}></p>}</div>
         </DropdownToggle>
