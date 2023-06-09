@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Card, Input, Divider, Row, Col, DatePicker, Button, Modal } from 'antd';
 import { EyeOutlined, PlusOutlined, DeleteOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
+import { useRecoilState } from 'recoil';
+import { logInState } from "../../state/loginState";
 
 const { Search } = Input;
 
@@ -13,6 +15,7 @@ function EventList() {
   const [deleteModalVisible, setDeleteModalVisible] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [eventData2, setEventData2] = useState([]);
+  const [logInData, setLogInData] = useRecoilState(logInState);
 
   useEffect(() => {
     fetchData();
@@ -99,11 +102,13 @@ function EventList() {
           />
         </Col>
         <Col span={12} style={{ display: 'flex', justifyContent: 'flex-end' }}>
-          <Link to="/event/add">
-            <Button type="primary" icon={<PlusOutlined />}>
-              이벤트 작성
-            </Button>
-          </Link>
+          {logInData.store_id === 1 && (
+            <Link to="/event/add">
+              <Button type="primary" icon={<PlusOutlined />}>
+                이벤트 작성
+              </Button>
+            </Link>
+          )}
         </Col>
       </Row>
       <Divider />
