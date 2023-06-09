@@ -455,7 +455,7 @@ function StoreOrdersDetail(props) {
             {/* Group {groupId} */}
             { groupId == 1 && '일반 발주' }
             { groupId == 2 && '자동 발주' }
-            { groupId == 3 && '이벤트 자동 발주' }
+            { groupId == 3 && '이벤트/날씨 자동 발주' }
           </h6>
           <table className={styles.table}>
             <thead>

@@ -208,7 +208,7 @@ function OrdersList() {
           <table className={styles.table}>
             <thead>
               <tr>
-                <th>NUM</th>
+                <th>No.</th>
                 <th>발주내역</th>
                 <th>배송상태</th>
               </tr>

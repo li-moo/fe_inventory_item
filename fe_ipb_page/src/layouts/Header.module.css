@@ -1,7 +1,7 @@
 .divHeader {
   /* border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px; */
-  background-color: #2962FF;
+  background-color: #FFFFFF;
   /* border-radius: 20px; */
   box-shadow: 2px 2px 4px rgba(8, 62, 41, 0.5);
 }
@@ -11,6 +11,10 @@
 }
 
 .meCustom {
-  margin-right: 3rem;
+  margin-right: 4rem;
   /* 원하는 간격 값으로 조절하세요. */
+}
+
+.dropdown-item.active {
+  background-color: #f0f0f0; /* 원하는 배경색으로 변경 */
 }

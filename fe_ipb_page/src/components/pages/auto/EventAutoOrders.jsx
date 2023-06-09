@@ -60,6 +60,11 @@ function EventAutoOrders() {
     //setAddOrder(true);
   }
 
+  function addComma(num) {
+    var regexp = /\B(?=(\d{3})+(?!\d))/g;
+    return num.toString().replace(regexp, ',');
+  }
+
   return (
     <div>
       <h4>이벤트 자동발주</h4>
@@ -77,7 +82,7 @@ function EventAutoOrders() {
             <tr key={item.id}>
               <td>{item.name}</td>
               <td>{item.product_name}</td>
-              <td>{item.price}</td>
+              <td>{addComma(item.price)}</td>
               {/* <td>{item.qnt}</td> */}
               <td>
                 <input

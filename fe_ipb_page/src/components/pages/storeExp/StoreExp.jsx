@@ -114,7 +114,11 @@ function StoreExp() {
         console.log("error: ", error);
       })
   }
-
+  
+  function addComma(num) {
+    var regexp = /\B(?=(\d{3})+(?!\d))/g;
+    return num.toString().replace(regexp, ',');
+  }
 
 
   return (
@@ -152,8 +156,8 @@ function StoreExp() {
                       <Link to={`/product/detail/${item.id}`} style={{ textDecoration: "none", color: "inherit" }}>
                       </Link>
                     </td>
-                    <td>{item.qnt}</td>
-                    <td>{item.price}</td>
+                    <td>{addComma(item.qnt)}</td>
+                    <td>{addComma(item.price)}</td>
                     <td>
                       <div className={styles.expTd}>
                       <div className={styles.expDiv}>
@@ -195,8 +199,8 @@ function StoreExp() {
                       {item.product_name}
                     </Link>
                   </td>
-                  <td>{item.qnt}</td>
-                  <td>{item.price}</td>
+                  <td>{addComma(item.qnt)}</td>
+                  <td>{addComma(item.price)}</td>
                   <td>
                     <div className={styles.expTd}>
                       <div className={styles.expDiv}>

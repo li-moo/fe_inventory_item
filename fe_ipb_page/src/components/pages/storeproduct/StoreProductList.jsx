@@ -264,6 +264,12 @@ function StoreProductList() {
       item.product_code.toString().toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  function addComma(num) {
+    var regexp = /\B(?=(\d{3})+(?!\d))/g;
+    return num.toString().replace(regexp, ',');
+  }
+
+
   return (
     <>
       <div>
@@ -344,8 +350,8 @@ function StoreProductList() {
                   {item.product_name}
                 </Link>
               </td>
-              <td>{item.qnt}</td>
-              <td>{item.price}</td>
+              <td>{addComma(item.qnt)}</td>
+              <td>{addComma(item.price)}</td>
               <td>{item.exp}</td>
               <td>{item.storage}</td>
             </tr>

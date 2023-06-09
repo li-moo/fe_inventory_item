@@ -199,10 +199,12 @@ const HeaderTop = () => {
     }
   };
 
-
   return (
     // <Navbar color="primary" dark expand="md" className={"navbar-custom bg-secondary"} >
-    <Navbar color="primary" dark expand="md" className={"navbar-custom smaller-navbar "} >
+    // <Navbar color="primary" dark expand="md" className={"navbar-custom smaller-navbar "} >
+    <Navbar dark expand="md" className={"navbar-custom smaller-navbar "} 
+    style={{ backgroundColor: '#FFFFFF' }}
+    >
       <div className="d-flex align-items-center">
         {/* <NavbarBrand href="/" className="d-lg-none">
           <LogoWhite />
@@ -218,7 +220,7 @@ const HeaderTop = () => {
 
       <div className="hstack gap-2">
         <Button
-          color="dark"
+          color="white"
           size="sm"
           className="d-sm-block d-md-none"
           onClick={Handletoggle}
@@ -236,20 +238,20 @@ const HeaderTop = () => {
             <NavItem>
               <Link to="/starter" className="nav-link">
                 {/* {logInData.store_name} */}
-                <RiHome4Line />
+                <RiHome4Line   style={{ color: 'grey' }}/>
               </Link>
             </NavItem>
             <NavItem>
               <Link to="/weather" className={`nav-link`} >
                 <div className={style.leftTabTab}>
-                <p>{getTodayData}</p>
-                <p><CurrentDate /></p>
+                <p  style={{ color: 'grey' }}>{getTodayData}</p>
+                <p  style={{ color: 'grey' }}><CurrentDate  /></p>
                 <p>
-                  {weatherData.presentWeather === "Clear" && <RiSunFill />}
-                  {weatherData.presentWeather === "Rain" && <RiHeavyShowersLine />}
-                  {weatherData.presentWeather === "Clouds" && <RiSunCloudyFill />}
-                  {weatherData.presentWeather === "Thunderstorm" && <RiFlashlightFill />}
-                  {weatherData.presentWeather === "Mist" && <RiMistFill />}
+                  {weatherData.presentWeather === "Clear" && <RiSunFill style={{ color: 'grey' }} />}
+                  {weatherData.presentWeather === "Rain" && <RiHeavyShowersLine style={{ color: 'grey' }} />}
+                  {weatherData.presentWeather === "Clouds" && <RiSunCloudyFill style={{ color: 'grey' }} />}
+                  {weatherData.presentWeather === "Thunderstorm" && <RiFlashlightFill style={{ color: 'grey' }} />}
+                  {weatherData.presentWeather === "Mist" && <RiMistFill style={{ color: 'grey' }} />}
                 </p>
                 </div>
               </Link>
@@ -258,7 +260,7 @@ const HeaderTop = () => {
 
           <div className={style.rightTab}>
           <NavItem>
-          <Link to="/starter" className="nav-link">
+          <Link to="/starter" className="nav-link" style={{ color: 'grey' }}>
           {logInData.store_name}
             </Link>
           </NavItem>
@@ -273,33 +275,15 @@ const HeaderTop = () => {
             logInData.isLogIn ?   
               <p className="nav-link" onClick={logOut}>
                 <RiLogoutBoxRLine 
-                  // style={{ color: 'white', size: '50px' }}
+                  style={{ color: 'grey', size: '50px' }}
                 />
               </p>
             : 
-              <Link to="/login" className="nav-link">로그인</Link>      
+              <Link to="/login" className="nav-link" >로그인</Link>      
             }
           </NavItem>
           </div>
         </Nav>
-
-        {/* <Dropdown isOpen={dropdownOpen} toggle={toggle}>
-          <DropdownToggle color="dark">
-            <img
-              src={user05}
-              alt="profile"
-              className="rounded-circle"
-              width="30"
-            ></img>
-          </DropdownToggle>
-          <DropdownMenu>
-            <DropdownItem header>Info</DropdownItem>
-            <DropdownItem divider />
-            <DropdownItem><Link to="/staff">Staff</Link></DropdownItem>
-            <DropdownItem>Inbox</DropdownItem>
-            <DropdownItem></DropdownItem>
-          </DropdownMenu>
-        </Dropdown> */}
 
       </Collapse>
     </Navbar>

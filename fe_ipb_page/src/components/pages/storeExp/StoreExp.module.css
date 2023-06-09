@@ -189,13 +189,19 @@
   display: flex;
 }
 
+.tabContainer {
+
+  float: right;
+}
+
 .tabContainer > button {
   background-color: #FFFFFF;
   border-radius: 5px;
 }
 
 .tabContainer > button:focus {
-  border-bottom: #3186fd;
+  /* border-bottom: 50px solid #3186fd; */
+  background-color: darkgrey;
 }
 
 .mainHeader {
