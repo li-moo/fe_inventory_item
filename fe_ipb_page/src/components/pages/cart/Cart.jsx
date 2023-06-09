@@ -710,7 +710,20 @@ const handleAddMax = (tarId, tarQnt) => {
           {filteredProducts && filteredProducts.map((item) => (
             <tr key={item.id}>
               <td style={{ width: "10px" }}>{item.product_code}</td>
-              <td>({item.brand}){item.name}</td>
+              {/* <td>({item.brand}){item.name}</td>  */}
+              {/* <td>({item.brand}){item.name}
+              </td>  */}
+              {item.product_qnt > item.qnt ? (
+                <td style={{ color: "black" }}>
+                  ({item.brand}){item.name}
+                </td>
+              ) : (
+                <td style={{ color: "red" }}>
+                  ({item.brand}){item.name}
+                </td>
+              )}
+
+              {/* // style={{ orderCartState ? }}   color: isOrderClicked ? 'red' : 'grey',본사 재고 보다 주문 수량이 많으면 빨강*/ }
               <td>
                 <div className={styles.pmBtn}>
                   <input
