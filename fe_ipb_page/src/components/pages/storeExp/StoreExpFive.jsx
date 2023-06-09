@@ -176,13 +176,16 @@ function StoreExpFive() {
               </option>
             ))}
         </select>
+        <div style={{position: 'relative', zIndex: -1, width: '100%' }}>
         <Search
           value={searchTerm}
           onChange={(e) => handleSearch(e.target.value)}
           placeholder="상품 이름, SKU 검색"
-          enterButton={<SearchOutlined />}
+          // enterButton={<SearchOutlined />}
           className={styles.searchInput}
+          style={{position: 'static', zIndex: 1 }}
         />
+        </div>
       </div>
 
       <div style={{ overflowX: 'auto', maxHeight: '490px' }}>

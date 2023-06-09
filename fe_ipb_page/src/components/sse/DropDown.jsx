@@ -17,7 +17,12 @@ function DropDown({ direction, ...args }) {
   const [alarmData, setAlarmData] = useRecoilState(alarmState);
   const [messagesLowItem, setMessagesLowItem] = useState([]);
   const [cartListData, setCartListData] = useState([]);
+  const [readMessageEXP, setReadMessageEXP] = useState(false);
+  const [readMessageLOW, setReadMessageLOW] = useState(false);
+
   const navigate = useNavigate();
+
+  const combinedMessages = [...messages, ...messagesLowItem];
 
 
   // const toggle = () => setDropdownOpen((prevState) => !prevState);
@@ -31,10 +36,15 @@ function DropDown({ direction, ...args }) {
 
   const url = `http://localhost:8080/notifications/expiration/${loginData.store_id}`;
 
+  // useEffect(() => {
+  //   fetchSSE();
+  //   fetchLowItemSSE();
+  // }, [cartListData]);
   useEffect(() => {
     fetchSSE();
     fetchLowItemSSE();
-  }, [cartListData]);
+  }, []);
+
 
 
   const fetchSSE = () => {
@@ -159,10 +169,12 @@ function DropDown({ direction, ...args }) {
 
   const handleNavigateEXP = () => {
     navigate("/storeexp");
+    setReadMessageEXP(true);
   }
 
   const handleNavigateLOW = () => {
     navigate("/order");
+    setReadMessageLOW(true);
   }
 
   return (
@@ -176,22 +188,46 @@ function DropDown({ direction, ...args }) {
         </DropdownToggle>
         {/* <DropdownMenu style={{ width: '400px', maxHeight: '200px', overflowY: 'auto' }} {...args}> */}
         <div> 
-        <DropdownMenu style={{ width: '410px', maxHeight: '200px', overflowY: 'auto', 
-          position: 'static', zIndex: 1000, opacity: 1 }}>
+        <DropdownMenu style={{ width: '410px', maxHeight: '200px', overflowY: 'auto', backgroundColor: 'white',
+          position: 'absolute', zIndex: 99999999, opacity: 1 }}>
+
           <div className={styles.dropList}>
             {messages.map((message, index) => (
               <div key={index} className={styles.dropItemExpMessage} onClick={handleNavigateEXP}>
-                {" "}<FiAlertCircle /> {message}
+                {readMessageEXP == true ? (
+                <td style={{ color: "red" }}>
+                   {" "}<FiAlertCircle /> {message}
+                </td>
+              ) : (
+                <td style={{ color: "black" }}>
+                  {" "}<FiAlertCircle /> {message}
+                </td>
+              )}
                 </div>
             ))}
             {messagesLowItem.map((message, index) => (
               <div>                
                 <div key={index} className={styles.dropItemLowMessage} onClick={handleNavigateLOW}>
-                {" "}<FiAlertCircle /> {message}
+                {readMessageLOW == true ? (
+                <td style={{ color: "red" }}>
+                   {" "}<FiAlertCircle /> {messagesLowItem}
+                </td>
+              ) : (
+                <td style={{ color: "black" }}>
+                  {" "}<FiAlertCircle /> {messagesLowItem}
+                </td>
+              )}
                 </div>
               </div>
             ))}
           </div>
+            {/* <div className={styles.dropList}>
+            {combinedMessages.map((message, index) => (
+              <div key={index} className={styles.dropItemExpMessage} onClick={handleNavigateEXP}>
+                {" "}<FiAlertCircle /> {message}
+              </div>
+            ))}
+          </div> */}
 
           {/* /// */}
           {/* <div>
@@ -218,3 +254,74 @@ DropDown.propTypes = {
 };
 
 export default DropDown;
+
+
+// import React, { useState } from "react";
+// import {
+//   Navbar,
+//   Collapse,
+//   Nav,
+//   NavbarBrand,
+//   UncontrolledDropdown,
+//   DropdownToggle,
+//   DropdownMenu,
+//   DropdownItem,
+//   Button,
+//   Container,
+// } from "reactstrap";
+// import 'bootstrap/dist/css/bootstrap.css';
+// import { Link } from "react-router-dom";
+
+// const DropDown = () => {
+//   const [isOpen, setIsOpen] = React.useState(false);
+//   const [isHovered, setIsHovered] = React.useState(false);
+//   const [isOrderClicked, setIsOrderClicked] = useState(false);
+
+//   const handleOrderClick = () => {
+//     setIsOrderClicked(true);
+//     console.log("isOrderClicked", isOrderClicked)
+//   };
+
+
+//   const toggle = () => setIsOpen(!isOpen);
+
+//   const handleMouseEnter = () => setIsHovered(true);
+
+//   const handleMouseLeave = () => setIsHovered(false);
+
+//   return (
+//     <div>
+//       <Navbar dark expand="md">
+//         <div className="d-flex align-items-center">
+//           <NavbarBrand href="/" className="d-lg-none">
+//             {/* <LogoWhite /> */}
+//           </NavbarBrand>
+//         </div>
+
+//         <Collapse navbar isOpen={isOpen || isHovered}>
+//           <Nav className="me-auto" navbar>
+//             <Collapse navbar isOpen={isOpen}>
+//               <Nav className="mx-auto" navbar>
+//                 <UncontrolledDropdown inNavbar nav >
+//                   <DropdownToggle caret nav style={{ color: 'grey'}}>
+//                     상품 관리
+//                   </DropdownToggle>
+//                   <DropdownMenu end>
+//                     <DropdownItem>
+//                       <Link to="/storeproductlist" style={{ textDecoration: 'none', color: 'grey' }}>재고 관리</Link>
+//                     </DropdownItem>
+//                     <DropdownItem>
+//                       <Link to="/storeexp" style={{ textDecoration: 'none', color: 'grey' }}>유통기한 관리</Link>
+//                     </DropdownItem>
+//                   </DropdownMenu>
+//                 </UncontrolledDropdown>
+//               </Nav>
+//             </Collapse>
+//           </Nav>
+//         </Collapse>
+//       </Navbar>
+//     </div>
+//   );
+// };
+
+// export default DropDown;

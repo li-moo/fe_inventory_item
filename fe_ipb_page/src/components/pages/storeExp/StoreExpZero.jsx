@@ -186,6 +186,7 @@ function StoreExpZero() {
               </option>
             ))}
         </select>
+        <div style={{position: 'relative', zIndex: -1, width: '100%' }}>
         <Search
           value={searchTerm}
           onChange={(e) => handleSearch(e.target.value)}
@@ -194,6 +195,7 @@ function StoreExpZero() {
           className={styles.searchInput}
           style={{position: 'static', zIndex: 1 }}
         />
+        </div>
       </div>
       {/* <Search
         value={searchTerm}
