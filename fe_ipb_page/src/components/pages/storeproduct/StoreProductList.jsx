@@ -363,7 +363,6 @@ function StoreProductList() {
         </tbody>
       </table>
       </div>
-     
     </>
   );
 }
