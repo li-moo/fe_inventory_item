@@ -139,17 +139,18 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import { Typography, Grid, Button, Modal, message } from 'antd';
+import { Typography, Grid, Button, Modal, message, Input, Form } from 'antd';
 import styles from './StoreProductDetail.module.css';
 
 const { Title, Text } = Typography;
 const { Row, Col } = Grid;
+const { Item } = Form;
 
 function StoreProductDetail() {
 
   const { id } = useParams();
   const navigate = useNavigate();
-
+  const [form] = Form.useForm();
   const [product, setProduct] = useState();
 
 
@@ -182,16 +183,15 @@ function StoreProductDetail() {
       })
       .catch(err => console.log(err))
     Modal.info({
+      width: '30%',
+      maskClosable: true, // 모달 밖 영역을 클릭하면 모달이 닫힙니다
       // 모달 제목
       title: '해당 상품을 자동발주 리스트에 추가하시겠습니까?',
       // 모달 본문
       content: (
-          <div>
-            {product.name}
-            <div>
-            <input type="number" id="minQnt" placeholder="최소 수량" />
-            <input type="number" id="qnt" placeholder="기준 수량" />
-            </div>
+          <div className={styles.modal}>
+              <input type="number" id="minQnt" placeholder="최소 수량" />
+              <input type="number" id="qnt" placeholder="기준 수량" />
           </div>
       ),
       onOk(){
@@ -219,6 +219,12 @@ function StoreProductDetail() {
         .catch(err => console.log(err));
         message.success(`자동 발주신청이 되었습니다.`, 3);
       },
+      onCancel(){
+        // 모달 닫기
+        Modal.destroyAll();
+      },
+      okText: '추가', // 확인 버튼 텍스트 변경
+      cancelText: '취소',
     });
   };
 
@@ -234,9 +240,11 @@ function StoreProductDetail() {
                     {/* <img src={product.imgname} alt={product.detail} /> */}
                     <img src={product.imgname} alt={product.detail} />
                     {/* <p>SKU - QR code</p> */}
-                    <Button onClick={info}>
-                      자동발주
-                    </Button>
+                    {!product._auto && (
+                      <Button onClick={info}>
+                        자동발주
+                      </Button>
+                    )}
                   </div>
                   <div className={styles.right}>
                     <div className={styles.title}>
@@ -282,15 +290,6 @@ function StoreProductDetail() {
                     <p>판매가: {addComma(product.price)}</p>
                     <p>유통기한: {product.exp}</p>
                     <p>점포 재고량: {product.store_qnt}</p>
-                  </div> */}
-                  {/* <div className={styles.right}>
-                    <h4>{product.name}</h4>
-                    <p>SKU: {product.product_code}</p>
-                    <p>제조사: {product.brand}</p>
-                    <p>매입가: {addComma(product.cost)}</p>
-                    <p>판매가: {addComma(product.price)}</p>
-                    <p>유통기한: {product.exp}</p>
-                    <p>재고량: {product.qnt}</p>
                   </div> */}
                 {/* </li> */}
               </ul>

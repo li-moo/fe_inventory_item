@@ -112,7 +112,23 @@
 
 .ProductDetail p {
   padding-left: 15px;
+}
 
+.modal{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.modal input{
+  width: 100px;
+  margin: 10px;
+  border-radius: 5px;
+  border: 1px solid #cbcbcb;
+}
+
+.modal input:focus{
+  outline: none;
 }
 
 .line {
