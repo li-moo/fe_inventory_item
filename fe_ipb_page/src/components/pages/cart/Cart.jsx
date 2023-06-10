@@ -348,7 +348,6 @@
 //         </tbody>
 //       </table>
 //     </div>
-     
 //     </>
 //   );
 // }
@@ -485,7 +484,6 @@ function Cart(props) {
           store_id: logInData.store_id,
         }
       }
-     
     )
     .then ( () => {
       fetchCartData();
@@ -718,15 +716,15 @@ const handleAddMax = (tarId, tarQnt) => {
             <th>상품 이름</th>
             <th>수량</th>
             <th>
-                 {orderCartState ? (
+                {orderCartState ? (
                     <Popconfirm
                     title="구매하시겠습니까?"
                     okText="예"
                     cancelText="아니요"
                     // okText="아니요"
                     // cancelText="예"
-                    // onConfirm={() => handleAddOrder(logInData.store_id)}
-                    // onCancel={() => handleAddOrder(logInData.store_id)}
+                    onConfirm={() => handleAddOrder(logInData.store_id)}
+                    onCancel={() => handleAddOrder(logInData.store_id)}
                   >
                     <Button type="primary" ghost>구매</Button>
                   </Popconfirm> 
@@ -806,7 +804,7 @@ const handleAddMax = (tarId, tarQnt) => {
                   cancelText="아니오"
                 >
                   <Button classNames={styles.conBtn}
-                   style={{position: 'static', zIndex: 1 }}
+                    style={{position: 'static', zIndex: 1 }}
                   >
                     <a>삭제</a>
                   </Button>
@@ -818,7 +816,6 @@ const handleAddMax = (tarId, tarQnt) => {
         </tbody>
       </table>
     </div>
-     
     </>
   );
 }

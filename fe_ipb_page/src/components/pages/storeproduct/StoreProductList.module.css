@@ -19,9 +19,13 @@
   padding: 18px;
 }
 
-.table th:first-child,
+.table th:first-child{
+  text-align: center;
+}
+
 .table td:first-child {
   text-align: center;
+  font-size: 10px;
 }
 
 .table th:last-child,

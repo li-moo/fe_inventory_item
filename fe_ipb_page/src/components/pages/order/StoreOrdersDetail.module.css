@@ -17,19 +17,35 @@
   background-color: #FFFFFF;
   font-weight: bold;
   /* padding: 11px; */
-  padding-top: 6px;
-  padding-bottom: 6px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   font-size: 13px;
 }
 
 .table th:first-child,
 .table td:first-child {
   text-align: center;
+  border-right: 1px solid #e4e4e4;
 }
 
-.table th:last-child {
-  text-align: left;
+.table th:nth-child(2){
+  text-align: center;
+}
 
+
+.table td:nth-child(2){
+  text-align: left;
+  padding-left: 10px;
+}
+
+.table th:nth-child(3),
+.table td:nth-child(3){
+  text-align: center;
+}
+
+.table th:last-child,
+.table td:last-child {
+  text-align: center;
 }
 
 
@@ -136,4 +152,17 @@
   border-color: #3186fd;
   outline: none;
   box-shadow: 0 0 5px rgba(76, 177, 202, 0.574);
+}
+
+
+/* 탭버튼 */
+.tabButton {
+  background-color: white;
+  border-color: #f0f0f0;
+  border-radius: 5px 5px 0px 0px;
+}
+
+.tabButton.active {
+  background-color: #dcdddd;
+  /* color: white; */
 }
