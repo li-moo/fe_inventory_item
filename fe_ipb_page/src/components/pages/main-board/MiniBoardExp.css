@@ -1,0 +1,38 @@
+.mini-board-container {
+  max-height: 652px;
+  /* Adjust the maximum height according to your needs */
+  overflow-y: auto;
+  margin-bottom: 300px;
+  width: 856px;
+}
+
+.link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.expTd {
+  display: flex;
+  align-items: center;
+}
+
+.yellowExp {
+  width: 10px;
+  height: 10px;
+  background-color: yellow;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.grayText {
+  color: gray;
+}
+
+.schSel {
+  margin-bottom: 16px;
+}
+
+.searchInput {
+  width: 200px;
+  margin-bottom: 100px;
+}
