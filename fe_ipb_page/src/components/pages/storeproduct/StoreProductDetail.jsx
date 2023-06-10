@@ -231,24 +231,44 @@ function StoreProductDetail() {
               <ul>
                 <li>
                   <div className={styles.left}>
-                  <p>카테고리: {product.category_name}</p>
                     {/* <img src={product.imgname} alt={product.detail} /> */}
                     <img src={product.imgname} alt={product.detail} />
-                    <p>SKU - QR code</p>
+                    {/* <p>SKU - QR code</p> */}
                     <Button onClick={info}>
                       자동발주
                     </Button>
                   </div>
                   <div className={styles.right}>
-                    <h4>{product.product_name}</h4>
-                    <p>SKU: {product.product_code}</p>
-                    <p>제조사: {product.brand}</p>
-                    <p>보관방법: {product.price}</p>
-                    <p>매입가: {product.price}</p>
-                    <p>판매가: {product.store_price}</p>
-                    <p>유통기한: {product.exp}</p>
-                    <p>재고량: {product.qnt}</p>
-                    <p>안전 재고량: {product.safe_qnt}</p>
+                    <div className={styles.title}>
+                      <h4>{product.product_name}</h4>
+                      <h6>{product.category_name}</h6>
+                    </div>
+                    <div className={styles.info}> 
+                      <div>
+                        <p>SKU:</p>
+                        <p>제조사:</p>
+                        <p>보관방법:</p>
+                        <p>매입가:</p>
+                        <p>판매가:</p>
+                        <p>유통기한:</p>
+                        <p>재고량:</p>
+                        {product.safe_qnt !== null && (
+                          <p>안전 재고량:</p>
+                        )}
+                      </div>
+                      <div>
+                        <p>{product.product_code}</p>
+                        <p>{product.brand}</p>
+                        <p>{product.storage}</p>
+                        <p>{product.price}</p>
+                        <p>{product.store_price}</p>
+                        <p>{product.exp}</p>
+                        <p>{product.qnt}</p>
+                        {product.safe_qnt !== null && (
+                          <p>{product.safe_qnt}</p>
+                        )}
+                      </div>
+                    </div>
                   </div>
                 </li>
                 {/* <li> */}
@@ -281,7 +301,6 @@ function StoreProductDetail() {
                     상품 상세 정보
                   </div>
                 </h4>
-                <p>{product.detail}</p>
                 <p>{product.detail}</p>
               </div>
             </div>
