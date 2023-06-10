@@ -24,13 +24,13 @@ function StoreSales() {
       <StoreSalesList />
       </TabPane>
       <TabPane tab="일 별" key="2">
-       <StoreSalesDay />
+      <StoreSalesDay />
       </TabPane>
       {/* <TabPane tab="카테고리별" key="2">
       <StoreSalesListCategory />
       </TabPane> */}
       {/* <TabPane tab="일 별" key="3">
-       <StoreSalesDay />
+      <StoreSalesDay />
       </TabPane> */}
     </Tabs>
     </>

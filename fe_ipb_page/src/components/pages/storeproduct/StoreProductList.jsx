@@ -343,7 +343,7 @@ function StoreProductList() {
         <tbody>
           {filteredProducts.map((item) => (
             <tr key={item.id}>
-              <td>{item._auto ? '☆' : '-'}</td>
+              <td>{item._auto ? '●' : ''}</td>
               <td>{item.product_code}</td>
               <td>
                 <Link
@@ -363,7 +363,6 @@ function StoreProductList() {
         </tbody>
       </table>
       </div>
-     
     </>
   );
 }
