@@ -17,6 +17,14 @@
   background-color: red;
 }
 
+.alarmBackground {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: rgba(255, 0, 0, 0.0);
+}
+
 .BellRed:first {
   padding-top: 5px;
 }
@@ -44,11 +52,11 @@
 }
 
 .dropItemExpMessage {
-  border: 3px solid rgb(255, 205, 55);
+  border: 3px solid rgb(255, 213, 0);
   border-radius: 10px;
   padding: 3px;
   margin: 6px;
-  color: rgb(255, 205, 55);
+  color: rgb(255, 218, 55);
 }
 
 .dropItemLowMessage {
@@ -60,11 +68,20 @@
 }
 
 .dropItemExpMessage:hover {
-  background-color: rgb(246, 246, 247);
+  border: 3px solid rgb(242, 176, 23);
+  border: 3px solid rgb(246, 169, 15);
+  color: rgb(242, 176, 23);
+  color: rgb(246, 169, 15);
+  border-radius: 10px;
+
   transition: border-color 0.3s ease-in-out;
 }
 
 .dropItemLowMessage:hover {
-  background-color: rgb(246, 246, 247);
+  border: 3px solid rgb(29, 179, 29);
+  border: 3px solid rgb(29, 179, 29);
+  color: rgb(29, 179, 29);
+  color: rgb(29, 179, 29);
+  border-radius: 10px;
   transition: border-color 0.3s ease-in-out;
 }
