@@ -17,7 +17,7 @@ function ProductInfoDetail() {
 
   const fetchProductDetails = async () => {
     try {
-      const response = await axios.get(`http://localhost:8080/productInfo/detail?product_code=${id}`);
+      const response = await axios.get(`${process.env.REACT_APP_BE_API}/productInfo/detail?product_code=${id}`);
       console.log("product-info-detail data:", response.data);
       setProduct(response.data);
     } catch (error) {
@@ -27,7 +27,7 @@ function ProductInfoDetail() {
 
   const updateProduct = async () => {
     try {
-      const response = await axios.put(`http://localhost:8080/productInfo/update?product_code=${product.product_code}`, product);
+      const response = await axios.put(`${process.env.REACT_APP_BE_API}/productInfo/update?product_code=${product.product_code}`, product);
       console.log("Updated product:", response.data);
       message.success('상품 정보가 성공적으로 업데이트되었습니다.');
       setIsEditing(false);

@@ -156,8 +156,7 @@ function StoreProductDetail() {
 
   useEffect(() => {
     console.log(id);
-    fetch(`http://localhost:8080/storeproduct/detail?id=${id}`)
-      // fetch(`http://43.202.9.215:8080/product/detail?id=${id}`)
+    fetch(`${process.env.REACT_APP_BE_API}/storeproduct/detail?id=${id}`)
       .then(res => res.json())
       .then(data => {
         console.log("storeProduct-detail data:", data);
@@ -175,7 +174,7 @@ function StoreProductDetail() {
 
   const info = () => {
     // 모달이 켜질때마다 상품의 상세 데이터를 받아온다
-    fetch(`http://localhost:8080/product/detail?id=${id}`)
+    fetch(`${process.env.REACT_APP_BE_API}/product/detail?id=${id}`)
       .then(res => res.json())
       .then(data => {
         console.log("product-detail data modal:", data);
@@ -199,7 +198,7 @@ function StoreProductDetail() {
         const minQnt = document.getElementById('minQnt').value;
         const qnt = document.getElementById('qnt').value;
 
-        fetch('http://localhost:8080/storeproduct/auto-order', {
+        fetch(`${process.env.REACT_APP_BE_API}/storeproduct/auto-order`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -268,7 +267,7 @@ function StoreProductDetail() {
                         <p>{product.product_code}</p>
                         <p>{product.brand}</p>
                         <p>{product.storage}</p>
-                        <p>{product.price}</p>
+                        <p>{product.cost}</p>
                         <p>{product.store_price}</p>
                         <p>{product.exp}</p>
                         <p>{product.qnt}</p>

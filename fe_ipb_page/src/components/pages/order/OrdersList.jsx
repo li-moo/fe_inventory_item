@@ -284,7 +284,9 @@ function OrdersList() {
     fetchStoreOrdersDetailData();
   }, [isAddOr, setIsAddOr]);
 
-  const url_be = `http://localhost:8080/orders/store-orders-date/${loginData.store_id}`;
+  console.log("fetch 받은 데이터 logInData.store_id>>>", loginData.store_id);
+
+  const url_be = `${process.env.REACT_APP_BE_API}/orders/store-orders-date/${loginData.store_id}`;
 
   const fetchStoreOrdersDetailData = () => {
     axios(url_be, {
@@ -295,6 +297,9 @@ function OrdersList() {
       })
       .catch((err) => console.log("storeexp/err", err));
   };
+
+  const url_be_detail_list = `${process.env.REACT_APP_BE_API}/orders/store-orders-detail-list`;
+  //const url_be_detail_list = `http://localhost:8080/orders/store-orders-detail-list?store_id=${loginData.store_id}&orders_date=${storeOrdersDetailData.orders_date}`;
 
   const handleSearch = (value) => {
     setSearchValue(value);

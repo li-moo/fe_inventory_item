@@ -91,6 +91,7 @@ function BoardList() {
   const [boardData, setBoardData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [logInData, setLogInData] = useRecoilState(logInState);
+  const params ={key:process.env.REACT_APP_BE_API};
 
   useEffect(() => {
     fetchData();
@@ -98,7 +99,7 @@ function BoardList() {
 
   const fetchData = async () => {
     try {
-      const response = await fetch('http://localhost:8080/board/list');
+      const response = await fetch(`${process.env.REACT_APP_BE_API}/board/list`);
       const data = await response.json();
       setBoardData(data);
       setFilteredData(data);

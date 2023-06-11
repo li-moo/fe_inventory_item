@@ -223,7 +223,7 @@ import React, { useEffect, useState } from 'react';
     }, [props.selectedId]);
 
     const orders_date = props.selectedId;
-    const url_be_detail_list = `http://localhost:8080/orders/store-orders-detail-list`;
+    const url_be_detail_list = `${process.env.REACT_APP_BE_API}/orders/store-orders-detail-list`;
     const getFeData = { store_id: loginData.store_id, orders_date: orders_date };
 
     const fetchStoreOrdersDetailListData = () => {
@@ -257,7 +257,7 @@ import React, { useEffect, useState } from 'react';
     };
 
     const updateQnt = (tarId, tarQnt) => {
-      const url_be_updateQnt = "http://localhost:8080/orders/update-orders";
+      const url_be_updateQnt = `${process.env.REACT_APP_BE_API}/orders/update-orders`;
 
       axios(url_be_updateQnt, {
         method: 'PUT',
@@ -282,7 +282,7 @@ import React, { useEffect, useState } from 'react';
     };
 
     const deleteOrder = (id) => {
-      const url_be_deleteOrder = `http://localhost:8080/orders/orderdetail/delete/${id}`;
+      const url_be_deleteOrder = `${process.env.REACT_APP_BE_API}/orders/orderdetail/delete/${id}`;
 
       axios(url_be_deleteOrder, {
         method: 'DELETE',

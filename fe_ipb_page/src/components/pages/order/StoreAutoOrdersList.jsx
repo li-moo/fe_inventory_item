@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import { logInState } from '../../state/loginState';
 import axios from 'axios';
-import { Divider, Input, Modal } from 'antd';
+import { Divider, Input, Modal, Popconfirm, Button } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import styles from './StoreAutoOrdersList.module.css';
 
@@ -18,7 +18,7 @@ function StoreAutoOrdersList() {
     updateQnt();
   }, []);
 
-  const url_be = `http://localhost:8080/auto/getList/${logInData.store_id}`;
+  const url_be = `${process.env.REACT_APP_BE_API}/auto/getList/${logInData.store_id}`;
 
   const fetchData = () => {
     axios
@@ -31,7 +31,7 @@ function StoreAutoOrdersList() {
   };
 
   const updateQnt = (tarId, tarQnt, tarMinQnt) => {
-    const url_be_updateQnt = "http://localhost:8080//auto/qnt-change";
+    const url_be_updateQnt = `${process.env.REACT_APP_BE_API}//auto/qnt-change`;
 
     axios(url_be_updateQnt,
       {
@@ -57,7 +57,7 @@ function StoreAutoOrdersList() {
   }
 
   const updateMinQnt = (tarId, tarQnt, tarMinQnt) => {
-    const url_be_updateMinQnt = "http://localhost:8080//auto/qnt-change";
+    const url_be_updateMinQnt = `${process.env.REACT_APP_BE_API}/auto/qnt-change`;
 
     axios(url_be_updateMinQnt,
       {
@@ -88,6 +88,29 @@ function StoreAutoOrdersList() {
     return num.toString().replace(regexp, ',');
   }
 
+  const removeBtn = (id) => {
+    const url_be_disposeBtn = `${process.env.REACT_APP_BE_API}//auto/delete/${id}`;
+
+    console.log("폐기버튼안>id:", id);
+
+    axios(url_be_disposeBtn,
+      {
+        method: 'delete',
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Content-Type': 'application/json'
+        },
+        data: {
+          id: id,
+        }
+      })
+      .then(() => {
+        fetchData();
+      }).catch(function (error) {
+        console.log("error: ", error);
+      })
+  }
+
   return (
     <>
       <div>
@@ -105,6 +128,7 @@ function StoreAutoOrdersList() {
             <th>판매가</th>
             <th>최소재고수량</th>
             <th>기준재고수량</th>
+            <th>{''}</th>
           </tr>
         </thead>
         <tbody>
@@ -164,6 +188,16 @@ function StoreAutoOrdersList() {
                   }
                   }
                 />
+              </td>
+              <td>
+                <Popconfirm
+                  title="리스트에서 삭제 하시겠습니까??"
+                  onConfirm={() => removeBtn(item.id)}
+                  okText="네"
+                  cancelText="아니오"
+                >
+                  <Button>삭제</Button>
+                </Popconfirm>
               </td>
             </tr>
           ))}

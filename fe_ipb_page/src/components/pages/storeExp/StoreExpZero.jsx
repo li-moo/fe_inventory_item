@@ -30,9 +30,7 @@ function StoreExpZero() {
   }, [refreshExpBtn]);
 
 
-  // const url_be = process.env.REACT_APP_BE_API + `/storeproduct/list/${logInData.store_id}`;
-  const url_be = `http://localhost:8080/storeproduct/list/${logInData.store_id}`;
-  // const url_be = `http://43.202.9.215:8080/storeproduct/list/${logInData.store_id}`;
+  const url_be = `${process.env.REACT_APP_BE_API}/storeproduct/list/${logInData.store_id}`;
 
   const fetchData = () => {
     axios(url_be, {
@@ -93,9 +91,10 @@ function StoreExpZero() {
 
   // console.log("sortedProductssortedProducts>>",sortedProducts);
 
-  /// 폐기 버튼
-  const disposeBtn = (id) => {
-    const url_be_disposeBtn = "http://localhost:8080/storeproduct/qntzero";
+
+   /// 폐기 버튼
+    const disposeBtn = (id) => {
+    const url_be_disposeBtn = `${process.env.REACT_APP_BE_API}/storeproduct/qntzero`;
 
     console.log("폐기버튼안>id:", id);
 
