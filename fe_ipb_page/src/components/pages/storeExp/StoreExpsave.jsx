@@ -150,7 +150,7 @@ function StoreExpsave() {
                 <tr key={item.id}>
                   <td>{item.product_code}</td>
                   <td>
-                    <Link to={`/product/detail/${item.id}`} style={{ textDecoration: "none", color: "inherit" }}>
+                    <Link to={`/storeproduct/detail/${item.id}`} style={{ textDecoration: "none", color: "inherit" }}>
                       ({item.brand})
                       {item.product_name}
                     </Link>

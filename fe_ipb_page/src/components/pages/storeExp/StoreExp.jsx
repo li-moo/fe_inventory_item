@@ -93,7 +93,7 @@ function StoreExp() {
   // console.log("sortedProductssortedProducts>>",sortedProducts);
 
    /// 폐기 버튼
-   const disposeBtn = (id) => {
+    const disposeBtn = (id) => {
     const url_be_disposeBtn = "http://localhost:8080/storeproduct/qntzero";
 
     console.log("폐기버튼안>id:", id);
@@ -122,7 +122,7 @@ function StoreExp() {
   }
 
    // 셀렉트 박스
-   const handleCategoryChange = (e) => {
+    const handleCategoryChange = (e) => {
     const selectedCategory = e.target.value;
     if (selectedCategory === "") {
       setFilteredProductData(storeProductData);
@@ -214,7 +214,7 @@ function StoreExp() {
                 <tr key={item.id}>
                   <td></td>
                     <td>
-                      <Link to={`/product/detail/${item.id}`} style={{ textDecoration: "none", color: "inherit" }}>
+                      <Link to={`/storeproduct/detail/${item.id}`} style={{ textDecoration: "none", color: "inherit" }}>
                       </Link>
                     </td>
                     <td>{addComma(item.qnt)}</td>
@@ -255,7 +255,7 @@ function StoreExp() {
                 <tr key={item.id}>
                   <td>{item.product_code}</td>
                   <td>
-                    <Link to={`/product/detail/${item.id}`} style={{ textDecoration: "none", color: "inherit" }}>
+                    <Link to={`/storeproduct/detail/${item.id}`} style={{ textDecoration: "none", color: "inherit" }}>
                       ({item.brand})
                       {item.product_name}
                     </Link>
@@ -292,7 +292,7 @@ function StoreExp() {
                       <td></td>
                     )}
                   {/* <td>{item.addData}</td> 
-                   <td>
+                  <td>
                     {item.addData <= -1 && <p className={styles.redExp}></p>}
                     {item.addData > -1 && item.addData <= 3 && <p className={styles.yellowExp}></p>}
                     {item.addData > 3 && item.addData <= 5 && <p className={styles.greenExp}></p>}
