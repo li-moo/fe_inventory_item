@@ -19,7 +19,7 @@
   padding: 18px;
 }
 
-.table th:first-child{
+.table th:first-child {
   text-align: center;
 }
 
@@ -184,4 +184,11 @@ th:not(:last-child) {
 .table tbody td {
   white-space: nowrap;
   /* 긴 텍스트가 자동으로 줄바꿈되지 않도록 설정 */
+}
+
+.scrollContainer {
+  overflow-x: auto;
+  max-height: 490px;
+  scrollbar-width: thin;
+  scrollbar-color: red yellow;
 }
