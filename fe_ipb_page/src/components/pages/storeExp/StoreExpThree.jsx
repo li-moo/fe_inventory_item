@@ -91,8 +91,8 @@ function StoreExpThree() {
 
   // console.log("sortedProductssortedProducts>>",sortedProducts);
 
-   /// 폐기 버튼
-    const disposeBtn = (id) => {
+  /// 폐기 버튼
+  const disposeBtn = (id) => {
     const url_be_disposeBtn = `${process.env.REACT_APP_BE_API}/storeproduct/qntzero`;
     console.log("폐기버튼안>id:", id);
 
@@ -139,6 +139,10 @@ function StoreExpThree() {
   };
   // 셀렉트 박스
 
+  function addComma(num) {
+    var regexp = /\B(?=(\d{3})+(?!\d))/g;
+    return num.toString().replace(regexp, ',');
+  }
 
   return (
     <>
@@ -210,8 +214,8 @@ function StoreExpThree() {
                       <Link to={`/product/detail/${item.id}`} style={{ textDecoration: "none", color: "inherit" }}>
                       </Link>
                     </td>
-                    <td>{item.qnt}</td>
-                    <td>{item.price}</td>
+                    <td>{addComma(item.qnt)}</td>
+                    <td>{addComma(item.price)}</td>
                     <td>
                       <div className={styles.expTd}>
                         <div className={styles.expDiv}>
@@ -239,8 +243,8 @@ function StoreExpThree() {
                         {item.product_name}
                       </Link>
                     </td>
-                    <td>{item.qnt}</td>
-                    <td>{item.price}</td>
+                    <td>{addComma(item.qnt)}</td>
+                    <td>{addComma(item.price)}</td>
                     <td>
                       <div className={styles.expTd}>
                         <div className={styles.expDiv}>
