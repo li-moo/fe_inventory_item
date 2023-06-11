@@ -14,7 +14,7 @@ const MiniBoard = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch('http://localhost:8080/board/list');
+      const response = await fetch(`${process.env.REACT_APP_BE_API}/board/list`);
       const data = await response.json();
       setBoardData(data);
       setFilteredData(data);

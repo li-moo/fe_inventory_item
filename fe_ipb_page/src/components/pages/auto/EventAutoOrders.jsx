@@ -11,7 +11,7 @@ function EventAutoOrders() {
   const [loginData, setLogInData] = useRecoilState(logInState);
   const [evnetAutoData, setEventAutoData] = useState([]);
 
-  const url_be = `http://localhost:8080/eventAutoOrders/${loginData.store_id}`;
+  const url_be = `${process.env.REACT_APP_BE_API}/eventAutoOrders/${loginData.store_id}`;
   // const url_be = `http://43.202.9.215:8080/eventAutoOrders/${loginData.store_id}`;
 
   useEffect(() => {
@@ -31,7 +31,7 @@ function EventAutoOrders() {
   }
 
   const updateQnt = (tarId, tarQnt) => {
-    const url_be_updateQnt = "http://localhost:8080/eventAutoOrders/update";
+    const url_be_updateQnt = `${process.env.REACT_APP_BE_API}/eventAutoOrders/update`;
 
     axios(url_be_updateQnt,
       {

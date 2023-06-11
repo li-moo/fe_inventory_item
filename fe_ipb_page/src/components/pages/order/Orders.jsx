@@ -34,8 +34,7 @@ function Order() {
 
   useEffect(() => {
     console.log("storeId: ", storeId);
-    axios.get(`http://localhost:8080/cart/cartlist/${storeId}`)
-      // axios.get(`http://43.202.9.215:8080/cart/cartlist/${storeId}`)
+    axios.get(`${process.env.REACT_APP_BE_API}/cart/cartlist/${storeId}`)
       .then((res) => {
         console.log('Orders/res = ', res);
         setCartList(res.data);

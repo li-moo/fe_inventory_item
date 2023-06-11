@@ -416,7 +416,7 @@ function Cart(props) {
 
 
   const fetchCartData = () => {
-    const url_be_cartlist = `http://localhost:8080/cart/cartlist/${logInData.store_id}`;
+    const url_be_cartlist = `${process.env.REACT_APP_BE_API}/cart/cartlist/${logInData.store_id}`;
 
     axios(url_be_cartlist, {
       method: 'get'
@@ -458,7 +458,7 @@ function Cart(props) {
 
   const handleDeleteCart = async (id) => {
     try {
-      await fetch(`http://localhost:8080/cart/delete/${id}`, {
+      await fetch(`${process.env.REACT_APP_BE_API}/cart/delete/${id}`, {
         method: 'DELETE',
       });
       // fetchData();
@@ -469,8 +469,7 @@ function Cart(props) {
   };
 
   const handleAddOrder = (id) => {
-    const url_be_addorder = "http://localhost:8080/orders/addorder";
-    // const url_be = "http://43.202.9.215:8080/orders/addorder";
+    const url_be_addorder = `${process.env.REACT_APP_BE_API}/orders/addorder`;
 
     axios(url_be_addorder,
       {
@@ -500,7 +499,7 @@ function Cart(props) {
     setAddOrder(!addOrder);
   }
   const handleMaxOrder = () => {
-    const url_be_maxorder = "http://localhost:8080/orders/maxorder";
+    const url_be_maxorder = `${process.env.REACT_APP_BE_API}/orders/maxorder`;
     // const url_be = "http://43.202.9.215:8080/orders/maxorder";
 
     axios(url_be_maxorder,
@@ -545,9 +544,7 @@ function Cart(props) {
   // }
 
   const updateQnt = (tarId, tarQnt, tarProductId) => {
-    const url_be_updateQnt = "http://localhost:8080/cart/update";
-    // const url_be_updateQnt = "http://localhost:8080/cart/update";
-
+    const url_be_updateQnt = `${process.env.REACT_APP_BE_API}/cart/update`;
     axios(url_be_updateQnt,
       {
         method: 'PUT',

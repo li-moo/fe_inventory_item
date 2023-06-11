@@ -18,7 +18,7 @@ function ProductAdd() {
   useEffect(() => {
     const fetchOptions = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/productInfo/list');
+        const response = await axios.get(`${process.env.REACT_APP_BE_API}/productInfo/list`);
         setOptions(response.data);
         console.log(response.data);
       } catch (error) {
@@ -29,8 +29,7 @@ function ProductAdd() {
   }, []);
 
   const onFinish = (values) => {
-    const url_be = "http://localhost:8080/product/add";
-    // const url_be = "http://43.202.9.215:8080/product/add";
+    const url_be = `${process.env.REACT_APP_BE_API}/product/add`;
 
     // 선택한 날짜에서 시간을 잘라냅니다.
     const dateWithoutTime = moment(expDate).startOf('day');

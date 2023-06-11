@@ -24,7 +24,7 @@ function MiniBoardExp() {
     fetchData();
   }, []);
 
-  const url_be = `http://localhost:8080/storeproduct/listexp/${logInData.store_id}`;
+  const url_be = `${process.env.REACT_APP_BE_API}/storeproduct/listexp/${logInData.store_id}`;
 
   const fetchData = () => {
     axios(url_be, {

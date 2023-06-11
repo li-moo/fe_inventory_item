@@ -28,8 +28,7 @@ function EventList() {
 
   const fetchData = async () => {
     try {
-      const response = await fetch('http://localhost:8080/eventlist');
-      // const response = await fetch('http://43.202.9.215:8080/eventlist');
+      const response = await fetch(`${process.env.REACT_APP_BE_API}/eventlist`);
       const data = await response.json();
       setEventData(data);
       setEventData2(data);
@@ -89,8 +88,7 @@ function EventList() {
 
   const handleDelete = async () => {
     try {
-      const response = await fetch(`http://localhost:8080/eventdetail/delete/${filteredData.id}`, {
-        // const response = await fetch(`http://43.202.9.215:8080/eventdetail/delete/${filteredData.id}`, {
+      const response = await fetch(`${process.env.REACT_APP_BE_API}/eventdetail/delete/${filteredData.id}`, {
         method: 'DELETE',
       });
       if (response.ok) {

@@ -9,8 +9,7 @@ function BoardAdd() {
   
 
   const onFinish = (values) => {
-    const url_be = "http://localhost:8080/board/add";
-    // const url_be = "http://43.202.9.215:8080/board/add";
+    const url_be = `${process.env.REACT_APP_BE_API}/board/add`;
 
     axios(url_be, {
       method: 'post',
