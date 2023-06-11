@@ -391,15 +391,15 @@ function Cart(props) {
   //   console.log("useEffect/props.cartList:", props.cartList);
   // }, [props.cartList]);
   useEffect(() => {
-    setCartData(props.cartList);
+    // setCartData(props.cartList);
     fetchCartData()
 
     // handleDeleteCart();
 
     // console.log("useEffect/cartData:", cartData);
     // console.log("useEffect/props.cartList:", props.cartList);
-
     handleAddMax()
+
 
   }, [props.cartList]);
 
@@ -426,6 +426,7 @@ function Cart(props) {
         setCartData(res.data)
       })
       .catch((err) => console.log("storeexp/err", err))
+    // handleAddMax()
   }
 
   // const fetchCartQntData = () => {
@@ -646,8 +647,23 @@ function Cart(props) {
     setPropsCartProductQntList(tempCartProductQntList);
 
     // console.log(">>>propsCartProductQntList>>", propsCartProductQntList);
+
+
+    // for (var i = 0; i < propsCartProductQntList.length; i++) {
+    //   if (propsCartProductQntList[i].id >= tarId) {
+    //     for (var j = 0; j < propsCartProductQntList.length; j++) {
+    //       // console.log(":::propsCartProductQntList[i]:", propsCartProductQntList[i]);
+    //       if (propsCartProductQntList[i].product_qnt >= tarQnt) {
+    //         setOrderCartState(true); // 본사 재고가 구매하려는 재고량보다 많을 때
+    //       } else {
+    //         setOrderCartState(false); // 본사 재고가 구매하려는 재고량보다 적을 때
+    //       }
+    //     }
+    //   }
+    // }
+
     for (var i = 0; i < propsCartProductQntList.length; i++) {
-      if (propsCartProductQntList[i].id >= tarId) {
+      if (propsCartProductQntList[i].id === tarId) {
         for (var j = 0; j < propsCartProductQntList.length; j++) {
           // console.log(":::propsCartProductQntList[i]:", propsCartProductQntList[i]);
           if (propsCartProductQntList[i].product_qnt >= tarQnt) {
@@ -658,6 +674,7 @@ function Cart(props) {
         }
       }
     }
+
   }
 
   // const handleAddMax = (tarId, tarQnt) => {
