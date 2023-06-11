@@ -372,8 +372,8 @@ function Cart(props) {
   const [searchTerm, setSearchTerm] = useState('');
   // const [orderCartState, setOrderCartState] = useState(false)
   const [orderCartState, setOrderCartState] = useState(true)
-  const [propsCartProductQntList, setPropsCartProductQntList]  = useState([]);
-  const [tarNewQnt, setTarNewQnt]  = useState([props.cartList.qnt]);
+  const [propsCartProductQntList, setPropsCartProductQntList] = useState([]);
+  const [tarNewQnt, setTarNewQnt] = useState([props.cartList.qnt]);
 
   const navigate = useNavigate();
 
@@ -394,7 +394,7 @@ function Cart(props) {
     fetchCartData()
 
     // handleDeleteCart();
-    
+
     // console.log("useEffect/cartData:", cartData);
     // console.log("useEffect/props.cartList:", props.cartList);
 
@@ -477,7 +477,7 @@ function Cart(props) {
         headers: {
           'Access-Control-Allow-Origin': '*',
           'Content-Type': 'application/json',
-          
+
           mode: 'no-cors'
         },
         data: {
@@ -485,16 +485,16 @@ function Cart(props) {
         }
       }
     )
-    .then ( () => {
-      fetchCartData();
-    })
-    .catch(function (error) {
-      if (error.response) {
-        console.log(error.response.data);
-        console.log(error.response.status);
-        console.log(error.response.headers);
-      }
-    })
+      .then(() => {
+        fetchCartData();
+      })
+      .catch(function (error) {
+        if (error.response) {
+          console.log(error.response.data);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        }
+      })
     setAddOrder(!addOrder);
   }
   const handleMaxOrder = () => {
@@ -525,16 +525,16 @@ function Cart(props) {
         data: cartData
       }
     )
-    .then ( () => {
-      fetchCartData();
-    })
-    .catch(function (error) {
-      if (error.response) {
-        console.log(error.response.data);
-        console.log(error.response.status);
-        console.log(error.response.headers);
-      }
-    })
+      .then(() => {
+        fetchCartData();
+      })
+      .catch(function (error) {
+        if (error.response) {
+          console.log(error.response.data);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        }
+      })
     setAddOrder(!addOrder);
   }
 
@@ -571,7 +571,7 @@ function Cart(props) {
         console.log(error.response.headers);
       }
     }
-    
+
     )
     // handleInputChange(event) {
     //   const inputValue = event.target.value;
@@ -619,80 +619,80 @@ function Cart(props) {
   };
 
   const filteredProducts = cartData.filter((item) =>
-  item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-  item.product_code.toString().toLowerCase().includes(searchTerm.toLowerCase())
-);
+    item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    item.product_code.toString().toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
-const handleAddMax = (tarId, tarQnt) => {
-  // console.log("handleAddMax 실행되는지 확인");
-  // console.log("props.cartList", props.cartList);
-  // console.log("props.cartList[0]", props.cartList[0]);
-  // console.log("cartData.qnt", cartData.qnt);
+  const handleAddMax = (tarId, tarQnt) => {
+    // console.log("handleAddMax 실행되는지 확인");
+    // console.log("props.cartList", props.cartList);
+    // console.log("props.cartList[0]", props.cartList[0]);
+    // console.log("cartData.qnt", cartData.qnt);
 
-  const tempCartProductQntList = [];
-  for (var i = 0; i < props.cartList.length; i++){
-    // console.log("되는지 봅세", [i])
-    // console.log("props.cartList[i].product_qnt", props.cartList[i].product_qnt)
-    const CartProductQnt = {
-      "product_qnt": props.cartList[i].product_qnt,
-      "qnt": props.cartList[i].qnt,
-      "id": props.cartList[i].id,
-    };
-    // console.log("CartProductQnt", CartProductQnt)
-    tempCartProductQntList.push(CartProductQnt);
-  }
-  setPropsCartProductQntList(tempCartProductQntList);
+    const tempCartProductQntList = [];
+    for (var i = 0; i < props.cartList.length; i++) {
+      // console.log("되는지 봅세", [i])
+      // console.log("props.cartList[i].product_qnt", props.cartList[i].product_qnt)
+      const CartProductQnt = {
+        "product_qnt": props.cartList[i].product_qnt,
+        "qnt": props.cartList[i].qnt,
+        "id": props.cartList[i].id,
+      };
+      // console.log("CartProductQnt", CartProductQnt)
+      tempCartProductQntList.push(CartProductQnt);
+    }
+    setPropsCartProductQntList(tempCartProductQntList);
 
-  // console.log(">>>propsCartProductQntList>>", propsCartProductQntList);
-  for (var i = 0; i < propsCartProductQntList.length; i++) {
-    if (propsCartProductQntList[i].id >= tarId) {
-      for (var j = 0; j < propsCartProductQntList.length; j++) {
-        // console.log(":::propsCartProductQntList[i]:", propsCartProductQntList[i]);
-        if (propsCartProductQntList[i].product_qnt >= tarQnt) {
-          setOrderCartState(true); // 본사 재고가 구매하려는 재고량보다 많을 때
-        } else {
-          setOrderCartState(false); // 본사 재고가 구매하려는 재고량보다 적을 때
+    // console.log(">>>propsCartProductQntList>>", propsCartProductQntList);
+    for (var i = 0; i < propsCartProductQntList.length; i++) {
+      if (propsCartProductQntList[i].id >= tarId) {
+        for (var j = 0; j < propsCartProductQntList.length; j++) {
+          // console.log(":::propsCartProductQntList[i]:", propsCartProductQntList[i]);
+          if (propsCartProductQntList[i].product_qnt >= tarQnt) {
+            setOrderCartState(true); // 본사 재고가 구매하려는 재고량보다 많을 때
+          } else {
+            setOrderCartState(false); // 본사 재고가 구매하려는 재고량보다 적을 때
+          }
         }
       }
-    } 
+    }
   }
-}
 
-// const handleAddMax = (tarId, tarQnt) => {
-//   // console.log("handleAddMax 실행되는지 확인");
-//   // console.log("props.cartList", props.cartList);
-//   // console.log("props.cartList[0]", props.cartList[0]);
-//   // console.log("cartData.qnt", cartData.qnt);
+  // const handleAddMax = (tarId, tarQnt) => {
+  //   // console.log("handleAddMax 실행되는지 확인");
+  //   // console.log("props.cartList", props.cartList);
+  //   // console.log("props.cartList[0]", props.cartList[0]);
+  //   // console.log("cartData.qnt", cartData.qnt);
 
-//   const tempCartProductQntList = [];
-//   for (var i = 0; i < props.cartList.length; i++){
-//     // console.log("되는지 봅세", [i])
-//     // console.log("props.cartList[i].product_qnt", props.cartList[i].product_qnt)
-//     const CartProductQnt = {
-//       "product_qnt": props.cartList[i].product_qnt,
-//       "qnt": props.cartList[i].qnt,
-//       "id": props.cartList[i].id,
-//     };
-//     // console.log("CartProductQnt", CartProductQnt)
-//     tempCartProductQntList.push(CartProductQnt);
-//   }
-//   setPropsCartProductQntList(tempCartProductQntList);
+  //   const tempCartProductQntList = [];
+  //   for (var i = 0; i < props.cartList.length; i++){
+  //     // console.log("되는지 봅세", [i])
+  //     // console.log("props.cartList[i].product_qnt", props.cartList[i].product_qnt)
+  //     const CartProductQnt = {
+  //       "product_qnt": props.cartList[i].product_qnt,
+  //       "qnt": props.cartList[i].qnt,
+  //       "id": props.cartList[i].id,
+  //     };
+  //     // console.log("CartProductQnt", CartProductQnt)
+  //     tempCartProductQntList.push(CartProductQnt);
+  //   }
+  //   setPropsCartProductQntList(tempCartProductQntList);
 
-//   // console.log(">>>propsCartProductQntList>>", propsCartProductQntList);
-//   for (var i = 0; i < cartData.length; i++) {
-//     if (cartData[i].id >= tarId) {
-//       for (var j = 0; j < cartData.length; j++) {
-//         // console.log(":::propsCartProductQntList[i]:", propsCartProductQntList[i]);
-//         // if (cartData[j].product_qnt >= tarQnt) {
-//           if (cartData[j].product_qnt >= cartData[j].qnt) {
-//           setOrderCartState(true); // 본사 재고가 구매하려는 재고량보다 많을 때
-//         } else {
-//           setOrderCartState(false); // 본사 재고가 구매하려는 재고량보다 적을 때
-//         }
-//       }
-//     } 
-//   }
-// }
+  //   // console.log(">>>propsCartProductQntList>>", propsCartProductQntList);
+  //   for (var i = 0; i < cartData.length; i++) {
+  //     if (cartData[i].id >= tarId) {
+  //       for (var j = 0; j < cartData.length; j++) {
+  //         // console.log(":::propsCartProductQntList[i]:", propsCartProductQntList[i]);
+  //         // if (cartData[j].product_qnt >= tarQnt) {
+  //           if (cartData[j].product_qnt >= cartData[j].qnt) {
+  //           setOrderCartState(true); // 본사 재고가 구매하려는 재고량보다 많을 때
+  //         } else {
+  //           setOrderCartState(false); // 본사 재고가 구매하려는 재고량보다 적을 때
+  //         }
+  //       }
+  //     } 
+  //   }
+  // }
 
 
 
@@ -725,10 +725,6 @@ const handleAddMax = (tarId, tarQnt) => {
                     // cancelText="예"
                     onConfirm={() => handleAddOrder(logInData.store_id)}
                     onCancel={() => handleAddOrder(logInData.store_id)}
-                  >
-                    <Button type="primary" ghost>구매</Button>
-                  </Popconfirm> 
-                  // <p>true</p>
                   ) : (
                     <Popconfirm
                       title="본사에 재고가 부족합니다, 가능한 수량만큼만 주문 하시겠습니까??"
@@ -806,16 +802,85 @@ const handleAddMax = (tarId, tarQnt) => {
                   <Button classNames={styles.conBtn}
                     style={{position: 'static', zIndex: 1 }}
                   >
-                    <a>삭제</a>
-                  </Button>
-                </Popconfirm>
-              </td>
+                    <Button type="primary" danger ghost>구매</Button>
+                  </Popconfirm>
+                  // <p>false</p>
+                )}
+              </th>
             </tr>
+          </thead>
+          <tbody>
+            {/* {cartData && cartData.map((item) => ( */}
+            {filteredProducts && filteredProducts.map((item) => (
+              <tr key={item.id}>
+                <td style={{ width: "10px" }}>{item.product_code}</td>
 
-          ))}
-        </tbody>
-      </table>
-    </div>
+                {/* <td>({item.brand}){item.name}</td> */}
+                {item.product_qnt >= item.qnt ? (
+                  <td style={{ color: "black" }}>
+                    ({item.brand}){item.name}
+                  </td>
+                ) : (
+                  <td style={{ color: "red" }}>
+                    ({item.brand}){item.name}
+                  </td>
+                )}
+
+                <td>
+                  <div className={styles.pmBtn}>
+                    <input
+                      type="number"
+                      value={item.qnt}
+                      style={{ width: '53px', textAlign: 'center' }}
+                      className={styles.roundedInput}
+                      onChange={(e) => {
+                        const newQuantity = parseInt(e.target.value) || item.qnt - 1;
+                        console.log("하이요");
+                        console.log("e.target.value", e.target.value);
+                        if (!isNaN(newQuantity) && newQuantity > 0) {
+                          const updatedCartData = cartData.map((cartItem) => {
+                            if (cartItem.id === item.id) {
+                              console.log("이거 실행되긴하나?");
+                              return { ...cartItem, qnt: newQuantity };
+                            }
+                            return cartItem;
+                          });
+
+                          setCartData(updatedCartData);
+                        }
+                        const tarId = item.id;
+                        // const tarQnt = item.newQuantity
+                        const tarProductId = item.product_id;
+                        const tarQnt = newQuantity;
+                        updateQnt(tarId, tarQnt);
+                        console.log("????orderCartState", orderCartState);
+                        handleAddMax(tarId, tarQnt, tarProductId);
+                      }
+                      }
+                    />
+                    {/* <button onClick={() => decreaseQuantity(item)}>-</button> */}
+                  </div>
+                </td>
+                <td>
+                  <Popconfirm
+                    title="삭제시겠습니까??"
+                    onConfirm={() => handleDeleteCart(item.id)}
+                    okText="네"
+                    cancelText="아니오"
+                  >
+                    <Button classNames={styles.conBtn}
+                      style={{ position: 'static', zIndex: 1 }}
+                    >
+                      <a>삭제</a>
+                    </Button>
+                  </Popconfirm>
+                </td>
+              </tr>
+
+            ))}
+          </tbody>
+        </table>
+      </div>
     </>
   );
 }

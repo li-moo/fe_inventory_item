@@ -28,6 +28,7 @@
 .table th:first-child,
 .table td:first-child {
   text-align: center;
+  border-right: 1px solid #cbcbcb;
 }
 
 /* .table th:last-child,
@@ -160,11 +161,11 @@
 
 .selectBox {
   border: 0px solid #ccc;
-  border-radius: 4px;
+  border-radius: 4 4 0 0 px;
   font-size: 14px;
   color: #4f4f4f;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.16);
-
+  border-top: 4px solid #ccc;
 }
 
 .selectBox:focus {

@@ -131,7 +131,8 @@ const Starter = () => {
 
   return (
     <>
-      <Row>
+    <div className="body-bg" >
+    <Row>
         <Col sm={4} className="bg-gray-300">
           <div className="mb-5">
             <MiniBoard />
@@ -160,6 +161,7 @@ const Starter = () => {
       {showButton && visible && (
         <Button onClick={handleButtonClick}>하루 동안 보지 않기</Button>
       )}
+    </div>
     </>
   );
 };
