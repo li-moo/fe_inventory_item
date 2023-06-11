@@ -16,10 +16,15 @@ function EventList() {
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [eventData2, setEventData2] = useState([]);
   const [logInData, setLogInData] = useRecoilState(logInState);
+  const [ascending, setAscending] = useState(true);
 
   useEffect(() => {
     fetchData();
   }, []);
+
+  useEffect(() => {
+    filterAndSortEvents();
+  }, [startDate, endDate, ascending]);
 
   const fetchData = async () => {
     try {
@@ -43,27 +48,35 @@ function EventList() {
 
   const handleStartDateChange = (date) => {
     setStartDate(date);
-    filterEvents(date, endDate);
   };
 
   const handleEndDateChange = (date) => {
     setEndDate(date);
-    filterEvents(startDate, date);
   };
 
-  const filterEvents = (start, end) => {
-    const filtered = eventData.filter((event) => {
-      const startDate = new Date(event.start_date);
-      const endDate = new Date(event.end_date);
+  const filterAndSortEvents = () => {
+    let filtered = eventData;
 
-      if (start && end) {
-        return startDate >= start && endDate <= end;
-      } else if (start) {
-        return startDate >= start;
-      } else if (end) {
-        return endDate <= end;
+    filtered = filtered.filter((event) => {
+      const eventStartDate = new Date(event.start_date);
+      const eventEndDate = new Date(event.end_date);
+
+      if (startDate && endDate) {
+        return eventStartDate >= startDate && eventEndDate <= endDate;
+      } else if (startDate) {
+        return eventStartDate >= startDate;
+      } else if (endDate) {
+        return eventEndDate <= endDate;
       }
       return true;
+    });
+
+    filtered.sort((a, b) => {
+      if (ascending) {
+        return new Date(a.start_date) - new Date(b.start_date);
+      } else {
+        return new Date(b.start_date) - new Date(a.start_date);
+      }
     });
 
     setFilteredData(filtered);
@@ -89,6 +102,14 @@ function EventList() {
     } finally {
       setDeleteModalVisible(false);
     }
+  };
+
+  const handleSortAscending = () => {
+    setAscending(true);
+  };
+
+  const handleSortDescending = () => {
+    setAscending(false);
   };
 
   return (
@@ -129,6 +150,12 @@ function EventList() {
         </Col>
       </Row>
       <Divider />
+      <Row gutter={12}>
+        <Col span={24} style={{ display: 'flex', justifyContent: 'flex-end' }}>
+          <Button onClick={handleSortAscending}>오름차순</Button>
+          <Button onClick={handleSortDescending}>내림차순</Button>
+        </Col>
+      </Row>
       <Row gutter={12}>
         {filteredData.map((event) => (
           <Col span={12} key={event.id}>
@@ -175,4 +202,4 @@ function EventList() {
   );
 }
 
-export default EventList
+export default EventList;
