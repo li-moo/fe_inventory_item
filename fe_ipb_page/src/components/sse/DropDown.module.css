@@ -17,6 +17,15 @@
   background-color: red;
 }
 
+.BellRed:first {
+  padding-top: 5px;
+}
+
+.BellRed {
+  display: flex;
+  padding-top: 7px;
+}
+
 .alarmblack {
   display: inline-block;
   width: 5px;

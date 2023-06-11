@@ -1,6 +1,7 @@
 .divHeader {
   /* border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px; */
+  /* background-color: #FFFFFF; */
   background-color: #FFFFFF;
   /* border-radius: 20px; */
   box-shadow: 2px 2px 4px rgba(166, 168, 167, 0.5);
@@ -16,5 +17,6 @@
 }
 
 .dropdown-item.active {
-  background-color: #f0f0f0; /* 원하는 배경색으로 변경 */
+  background-color: #f0f0f0;
+  /* 원하는 배경색으로 변경 */
 }

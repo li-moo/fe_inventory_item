@@ -202,7 +202,8 @@ const HeaderTop = () => {
   return (
     // <Navbar color="primary" dark expand="md" className={"navbar-custom bg-secondary"} >
     // <Navbar color="primary" dark expand="md" className={"navbar-custom smaller-navbar "} >
-    <Navbar dark expand="md" className={"navbar-custom smaller-navbar "} 
+    <div>
+       <Navbar dark expand="md" className={"navbar-custom smaller-navbar "} 
     style={{ backgroundColor: '#FFFFFF' }}
     >
       <div className="d-flex align-items-center">
@@ -288,6 +289,9 @@ const HeaderTop = () => {
 
       </Collapse>
     </Navbar>
+
+    </div>
+   
   );
 };
 

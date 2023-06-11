@@ -200,7 +200,7 @@ const HeaderTop = () => {
   };
 
   return (
-    <div >
+    <div style={{ backgroundColor: '#262627' }}>
       <Navbar dark expand="md">
         <div className="d-flex align-items-center">
           <NavbarBrand href="/" className="d-lg-none">
@@ -222,7 +222,7 @@ const HeaderTop = () => {
           </Button>
         </div>
 
-        <Collapse navbar isOpen={isOpen} style={{ height: '50px' }}>
+        <Collapse navbar isOpen={isOpen} style={{ height: '40px' }}>
 
           <div className={style.leftTab} style={{ width: '60%' }}>
             <Link to="/starter" className="nav-link" style={{ paddingLeft: '3%' }}>

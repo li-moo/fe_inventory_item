@@ -733,7 +733,12 @@ function Cart(props) {
                   // <p>true</p>
                 ) : (
                   <Popconfirm
-                    title="본사에 재고가 부족합니다, 가능한 수량만큼만 주문 하시겠습니까??"
+                    title={(
+                      <>
+                        <p>본사에 재고가 부족합니다.</p>
+                        <p>가능한 수량만큼만 주문 하시겠습니까?</p>
+                      </>
+                    )}
                     okText="네"
                     cancelText="아니요"
                     onConfirm={() => handleMaxOrder()}
