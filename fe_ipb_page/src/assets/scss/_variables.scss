@@ -36,8 +36,11 @@ $theme-colors: (
   "varWhite": #FFFFFF,
 );
 // scss-docs-start gray-color-variables
-$white: #fff !default;
-$gray-100: #f8f9fa !default;
+// $white: #fff !default;
+$white: #707070 !default;
+// $white: #969696 !default;
+// $gray-100: #f8f9fa !default;
+$gray-100: #9e9e9e !default;
 $gray-200: #f8f9fa !default;
 $gray-300: #dee2e6 !default;
 $gray-400: #ced4da !default;

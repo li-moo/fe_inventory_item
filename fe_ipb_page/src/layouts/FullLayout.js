@@ -39,9 +39,11 @@
 
 import { Outlet, useLocation } from "react-router-dom";
 // import Sidebar from "./Sidebar";
-import Header from "./Header";
+// import Header from "./Header";
 import { Container } from "reactstrap";
-import HeaderTop from "./HeaderTop";
+// import HeaderTop from "./HeaderTop";
+import Header from "../layouts/header/Header";
+import HeaderTop from "./header/HeaderTop";
 
 const FullLayout = () => {
   const location = useLocation();

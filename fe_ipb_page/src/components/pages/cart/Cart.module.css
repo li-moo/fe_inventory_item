@@ -25,6 +25,7 @@
 .table th:first-child,
 .table td:first-child {
   text-align: center;
+  border-right: 1px solid #cbcbcb;
 }
 
 .table th:last-child {

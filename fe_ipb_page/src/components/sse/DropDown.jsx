@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem,  UncontrolledDropdown,} from 'reactstrap';
+import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem, UncontrolledDropdown, } from 'reactstrap';
 import PropTypes from 'prop-types';
 import { HiOutlineBell } from 'react-icons/hi';
 import { logInState } from '../state/loginState';
@@ -33,6 +33,7 @@ function DropDown({ direction, ...args }) {
       setAlarmData(0);
     }
   };
+
 
   const url = `http://localhost:8080/notifications/expiration/${loginData.store_id}`;
 
@@ -180,48 +181,52 @@ function DropDown({ direction, ...args }) {
   return (
     <>
       <div>
-      <div id='top-myDrop' >
-      <UncontrolledDropdown isOpen={dropdownOpen} toggle={toggle} direction={direction} id='top-myDrop--i'>
-        <DropdownToggle id='top-myDrop--ii' style={{ border: 'none', backgroundColor: '#FFFFFF', color: 'grey' }}>
-          <HiOutlineBell />
-          <div>{alarmData > 0 && <p className={styles.alarmRed}></p>}</div>
-        </DropdownToggle>
-        {/* <DropdownMenu style={{ width: '400px', maxHeight: '200px', overflowY: 'auto' }} {...args}> */}
-        <div> 
-        <DropdownMenu style={{ width: '410px', maxHeight: '200px', overflowY: 'auto', backgroundColor: 'white',
-          position: 'absolute', zIndex: 99999999, opacity: 1 }}>
+        <div id='top-myDrop' >
+          <UncontrolledDropdown isOpen={dropdownOpen} toggle={toggle} direction={direction} id='top-myDrop--i'>
+            <DropdownToggle id='top-myDrop--ii' style={{ border: 'none', backgroundColor: '#FFFFFF', color: 'grey' }}>
+              <HiOutlineBell />
+              <div>{alarmData > 0 && <p className={styles.alarmRed}></p>}</div>
+            </DropdownToggle>
+            {/* <DropdownMenu style={{ width: '400px', maxHeight: '200px', overflowY: 'auto' }} {...args}> */}
+            <div>
+              <DropdownMenu style={{
+                width: '410px', maxHeight: '200px', overflowY: 'auto', backgroundColor: 'white',
+                position: 'absolute', zIndex: 99999999, opacity: 1
+              }}>
 
-          <div className={styles.dropList}>
-            {messages.map((message, index) => (
-              <div key={index} className={styles.dropItemExpMessage} onClick={handleNavigateEXP}>
-                {readMessageEXP == true ? (
-                <td style={{ color: "red" }}>
-                   {" "}<FiAlertCircle /> {message}
-                </td>
-              ) : (
-                <td style={{ color: "black" }}>
-                  {" "}<FiAlertCircle /> {message}
-                </td>
-              )}
+                <div className={styles.dropList}>
+                  {messages.map((message, index) => (
+                    // <div key={index} className={styles.dropItemExpMessage} onClick={handleNavigateEXP}>
+                    <div key={index} className={styles.dropItemExpMessage} onClick={() => { handleNavigateEXP(); setDropdownOpen(!dropdownOpen); }}>
+                      {readMessageEXP == true ? (
+                        <td style={{ textDecoration: 'line-through', opacity: '0.5' }}>
+                          {" "}<FiAlertCircle /> {message}
+                        </td>
+                      ) : (
+                        <td style={{ color: "244, 216, 59" }}>
+                          {" "}<FiAlertCircle /> {message}
+                        </td>
+                      )}
+                    </div>
+                  ))}
+                  {messagesLowItem.map((message, index) => (
+                    <div>
+                      {/* <div key={index} className={styles.dropItemLowMessage} onClick={handleNavigateLOW}> */}
+                      <div key={index} className={styles.dropItemLowMessage} onClick={() => { handleNavigateLOW(); setDropdownOpen(!dropdownOpen); }}>
+                        {readMessageLOW == true ? (
+                          <td style={{ textDecoration: 'line-through', opacity: '0.5' }}>
+                            {" "}<FiAlertCircle /> {messagesLowItem}
+                          </td>
+                        ) : (
+                          <td style={{ color: "80, 206, 80" }}>
+                            {" "}<FiAlertCircle /> {messagesLowItem}
+                          </td>
+                        )}
+                      </div>
+                    </div>
+                  ))}
                 </div>
-            ))}
-            {messagesLowItem.map((message, index) => (
-              <div>                
-                <div key={index} className={styles.dropItemLowMessage} onClick={handleNavigateLOW}>
-                {readMessageLOW == true ? (
-                <td style={{ color: "red" }}>
-                   {" "}<FiAlertCircle /> {messagesLowItem}
-                </td>
-              ) : (
-                <td style={{ color: "black" }}>
-                  {" "}<FiAlertCircle /> {messagesLowItem}
-                </td>
-              )}
-                </div>
-              </div>
-            ))}
-          </div>
-            {/* <div className={styles.dropList}>
+                {/* <div className={styles.dropList}>
             {combinedMessages.map((message, index) => (
               <div key={index} className={styles.dropItemExpMessage} onClick={handleNavigateEXP}>
                 {" "}<FiAlertCircle /> {message}
@@ -229,8 +234,8 @@ function DropDown({ direction, ...args }) {
             ))}
           </div> */}
 
-          {/* /// */}
-          {/* <div>
+                {/* /// */}
+                {/* <div>
             {
               cartListData.map((item, index) => (
                 <div key={index} className={styles.dropItemMessage}>
@@ -239,11 +244,11 @@ function DropDown({ direction, ...args }) {
               ))
             }
           </div> */}
-        </DropdownMenu>
+              </DropdownMenu>
 
+            </div>
+          </UncontrolledDropdown>
         </div>
-      </UncontrolledDropdown>
-    </div>
       </div>
     </>
   );

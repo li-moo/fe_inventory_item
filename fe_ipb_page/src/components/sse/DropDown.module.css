@@ -35,11 +35,11 @@
 }
 
 .dropItemExpMessage {
-  border: 3px solid rgb(247, 222, 59);
+  border: 3px solid rgb(255, 205, 55);
   border-radius: 10px;
   padding: 3px;
   margin: 6px;
-  color: rgb(247, 222, 59);
+  color: rgb(255, 205, 55);
 }
 
 .dropItemLowMessage {
@@ -51,9 +51,11 @@
 }
 
 .dropItemExpMessage:hover {
-  background-color: rgb(237, 239, 242);
+  background-color: rgb(246, 246, 247);
+  transition: border-color 0.3s ease-in-out;
 }
 
 .dropItemLowMessage:hover {
-  background-color: rgb(237, 239, 242);
+  background-color: rgb(246, 246, 247);
+  transition: border-color 0.3s ease-in-out;
 }

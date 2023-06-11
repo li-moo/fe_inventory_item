@@ -1,13 +1,16 @@
 .pageWrapper {
   min-height: 100vh;
 }
+
 .contentArea {
   flex-grow: 1;
 }
+
 .wrapper {
-  max-width: 1650px;
+  max-width: 1450px;
   margin: 0 auto;
 }
+
 .card {
   box-shadow: $card-box-shadow;
   margin-bottom: 30px;
@@ -19,6 +22,7 @@
   line-height: 40px;
   text-align: center;
   border-radius: 100%;
+
   &.lg-box {
     width: 60px;
     height: 60px;
@@ -26,6 +30,7 @@
     line-height: 60px;
   }
 }
+
 .button-group .btn {
   margin: 3px;
 }
