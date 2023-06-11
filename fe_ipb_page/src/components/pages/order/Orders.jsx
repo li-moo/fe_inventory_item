@@ -48,7 +48,7 @@ function Order() {
   return (
     <>
       <h4>발주하기</h4>
-      <Divider />
+      {/* <Divider /> */}
 
       <Row>
         <Col sm={8} className="bg-gray-300">
@@ -60,7 +60,7 @@ function Order() {
         <Col sm={4} className="bg-gray-600">
           <Cart
             cartList={cartList}
-            
+
           // test="안녕"
           />
         </Col>
