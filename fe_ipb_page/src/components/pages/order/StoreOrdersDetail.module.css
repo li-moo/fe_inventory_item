@@ -5,10 +5,11 @@
   background-color: white;
 }
 
-.table th,
+
 .table td {
   /* padding: 8px; */
-  padding: 1px;
+  margin-top: 5px;
+  padding-top: 10px;
   border-bottom: 1px solid #e4e4e4;
   /* border-radius: 10px; */
 }

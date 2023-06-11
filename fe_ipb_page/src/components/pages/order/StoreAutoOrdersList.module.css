@@ -55,13 +55,13 @@
   border: 1px solid #cbcbcb;
 }
 
-.table th:last-child,
-.table td:last-child {
+.table th:nth-child(6),
+.table td:nth-child(6){
   text-align: center;
   width: 10%;
 }
 
-.table td:last-child input{
+.table td:nth-child(6) input{
   width : 50%;
   border-radius: 5px;
   border: 1px solid #cbcbcb;

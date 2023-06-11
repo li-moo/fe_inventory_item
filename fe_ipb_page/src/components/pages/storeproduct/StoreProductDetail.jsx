@@ -268,7 +268,7 @@ function StoreProductDetail() {
                         <p>{product.product_code}</p>
                         <p>{product.brand}</p>
                         <p>{product.storage}</p>
-                        <p>{product.price}</p>
+                        <p>{product.cost}</p>
                         <p>{product.store_price}</p>
                         <p>{product.exp}</p>
                         <p>{product.qnt}</p>
