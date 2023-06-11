@@ -90,12 +90,12 @@ function StoreOrdersDetail(props) {
         id: id,
       },
     })
-    .then(() => {
-      fetchStoreOrdersDetailListData();
-    })
-    .catch(function (error) {
-      console.log("error-> StoreOrdersDetail:", error);
-    });
+      .then(() => {
+        fetchStoreOrdersDetailListData();
+      })
+      .catch(function (error) {
+        console.log("error-> StoreOrdersDetail:", error);
+      });
   };
 
   const handleGroupButtonClick = (groupId) => {
@@ -153,7 +153,7 @@ function StoreOrdersDetail(props) {
                     <input
                       type="number"
                       value={item.qnt}
-                      style={{ width: '60px' }}
+                      style={{ width: '60px', paddingLeft: '6px' }}
                       className={styles.roundedInput}
                       onChange={(e) => {
                         const newQuantity = parseInt(e.target.value) || item.qnt - 1;

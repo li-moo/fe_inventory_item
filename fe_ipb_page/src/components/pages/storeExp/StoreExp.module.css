@@ -1,4 +1,4 @@
-.table {
+/* .table {
   width: 100%;
   border-collapse: collapse;
   background-color: white;
@@ -6,10 +6,9 @@
 
 .table th,
 .table td {
-  /* padding: 8px; */
-  padding: 5px;
+
+  padding: 1px;
   border-bottom: 1px solid #e4e4e4;
-  /* border-radius: 10px; */
 }
 
 .table th {
@@ -37,6 +36,99 @@
   background-color: #f9f9fa;
   transition: 0.3s ease-in-out;
 }
+
+.table td:nth-child(5) {
+  padding-top: 22px;
+  align-items: center;
+} */
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+}
+
+.table th,
+.table td {
+  /* padding: 8px; */
+  /* padding: 10px; */
+  border-bottom: 1px solid #e4e4e4;
+  /* border-radius: 10px; */
+}
+
+.table th {
+  background-color: #FFFFFF;
+  font-weight: bold;
+  padding: 18px;
+}
+
+.table th:first-child,
+.table td:first-child {
+  text-align: center;
+
+}
+
+.table th:nth-child(2) {
+  text-align: left;
+  border-right: 1px solid #e4e4e4;
+}
+
+
+.table td:nth-child(2) {
+  text-align: left;
+  border-right: 1px solid #e4e4e4;
+}
+
+.table th:nth-child(3),
+.table td:nth-child(3) {
+  text-align: center;
+}
+
+.table th:nth-child(4),
+.table td:nth-child(4) {
+  text-align: center;
+}
+
+.table th:nth-child(5),
+.table td:nth-child(5) {
+  text-align: center;
+  width: 10%;
+  text-align: center;
+}
+
+.expDiv {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.expTd {
+  margin: 0%;
+}
+
+.table td:nth-child(5) input {
+  width: 50%;
+  border-radius: 5px;
+  border: 1px solid #cbcbcb;
+}
+
+.table th:last-child,
+.table td:last-child {
+  text-align: center;
+  width: 10%;
+}
+
+.table td:last-child input {
+  width: 50%;
+  border-radius: 5px;
+  border: 1px solid #cbcbcb;
+}
+
+.table tbody tr:hover {
+  background-color: #f8f7fa;
+}
+
 
 .exp-column {
   background-color: tomato;
@@ -195,19 +287,24 @@
   display: flex;
 }
 
+
 .tabContainer {
   padding-left: 71%;
   float: right;
 }
 
-.tabContainer>button {
-  background-color: #FFFFFF;
-  border-radius: 5px;
-}
-
 .tabContainer>button:focus {
   /* border-bottom: 50px solid #3186fd; */
-  background-color: darkgrey;
+  border-top: 3px solid #3186fd;
+  background-color: #eaeaea;
+  padding-top: 3px;
+  border: 1px solid #3186fd;
+}
+
+
+.tabContainer>button {
+  background-color: #FFFFFF;
+  border-radius: 5px 5px 0 0;
 }
 
 .mainHeader {

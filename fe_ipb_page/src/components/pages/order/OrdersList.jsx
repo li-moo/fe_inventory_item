@@ -201,51 +201,54 @@ function OrdersList() {
 
   return (
     <>
-      <h4>발주내역</h4>
+      <div>
+        <h4 >발주내역</h4>
+        <div style={{ borderBottom: '4px solid #CCCCCC', width: '150px' }}></div>
+      </div >
       {/* <Divider /> */}
       <Row>
         <Col sm={4} className="bg-gray-300">
           <div style={{ overflowX: 'auto', maxHeight: '490px' }}>
-          <table className={styles.table}>
-            <thead>
-              <tr>
-                <th>No.</th>
-                <th>발주내역</th>
-                <th>배송상태</th>
-              </tr>
-            </thead>
-            <tbody>
-              {storeOrdersDetailData.map((item) => (
-                // <tr key={item.id}>
-                // <tr key={item.id} onClick={() => handleRowClick(item.id || item.orders_date)}>
-                <tr key={item.id} onClick={() => handleRowClick(item.orders_date, item.orders_status)}>
-                  <td>{item.id}</td>
-                  <td>{item.orders_date} 발주내역</td>
-                  {/* <td>{new Date(item.orders_date).toISOString().split('T')[0]}일자 발주내역</td> */}
-                  {/* <td>{item.delivery_id} */}
-                  {/* <td>
+            <table className={styles.table}>
+              <thead>
+                <tr>
+                  <th>No.</th>
+                  <th>발주내역</th>
+                  <th>배송상태</th>
+                </tr>
+              </thead>
+              <tbody>
+                {storeOrdersDetailData.map((item) => (
+                  // <tr key={item.id}>
+                  // <tr key={item.id} onClick={() => handleRowClick(item.id || item.orders_date)}>
+                  <tr key={item.id} onClick={() => handleRowClick(item.orders_date, item.orders_status)}>
+                    <td>{item.id}</td>
+                    <td>{item.orders_date} 발주내역</td>
+                    {/* <td>{new Date(item.orders_date).toISOString().split('T')[0]}일자 발주내역</td> */}
+                    {/* <td>{item.delivery_id} */}
+                    {/* <td>
                     {item.delivery_id === 1 && '배송준비중'}
                     {item.delivery_id === 2 && '배송중'}
                     {item.delivery_id === 3 && '배송완료'}
                     {item.delivery_id === 4 && '주문취소'}
                   </td> */}
-                  <td>{item.orders_status}</td>
-                </tr>
+                    <td>{item.orders_status}</td>
+                  </tr>
 
-              ))}
-            </tbody>
-          </table>
+                ))}
+              </tbody>
+            </table>
           </div>
         </Col>
         <Col sm={8} className="bg-gray-600">
           {selectedId && (
             <>
-            <StoreOrdersDetail
-              selectedId={selectedId} //ordersDate
-              ordersStatus={ordersStatus}
-            />
+              <StoreOrdersDetail
+                selectedId={selectedId} //ordersDate
+                ordersStatus={ordersStatus}
+              />
               {/* <div>선택된 ID: {selectedId}</div> */}
-              </>
+            </>
           )}
         </Col>
       </Row >

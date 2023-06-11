@@ -113,9 +113,13 @@ function StoreAutoOrdersList() {
 
   return (
     <>
-      <h4>사용자설정 자동발주</h4>
-      <Divider/>
-      <table className={styles.table}>
+      <div>
+        <h4 >사용자설정 자동발주</h4>
+        <div style={{ borderBottom: '4px solid #CCCCCC', width: '225px', paddingTop: '2px' }}></div>
+      </div >
+
+      {/* <Divider /> */}
+      <table table className={styles.table} >
         <thead>
           <tr>
             <th>SKU</th>
@@ -137,28 +141,28 @@ function StoreAutoOrdersList() {
               <td>{addComma(item.product_price)}</td>
               <td className="fifth">
                 <input
-                    type="number"
-                    value={item.min_qnt}
-                    onChange={(em) => {
-                      const newMinQuantity = parseInt(em.target.value) || item.min_qnt - 1;
-                      console.log("e.target.value", em.target.value);
-                      if (!isNaN(newMinQuantity) && newMinQuantity > 0) {
-                        const updatedListData = storeAutoOrdersData.map((storeAutoItem) => {
-                          if (storeAutoItem.id === item.id) {
-                            return { ...storeAutoItem, min_qnt: newMinQuantity };
-                          }
-                          return storeAutoItem;
-                        });
+                  type="number"
+                  value={item.min_qnt}
+                  onChange={(em) => {
+                    const newMinQuantity = parseInt(em.target.value) || item.min_qnt - 1;
+                    console.log("e.target.value", em.target.value);
+                    if (!isNaN(newMinQuantity) && newMinQuantity > 0) {
+                      const updatedListData = storeAutoOrdersData.map((storeAutoItem) => {
+                        if (storeAutoItem.id === item.id) {
+                          return { ...storeAutoItem, min_qnt: newMinQuantity };
+                        }
+                        return storeAutoItem;
+                      });
 
-                        setStoreAutoOrdersData(updatedListData);
-                      }
-                      const tarId = item.id;
-                      const tarQnt = item.qnt;
-                      const tarMinQnt = newMinQuantity;
-                      updateMinQnt(tarId, tarQnt, tarMinQnt);
+                      setStoreAutoOrdersData(updatedListData);
                     }
-                    }
-                  />
+                    const tarId = item.id;
+                    const tarQnt = item.qnt;
+                    const tarMinQnt = newMinQuantity;
+                    updateMinQnt(tarId, tarQnt, tarMinQnt);
+                  }
+                  }
+                />
               </td>
               <td>
                 <input
@@ -198,7 +202,7 @@ function StoreAutoOrdersList() {
             </tr>
           ))}
         </tbody>
-      </table>
+      </table >
     </>
   );
 }

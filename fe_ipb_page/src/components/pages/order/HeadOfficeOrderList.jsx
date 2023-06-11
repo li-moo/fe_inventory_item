@@ -201,8 +201,11 @@ function HeadOfficeOrdersList() {
 
   return (
     <>
-      <h4>발주내역</h4>
-      <Divider />
+      <div>
+        <h4 >발주내역</h4>
+        <div style={{ borderBottom: '4px solid #CCCCCC', width: '97px', paddingTop: '2px' }}></div>
+      </div >
+      {/* <Divider /> */}
       <Row>
         <Col sm={4} className="bg-gray-300">
           <table className={styles.table}>

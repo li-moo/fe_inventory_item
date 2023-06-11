@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Card, Input, Divider, Row, Col, DatePicker, Button, Modal } from 'antd';
+import { Card, Input, Divider, Row, Col, DatePicker, Button, Modal, Tabs } from 'antd';
 import { EyeOutlined, PlusOutlined, DeleteOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import { logInState } from "../../state/loginState";
 
 const { Search } = Input;
+const { TabPane } = Tabs;
 
 function EventList() {
   const [eventData, setEventData] = useState([]);
@@ -89,8 +90,8 @@ function EventList() {
 
   const handleDelete = async () => {
     try {
-      const response = await fetch(`http://localhost:8080/eventdetail/delete/${filteredData.id}`, {
-        // const response = await fetch(`http://43.202.9.215:8080/eventdetail/delete/${filteredData.id}`, {
+      const response = await fetch(`http://localhost:8080/eventdetail/delete/${selectedEvent.id}`, {
+        // const response = await fetch(`http://43.202.9.215:8080/eventdetail/delete/${selectedEvent.id}`, {
         method: 'DELETE',
       });
       if (response.ok) {
@@ -110,6 +111,55 @@ function EventList() {
 
   const handleSortDescending = () => {
     setAscending(false);
+  };
+
+  const getEventStatus = (eventStartDate, eventEndDate) => {
+    const today = new Date();
+    eventStartDate = new Date(eventStartDate);
+    eventEndDate = new Date(eventEndDate);
+
+    if (eventStartDate > today) {
+      return 'upcoming';
+    } else if (eventEndDate < today) {
+      return 'completed';
+    } else {
+      return 'ongoing';
+    }
+  };
+
+  const renderEventCards = (events) => {
+    return events.map((event) => (
+      <Col span={12} key={event.id}>
+        <Link 
+          to={`/event/detail/${event.id}`} 
+          style={{ textDecoration: 'none' }}
+          key={event.id}
+        >
+          <Card
+            style={{ marginTop: '50px', height: '100%' }}
+            actions={[
+              <EyeOutlined key="show" />,
+              <DeleteOutlined key="delete" onClick={() => handleDeleteModal(event)} />,
+            ]}
+          >
+            <Card.Meta
+              title={<div style={{ textAlign: 'left' }}>{event.name}</div>}
+              description={
+                <>
+                  <p style={{ textAlign: 'left' }}>시작일: {event.start_date}</p>
+                  <p style={{ textAlign: 'left' }}>종료일: {event.end_date}</p>
+                </>
+              }
+            />
+            <img
+              style={{ width: '100%', marginTop: '16px' }}
+              src={event.imgname}
+              alt={event.name}
+            />
+          </Card>
+        </Link>
+      </Col>
+    ));
   };
 
   return (
@@ -156,40 +206,23 @@ function EventList() {
           <Button onClick={handleSortDescending}>내림차순</Button>
         </Col>
       </Row>
-      <Row gutter={12}>
-        {filteredData.map((event) => (
-          <Col span={12} key={event.id}>
-            <Link 
-              to={`/event/detail/${event.id}`} 
-              style={{ textDecoration: 'none' }}
-              key={event.id}
-            >
-              <Card
-                style={{ marginTop: '50px', height: '100%' }}
-                actions={[
-                  <EyeOutlined key="show" />,
-                  <DeleteOutlined key="delete" onClick={() => handleDeleteModal(event)} />,
-                ]}
-              >
-                <Card.Meta
-                  title={<div style={{ textAlign: 'left' }}>{event.name}</div>}
-                  description={
-                    <>
-                      <p style={{ textAlign: 'left' }}>시작일: {event.start_date}</p>
-                      <p style={{ textAlign: 'left' }}>종료일: {event.end_date}</p>
-                    </>
-                  }
-                />
-                <img
-                  style={{ width: '100%', marginTop: '16px' }}
-                  src={event.imgname}
-                  alt={event.name}
-                />
-              </Card>
-            </Link>
-          </Col>
-        ))}
-      </Row>
+      <Tabs defaultActiveKey="ongoing" style={{ marginTop: '16px' }}>
+        <TabPane tab="진행 중인 이벤트" key="ongoing">
+          <Row gutter={12}>
+            {renderEventCards(filteredData.filter(event => getEventStatus(event.start_date, event.end_date) === 'ongoing'))}
+          </Row>
+        </TabPane>
+        <TabPane tab="완료된 이벤트" key="completed">
+          <Row gutter={12}>
+            {renderEventCards(filteredData.filter(event => getEventStatus(event.start_date, event.end_date) === 'completed'))}
+          </Row>
+        </TabPane>
+        <TabPane tab="시작 예정 이벤트" key="upcoming">
+          <Row gutter={12}>
+            {renderEventCards(filteredData.filter(event => getEventStatus(event.start_date, event.end_date) === 'upcoming'))}
+          </Row>
+        </TabPane>
+      </Tabs>
       <Modal
         title="이벤트 삭제"
         visible={deleteModalVisible}

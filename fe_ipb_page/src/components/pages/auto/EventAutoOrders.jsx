@@ -68,7 +68,10 @@ function EventAutoOrders() {
 
   return (
     <div>
-      <h4>이벤트 자동발주</h4>
+      <div>
+        <h4 >이벤트 자동발주</h4>
+        <div style={{ borderBottom: '5px solid #CCCCCC', width: '180px', paddingTop: '2px' }}></div>
+      </div >
       <table className={styles.table}>
         <thead>
           <tr>
@@ -81,9 +84,9 @@ function EventAutoOrders() {
         <tbody>
           {evnetAutoData.map((item) => (
             <tr key={item.id}>
-                <td><Link 
-                to={`/event/detail/${item.event_id}`} 
-                style={{ textDecoration: 'none', color: 'inherit'}}
+              <td><Link
+                to={`/event/detail/${item.event_id}`}
+                style={{ textDecoration: 'none', color: 'inherit' }}
                 key={item.event_id}
               >{item.name}</Link></td>
               <td>{item.product_name}</td>
