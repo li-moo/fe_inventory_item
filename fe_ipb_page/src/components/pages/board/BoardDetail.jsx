@@ -20,7 +20,7 @@ function BoardDetail() {
   const [logInData, setLogInData] = useRecoilState(logInState);
 
   useEffect(() => {
-    fetch(`http://localhost:8080/board/detail?id=${id}`)
+    fetch(`${process.env.REACT_APP_BE_API}/board/detail?id=${id}`)
       .then(res => res.json())
       .then(data => {
         setBoard(data);
@@ -30,7 +30,7 @@ function BoardDetail() {
   }, [id]);
 
   const handleDelete = () => {
-    fetch(`http://localhost:8080/board/delete?id=${id}`, {
+    fetch(`${process.env.REACT_APP_BE_API}/board/delete?id=${id}`, {
       method: 'DELETE',
     })
       .then(() => {

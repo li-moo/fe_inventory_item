@@ -20,7 +20,7 @@ export default function Login() {
 
   const getWeatherInfo = async () => {
     try { 
-      const response = await fetch(`http://localhost:8080/staff/weather`, {
+      const response = await fetch(`${process.env.REACT_APP_BE_API}/staff/weather`, {
       // const response = await fetch(`http://43.202.9.215:8080/staff/weather`, {
         method: 'POST',
         headers: {
@@ -42,8 +42,7 @@ export default function Login() {
 
     const onFinish = (values) => {
 
-      const url_be = "http://localhost:8080/staff/login";
-      // const url_be = "http://43.202.9.215:8080/staff/login";
+      const url_be = `${process.env.REACT_APP_BE_API}/staff/login`;
 
       axios
       (url_be,

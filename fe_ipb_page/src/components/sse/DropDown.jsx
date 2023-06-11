@@ -35,7 +35,7 @@ function DropDown({ direction, ...args }) {
   };
 
 
-  const url = `http://localhost:8080/notifications/expiration/${loginData.store_id}`;
+  const url = `${process.env.REACT_APP_BE_API}/notifications/expiration/${loginData.store_id}`;
 
   // useEffect(() => {
   //   fetchSSE();
@@ -90,7 +90,7 @@ function DropDown({ direction, ...args }) {
   };
 
   const fetchLowItemSSE = () => {
-    const LowItem_url = `http://localhost:8080/notifications/low-inventory/${loginData.store_id}`;
+    const LowItem_url = `${process.env.REACT_APP_BE_API}/notifications/low-inventory/${loginData.store_id}`;
     const eventSource = new EventSource(LowItem_url, {
       headers: {
         Accept: 'text/event-stream',

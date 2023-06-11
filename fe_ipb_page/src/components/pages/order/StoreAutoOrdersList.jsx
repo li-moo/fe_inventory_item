@@ -18,7 +18,7 @@ function StoreAutoOrdersList() {
     updateQnt();
   }, []);
 
-  const url_be = `http://localhost:8080/auto/getList/${logInData.store_id}`;
+  const url_be = `${process.env.REACT_APP_BE_API}/auto/getList/${logInData.store_id}`;
 
   const fetchData = () => {
     axios
@@ -31,7 +31,7 @@ function StoreAutoOrdersList() {
   };
 
   const updateQnt = (tarId, tarQnt, tarMinQnt) => {
-    const url_be_updateQnt = "http://localhost:8080//auto/qnt-change";
+    const url_be_updateQnt = `${process.env.REACT_APP_BE_API}//auto/qnt-change`;
 
     axios(url_be_updateQnt,
       {
@@ -57,7 +57,7 @@ function StoreAutoOrdersList() {
   }
 
   const updateMinQnt = (tarId, tarQnt, tarMinQnt) => {
-    const url_be_updateMinQnt = "http://localhost:8080//auto/qnt-change";
+    const url_be_updateMinQnt = `${process.env.REACT_APP_BE_API}/auto/qnt-change`;
 
     axios(url_be_updateMinQnt,
       {
@@ -89,7 +89,7 @@ function StoreAutoOrdersList() {
   }
 
   const removeBtn = (id) => {
-    const url_be_disposeBtn = `http://localhost:8080//auto/delete/${id}`;
+    const url_be_disposeBtn = `${process.env.REACT_APP_BE_API}//auto/delete/${id}`;
 
     console.log("폐기버튼안>id:", id);
 

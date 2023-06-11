@@ -15,8 +15,7 @@ function BoardEdit() {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   useEffect(() => {
-    // fetch(`http://43.202.9.215:8080/board/detail?id=${id}`)
-    fetch(`http://localhost:8080/board/detail?id=${id}`)
+    fetch(`${process.env.REACT_APP_BE_API}/board/detail?id=${id}`)
       .then(res => res.json())
       .then(data => {
         setBoard(data);
@@ -41,8 +40,7 @@ function BoardEdit() {
 
   const handleModalOk = () => {
     // API 호출하여 게시물 업데이트 수행
-    // fetch(`http://43.202.9.215:8080/board/update?id=${id}`, {
-      fetch(`http://localhost:8080/board/update?id=${id}`, {
+      fetch(`${process.env.REACT_APP_BE_API}/board/update?id=${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

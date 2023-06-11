@@ -356,7 +356,7 @@ function OrderProductList(props) {
   // const url_be = "http://43.202.9.215:8080/product/list";
   // const url_be = "http://localhost:8080/product/list";
   // const url_be = `http://localhost:8080/product/list?page=${currentPage}&pageSize=${pageSize}`;
-  const url_be = `http://localhost:8080/product/list`;
+  const url_be = `${process.env.REACT_APP_BE_API}/product/list`;
 
   useEffect(() => {
     fetchData()
@@ -462,8 +462,7 @@ function OrderProductList(props) {
   // console.log("storeId : " + storeId);
 
   const handleAddCart = (id) => {
-    const url_be = "http://localhost:8080/cart/add";
-    // const url_be = "http://43.202.9.215:8080/cart/add";
+    const url_be = `${process.env.REACT_APP_BE_API}/cart/add`;
 
     axios(url_be,
       {

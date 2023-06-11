@@ -11,7 +11,7 @@ function ProductList() {
 
   const fetchData = async () => {
     try {
-      const response = await fetch('http://localhost:8080/product/list');
+      const response = await fetch(`${process.env.REACT_APP_BE_API}/product/list`);
       // const response = await fetch('http://43.202.9.215:8080/product/list');
       const data = await response.json();
       setProductData(data);
