@@ -321,13 +321,16 @@ function OrdersList() {
 
   return (
     <>
-      <h4>발주내역</h4>
+      <div>
+        <h4 >발주내역</h4>
+        <div style={{ borderBottom: '4px solid #CCCCCC', width: '180px', paddingTop: '2px' }}></div>
+      </div >
       <Search
         placeholder="검색"
         onSearch={handleSearch}
-        style={{ width: 200, marginBottom: 16 }}
+        style={{ width: 200, marginBottom: 16, paddingTop: '5px' }}
       />
-      <Divider />
+      {/* <Divider /> */}
       <Row>
         <Col sm={4} className="bg-gray-300">
           <div style={{ overflowX: 'auto', maxHeight: '490px' }}>
