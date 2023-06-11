@@ -21,21 +21,21 @@ function StoreExpMain() {
   const [activeTab, setActiveTab] = useState('all');
   const [isClick, setIsClick] = useState(false);
 
-    const today = new Date();
+  const today = new Date();
   const year = today.getFullYear();
   const month = String(today.getMonth() + 1).padStart(2, '0');
   const day = String(today.getDate()).padStart(2, '0');
   const todayDate = `${year}-${month}-${day}`;
 
   // ... rest of the code ...
-    // 모달창
+  // 모달창
   const info = () => {
     Modal.info({
       title: '유통기한 관리 Tip!',
       content: (
         <div>
           <p>오늘 날짜는 {todayDate} 입니다. </p>
-          <p>매일매일 확인해서 신선식품들을 관리 해주세요 </p>
+          <p>매일매일 확인해서 제품들을 관리 해주세요 </p>
           <div className={styles.policyStatement}>
             <div>
               <p className={styles.redExp}></p>
@@ -120,19 +120,20 @@ function StoreExpMain() {
               ?
             </button>
           </h4>
+        </div>
+        <div className={styles.tabContainer}>
+
+          <div>
+
           </div>
-          <div className={styles.tabContainer}>
 
-            <div>
-
-            </div>
-            
           <button
             type={activeTab === 'all' ? 'primary' : 'default'}
             onClick={() => handleTabChange('all')}
             style={{ border: 'none', borderBottom: '1px' }}
+
           >
-            <div className={styles.expFlexBtn }>
+            <div className={styles.expFlexBtn}>
               <div className={styles.whiteExpBtn}></div>
               <div>전체</div>
             </div>
@@ -141,8 +142,9 @@ function StoreExpMain() {
             type={activeTab === 'zero' ? 'primary' : 'default'}
             onClick={() => handleTabChange('zero')}
             style={{ border: 'none' }}
+            className={styles.tabBtnFor}
           >
-            <div className={styles.expFlexBtn }>
+            <div className={styles.expFlexBtn}>
               <div className={styles.redExpBtn}></div>
               <div>D-0</div>
             </div>
@@ -150,12 +152,14 @@ function StoreExpMain() {
           <button
             type={activeTab === 'three' ? 'primary' : 'default'}
             onClick={() => handleTabChange('three')}
-            style={{ border: 'none',
-            // backgroundColor: '#FFFFFF'
-          
-          }}
+            style={{
+              border: 'none',
+              // backgroundColor: '#FFFFFF'
+
+            }}
+            className={styles.tabBtnFor}
           >
-              <div className={styles.expFlexBtn }>
+            <div className={styles.expFlexBtn}>
               <div className={styles.yellowExpBtn}></div>
               <div>D-3</div>
             </div>
@@ -164,8 +168,9 @@ function StoreExpMain() {
             type={activeTab === 'five' ? 'primary' : 'default'}
             onClick={() => handleTabChange('five')}
             style={{ border: 'none' }}
+            className={styles.tabBtnFor}
           >
-            <div className={styles.expFlexBtn }>
+            <div className={styles.expFlexBtn}>
               <div className={styles.greenExpBtn}></div>
               <div>D-5</div>
             </div>
@@ -174,42 +179,43 @@ function StoreExpMain() {
             type={activeTab === 'seven' ? 'primary' : 'default'}
             onClick={() => handleTabChange('seven')}
             style={{ border: 'none' }}
+            className={styles.tabBtnFor}
           >
-            <div className={styles.expFlexBtn }>
+            <div className={styles.expFlexBtn}>
               <div className={styles.blueExpBtn}></div>
               <div>D-7</div>
             </div>
           </button>
-        
+
         </div>
-        
+
       </div>
 
-      {activeTab === 'all' && 
-            <StoreExp 
-              isClick={isClick}
-              setIsClick={setIsClick}
-              test="안녕 props"
-            />
-          }
-          {activeTab === 'zero' && 
-            <StoreExpZero 
-              isClick={isClick}
-              setIsClick={setIsClick}
-            />
-          }
-          {activeTab === 'three' && 
-            <StoreExpThree 
-            />
-          }
-          {activeTab === 'five' && 
-            <StoreExpFive 
-            />
-          }
-          {activeTab === 'seven' && 
-            <StoreExpSeven 
-            />
-          }
+      {activeTab === 'all' &&
+        <StoreExp
+          isClick={isClick}
+          setIsClick={setIsClick}
+          test="안녕 props"
+        />
+      }
+      {activeTab === 'zero' &&
+        <StoreExpZero
+          isClick={isClick}
+          setIsClick={setIsClick}
+        />
+      }
+      {activeTab === 'three' &&
+        <StoreExpThree
+        />
+      }
+      {activeTab === 'five' &&
+        <StoreExpFive
+        />
+      }
+      {activeTab === 'seven' &&
+        <StoreExpSeven
+        />
+      }
 
     </>
   );
@@ -343,14 +349,14 @@ export default StoreExpMain;
 //           </div>
 //           <Tabs onChange={handleTabChange}>
 //           <TabPane tab="전체" key="1">
-//           <StoreExp 
+//           <StoreExp
 //               isClick={isClick}
 //               setIsClick={setIsClick}
 //               test="안녕 props"
 //             />
 //           </TabPane>
 //           <TabPane tab="d-0" key="2">
-//             <StoreExpZero 
+//             <StoreExpZero
 //               isClick={isClick}
 //               setIsClick={setIsClick}
 //             />

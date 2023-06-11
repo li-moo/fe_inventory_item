@@ -314,54 +314,54 @@ function StoreProductList() {
               </option>
             ))}
         </select>
-        <div style={{position: 'relative', zIndex: -1, width: '100%' }}>
-        <Search
-          value={searchTerm}
-          onChange={(e) => handleSearch(e.target.value)}
-          placeholder="상품 이름, SKU 검색"
-          // enterButton={<SearchOutlined />}
-          className={styles.searchInput}
-          style={{position: 'static', zIndex: 1 }}
-        />
+        <div style={{ position: 'relative', zIndex: 1, width: '100%' }}>
+          <Search
+            value={searchTerm}
+            onChange={(e) => handleSearch(e.target.value)}
+            placeholder="상품 이름, SKU 검색"
+            // enterButton={<SearchOutlined />}
+            className={styles.searchInput}
+            style={{ position: 'static', zIndex: 1 }}
+          />
         </div>
 
       </div>
       <div style={{ overflowX: 'auto', maxHeight: '490px' }}>
 
-      <table className={styles.table}>
-        <thead>
-          <tr>
-            <th>자동발주</th>
-            <th>SKU</th>
-            <th>상품 이름</th>
-            <th onClick={handleSort}>재고</th>
-            <th>판매가</th>
-            <th>유통기한</th>
-            <th>보관방법</th>
-          </tr>
-        </thead>
-        <tbody>
-          {filteredProducts.map((item) => (
-            <tr key={item.id}>
-              <td>{item._auto ? '●' : ''}</td>
-              <td>{item.product_code}</td>
-              <td>
-                <Link
-                  to={`/storeproduct/detail/${item.id}`}
-                  style={{ textDecoration: "none", color: "inherit" }}
-                >
-                  ({item.brand})
-                  {item.product_name}
-                </Link>
-              </td>
-              <td>{addComma(item.qnt)}</td>
-              <td>{addComma(item.price)}</td>
-              <td>{item.exp}</td>
-              <td>{item.storage}</td>
+        <table className={styles.table}>
+          <thead>
+            <tr>
+              <th>자동발주</th>
+              <th>SKU</th>
+              <th>상품 이름</th>
+              <th onClick={handleSort}>재고</th>
+              <th>판매가</th>
+              <th>유통기한</th>
+              <th>보관방법</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {filteredProducts.map((item) => (
+              <tr key={item.id}>
+                <td>{item._auto ? '●' : ''}</td>
+                <td>{item.product_code}</td>
+                <td>
+                  <Link
+                    to={`/storeproduct/detail/${item.id}`}
+                    style={{ textDecoration: "none", color: "inherit" }}
+                  >
+                    ({item.brand})
+                    {item.product_name}
+                  </Link>
+                </td>
+                <td>{addComma(item.qnt)}</td>
+                <td>{addComma(item.price)}</td>
+                <td>{item.exp}</td>
+                <td>{item.storage}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </>
   );

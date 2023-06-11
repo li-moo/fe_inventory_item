@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "apexcharts": "^3.41.0",
     "react-slick": "^0.29.0",
     "slick-carousel": "^1.8.1"
   }
