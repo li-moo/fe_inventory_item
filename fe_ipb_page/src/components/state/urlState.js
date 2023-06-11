@@ -5,6 +5,7 @@ const { persistAtom } = recoilPersist();
 export const urlState = atom({
   key: 'urlState',
   default: {
+    url: 'http://localhost:8080',
     local: 'http://localhost:8080',
     aws: 'http://43.202.9.215:8080',
   },

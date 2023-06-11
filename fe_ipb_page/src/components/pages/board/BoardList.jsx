@@ -83,6 +83,7 @@ import { Link } from 'react-router-dom';
 import { Table, Input, Button } from 'antd';
 import { useRecoilState } from 'recoil';
 import { logInState } from "../../state/loginState";
+import { urlState } from "../../state/urlState";
 import moment from 'moment';
 
 const { Search } = Input;
@@ -91,6 +92,7 @@ function BoardList() {
   const [boardData, setBoardData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [logInData, setLogInData] = useRecoilState(logInState);
+  const [urlData, setUrlData] = useRecoilState(urlState);
 
   useEffect(() => {
     fetchData();
@@ -98,7 +100,7 @@ function BoardList() {
 
   const fetchData = async () => {
     try {
-      const response = await fetch('http://localhost:8080/board/list');
+      const response = await fetch(`${urlData.url}/board/list`);
       const data = await response.json();
       setBoardData(data);
       setFilteredData(data);
