@@ -183,9 +183,15 @@ function DropDown({ direction, ...args }) {
       <div>
         <div id='top-myDrop' >
           <UncontrolledDropdown isOpen={dropdownOpen} toggle={toggle} direction={direction} id='top-myDrop--i'>
-            <DropdownToggle id='top-myDrop--ii' style={{ border: 'none', backgroundColor: '#FFFFFF', color: 'grey' }}>
+            {/* <DropdownToggle id='top-myDrop--ii' style={{ border: 'none', backgroundColor: '#FFFFFF', color: 'grey' }}>
               <HiOutlineBell />
               <div>{alarmData > 0 && <p className={styles.alarmRed}></p>}</div>
+            </DropdownToggle> */}
+            <DropdownToggle id='top-myDrop--ii' style={{ border: 'none', backgroundColor: '#262627', color: 'grey' }}>
+              <div className={styles.BellRed}>
+                <HiOutlineBell />
+                <div>{alarmData > 0 && <p className={styles.alarmRed}></p>}</div>
+              </div>
             </DropdownToggle>
             {/* <DropdownMenu style={{ width: '400px', maxHeight: '200px', overflowY: 'auto' }} {...args}> */}
             <div>
@@ -249,7 +255,7 @@ function DropDown({ direction, ...args }) {
             </div>
           </UncontrolledDropdown>
         </div>
-      </div>
+      </div >
     </>
   );
 }

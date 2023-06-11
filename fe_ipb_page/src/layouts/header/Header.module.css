@@ -1,9 +1,10 @@
 .divHeader {
   /* border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px; */
-  background-color: #FFFFFF;
+  /* background-color: #FFFFFF; */
+  background-color: #262627;
   /* border-radius: 20px; */
-  box-shadow: 2px 2px 4px rgba(166, 168, 167, 0.5);
+  /* box-shadow: 2px 2px 4px rgba(166, 168, 167, 0.5); */
 }
 
 .navbar-custom {
