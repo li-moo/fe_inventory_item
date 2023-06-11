@@ -165,7 +165,7 @@ function EventList() {
   return (
     <>
       <Row gutter={12} align="middle">
-        <Col span={12}>
+        <Col span={5}>
           <Search
             placeholder="이름으로 검색"
             onSearch={handleSearch}
@@ -184,14 +184,14 @@ function EventList() {
       </Row>
       <Divider />
       <Row gutter={[8, 8]} align="middle">
-        <Col span={12}>
+        <Col span={6}>
           <DatePicker
             onChange={handleStartDateChange}
             style={{ width: '100%', minWidth: 100 }}
             placeholder="시작 날짜"
           />
         </Col>
-        <Col span={12}>
+        <Col span={6}>
           <DatePicker
             onChange={handleEndDateChange}
             style={{ width: '100%', minWidth: 100 }}

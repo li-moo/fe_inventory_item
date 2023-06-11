@@ -7,7 +7,7 @@ function Board() {
 
   return (
     <>
-    <h2>자유 게시판</h2>
+    <h2>공지사항</h2>
     <BoardList />
     </>
   );

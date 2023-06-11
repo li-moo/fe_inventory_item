@@ -28,6 +28,7 @@
     "recoil": "^0.7.7",
     "recoil-persist": "^4.2.0",
     "sse": "^0.0.8",
+    "sweetalert2": "^11.7.12",
     "web-vitals": "^1.1.2"
   },
   "scripts": {

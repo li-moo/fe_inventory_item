@@ -160,9 +160,12 @@
   background-color: white;
   border-color: #f0f0f0;
   border-radius: 5px 5px 0px 0px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .tabButton.active {
   background-color: #dcdddd;
-  /* color: white; */
+  color: white;
 }
