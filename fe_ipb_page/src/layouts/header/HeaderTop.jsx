@@ -54,10 +54,13 @@ const HeaderTop = () => {
   const navigate = useNavigate();
 
 
-  const toggle = () => setDropdownOpen((prevState) => !prevState);
+  // const toggle = () => setDropdownOpen((prevState) => !prevState);
+  const toggle = () => setIsOpen(!isOpen);
+
   const Handletoggle = () => {
     setIsOpen(!isOpen);
   };
+
   const showMobilemenu = () => {
     document.getElementById("sidebarArea").classList.toggle("showSidebar");
   };
