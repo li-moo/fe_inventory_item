@@ -116,10 +116,10 @@ function StoreExpMain() {
         <div className={styles.headerContent}>
           <h4>
             유통기한 관리{' '}
-            <button className={styles.qBtn} onClick={info}>
-              ?
-            </button>
           </h4>
+          <button className={styles.qBtn} onClick={info}>
+            ?
+          </button>
         </div>
         <div className={styles.tabContainer}>
 

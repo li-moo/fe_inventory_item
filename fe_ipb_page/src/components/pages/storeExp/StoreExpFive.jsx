@@ -245,13 +245,17 @@ function StoreExpFive() {
                     <td>{item.qnt}</td>
                     <td>{item.price}</td>
                     <td>
-                      <div>
-                        {item.addData <= -1 && <p className={styles.redExp}></p>}
-                        {item.addData > -1 && item.addData <= 3 && <p className={styles.yellowExp}></p>}
-                        {item.addData > 3 && item.addData <= 5 && <p className={styles.greenExp}></p>}
-                        {item.addData > 5 && item.addData <= 7 && <p className={styles.blueExp}></p>}
+                      <div className={styles.expTd}>
+                        <div className={styles.expDiv}>
+                          <div>
+                            {item.addData <= -1 && <p className={styles.redExp}></p>}
+                            {item.addData > -1 && item.addData <= 3 && <p className={styles.yellowExp}></p>}
+                            {item.addData > 3 && item.addData <= 5 && <p className={styles.greenExp}></p>}
+                            {item.addData > 5 && item.addData <= 7 && <p className={styles.blueExp}></p>}
+                          </div>
+                          <div>{item.exp}</div>{' '}<div style={{ color: 'grey' }}>({item.addData})</div>
+                        </div>
                       </div>
-                      <div>{item.exp}</div>{' '}<div style={{ color: 'grey' }}>({item.addData})</div>
                     </td>
                     {/* <td style={{color: 'gray'}}>{item.addData}</td> */}
                     {/* <td>{item.addData}</td> 

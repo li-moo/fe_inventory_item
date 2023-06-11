@@ -1,9 +1,7 @@
 .mini-board-container {
-  max-height: 652px;
-  /* Adjust the maximum height according to your needs */
+  max-height: 600px;
+  /* Adjust the height to your preference */
   overflow-y: auto;
-  margin-bottom: 300px;
-  width: 856px;
 }
 
 .link {
@@ -35,4 +33,16 @@
 .searchInput {
   width: 200px;
   margin-bottom: 100px;
+}
+
+.mini-board-container::-webkit-scrollbar {
+  width: 10px;
+}
+
+.mini-board-container::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.mini-board-container::-webkit-scrollbar-thumb {
+  background-color: transparent;
 }
