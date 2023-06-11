@@ -191,6 +191,8 @@ function DropDown({ direction, ...args }) {
               <div className={styles.BellRed}>
                 <HiOutlineBell />
                 <div>{alarmData > 0 && <p className={styles.alarmRed}></p>}</div>
+                {/* <div>{alarmData === 0 && <p className={styles.alarmRed}></p>}</div> */}
+                <div>{alarmData === 0 && <p className={styles.alarmBackground}></p>}</div>
               </div>
             </DropdownToggle>
             {/* <DropdownMenu style={{ width: '400px', maxHeight: '200px', overflowY: 'auto' }} {...args}> */}

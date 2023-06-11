@@ -326,7 +326,7 @@ function StoreProductList() {
         </div>
 
       </div>
-      <div style={{ overflowX: 'auto', maxHeight: '490px' }}>
+      <div className={styles.scrollContainer} style={{ overflowX: 'auto', maxHeight: '490px' }}>
 
         <table className={styles.table}>
           <thead>

@@ -274,7 +274,7 @@ const HeaderTop = () => {
             logInData.isLogIn ?   
               <p className="nav-link" onClick={logOut}>
                 <RiLogoutBoxRLine 
-                  style={{ color: 'grey', size: '50px' }}
+                  style={{ color: 'grey', size: '70px' }}
                 />
               </p>
             : 
