@@ -330,3 +330,7 @@
 .expDiv {
   display: flex;
 }
+
+.headerContent {
+  display: flex;
+}

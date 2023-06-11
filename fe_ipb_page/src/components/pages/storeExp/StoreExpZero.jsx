@@ -255,7 +255,7 @@ function StoreExpZero() {
                           okText="네"
                           cancelText="아니오"
                         >
-                          <Button>폐기</Button>
+                          <Button style={{ position: 'static', zIndex: 1 }}>폐기</Button>
                         </Popconfirm>
                       </td>
                     ) : (
@@ -297,7 +297,7 @@ function StoreExpZero() {
                         okText="네"
                         cancelText="아니오"
                       >
-                        <Button >
+                        <Button style={{ position: 'static', zIndex: 1 }}>
                           폐기
                         </Button>
                       </Popconfirm>
