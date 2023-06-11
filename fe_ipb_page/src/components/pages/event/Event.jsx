@@ -5,7 +5,7 @@ import EventList from './EventList';
 function Event() {
   return (
     <>
-    <h2>이벤트 리스트</h2>
+    <h2>EVENT</h2>
       <Divider />
       <EventList />
     </>
