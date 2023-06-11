@@ -348,7 +348,6 @@
 //         </tbody>
 //       </table>
 //     </div>
-
 //     </>
 //   );
 // }
@@ -485,7 +484,6 @@ function Cart(props) {
           store_id: logInData.store_id,
         }
       }
-
     )
       .then(() => {
         fetchCartData();
@@ -700,44 +698,109 @@ function Cart(props) {
 
   return (
     <>
-      <div>
-        <Search
-          value={searchTerm}
-          onChange={(e) => handleSearch(e.target.value)}
-          placeholder="상품 이름, SKU 검색"
-          // enterButton={<SearchOutlined />}
-          className={styles.searchInput}
-          style={{ position: 'static', zIndex: 1 }}
-        />
-      </div>
-      <div style={{ overflowX: 'auto', maxHeight: '490px' }}>
-        <table className={styles.table}>
-          <thead>
-            <tr>
-              <th>SKU</th>
-              <th>상품 이름</th>
-              <th>수량</th>
-              <th>
+    <div>
+    <Search
+      value={searchTerm}
+      onChange={(e) => handleSearch(e.target.value)}
+      placeholder="상품 이름, SKU 검색"
+      // enterButton={<SearchOutlined />}
+      className={styles.searchInput}
+      style={{position: 'static', zIndex: 1 }}
+    />
+    </div>
+    <div style={{ overflowX: 'auto', maxHeight: '490px'}}>
+    <table className={styles.table}>
+        <thead>
+          <tr>
+            <th>SKU</th>
+            <th>상품 이름</th>
+            <th>수량</th>
+            <th>
                 {orderCartState ? (
-                  <Popconfirm
+                    <Popconfirm
                     title="구매하시겠습니까?"
                     okText="예"
                     cancelText="아니요"
-                  // okText="아니요"
-                  // cancelText="예"
-                  // onConfirm={() => handleAddOrder(logInData.store_id)}
-                  // onCancel={() => handleAddOrder(logInData.store_id)}
-                  >
-                    <Button type="primary" ghost>구매</Button>
-                  </Popconfirm>
-                  // <p>true</p>
-                ) : (
-                  <Popconfirm
-                    title="본사에 재고가 부족합니다, 가능한 수량만큼만 주문 하시겠습니까??"
-                    okText="네"
-                    cancelText="아니요"
-                    onConfirm={() => handleMaxOrder()}
+                    // okText="아니요"
+                    // cancelText="예"
+                    onConfirm={() => handleAddOrder(logInData.store_id)}
                     onCancel={() => handleAddOrder(logInData.store_id)}
+                  ) : (
+                    <Popconfirm
+                      title="본사에 재고가 부족합니다, 가능한 수량만큼만 주문 하시겠습니까??"
+                      okText="네"
+                      cancelText="아니요"
+                      onConfirm={() => handleMaxOrder()}
+                      onCancel={() => handleAddOrder(logInData.store_id)}
+                    >
+                      <Button type="primary" danger ghost>구매</Button>
+                    </Popconfirm> 
+                    // <p>false</p>
+                  )}
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {/* {cartData && cartData.map((item) => ( */}
+          {filteredProducts && filteredProducts.map((item) => (
+            <tr key={item.id}>
+              <td style={{ width: "10px" }}>{item.product_code}</td>
+
+              {/* <td>({item.brand}){item.name}</td> */}
+              {item.product_qnt >= item.qnt ? (
+                <td style={{ color: "black" }}>
+                  ({item.brand}){item.name}
+                </td>
+              ) : (
+                <td style={{ color: "red" }}>
+                  ({item.brand}){item.name}
+                </td>
+              )}
+
+              <td>
+                <div className={styles.pmBtn}>
+                  <input
+                    type="number"
+                    value={item.qnt}
+                    style={{ width: '50px' }}
+                    className={styles.roundedInput}
+                    onChange={(e) => {
+                      const newQuantity = parseInt(e.target.value) || item.qnt - 1;
+                      console.log("하이요");
+                      console.log("e.target.value", e.target.value);
+                      if (!isNaN(newQuantity) && newQuantity > 0) {
+                        const updatedCartData = cartData.map((cartItem) => {
+                          if (cartItem.id === item.id) {
+                            console.log("이거 실행되긴하나?");
+                            return { ...cartItem, qnt: newQuantity };
+                          }
+                          return cartItem;
+                        });
+
+                        setCartData(updatedCartData);
+                      }
+                      const tarId = item.id;
+                      // const tarQnt = item.newQuantity
+                      const tarProductId = item.product_id;
+                      const tarQnt = newQuantity;
+                      updateQnt(tarId, tarQnt);
+                      console.log("????orderCartState", orderCartState);
+                      handleAddMax(tarId, tarQnt, tarProductId);
+                    }
+                    }
+                  />
+                  {/* <button onClick={() => decreaseQuantity(item)}>-</button> */}
+                </div>
+              </td>
+              <td>
+                <Popconfirm
+                  title="삭제시겠습니까??"
+                  onConfirm={() => handleDeleteCart(item.id)}
+                  okText="네"
+                  cancelText="아니오"
+                >
+                  <Button classNames={styles.conBtn}
+                    style={{position: 'static', zIndex: 1 }}
                   >
                     <Button type="primary" danger ghost>구매</Button>
                   </Popconfirm>
@@ -818,7 +881,6 @@ function Cart(props) {
           </tbody>
         </table>
       </div>
-
     </>
   );
 }
