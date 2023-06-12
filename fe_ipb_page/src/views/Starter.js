@@ -10,7 +10,6 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 import { logInState } from '../components/state/loginState';
 import MiniBoard from '../components/pages/main-board/MiniBoard';
 import MiniBoardExp from '../components/pages/main-board/MiniBoardExp';
-import MiniBoardProductlist from '../components/pages/main-board/MiniBoardProductlist';
 import ApexChart from 'react-apexcharts';
 import style from "./Starter.module.css"
 
@@ -163,23 +162,24 @@ const Starter = () => {
     },
   };
 
-  const chartSeries = [44, 55, 13, 43, 22];
+  const chartSeries = [12, 45, 25, 36, 23];
 
   const splineChartOptions = {
     chart: {
       id: 'spline-chart',
     },
     xaxis: {
-      categories: activeChart === 'Sales 1'
-        ? ['2023-06', '2023-07', '2023-08', '2023-09', '2023-10', '2023-11', '2023-12']
-        : ['June', 'July', 'August', 'September', 'October', 'November', 'December'],
+      categories:
+        activeChart === 'Sales 1'
+          ? ['01월', '02월', '03월', '04월', '05월', '06월', '07월', '08월', '09월', '10월', '11월', '12월']
+          : ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10'],
     },
     yaxis: {
       title: {
         text: activeChart === 'Sales 1' ? 'Sales' : 'Monthly Sales',
       },
     },
-    colors: ['#FF4560', '#008FFB'], // Change the colors here (e.g., ['#FF4560', '#008FFB'])
+    colors: ['#FF4560', '#008FFB'],
     stroke: {
       curve: 'smooth',
     },
@@ -187,12 +187,16 @@ const Starter = () => {
 
   const splineChartSeries = [
     {
-      name: 'Sales 1',
-      data: [30, 40, 35, 50, 49, 12, 48], // Daily sales data for Sales 1
+      name: '이번 주',
+      data: activeChart === 'Sales 1'
+        ? [45, 50, 40, 55, 60, 35, 50, 55, 40, 75, 80, 85]
+        : [70, 75, 80, 85, 90, 80, 75],
     },
     {
-      name: 'Sales 2',
-      data: [60, 80, 75, 90, 60, 75, 80], // Monthly sales data for Sales 2
+      name: '지난 주',
+      data: activeChart === 'Sales 1'
+        ? [30, 40, 35, 50, 49, 12, 48, 44, 21, 65, 65, 72]
+        : [60, 80, 75, 90, 60, 75, 80],
     },
   ];
 
@@ -202,25 +206,24 @@ const Starter = () => {
         <Row>
           <Col sm={4} className="bg-gray-300">
             <div className="mb-5">
+              {/* <h6>공지사항</h6> */}
               <MiniBoard />
             </div>
             <Col sm={12} className="mt-5">
-              <div className="chart-header">매출 근황</div>
-              <ApexChart options={chartOptions} series={chartSeries} type="donut" width={400} height={400} />
+              <div className="chart-header" style={{ fontWeight: 'bold' }}>
+                제품 매출 근황
+              </div>
+              <ApexChart options={chartOptions} series={chartSeries} type="donut" width={400} height={300} />
             </Col>
             <Col sm={12} className="mt-5">
-              <div className="chart-header">매출근황</div>
-              <ApexChart
-                options={splineChartOptions}
-                series={splineChartSeries}
-                type="line"
-                width={400}
-                height={400}
-              />
+              <div className="chart-header" style={{ fontWeight: 'bold' }}>
+                점포 매출 근황
+              </div>
+              <ApexChart options={splineChartOptions} series={splineChartSeries} type="line" width={300} height={300} />
             </Col>
           </Col>
           <Col sm={8} className="bg-gray-600">
-            <div className={style.slider} style={{ width: '685px', height: '360px' }}>
+            <div className={style.slider} style={{ width: '905px', height: '360px' }}>
               <Slider {...settings}>
                 {bannerImages.map((banner, index) => (
                   <div key={index} >
@@ -228,7 +231,7 @@ const Starter = () => {
                       <img
                         src={banner.image.default}
                         alt={`배너 이미지 ${index + 1}`}
-                        style={{ width: '685px', height: '360px' }}
+                        style={{ width: '905px', height: '360px' }}
                       />
                     </a>
                   </div>

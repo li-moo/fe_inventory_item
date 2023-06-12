@@ -93,7 +93,7 @@ const MiniBoard = () => {
 
   const columns = [
     {
-      title: '제목',
+      title: '공지사항',
       dataIndex: 'title',
       key: 'title',
       render: (text, record) => (
