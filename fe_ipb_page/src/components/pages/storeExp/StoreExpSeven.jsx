@@ -29,14 +29,23 @@ function StoreExpSeven() {
     fetchData();
   }, [refreshExpBtn]);
 
-  function addComma(num) {
-    var regexp = /\B(?=(\d{3})+(?!\d))/g;
-    return num.toString().replace(regexp, ',');
-  }
-
 
   const url_be = `${process.env.REACT_APP_BE_API}/storeproduct/list/${logInData.store_id}`;
 
+  // const fetchData = () => {
+  //   axios(url_be, {
+  //     method: 'get'
+  //   })
+  //     .then((res) => {
+  //       console.log("storeExp->res.data::", res.data);
+  //       const addData = res.data.map((item) => ({
+  //         ...item,
+  //         addData: subtractDates(todayDate, item.exp),
+  //       }));
+  //       setStoreProductData(addData)
+  //     })
+  //     .catch((err) => console.log("storeexp/err", err))
+  // }
   const fetchData = () => {
     axios(url_be, {
       method: 'get'
@@ -46,8 +55,9 @@ function StoreExpSeven() {
         const addData = res.data.map((item) => ({
           ...item,
           addData: subtractDates(todayDate, item.exp),
-        }));
-        setStoreProductData(addData)
+        })).filter((item) => item.addData >= 6 &&  item.addData <= 7); // 필터링 조건 추가
+        
+        setStoreProductData(addData);
       })
       .catch((err) => console.log("storeexp/err", err))
   }
@@ -95,7 +105,6 @@ function StoreExpSeven() {
   }
 
   // console.log("sortedProductssortedProducts>>",sortedProducts);
-
 
   /// 폐기 버튼
   const disposeBtn = (id) => {
@@ -145,6 +154,10 @@ function StoreExpSeven() {
   };
   // 셀렉트 박스
 
+  function addComma(num) {
+    var regexp = /\B(?=(\d{3})+(?!\d))/g;
+    return num.toString().replace(regexp, ',');
+  }
 
   return (
     <>
@@ -191,8 +204,7 @@ function StoreExpSeven() {
         </div>
       </div>
 
-
-      <div style={{ overflowX: 'auto', maxHeight: '450px' }}>
+      <div style={{ overflowX: 'auto', maxHeight: '490px' }}>
         <table className={styles.table}>
           <thead>
             <tr>
@@ -202,7 +214,7 @@ function StoreExpSeven() {
               <th>재고</th>
               <th>판매가</th>
               <th>유통기한{' '}(잔여일)</th>
-              <th>{''}</th>
+              {/* <th>{''}</th> */}
               {/* <th>유통기한연산</th>
             <th>유통기한연산CSS</th> */}
             </tr>
@@ -210,7 +222,7 @@ function StoreExpSeven() {
           <tbody>
             {/* {filteredProducts.map((item) => { */}
             {sortedProducts.map((item) => {
-              if (dupSkuList.includes(item.id) && item.addData > 5 && item.addData <= 7) {
+              if (dupSkuList.includes(item.id) && item.addData > 5 && item.addData <= 7 ) {
                 return (
                   <tr key={item.id}>
                     <td></td>
@@ -234,11 +246,11 @@ function StoreExpSeven() {
                         </div>
                       </div>
                     </td>
-                    {/* <td style={{color: 'gray'}}>{item.addData}</td> */}
+
                   </tr>
                 )
               }
-              if (item.addData > 5 && item.addData <= 7) {
+              if (item.addData > 5 && item.addData <= 7 ) {
                 return (
                   <tr key={item.id}>
                     <td>{item.product_code}</td>
@@ -264,7 +276,7 @@ function StoreExpSeven() {
                         </div>
                       </div>
                     </td>
-                    {/* <td style={{color: 'gray'}}>{item.addData}</td> */}
+
                     {/* <td>{item.addData}</td> 
                    <td>
                     {item.addData <= -1 && <p className={styles.redExp}></p>}
@@ -273,7 +285,6 @@ function StoreExpSeven() {
                     {item.addData > 5 && item.addData <= 7 && <p className={styles.blueExp}></p>}
                     {item.addData > 7 && <span>{item.addData}</span>}
                   </td>  */}
-
                   </tr>
                 );
               } else {
