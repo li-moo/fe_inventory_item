@@ -234,6 +234,7 @@ function StoreExp() {
                       <Link to={`/storeproduct/detail/${item.id}`} style={{ textDecoration: "none", color: "inherit" }}>
                       </Link>
                     </td>
+                    <td></td>
                     <td>{addComma(item.qnt)}</td>
                     <td>{addComma(item.price)}</td>
                     <td>
