@@ -19,6 +19,10 @@
 
 }
 
+.rightTab > :first-child {
+  padding-top: 11px;
+}
+
 .smaller-navbar .navbar-collapse {
   max-height: 150px;
   /* 높이를 원하는 값으로 조정하세요 */

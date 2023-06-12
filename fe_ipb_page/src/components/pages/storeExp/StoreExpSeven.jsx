@@ -215,6 +215,7 @@ function StoreExpSeven() {
               <th>판매가</th>
               <th>유통기한{' '}(잔여일)</th>
               {/* <th>{''}</th> */}
+              <th>{''}</th>
               {/* <th>유통기한연산</th>
             <th>유통기한연산CSS</th> */}
             </tr>
@@ -276,6 +277,20 @@ function StoreExpSeven() {
                         </div>
                       </div>
                     </td>
+                    {item.addData <= -1 ? (
+                      <td>
+                        <Popconfirm
+                          title="이 상품을 폐기를 하시겠습니까??"
+                          onConfirm={() => disposeBtn(item.id)}
+                          okText="네"
+                          cancelText="아니오"
+                        >
+                          <Button style={{ position: 'static', zIndex: 1 }}>폐기</Button>
+                        </Popconfirm>
+                      </td>
+                    ) : (
+                      <td></td>
+                    )}
 
                     {/* <td>{item.addData}</td> 
                    <td>

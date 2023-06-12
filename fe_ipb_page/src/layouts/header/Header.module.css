@@ -12,14 +12,16 @@
 }
 
 .meCustom {
-  margin-right: 10rem;
+  /* margin-right: 11rem; */
   /* 원하는 간격 값으로 조절하세요. */
+  margin-right: 40%;
 }
 
 /* 첫 번째 요소에 고유한 스타일을 적용합니다. */
 .meCustom:first-child {
-  margin-left: 18px;
+  /* margin-left: 18px; */
   /* 원하는 간격 값으로 조절하세요. */
+  margin-left: 28%;
 }
 
 .dropdown-item.active {

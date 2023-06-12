@@ -863,6 +863,7 @@ function StoreExp() {
         <table className={styles.table}>
           <thead>
             <tr>
+            {/* <th>자동발주</th> */}
               <th>SKU Code</th>
               <th>상품 이름</th>
               <th>보관방법</th>
@@ -878,7 +879,7 @@ function StoreExp() {
           <tbody>
             {/* {filteredProducts.map((item) => { */}
             {sortedProducts.map((item) => {
-              if (dupSkuList.includes(item.id) && item.addData <= 7) {
+              if (dupSkuList.includes(item.id) && item.addData <= 31) {
                 return (
                   <tr key={item.id}>
                     <td></td>
@@ -897,6 +898,7 @@ function StoreExp() {
                             {item.addData > -1 && item.addData <= 3 && <p className={styles.yellowExp}></p>}
                             {item.addData > 3 && item.addData <= 5 && <p className={styles.greenExp}></p>}
                             {item.addData > 5 && item.addData <= 7 && <p className={styles.blueExp}></p>}
+                            {item.addData > 7 &&item.addData <= 31 && <p className={styles.whiteExp}></p>}
                           </div>
                           <div>{item.exp}</div>{' '}<div style={{ color: 'grey' }}>({item.addData})</div>
                         </div>
@@ -920,7 +922,7 @@ function StoreExp() {
                   </tr>
                 )
               }
-              if (item.addData <= 7) {
+              if (item.addData <= 31) {
                 return (
                   <tr key={item.id}>
                     <td>{item.product_code}</td>
@@ -941,6 +943,7 @@ function StoreExp() {
                             {item.addData > -1 && item.addData <= 3 && <p className={styles.yellowExp}></p>}
                             {item.addData > 3 && item.addData <= 5 && <p className={styles.greenExp}></p>}
                             {item.addData > 5 && item.addData <= 7 && <p className={styles.blueExp}></p>}
+                            {item.addData > 7 &&item.addData <= 31 && <p className={styles.whiteExp}></p>}
                           </div>
                           <div>{item.exp}</div>{' '}<div style={{ color: 'grey' }}>({item.addData})</div>
                         </div>

@@ -11,8 +11,12 @@
   background-color: var(--secondary-color);
 }
 
-.meCustom {
+/* .meCustom {
   margin-right: 4rem;
+} */
+
+.meCustom:not(:last-child) {
+  margin-right: 2rem;
   /* 원하는 간격 값으로 조절하세요. */
 }
 
