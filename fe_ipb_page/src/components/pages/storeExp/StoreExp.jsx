@@ -197,6 +197,7 @@ function StoreExp() {
             <tr>
               <th>SKU Code</th>
               <th>상품 이름</th>
+              <th>보관방법</th>
               <th>재고</th>
               <th>판매가</th>
               <th>유통기한{' '}(잔여일)</th>
@@ -217,6 +218,7 @@ function StoreExp() {
                       <Link to={`/storeproduct/detail/${item.id}`} style={{ textDecoration: "none", color: "inherit" }}>
                       </Link>
                     </td>
+                    <td></td>
                     <td>{addComma(item.qnt)}</td>
                     <td>{addComma(item.price)}</td>
                     <td>
@@ -260,6 +262,7 @@ function StoreExp() {
                         {item.product_name}
                       </Link>
                     </td>
+                    <td>{item.storage}</td>
                     <td>{addComma(item.qnt)}</td>
                     <td>{addComma(item.price)}</td>
                     <td>
