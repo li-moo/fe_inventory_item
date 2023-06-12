@@ -242,7 +242,7 @@ function StoreExpFive() {
                     <td>{item.product_code}</td>
                     <td>
                       <Link to={`/storeproduct/detail/${item.id}`} style={{ textDecoration: "none", color: "inherit" }}>
-                        ({item.brand})
+                        [{item.brand}]
                         {item.product_name}
                       </Link>
                     </td>

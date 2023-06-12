@@ -84,16 +84,17 @@
 }
 
 .info div:first-child{
-  width: 100px;
-  padding: 0px;
+  width: 120px;
+  padding-left: 30px;
   margin-right: 3px;
-  text-align: right;
+  text-align: left;
   /* background-color: aqua; */
 }
 
 .right div:last-child{
   padding: 0px;
   margin: 0px;
+  text-align: center;
 }
 
 .right p {

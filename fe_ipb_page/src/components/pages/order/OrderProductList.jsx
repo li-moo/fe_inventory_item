@@ -612,7 +612,7 @@ function OrderProductList(props) {
                 <td>{item.product_code}</td>
                 <td>
                   <Link to={`/product/detail/${item.id}`} style={{ textDecoration: 'none', color: 'black' }}>
-                    ({item.brand})
+                    [{item.brand}]
                     {item.name}
                   </Link>
                 </td>

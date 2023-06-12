@@ -12,6 +12,7 @@ import MiniBoard from '../components/pages/main-board/MiniBoard';
 import MiniBoardExp from '../components/pages/main-board/MiniBoardExp';
 import MiniBoardProductlist from '../components/pages/main-board/MiniBoardProductlist';
 import ApexChart from 'react-apexcharts';
+import style from "./Starter.module.css"
 
 const Starter = () => {
   const navigate = useNavigate();
@@ -36,12 +37,21 @@ const Starter = () => {
   const expColumns = [
     {
       title: 'SKU',
-      dataIndex: 'id',
+      dataIndex: 'product_code',
       key: 'id',
+      width: 150,
     },
     {
-      title: '이름',
+      title: '상품이름',
       dataIndex: 'product_name',
+      width: 300,
+      // render: (row, text) => {
+      //   return (
+      //             <p>
+      //               {row.product_name}
+      //             </p>
+      //           );
+      // }
     },
     {
       title: '유통기한',
@@ -130,7 +140,7 @@ const Starter = () => {
   };
 
   const chartOptions = {
-    labels: ['Category 1', 'Category 2', 'Category 3', 'Category 4', 'Category 5'],
+    labels: ['[광동]삼다수2L', '[하이트 진로]테라', '[롯데]통밀식빵', '[삼양]불닭볶음면', '[제스프리]썬골드키위'],
     colors: ['#FF4560', '#008FFB', '#00E396', '#FEB019', '#775DD0'],
     responsive: [
       {
@@ -194,9 +204,6 @@ const Starter = () => {
             <div className="mb-5">
               <MiniBoard />
             </div>
-            <div>
-              {/* Additional content */}
-            </div>
             <Col sm={12} className="mt-5">
               <div className="chart-header">매출 근황</div>
               <ApexChart options={chartOptions} series={chartSeries} type="donut" width={400} height={400} />
@@ -213,20 +220,20 @@ const Starter = () => {
             </Col>
           </Col>
           <Col sm={8} className="bg-gray-600">
-            <div className="mb-5">
-            <Slider {...settings}>
-  {bannerImages.map((banner, index) => (
-    <div key={index} style={{ width: '756px', height: '322px' }}>
-      <a href={banner.link}>
-        <img
-          src={banner.image.default}
-          alt={`배너 이미지 ${index + 1}`}
-          style={{ width: '856px', height: '382px' }}
-        />
-      </a>
-    </div>
-  ))}
-</Slider>
+            <div className={style.slider} style={{ width: '685px', height: '360px' }}>
+              <Slider {...settings}>
+                {bannerImages.map((banner, index) => (
+                  <div key={index} >
+                    <a href={banner.link}>
+                      <img
+                        src={banner.image.default}
+                        alt={`배너 이미지 ${index + 1}`}
+                        style={{ width: '685px', height: '360px' }}
+                      />
+                    </a>
+                  </div>
+                ))}
+              </Slider>
             </div>
             <Row>
               {activeChart === 'Sales 1' ? (
@@ -244,7 +251,7 @@ const Starter = () => {
             하루 동안 보지 않기
           </Button>
         )}
- <div className="chart-selection">
+        <div className="chart-selection">
   <Button
     onClick={() => setActiveChart('Sales 1')}
     className={activeChart === 'Sales 1' ? 'active' : ''}
