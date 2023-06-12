@@ -8,6 +8,7 @@ import { alarmState } from '../state/alarmState';
 import styles from './DropDown.module.css'
 import { Navigate, useNavigate } from 'react-router-dom';
 import { FiAlertCircle } from "react-icons/fi";
+import { Modal } from 'antd';
 
 function DropDown({ direction, ...args }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -18,6 +19,7 @@ function DropDown({ direction, ...args }) {
   const [cartListData, setCartListData] = useState([]);
   const [readMessageEXP, setReadMessageEXP] = useState(false);
   const [readMessageLOW, setReadMessageLOW] = useState(false);
+  const [isConfirmationVisible, setIsConfirmationVisible] = useState(false);
 
   const navigate = useNavigate();
 
@@ -123,13 +125,28 @@ function DropDown({ direction, ...args }) {
     setReadMessageEXP(true);
   };
 
+  // const handleNavigateLOW = () => {
+  //   const confirmation = window.confirm('장바구니에 상품을 담으시겠습니까?');
+  //   if (confirmation) {
+  //     navigate('/order');
+  //     setReadMessageLOW(true);
+  //   }
+  // };
+
   const handleNavigateLOW = () => {
-    const confirmation = window.confirm('장바구니에 상품을 담으시겠습니까?');
-    if (confirmation) {
-      navigate('/order');
-      setReadMessageLOW(true);
-    }
+    setIsConfirmationVisible(true);
   };
+
+  const handleConfirmationOk = () => {
+    setIsConfirmationVisible(false);
+    navigate('/order');
+    setReadMessageLOW(true);
+  };
+
+  const handleConfirmationCancel = () => {
+    setIsConfirmationVisible(false);
+  };
+  
 
   return (
     <>
@@ -206,6 +223,16 @@ function DropDown({ direction, ...args }) {
             </div>
           </UncontrolledDropdown>
         </div>
+        <Modal
+          title="재고 미만인 상품을 담으시겠습니까?"
+          visible={isConfirmationVisible}
+          onOk={handleConfirmationOk}
+          onCancel={handleConfirmationCancel}
+          okText="예"
+          cancelText="아니오"
+        >
+          "예"를 누르면 재고 미만 상품이 담기고 발주 페이지로 이동합니다!
+        </Modal>
       </div>
     </>
   );
