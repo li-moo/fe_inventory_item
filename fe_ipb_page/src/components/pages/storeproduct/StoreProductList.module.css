@@ -7,10 +7,10 @@
 
 .table th,
 .table td {
-  /* padding: 8px; */
+
   padding: 10px;
   border-bottom: 1px solid #e4e4e4;
-  /* border-radius: 10px; */
+
 }
 
 .table th {
@@ -28,13 +28,12 @@
   border-right: 1px solid #e4e4e4;
 
   font-size: 10px;
+  text-align: center;
+  width: 160px;
 
 }
 
-.table th:last-child,
-.table td:last-child {
-  text-align: right;
-}
+
 
 th:not(:last-child) {
   border-right: 1px solid rgb(250, 250, 250);
@@ -45,16 +44,41 @@ th:not(:last-child) {
   transition: 0.3s ease-in-out;
 }
 
-.table th:nth-child(2) {
+.table th:nth-child(2),
+.table td:nth-child(2) {
   text-align: center;
-  border-right: 1px solid #e4e4e4;
-  border-left: 1px solid #e4e4e4;
+  width: 180px;
 }
 
 .table td:nth-child(2) {
   text-align: center;
   border-right: 1px solid #e4e4e4;
   border-left: 1px solid #e4e4e4;
+  z-index: 1;
+}
+
+.table th:nth-child(3),
+.table td:nth-child(3) {
+  text-align: left;
+  width: 380px;
+  /* border-right: 1px solid #e4e4e4; */
+}
+
+.table {
+  width: 100%;
+}
+
+.table thead th {
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  z-index: 10;
+}
+
+.table thead th,
+.table tbody td {
+  white-space: nowrap;
+  /* 긴 텍스트가 자동으로 줄바꿈되지 않도록 설정 */
 }
 
 .exp-column {
@@ -124,7 +148,7 @@ th:not(:last-child) {
 }
 
 .searchInput {
-  border-radius: 5px;
+  /* border-radius: 5px; */
   padding: 8px;
   border: none;
   /* outline: none; */
@@ -168,22 +192,6 @@ th:not(:last-child) {
   border-color: #3186fd;
   outline: none;
   box-shadow: 1px 0 5px rgba(67, 94, 193, 0.574);
-}
-
-.table {
-  width: 100%;
-}
-
-.table thead th {
-  position: sticky;
-  top: 0;
-  background-color: #fff;
-}
-
-.table thead th,
-.table tbody td {
-  white-space: nowrap;
-  /* 긴 텍스트가 자동으로 줄바꿈되지 않도록 설정 */
 }
 
 .scrollContainer {

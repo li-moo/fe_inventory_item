@@ -50,51 +50,93 @@
 
 .table th,
 .table td {
-  /* padding: 8px; */
-  /* padding: 10px; */
+  /* padding-left: 3px;
+  padding-right: 3px; */
   border-bottom: 1px solid #e4e4e4;
-  /* border-radius: 10px; */
 }
 
 .table th {
   background-color: #FFFFFF;
   font-weight: bold;
-  padding: 18px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  padding-left: 3px;
+  padding-right: 3px;
+  z-index: 10;
 }
 
 .table th:first-child,
 .table td:first-child {
   text-align: center;
+  width: 180px;
 
 }
 
-.table th:nth-child(2) {
-  text-align: left;
-  border-right: 1px solid #e4e4e4;
-}
-
-
+.table th:nth-child(2),
 .table td:nth-child(2) {
   text-align: left;
+  width: 380px;
+  /* border-right: 1px solid #e4e4e4; */
+}
+
+
+.table td:nth-child(3) {
   border-right: 1px solid #e4e4e4;
 }
 
 .table th:nth-child(3),
 .table td:nth-child(3) {
+  width: 100px;
   text-align: center;
 }
 
 .table th:nth-child(4),
 .table td:nth-child(4) {
-  text-align: center;
+  text-align: right;
+  width: 110px;
 }
 
 .table th:nth-child(5),
 .table td:nth-child(5) {
+  text-align: right;
+  width: 160px;
+}
+.table th:nth-child(6){
   text-align: center;
-  width: 10%;
+  width: 330px;
+  /* background-color: tomato; */
+  margin-right: 5%;
+}
+
+.table td:nth-child(6) {
+  text-align: right;
+  width: 330px;
+  /* background-color: aliceblue; */
+  margin-right: 5%;
+}
+
+.table th:nth-child(7),
+.table td:nth-child(7) {
   text-align: center;
 }
+
+.table thead th {
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+}
+
+.table thead th,
+.table tbody td {
+  white-space: nowrap;
+  /* 긴 텍스트가 자동으로 줄바꿈되지 않도록 설정 */
+}
+
+.table tbody tr:hover {
+  background-color: #f9f9fa;
+  transition: 0.3s ease-in-out;
+}
+
 
 .expDiv {
   justify-content: center;
@@ -106,29 +148,24 @@
 .expTd {
   margin: 0%;
 }
-
+/* 
 .table td:nth-child(5) input {
   width: 50%;
   border-radius: 5px;
   border: 1px solid #cbcbcb;
-}
+} */
 
-.table th:last-child,
+/* .table th:last-child,
 .table td:last-child {
   text-align: center;
   width: 10%;
-}
+} */
 
-.table td:last-child input {
+/* .table td:last-child input {
   width: 50%;
   border-radius: 5px;
   border: 1px solid #cbcbcb;
-}
-
-.table tbody tr:hover {
-  background-color: #f8f7fa;
-}
-
+} */
 
 .exp-column {
   background-color: tomato;
@@ -195,6 +232,16 @@
   border-radius: 50%;
   background-color: dodgerblue;
 }
+
+.whiteExp {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.0); 
+}
+
+
 
 .searchInput {
   border-radius: 5px;
@@ -311,20 +358,10 @@
   display: flex;
 }
 
+
+
 .table {
   width: 100%;
-}
-
-.table thead th {
-  position: sticky;
-  top: 0;
-  background-color: #fff;
-}
-
-.table thead th,
-.table tbody td {
-  white-space: nowrap;
-  /* 긴 텍스트가 자동으로 줄바꿈되지 않도록 설정 */
 }
 
 .expDiv {
@@ -333,4 +370,8 @@
 
 .headerContent {
   display: flex;
+}
+
+.headerContent > h2 {
+  width: 250px;
 }

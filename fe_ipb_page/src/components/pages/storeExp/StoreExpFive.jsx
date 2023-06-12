@@ -11,12 +11,11 @@ const { TabPane } = Tabs;
 
 const { Search } = Input;
 
-function StoreExpFive() {
+function StoreExp() {
   const [storeProductData, setStoreProductData] = useState([]);
   const [logInData, setLogInData] = useRecoilState(logInState);
   const [searchTerm, setSearchTerm] = useState('');
   const [refreshExpBtn, setRefreshExpBtn] = useState(false);
-
   const [filteredProductData, setFilteredProductData] = useState([]);
 
   const today = new Date();
@@ -29,14 +28,25 @@ function StoreExpFive() {
     fetchData();
   }, [refreshExpBtn]);
 
-  function addComma(num) {
-    var regexp = /\B(?=(\d{3})+(?!\d))/g;
-    return num.toString().replace(regexp, ',');
-  }
 
+  // const url_be = process.env.REACT_APP_BE_API + `/storeproduct/list/${logInData.store_id}`;
+  const url_be = `${process.env.REACT_APP_BE_API}/storeproduct/listexp/${logInData.store_id}`;
 
-  const url_be = `${process.env.REACT_APP_BE_API}/storeproduct/list/${logInData.store_id}`;
+  // const fetchData = () => {
+  //   axios(url_be, {
+  //     method: 'get'
+  //   })
+  //     .then((res) => {
+  //       console.log("storeExp->res.data::", res.data);
+  //       const addData = res.data.map((item) => ({
+  //         ...item,
+  //         addData: subtractDates(todayDate, item.exp),
+  //       }));
 
+  //       setStoreProductData(addData)
+  //     })
+  //     .catch((err) => console.log("storeexp/err", err))
+  // }
   const fetchData = () => {
     axios(url_be, {
       method: 'get'
@@ -46,8 +56,9 @@ function StoreExpFive() {
         const addData = res.data.map((item) => ({
           ...item,
           addData: subtractDates(todayDate, item.exp),
-        }));
-        setStoreProductData(addData)
+        })).filter((item) => item.addData > 3 && item.addData <= 5); // 필터링 조건 추가
+        
+        setStoreProductData(addData);
       })
       .catch((err) => console.log("storeexp/err", err))
   }
@@ -97,8 +108,8 @@ function StoreExpFive() {
   // console.log("sortedProductssortedProducts>>",sortedProducts);
 
 
-  /// 폐기 버튼
-  const disposeBtn = (id) => {
+   /// 폐기 버튼
+    const disposeBtn = (id) => {
     const url_be_disposeBtn = `${process.env.REACT_APP_BE_API}/storeproduct/qntzero`;
 
     console.log("폐기버튼안>id:", id);
@@ -119,6 +130,11 @@ function StoreExpFive() {
       }).catch(function (error) {
         console.log("error: ", error);
       })
+  }
+
+  function addComma(num) {
+    var regexp = /\B(?=(\d{3})+(?!\d))/g;
+    return num.toString().replace(regexp, ',');
   }
 
   // 셀렉트 박스
@@ -191,16 +207,17 @@ function StoreExpFive() {
           />
         </div>
       </div>
-
       <div style={{ overflowX: 'auto', maxHeight: '490px' }}>
         <table className={styles.table}>
           <thead>
             <tr>
               <th>SKU Code</th>
               <th>상품 이름</th>
+              <th>보관방법</th>
               <th>재고</th>
               <th>판매가</th>
               <th>유통기한{' '}(잔여일)</th>
+              {/* <th>잔여 일</th> */}
               <th>{''}</th>
               {/* <th>유통기한연산</th>
             <th>유통기한연산CSS</th> */}
@@ -214,7 +231,7 @@ function StoreExpFive() {
                   <tr key={item.id}>
                     <td></td>
                     <td>
-                      <Link to={`/product/detail/${item.id}`} style={{ textDecoration: "none", color: "inherit" }}>
+                      <Link to={`/storeproduct/detail/${item.id}`} style={{ textDecoration: "none", color: "inherit" }}>
                       </Link>
                     </td>
                     <td>{addComma(item.qnt)}</td>
@@ -233,6 +250,20 @@ function StoreExpFive() {
                       </div>
                     </td>
                     {/* <td style={{color: 'gray'}}>{item.addData}</td> */}
+                    {item.addData <= -1 ? (
+                      <td>
+                        <Popconfirm
+                          title="이 상품을 폐기를 하시겠습니까??"
+                          onConfirm={() => disposeBtn(item.id)}
+                          okText="네"
+                          cancelText="아니오"
+                        >
+                          <Button style={{ position: 'static', zIndex: 1 }}>폐기</Button>
+                        </Popconfirm>
+                      </td>
+                    ) : (
+                      <td></td>
+                    )}
                   </tr>
                 )
               }
@@ -242,10 +273,11 @@ function StoreExpFive() {
                     <td>{item.product_code}</td>
                     <td>
                       <Link to={`/storeproduct/detail/${item.id}`} style={{ textDecoration: "none", color: "inherit" }}>
-                        [{item.brand}]
+                        ({item.brand})
                         {item.product_name}
                       </Link>
                     </td>
+                    <td>{item.storage}</td>
                     <td>{addComma(item.qnt)}</td>
                     <td>{addComma(item.price)}</td>
                     <td>
@@ -259,11 +291,26 @@ function StoreExpFive() {
                           </div>
                           <div>{item.exp}</div>{' '}<div style={{ color: 'grey' }}>({item.addData})</div>
                         </div>
+
                       </div>
                     </td>
                     {/* <td style={{color: 'gray'}}>{item.addData}</td> */}
+                    {item.addData <= -1 ? (
+                      <td>
+                        <Popconfirm
+                          title="이 상품을 폐기를 하시겠습니까??"
+                          onConfirm={() => disposeBtn(item.id)}
+                          okText="네"
+                          cancelText="아니오"
+                        >
+                          <Button style={{ position: 'static', zIndex: 1 }}>폐기</Button>
+                        </Popconfirm>
+                      </td>
+                    ) : (
+                      <td></td>
+                    )}
                     {/* <td>{item.addData}</td> 
-                   <td>
+                  <td>
                     {item.addData <= -1 && <p className={styles.redExp}></p>}
                     {item.addData > -1 && item.addData <= 3 && <p className={styles.yellowExp}></p>}
                     {item.addData > 3 && item.addData <= 5 && <p className={styles.greenExp}></p>}
@@ -281,8 +328,8 @@ function StoreExpFive() {
           </tbody>
         </table>
       </div>
+
     </>
   );
 }
-export default StoreExpFive;
-
+export default StoreExp;

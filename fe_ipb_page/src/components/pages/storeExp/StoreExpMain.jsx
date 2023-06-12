@@ -37,21 +37,25 @@ function StoreExpMain() {
           <p>오늘 날짜는 {todayDate} 입니다. </p>
           <p>매일매일 확인해서 제품들을 관리 해주세요 </p>
           <div className={styles.policyStatement}>
+          <div>
+              <p ></p>
+              <p>전체: 유통기한이 31일 이하인 상품입니다. </p>
+            </div>
             <div>
               <p className={styles.redExp}></p>
               <p>: 유통기한 지남</p>
             </div>
             <div>
               <p className={styles.yellowExp}></p>
-              <p>: D-3</p>
+              <p>: D- 0~3</p>
             </div>
             <div>
               <p className={styles.greenExp}></p>
-              <p>: D-5</p>
+              <p>: D- 4~5</p>
             </div>
             <div>
               <p className={styles.blueExp}></p>
-              <p>: D-7</p>
+              <p>: D- 6~7</p>
             </div>
           </div>
         </div>
