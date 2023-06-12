@@ -45,18 +45,18 @@ function Order() {
   }, [isAdd, storeId]);
 
   return (
-    <>
+    <div style={{ margin: '0px' }}>
       <h4>발주하기</h4>
       {/* <Divider /> */}
 
       <Row>
-        <Col sm={8} className="bg-gray-300">
+        <Col sm={7} className="bg-gray-300">
           <OrderProductList
             isAdd={isAdd}
             setIsAdd={setIsAdd}
           />
         </Col>
-        <Col sm={4} className="bg-gray-600">
+        <Col sm={5} className="bg-gray-600">
           <Cart
             cartList={cartList}
 
@@ -65,7 +65,7 @@ function Order() {
         </Col>
       </Row>
 
-    </>
+    </div>
   );
 }
 
