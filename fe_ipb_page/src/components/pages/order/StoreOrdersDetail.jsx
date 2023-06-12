@@ -352,7 +352,7 @@ import React, { useEffect, useState } from 'react';
                 : groupedOrders[selectedGroupId] || [])?.map((item) => (
                 <tr key={item.id}>
                   <td>{item.product_code}</td>
-                  <td>({item.product_info_brand}){item.product_name}</td>
+                  <td>[{item.product_info_brand}]{item.product_name}</td>
                   <td>
                     {item.orders_status === "배송준비중" ? (
                       <input

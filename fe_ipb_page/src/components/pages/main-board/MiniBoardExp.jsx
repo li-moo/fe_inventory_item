@@ -68,7 +68,7 @@ function MiniBoardExp() {
       dataIndex: 'product_name',
       render: (text, record) => (
         <Link to={`/product/detail/${record.id}`} className="link">
-          ({record.brand}) {text}
+          [{record.brand}] {text}
         </Link>
       )
     },
