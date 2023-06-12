@@ -85,3 +85,12 @@
   border-radius: 10px;
   transition: border-color 0.3s ease-in-out;
 }
+
+.lowProductNames {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.lowProductName {
+  margin-right: 5px;
+}
