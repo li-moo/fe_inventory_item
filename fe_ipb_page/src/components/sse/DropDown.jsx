@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem, UncontrolledDropdown, } from 'reactstrap';
+import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem, UncontrolledDropdown } from 'reactstrap';
 import PropTypes from 'prop-types';
 import { HiOutlineBell } from 'react-icons/hi';
 import { logInState } from '../state/loginState';
@@ -8,7 +8,7 @@ import { alarmState } from '../state/alarmState';
 import styles from './DropDown.module.css'
 import { Navigate, useNavigate } from 'react-router-dom';
 import { FiAlertCircle } from "react-icons/fi";
-
+import { Modal } from 'antd';
 
 function DropDown({ direction, ...args }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -19,13 +19,11 @@ function DropDown({ direction, ...args }) {
   const [cartListData, setCartListData] = useState([]);
   const [readMessageEXP, setReadMessageEXP] = useState(false);
   const [readMessageLOW, setReadMessageLOW] = useState(false);
+  const [isConfirmationVisible, setIsConfirmationVisible] = useState(false);
 
   const navigate = useNavigate();
 
   const combinedMessages = [...messages, ...messagesLowItem];
-
-
-  // const toggle = () => setDropdownOpen((prevState) => !prevState);
 
   const toggle = () => {
     setDropdownOpen((prevState) => !prevState);
@@ -34,25 +32,18 @@ function DropDown({ direction, ...args }) {
     }
   };
 
-
   const url = `${process.env.REACT_APP_BE_API}/notifications/expiration/${loginData.store_id}`;
 
-  // useEffect(() => {
-  //   fetchSSE();
-  //   fetchLowItemSSE();
-  // }, [cartListData]);
   useEffect(() => {
     fetchSSE();
     fetchLowItemSSE();
   }, []);
 
-
-
   const fetchSSE = () => {
     const eventSource = new EventSource(url, {
       headers: {
         Accept: 'text/event-stream',
-      }
+      },
     });
 
     eventSource.onopen = function (event) {
@@ -65,18 +56,16 @@ function DropDown({ direction, ...args }) {
 
     eventSource.onmessage = (e) => {
       console.log(JSON.parse(e.data)[1].data);
-      const onmessageData = JSON.parse(e.data)[1].data
-      // setMessages((prev) => [...prev, JSON.parse(e.data)[1].data]);
+      const onmessageData = JSON.parse(e.data)[1].data;
       setMessages((prev) => [...prev, onmessageData]);
-      setAlarmData(onmessageData.length)
+      setAlarmData(onmessageData.length);
     };
 
     eventSource.onerror = (e) => {
-      // 종료 또는 에러 발생 시 할 일
       eventSource.close();
 
       if (e.error) {
-        console.log("에러가 발생했습니다.");
+        console.log('에러가 발생했습니다.');
         console.log(e);
       }
 
@@ -84,7 +73,7 @@ function DropDown({ direction, ...args }) {
         // 종료 시 할 일
       }
       return () => {
-        eventSource.close(); //  SSE 연결 종료
+        eventSource.close(); // SSE 연결 종료
       };
     };
   };
@@ -94,7 +83,7 @@ function DropDown({ direction, ...args }) {
     const eventSource = new EventSource(LowItem_url, {
       headers: {
         Accept: 'text/event-stream',
-      }
+      },
     });
 
     eventSource.onopen = function (event) {
@@ -107,157 +96,144 @@ function DropDown({ direction, ...args }) {
 
     eventSource.onmessage = (e) => {
       const firstData = JSON.parse(e.data)[1].data;
-      const secondData = JSON.parse(firstData)
-      // const mesage02Data = JSON.parse(mesage01Data.message)
-      // console.log("firstData ", firstData);
-      // console.log("mesage01Data ", secondData);
+      const secondData = JSON.parse(firstData);
       const messageLow = secondData.message;
       const productsLow = secondData.products;
-      // const thirdData = JSON.parse(secondData)
-      // console.log("messageLow ", messageLow);
-      // // console.log("thirdData ", thirdData);
-      // console.log("secondData.message ", secondData.message);
-      // console.log("secondData.product ", secondData.products);
-      // console.log("productsLow", productsLow);
-      // console.log("productsLow[1]", productsLow[1]);
-      // console.log("productsLow[1].id", productsLow[1].id);
 
-      //
-      // let tempCartListData = [];
-      // for (var i = 0; i < productsLow.length; i++) {
-      //   // console.log("productsLow[i]", productsLow[i]);
-      //   // console.log("productsLow[i]", productsLow[i].id);
-      //   let cartData = {
-      //     "product_id": productsLow[i].id,
-      //     "store_id": loginData.store_id,
-      //     "qnt": 1
-      //   };
-      //   // console.log("cartData", cartData);
-      //   tempCartListData.push(cartData);
-      //   // setCartListData([...cartListData, cartData]); -> 285만 유지됨
-      // }
-      // setCartListData(tempCartListData);
-      //
-      setCartListData(messageLow)
-
-
-      /////////////
-
-      // const secondData = firstData.trim().split(':')[1].trim();
-      // console.log("secondData.JSON.parse(): ", JSON.parse(secondData)); // [StoreProduct(), ...]
-      // console.log("secondData: ", JSON.parse(secondData)); // 공백제거 후 ":" 가준으로 split 한 후 [1] 번째 값을 JSON.parse() 하자!
-      const onmessageData = JSON.parse(e.data)[1].data
-      // setMessages((prev) => [...prev, JSON.parse(e.data)[1].data]);
+      setCartListData(messageLow);
       setMessagesLowItem((prev) => [...prev, messageLow]);
     };
 
     eventSource.onerror = (e) => {
-      // 종료 또는 에러 발생 시 할 일
       eventSource.close();
 
       if (e.error) {
-        console.log("에러가 발생했습니다.");
+        console.log('에러가 발생했습니다.');
         console.log(e);
       }
       if (e.target.readyState === EventSource.CLOSED) {
         // 종료 시 할 일
       }
       return () => {
-        eventSource.close(); //  SSE 연결 종료
+        eventSource.close(); // SSE 연결 종료
       };
     };
   };
 
   const handleNavigateEXP = () => {
-    navigate("/storeexp");
+    navigate('/storeexp');
     setReadMessageEXP(true);
-  }
+  };
+
+  // const handleNavigateLOW = () => {
+  //   const confirmation = window.confirm('장바구니에 상품을 담으시겠습니까?');
+  //   if (confirmation) {
+  //     navigate('/order');
+  //     setReadMessageLOW(true);
+  //   }
+  // };
 
   const handleNavigateLOW = () => {
-    navigate("/order");
+    setIsConfirmationVisible(true);
+  };
+
+  const handleConfirmationOk = () => {
+    setIsConfirmationVisible(false);
+    navigate('/order');
     setReadMessageLOW(true);
-  }
+  };
+
+  const handleConfirmationCancel = () => {
+    setIsConfirmationVisible(false);
+  };
+  
 
   return (
     <>
       <div>
-        <div id='top-myDrop' >
+        <div id='top-myDrop'>
           <UncontrolledDropdown isOpen={dropdownOpen} toggle={toggle} direction={direction} id='top-myDrop--i'>
-            {/* <DropdownToggle id='top-myDrop--ii' style={{ border: 'none', backgroundColor: '#FFFFFF', color: 'grey' }}>
-              <HiOutlineBell />
-              <div>{alarmData > 0 && <p className={styles.alarmRed}></p>}</div>
-            </DropdownToggle> */}
             <DropdownToggle id='top-myDrop--ii' style={{ border: 'none', backgroundColor: '#262627', color: 'grey' }}>
               <div className={styles.BellRed}>
                 <HiOutlineBell />
                 <div>{alarmData > 0 && <p className={styles.alarmRed}></p>}</div>
-                {/* <div>{alarmData === 0 && <p className={styles.alarmRed}></p>}</div> */}
                 <div>{alarmData === 0 && <p className={styles.alarmBackground}></p>}</div>
               </div>
             </DropdownToggle>
-            {/* <DropdownMenu style={{ width: '400px', maxHeight: '200px', overflowY: 'auto' }} {...args}> */}
             <div>
-              <DropdownMenu style={{
-                width: '410px', maxHeight: '200px', overflowY: 'auto', backgroundColor: 'white',
-                position: 'absolute', zIndex: 99999999, opacity: 1
-              }}>
-
+              <DropdownMenu
+                style={{
+                  width: '410px',
+                  maxHeight: '200px',
+                  overflowY: 'auto',
+                  backgroundColor: 'white',
+                  position: 'absolute',
+                  zIndex: 99999999,
+                  opacity: 1,
+                }}
+              >
                 <div className={styles.dropList}>
                   {messages.map((message, index) => (
-                    // <div key={index} className={styles.dropItemExpMessage} onClick={handleNavigateEXP}>
-                    <div key={index} className={styles.dropItemExpMessage} onClick={() => { handleNavigateEXP(); setDropdownOpen(!dropdownOpen); }}>
-                      {readMessageEXP == true ? (
+                    <div
+                      key={index}
+                      className={styles.dropItemExpMessage}
+                      onClick={() => {
+                        handleNavigateEXP();
+                        setDropdownOpen(!dropdownOpen);
+                      }}
+                    >
+                      {readMessageEXP ? (
                         <td style={{ textDecoration: 'line-through', opacity: '0.5' }}>
-                          {" "}<FiAlertCircle /> {message}
+                          {' '}
+                          <FiAlertCircle /> {message}
                         </td>
                       ) : (
-                        <td style={{ color: "244, 216, 59" }}>
-                          {" "}<FiAlertCircle /> {message}
+                        <td style={{ color: '244, 216, 59' }}>
+                          {' '}
+                          <FiAlertCircle /> {message}
                         </td>
                       )}
                     </div>
                   ))}
                   {messagesLowItem.map((message, index) => (
-                    <div>
-                      {/* <div key={index} className={styles.dropItemLowMessage} onClick={handleNavigateLOW}> */}
-                      <div key={index} className={styles.dropItemLowMessage} onClick={() => { handleNavigateLOW(); setDropdownOpen(!dropdownOpen); }}>
-                        {readMessageLOW == true ? (
+                    <div key={index}>
+                      <div
+                        className={styles.dropItemLowMessage}
+                        onClick={() => {
+                          handleNavigateLOW();
+                          setDropdownOpen(!dropdownOpen);
+                        }}
+                      >
+                        {readMessageLOW ? (
                           <td style={{ textDecoration: 'line-through', opacity: '0.5' }}>
-                            {" "}<FiAlertCircle /> {messagesLowItem}
+                            {' '}
+                            <FiAlertCircle /> {message}
                           </td>
                         ) : (
-                          <td style={{ color: "80, 206, 80" }}>
-                            {" "}<FiAlertCircle /> {messagesLowItem}
+                          <td style={{ color: '80, 206, 80' }}>
+                            {' '}
+                            <FiAlertCircle /> {message}
                           </td>
                         )}
                       </div>
                     </div>
                   ))}
                 </div>
-                {/* <div className={styles.dropList}>
-            {combinedMessages.map((message, index) => (
-              <div key={index} className={styles.dropItemExpMessage} onClick={handleNavigateEXP}>
-                {" "}<FiAlertCircle /> {message}
-              </div>
-            ))}
-          </div> */}
-
-                {/* /// */}
-                {/* <div>
-            {
-              cartListData.map((item, index) => (
-                <div key={index} className={styles.dropItemMessage}>
-                  <p>{item.product_id}</p>
-                </div>
-              ))
-            }
-          </div> */}
               </DropdownMenu>
-
             </div>
           </UncontrolledDropdown>
         </div>
-      </div >
+        <Modal
+          title="재고 미만인 상품을 담으시겠습니까?"
+          visible={isConfirmationVisible}
+          onOk={handleConfirmationOk}
+          onCancel={handleConfirmationCancel}
+          okText="예"
+          cancelText="아니오"
+        >
+          "예"를 누르면 재고 미만 상품이 담기고 발주 페이지로 이동합니다!
+        </Modal>
+      </div>
     </>
   );
 }
