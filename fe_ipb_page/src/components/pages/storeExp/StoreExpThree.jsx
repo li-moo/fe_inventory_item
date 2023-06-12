@@ -198,7 +198,7 @@ function StoreExpThree() {
               <th>재고</th>
               <th>판매가</th>
               <th>유통기한{' '}(잔여일)</th>
-
+              <th>{''}</th>
               {/* <th>유통기한연산</th>
             <th>유통기한연산CSS</th> */}
             </tr>
@@ -239,7 +239,7 @@ function StoreExpThree() {
                     <td>{item.product_code}</td>
                     <td>
                       <Link to={`/storeproduct/detail/${item.id}`} style={{ textDecoration: "none", color: "inherit" }}>
-                        ({item.brand})
+                        [{item.brand}]
                         {item.product_name}
                       </Link>
                     </td>

@@ -70,7 +70,7 @@ function MiniBoardProductlist() {
       dataIndex: 'product_name',
       render: (text, record) => (
         <Link to={`/storeproduct/detail/${record.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-          ({record.brand})
+          [{record.brand}]
           {text}
         </Link>
       ),

@@ -774,11 +774,11 @@ function Cart(props) {
                 {/* <td>({item.brand}){item.name}</td> */}
                 {item.product_qnt >= item.qnt ? (
                   <td style={{ color: "black" }}>
-                    ({item.brand}){item.name}
+                    [{item.brand}]{item.name}
                   </td>
                 ) : (
                   <td style={{ color: "red" }}>
-                    ({item.brand}){item.name}
+                    [{item.brand}]{item.name}
                   </td>
                 )}
 

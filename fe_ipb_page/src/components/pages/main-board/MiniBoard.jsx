@@ -101,6 +101,8 @@ const MiniBoard = () => {
           {text}
         </Link>
       ),
+      ellipsis: true,
+      width: 350,
     },
     {
       title: '작성자',
@@ -126,7 +128,7 @@ const MiniBoard = () => {
 
   return (
     <div style={{ backgroundColor: '#f5f5f5', padding: '5px', borderRadius: '4px', maxWidth: '500px' }}>
-      <Table dataSource={displayedData} columns={columns} pagination={false} />
+      <Table dataSource={displayedData} columns={columns} pagination={false}/>
       <Pagination
         current={currentPage}
         pageSize={itemsPerPage}
