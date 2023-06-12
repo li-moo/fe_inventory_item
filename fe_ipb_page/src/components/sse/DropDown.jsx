@@ -17,6 +17,7 @@ function DropDown({ direction, ...args }) {
   const [alarmData, setAlarmData] = useRecoilState(alarmState);
   const [messagesLowItem, setMessagesLowItem] = useState([]);
   const [cartListData, setCartListData] = useState([]);
+  const [cartListLowProductData, setCartListLowProductData] = useState([]);
   const [readMessageEXP, setReadMessageEXP] = useState(false);
   const [readMessageLOW, setReadMessageLOW] = useState(false);
   const [isConfirmationVisible, setIsConfirmationVisible] = useState(false);
@@ -78,6 +79,48 @@ function DropDown({ direction, ...args }) {
     };
   };
 
+  // const fetchLowItemSSE = () => {
+  //   const LowItem_url = `${process.env.REACT_APP_BE_API}/notifications/low-inventory/${loginData.store_id}`;
+  //   const eventSource = new EventSource(LowItem_url, {
+  //     headers: {
+  //       Accept: 'text/event-stream',
+  //     },
+  //   });
+
+  //   eventSource.onopen = function (event) {
+  //     if (eventSource.readyState === EventSource.OPEN) {
+  //       console.log('연결 성공');
+  //     } else {
+  //       console.log('연결 실패');
+  //     }
+  //   };
+
+  //   eventSource.onmessage = (e) => {
+  //     const firstData = JSON.parse(e.data)[1].data;
+  //     const secondData = JSON.parse(firstData);
+  //     const messageLow = secondData.message;
+  //     const productsLow = secondData.products;
+
+  //     setCartListData(messageLow);
+  //     setMessagesLowItem((prev) => [...prev, messageLow]);
+  //   };
+
+  //   eventSource.onerror = (e) => {
+  //     eventSource.close();
+
+  //     if (e.error) {
+  //       console.log('에러가 발생했습니다.');
+  //       console.log(e);
+  //     }
+  //     if (e.target.readyState === EventSource.CLOSED) {
+  //       // 종료 시 할 일
+  //     }
+  //     return () => {
+  //       eventSource.close(); // SSE 연결 종료
+  //     };
+  //   };
+  // };
+
   const fetchLowItemSSE = () => {
     const LowItem_url = `${process.env.REACT_APP_BE_API}/notifications/low-inventory/${loginData.store_id}`;
     const eventSource = new EventSource(LowItem_url, {
@@ -102,6 +145,11 @@ function DropDown({ direction, ...args }) {
 
       setCartListData(messageLow);
       setMessagesLowItem((prev) => [...prev, messageLow]);
+      setCartListLowProductData(productsLow)
+
+
+
+      console.log("productsLow", productsLow)
     };
 
     eventSource.onerror = (e) => {
@@ -120,18 +168,12 @@ function DropDown({ direction, ...args }) {
     };
   };
 
+
   const handleNavigateEXP = () => {
     navigate('/storeexp');
     setReadMessageEXP(true);
   };
 
-  // const handleNavigateLOW = () => {
-  //   const confirmation = window.confirm('장바구니에 상품을 담으시겠습니까?');
-  //   if (confirmation) {
-  //     navigate('/order');
-  //     setReadMessageLOW(true);
-  //   }
-  // };
 
   const handleNavigateLOW = () => {
     setIsConfirmationVisible(true);
@@ -141,7 +183,19 @@ function DropDown({ direction, ...args }) {
     setIsConfirmationVisible(false);
     navigate('/order');
     setReadMessageLOW(true);
+    for (let i = 0; i < cartListLowProductData.length; i++) {
+      console.log("handleConfirmationOk>>안",cartListLowProductData[i].product_name);
+    }
   };
+
+ 
+    console.log("acartListLowProductDataa>>handleConfirmationOk>>안",cartListLowProductData);
+
+  for (let i = 0; i < cartListLowProductData.length; i++) {
+    <div>
+    {cartListLowProductData[i].Product_name}
+    </div>
+  }
 
   const handleConfirmationCancel = () => {
     setIsConfirmationVisible(false);
@@ -231,7 +285,16 @@ function DropDown({ direction, ...args }) {
           okText="예"
           cancelText="아니오"
         >
-          "예"를 누르면 재고 미만 상품이 담기고 발주 페이지로 이동합니다!
+          <p>"예"를 누르면 재고 미만 상품이 담기고 발주 페이지로 이동합니다!</p>
+          
+          <div className={styles.lowProductNames}>
+            {cartListLowProductData.map((item, index) => (
+              <div key={item.id} className={styles.lowProductName}>
+                {item.Product_name}
+                {index !== cartListLowProductData.length - 1 && ','}
+              </div>
+            ))}
+          </div>
         </Modal>
       </div>
     </>
