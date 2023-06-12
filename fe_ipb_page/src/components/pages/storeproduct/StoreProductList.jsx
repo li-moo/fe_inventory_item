@@ -344,7 +344,14 @@ function StoreProductList() {
             {filteredProducts.map((item) => (
               <tr key={item.id}>
                 <td>{item._auto ? '●' : ''}</td>
-                <td>{item.product_code}</td>
+                <td>
+                  <Link
+                    to={`/storeproduct/detail/${item.id}`}
+                    style={{ textDecoration: "none", color: "inherit" }}
+                  >
+                    {item.product_code}
+                  </Link>
+                </td>
                 <td>
                   <Link
                     to={`/storeproduct/detail/${item.id}`}
