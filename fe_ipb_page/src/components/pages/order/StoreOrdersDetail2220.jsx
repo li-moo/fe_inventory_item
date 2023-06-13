@@ -320,7 +320,7 @@ import React, { useEffect, useState } from 'react';
 
     return (
       <div>
-        <div style={{ overflowX: 'auto', maxHeight: '490px' }}>
+        <div style={{ overflowX: 'auto', maxHeight: '469px'}}>
           <div className={styles.tabContainer}>
             <Menu mode="horizontal" selectedKeys={[showAllData ? 'all' : selectedGroupId.toString()]}>
               <Menu.Item key="all" onClick={handleShowAllData}>

@@ -193,7 +193,7 @@
 //           />
 //         </div>
 //       </div>
-//       <div style={{ overflowX: 'auto', maxHeight: '490px' }}>
+//       <div style={{ overflowX: 'auto', maxHeight: '469px'}}>
 //         <table className={styles.table}>
 //           <thead>
 //             <tr>
@@ -541,7 +541,7 @@
 //         style={{position: 'static', zIndex: 1 }}
 //       /> */}
 
-//       <div style={{ overflowX: 'auto', maxHeight: '490px' }}>
+//       <div style={{ overflowX: 'auto', maxHeight: '469px'}}>
 //         <table className={styles.table}>
 //           <thead>
 //             <tr>
@@ -859,7 +859,7 @@ function StoreExp() {
           />
         </div>
       </div>
-      <div style={{ overflowX: 'auto', maxHeight: '469px' }}>
+      <div style={{ overflowX: 'auto', maxHeight: '469px'}}>
         <table className={styles.table}>
           <thead>
             <tr>
