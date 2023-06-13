@@ -724,7 +724,7 @@ function Cart2210(props) {
           style={{ position: 'static', zIndex: 1 }}
         />
       </div>
-      <div style={{ overflowX: 'auto', maxHeight: '490px' }}>
+      <div style={{ overflowX: 'auto', maxHeight: '469px'}}>
         <table className={styles.table}>
           <thead>
             <tr>
@@ -740,7 +740,7 @@ function Cart2210(props) {
                     // okText="아니요"
                     // cancelText="예"
                     onConfirm={() => handleAddOrder(logInData.store_id)}
-                    onCancel={() => handleAddOrder(logInData.store_id)}
+                    // onCancel={() => handleAddOrder(logInData.store_id)}
                   >
                     <Button type="primary" ghost>구매</Button>
                   </Popconfirm>

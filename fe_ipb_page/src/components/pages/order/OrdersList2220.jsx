@@ -333,7 +333,7 @@ function OrdersList2220() {
       {/* <Divider /> */}
       <Row>
         <Col sm={4} className="bg-gray-300">
-          <div style={{ overflowX: 'auto', maxHeight: '490px' }}>
+        <div style={{ overflowX: 'auto', maxHeight: '469px'}}>
             <table className={styles.table}>
               <thead>
                 <tr>
