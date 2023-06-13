@@ -3,10 +3,10 @@ import { useRecoilState } from 'recoil';
 // import { logInState } from '../src/components/state/loginState';
 import { logInState } from '../../state/loginState';
 import axios from 'axios';
-import styles from '../auto/EventAutoOrders.module.css';
+import styles from '../auto/EventAutoOrders2230.module.css';
 import { Link } from 'react-router-dom';
 
-function EventAutoOrders() {
+function EventAutoOrders2230() {
 
   const [loginData, setLogInData] = useRecoilState(logInState);
   const [evnetAutoData, setEventAutoData] = useState([]);
@@ -128,4 +128,4 @@ function EventAutoOrders() {
     </div>
   );
 }
-export default EventAutoOrders;
+export default EventAutoOrders2230;

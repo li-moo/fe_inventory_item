@@ -135,9 +135,9 @@ const ProductInfoDetail = lazy(() => import("../components/pages/product/Product
 const ProductDetail = lazy(() => import("../components/pages/product/ProductDetail.jsx"))
 const StoreProductDetail2112 = lazy(() => import("../components/pages/storeproduct/StoreProductDetail2112.jsx"))
 const Event = lazy(() => import("../components/pages/event/Event.jsx"))
-const Orders = lazy(() => import("../components/pages/order/Orders.jsx"))
-const OrdersList = lazy(() => import("../components/pages/order/OrdersList.jsx"))
-const StoreAutoOrdersList = lazy(() => import("../components/pages/order/StoreAutoOrdersList.jsx"))
+const Orders2210 = lazy(() => import("../components/pages/order/Orders2210.jsx"))
+const OrdersList = lazy(() => import("../components/pages/order/OrdersList2220.jsx"))
+const StoreAutoOrdersList2230 = lazy(() => import("../components/pages/auto/StoreAutoOrdersList2230.jsx"))
 const StoreProductList2110 = lazy(() => import("../components/pages/storeproduct/StoreProductList2110.jsx"))
 // const StoreExp = lazy(() => import("../components/pages/storeproduct/StoreExp.jsx"))
 const StoreExpMain2120 = lazy(() => import("../components/pages/storeExp/StoreExpMain2120.jsx"))
@@ -160,7 +160,7 @@ const EventAdd = lazy(() => import("../components/pages/event/EventAdd.jsx"))
 const EventList = lazy(() => import("../components/pages/event/EventList.jsx"))
 const EventDetail = lazy(() => import("../components/pages/event/EventDetail.jsx"))
 const SSETest = lazy(() => import("../components/sse/SSETest.jsx"))
-const EventAutoOrders = lazy(() => import("../components/pages/auto/EventAutoOrders.jsx"))
+const EventAutoOrders2230 = lazy(() => import("../components/pages/auto/EventAutoOrders2230.jsx"))
 // const EventDetail = lazy(() => import("../components/pages/event/EventDetail.jsx"))
 // const EventUpdate = lazy(() => import("../components/pages/event/EventUpdate.jsx"))
 
@@ -191,9 +191,9 @@ const ThemeRoutes = [
       { path: "/product/detail/:id", exact: true, element: <ProductDetail /> },
       { path: "/storeproduct/detail/:id", exact: true, element: <StoreProductDetail2112 /> },
       { path: "/event", exact: true, element: <Event /> },
-      { path: "/order", exact: true, element: <Orders /> },
+      { path: "/order", exact: true, element: <Orders2210 /> },
       { path: "/orderslist", exact: true, element: <OrdersList /> },
-      { path: "/storeautoorders", exact: true, element: <StoreAutoOrdersList /> },
+      { path: "/storeautoorders", exact: true, element: <StoreAutoOrdersList2230 /> },
       { path: "/storeproductlist", exact: true, element: <StoreProductList2110 /> },
       // { path: "/storeexp", exact: true, element: <StoreExp /> },
       { path: "/storeexp", exact: true, element: <StoreExpMain2120 /> },
@@ -220,7 +220,7 @@ const ThemeRoutes = [
       // { path: "/board/add", exact: true, element: <BoardAdd/>} ,
       // { path: "/event/eventadd", exact: true, element: <EventAdd/>} ,
       // { path: "/event/eventlist", exact: true, element: <EventList/>} ,
-      { path: "/eventautoorders", exact: true, element: <EventAutoOrders/>} ,
+      { path: "/eventautoorders", exact: true, element: <EventAutoOrders2230/>} ,
     ],
   },
 ];

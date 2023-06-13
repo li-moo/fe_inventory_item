@@ -125,8 +125,8 @@ const Event = lazy(() => import("../components/pages/event/Event.jsx"));
 const EventAdd = lazy(() => import("../components/pages/event/EventAdd.jsx"))
 const EventList = lazy(() => import("../components/pages/event/EventList.jsx"));
 const EventDetail = lazy(() => import("../components/pages/event/EventDetail.jsx"))
-const Orders = lazy(() => import("../components/pages/order/Orders.jsx"));
-const OrdersList = lazy(() => import("../components/pages/order/OrdersList.jsx"));
+const Orders = lazy(() => import("../components/pages/order/Orders2210.jsx"));
+const OrdersList = lazy(() => import("../components/pages/order/OrdersList2220.jsx"));
 const StoreProductList2110 = lazy(() => import("../components/pages/storeproduct/StoreProductList2110.jsx"));
 const _StoreExp = lazy(() => import("../components/pages/storeproduct/_StoreExp.jsx"));
 const Store = lazy(() => import("../components/pages/store/Store.jsx"));
