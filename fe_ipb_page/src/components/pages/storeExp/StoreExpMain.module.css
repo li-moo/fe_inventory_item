@@ -16,3 +16,7 @@
 .mainHeader button {
   margin-left: 5px;
 }
+
+.policyStatement {
+  border: 1px solid black;
+}

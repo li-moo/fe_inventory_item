@@ -188,6 +188,7 @@
 
 .policyStatement {
   align-items: center;
+  border: 1px;
 }
 
 .policyStatement>div {
@@ -374,4 +375,31 @@
 
 .headerContent > h2 {
   width: 250px;
+}
+
+.line {
+	display:flex;
+	flex-basis:100%;
+	align-items:center;
+	color:rgba(0,0,0,0.35);
+	font-size:14px;
+	margin:8px 0px;
+}
+.line::before{
+	content:"";
+	flex-grow:1;
+	margin:0px 16px;
+	background:rgba(0,0,0,0.3);
+	height:1px;
+	font-size:0px;
+	line-height: 0px;
+}
+.line::after {
+	content:"";
+	flex-grow:1;
+	margin:0px 16px;
+	background:rgba(0,0,0,0.3);
+	height:1px;
+	font-size:0px;
+	line-height: 0px;
 }

@@ -182,7 +182,7 @@ function DropDown({ direction, ...args }) {
   const handleConfirmationOk = () => {
     setIsConfirmationVisible(false);
     navigate('/order');
-    setReadMessageLOW(true);
+    // setReadMessageLOW(true);
     for (let i = 0; i < cartListLowProductData.length; i++) {
       console.log("handleConfirmationOk>>안",cartListLowProductData[i].product_name);
     }
@@ -256,6 +256,7 @@ function DropDown({ direction, ...args }) {
                         onClick={() => {
                           handleNavigateLOW();
                           setDropdownOpen(!dropdownOpen);
+                          setReadMessageLOW(true);
                         }}
                       >
                         {readMessageLOW ? (
