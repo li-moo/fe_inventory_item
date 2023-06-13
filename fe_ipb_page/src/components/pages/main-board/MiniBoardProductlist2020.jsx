@@ -5,12 +5,12 @@ import { logInState } from '../../state/loginState';
 import axios from 'axios';
 import { Table, Select, Input } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
-import "../main-board/MiniBoardProductlist.css"; // CSS import
+import "../main-board/MiniBoardProductlist2020.css"; // CSS import
 
 const { Option } = Select;
 const { Search } = Input;
 
-function MiniBoardProductlist() {
+function MiniBoardProductlist2020() {
   const [storeProductData, setStoreProductData] = useState([]);
   const [filteredProductData, setFilteredProductData] = useState([]);
   const [logInData, setLogInData] = useRecoilState(logInState);
@@ -168,4 +168,4 @@ function MiniBoardProductlist() {
   );
 }
 
-export default MiniBoardProductlist;
+export default MiniBoardProductlist2020;

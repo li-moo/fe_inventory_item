@@ -5,11 +5,11 @@ import { logInState } from '../../state/loginState';
 import axios from 'axios';
 import { Divider, Input, Modal, Popconfirm, Button } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
-import styles from './StoreAutoOrdersList.module.css';
+import styles from './StoreAutoOrdersList2230.module.css';
 
 const { Search } = Input;
 
-function StoreAutoOrdersList() {
+function StoreAutoOrdersList2230() {
   const [storeAutoOrdersData, setStoreAutoOrdersData] = useState([]);
   const [logInData, setLogInData] = useRecoilState(logInState);
 
@@ -207,6 +207,6 @@ function StoreAutoOrdersList() {
   );
 }
 
-export default StoreAutoOrdersList;
+export default StoreAutoOrdersList2230;
 
 

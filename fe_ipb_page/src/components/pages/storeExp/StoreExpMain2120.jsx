@@ -2,15 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import { logInState } from '../../state/loginState';
-import styles from './StoreExp.module.css';
+import styles from './StoreExp2120.module.css';
 import axios from 'axios';
 import { Divider, Input, Modal, Popconfirm, Button } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
-import StoreExp from './StoreExp';
-import StoreExpZero from './StoreExpZero';
-import StoreExpThree from './StoreExpThree';
-import StoreExpFive from './StoreExpFive';
-import StoreExpSeven from './StoreExpSeven';
+import StoreExp from './StoreExp2120';
+import StoreExpZero2120 from './StoreExpZero2120';
+import StoreExpThree2120 from './StoreExpThree2120';
+import StoreExpFive2120 from './StoreExpFive2120';
+import StoreExpSeven2120 from './StoreExpSeven2120';
 
 const { Search } = Input;
 
@@ -34,30 +34,32 @@ function StoreExpMain() {
       title: '유통기한 관리 Tip!',
       content: (
         <div>
-          <p>오늘 날짜는 {todayDate} 입니다. </p>
-          <p>매일매일 확인해서 제품들을 관리 해주세요 </p>
+          <div>오늘 날짜는 {todayDate} 입니다. </div>
+          <div>매일매일 확인해서 제품들을 관리 해주세요 </div>
           <div className={styles.policyStatement}>
-          <div>
-              <p ></p>
-              <p>전체: 유통기한이 31일 이하인 상품입니다. </p>
-            </div>
-            <div>
-              <p className={styles.redExp}></p>
-              <p>: 유통기한 지남</p>
-            </div>
-            <div>
-              <p className={styles.yellowExp}></p>
-              <p>: D- 0~3</p>
-            </div>
-            <div>
-              <p className={styles.greenExp}></p>
-              <p>: D- 4~5</p>
-            </div>
-            <div>
-              <p className={styles.blueExp}></p>
-              <p>: D- 6~7</p>
-            </div>
+          <div className={styles.line}>
+            기준
           </div>
+            <div>
+            <p>전체: 유통기한이 31일 이하인 상품입니다. </p>
+              </div>
+              <div>
+                <p className={styles.redExp}></p>
+                <p>: 유통기한 지남</p>
+              </div>
+              <div>
+                <p className={styles.yellowExp}></p>
+                <p>: D- 0~3</p>
+              </div>
+              <div>
+                <p className={styles.greenExp}></p>
+                <p>: D- 4~5</p>
+              </div>
+              <div>
+                <p className={styles.blueExp}></p>
+                <p>: D- 6~7</p>
+              </div>
+            </div>
         </div>
       ),
       onOk() { },
@@ -202,21 +204,21 @@ function StoreExpMain() {
         />
       }
       {activeTab === 'zero' &&
-        <StoreExpZero
+        <StoreExpZero2120
           isClick={isClick}
           setIsClick={setIsClick}
         />
       }
       {activeTab === 'three' &&
-        <StoreExpThree
+        <StoreExpThree2120
         />
       }
       {activeTab === 'five' &&
-        <StoreExpFive
+        <StoreExpFive2120
         />
       }
       {activeTab === 'seven' &&
-        <StoreExpSeven
+        <StoreExpSeven2120
         />
       }
 

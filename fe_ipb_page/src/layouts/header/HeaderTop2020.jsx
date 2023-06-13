@@ -21,7 +21,7 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { message, Modal } from "antd";
-import style from "./HeaderTop.module.css"
+import style from "./HeaderTop2020.module.css"
 import {
   RiLogoutBoxRLine,
   RiSunFill,
@@ -35,7 +35,7 @@ import { HiOutlineBell } from "react-icons/hi";
 import todayData from '../../components/globalFunction/todayData';
 import CurrentDate from '../../components/globalFunction/CurrentDate';
 // import MyModal from '../components/sse/MyModal';
-import DropDown from '../../components/sse/DropDown';
+import DropDown2020 from '../../components/sse/DropDown2020';
 
 // function MyModal() {
 //   return (
@@ -47,7 +47,7 @@ import DropDown from '../../components/sse/DropDown';
 //   );
 // }
 
-const HeaderTop = () => {
+const HeaderTop2020 = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   const [dropdownOpen, setDropdownOpen] = React.useState(false);
 
@@ -252,7 +252,7 @@ const HeaderTop = () => {
               {logInData.store_name}
             </Link>
             <div id='classDrop'>
-              <DropDown style={{ position: 'relative', zIndex: 10000 }} />
+              <DropDown2020 style={{ position: 'relative', zIndex: 10000 }} />
             </div>
             {
               logInData.isLogIn ?
@@ -272,4 +272,4 @@ const HeaderTop = () => {
 };
 
 
-export default HeaderTop;
+export default HeaderTop2020;

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Divider } from "antd";
 import { Container, Row, Col } from 'react-bootstrap';
-import OrderProductList from './OrderProductList';
-import Cart from '../cart/Cart';
+import OrderProductList2210 from './OrderProductList2210';
+import Cart2210 from '../cart/Cart2210';
 import axios from 'axios';
 
 
@@ -12,7 +12,7 @@ import axios from 'axios';
 // 값이 바뀌면 상태가 변경되서 리랜더링 된다.
 
 
-function Order() {
+function Orders2210() {
 
   const [cartList, setCartList] = useState([]);
   const [isAdd, setIsAdd] = useState(false);
@@ -51,13 +51,13 @@ function Order() {
 
       <Row>
         <Col sm={7} className="bg-gray-300">
-          <OrderProductList
+          <OrderProductList2210
             isAdd={isAdd}
             setIsAdd={setIsAdd}
           />
         </Col>
         <Col sm={5} className="bg-gray-600">
-          <Cart
+          <Cart2210
             cartList={cartList}
 
           // test="안녕"
@@ -69,4 +69,4 @@ function Order() {
   );
 }
 
-export default Order;
+export default Orders2210;

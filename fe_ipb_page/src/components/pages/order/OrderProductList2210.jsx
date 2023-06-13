@@ -259,7 +259,7 @@
 //       />
 //     </div> */}
 //       <>
-//       <div style={{ overflowX: 'auto', maxHeight: '490px' }}>
+//       <div style={{ overflowX: 'auto', maxHeight: '469px'}}>
 //       <table className={styles.table}>
 //           <thead>
 //             <tr>
@@ -336,12 +336,13 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { logInState } from "../../state/loginState";
 import { useRecoilState } from 'recoil';
-import styles from './OrderProductList.module.css';
+import styles from './OrderProductList2210.module.css';
 import { SearchOutlined } from '@ant-design/icons';
+import { BsCart4 } from "react-icons/bs";
 
 const { Search } = Input;
 
-function OrderProductList(props) {
+function OrderProductList2210(props) {
   const [productData, setProductData] = useState([]);
   const [logInData, setLogInData] = useRecoilState(logInState);
   const [storeProductData, setStoreProductData] = useState([]);
@@ -590,17 +591,17 @@ function OrderProductList(props) {
       />
     </div> */}
       <>
-      <div style={{ overflowX: 'auto', maxHeight: '490px' }}>
+      <div style={{ overflowX: 'auto', maxHeight: '469px'}}>
       <table className={styles.table}>
           <thead>
             <tr>
-            <th>SKU</th>
+              <th>SKU</th>
               <th>상품 이름</th>
               <th>본사재고</th>
               <th>현재고</th>
               <th>매입가</th>
               <th>판매가</th>
-              <th>카트담기버튼</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -618,7 +619,7 @@ function OrderProductList(props) {
                 </td>
                 <td>{addComma(item.qnt)}</td>
                 {/* <td>{item.currentQnt}</td> */}
-                <td>{addComma(item.store_qnt)}</td>
+                <td>{addComma(item.total_qnt)}</td>
                 <td>{addComma(item.cost)}</td>
                 <td>{addComma(item.price)}</td>
 
@@ -637,7 +638,7 @@ function OrderProductList(props) {
                     <Button
                     style={{position: 'static', zIndex: 1 }}
                     >
-                      상품담기
+                      <BsCart4 />
                     </Button>
                   </Popconfirm>
                 </td>
@@ -659,4 +660,4 @@ function OrderProductList(props) {
   );
 }
 
-export default OrderProductList;
+export default OrderProductList2210;

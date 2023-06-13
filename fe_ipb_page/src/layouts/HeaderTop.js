@@ -35,7 +35,7 @@ import { HiOutlineBell } from "react-icons/hi";
 import todayData from '../components/globalFunction/todayData';
 import CurrentDate from '../components/globalFunction/CurrentDate';
 import MyModal from '../components/sse/MyModal';
-import DropDown from '../components/sse/DropDown';
+import DropDown2020 from '../components/sse/DropDown2020';
 
 // function MyModal() {
 //   return (
@@ -266,7 +266,7 @@ const HeaderTop = () => {
 
           <NavItem>
             <div id='classDrop'>
-                <DropDown  style={{position: 'relative', zIndex: 10000 }}/>
+                <DropDown2020  style={{position: 'relative', zIndex: 10000 }}/>
             </div>
           </NavItem>
           <NavItem>

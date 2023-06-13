@@ -140,13 +140,13 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { Typography, Grid, Button, Modal, message, Input, Form } from 'antd';
-import styles from './StoreProductDetail.module.css';
+import styles from './StoreProductDetail2112.module.css';
 
 const { Title, Text } = Typography;
 const { Row, Col } = Grid;
 const { Item } = Form;
 
-function StoreProductDetail() {
+function StoreProductDetail2112() {
 
   const { id } = useParams();
   const navigate = useNavigate();
@@ -315,4 +315,4 @@ function StoreProductDetail() {
   );
 }
 
-export default StoreProductDetail;
+export default StoreProductDetail2112;

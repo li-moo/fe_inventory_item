@@ -180,13 +180,13 @@ import { Link } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import { logInState } from '../../state/loginState';
 import axios from 'axios';
-import styles from './StoreProductList.module.css';
+import styles from './StoreProductList2110.module.css';
 import { Divider, Input, Modal } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 
 const { Search } = Input;
 
-function StoreProductList() {
+function StoreProductList2110() {
   const [storeProductData, setStoreProductData] = useState([]);
   const [sortedProductData, setSortedProductData] = useState([]);
   const [logInData, setLogInData] = useRecoilState(logInState);
@@ -326,7 +326,7 @@ function StoreProductList() {
         </div>
 
       </div>
-      <div className={styles.scrollContainer} style={{ overflowX: 'auto', maxHeight: '490px' }}>
+      <div className={styles.scrollContainer} style={{ overflowX: 'auto', maxHeight: '469px'}}>
 
         <table className={styles.table}>
           <thead>
@@ -374,7 +374,7 @@ function StoreProductList() {
   );
 }
 
-export default StoreProductList;
+export default StoreProductList2110;
 
 
 

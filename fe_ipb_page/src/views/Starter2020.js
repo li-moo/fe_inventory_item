@@ -8,12 +8,12 @@ import { Table, Modal } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { logInState } from '../components/state/loginState';
-import MiniBoard from '../components/pages/main-board/MiniBoard';
-import MiniBoardExp from '../components/pages/main-board/MiniBoardExp';
+import MiniBoard2020 from '../components/pages/main-board/MiniBoard2020';
+import MiniBoardExp2020 from '../components/pages/main-board/MiniBoardExp2020';
 import ApexChart from 'react-apexcharts';
-import style from "./Starter.module.css"
+import style from "./Starter2020.module.css"
 
-const Starter = () => {
+const Starter2020 = () => {
   const navigate = useNavigate();
   const [logInData, setLogInData] = useRecoilState(logInState);
   const [visible, setVisible] = useState(true);
@@ -207,7 +207,7 @@ const Starter = () => {
           <Col sm={4} className="bg-gray-300">
             <div className="mb-5">
               {/* <h6>공지사항</h6> */}
-              <MiniBoard />
+              <MiniBoard2020 />
             </div>
             <Col sm={12} className="mt-5">
               <div className="chart-header" style={{ fontWeight: 'bold' }}>
@@ -241,10 +241,10 @@ const Starter = () => {
             <Row>
               {activeChart === 'Sales 1' ? (
                 <>
-                  <MiniBoardExp />
+                  <MiniBoardExp2020 />
                 </>
               ) : (
-                <MiniBoardExp />
+                <MiniBoardExp2020 />
               )}
             </Row>
           </Col>
@@ -276,4 +276,4 @@ const Starter = () => {
   );
 };
 
-export default Starter;
+export default Starter2020;

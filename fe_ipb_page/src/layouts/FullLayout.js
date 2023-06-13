@@ -42,8 +42,8 @@ import { Outlet, useLocation } from "react-router-dom";
 // import Header from "./Header";
 import { Container } from "reactstrap";
 // import HeaderTop from "./HeaderTop";
-import Header from "../layouts/header/Header";
-import HeaderTop from "./header/HeaderTop";
+import Header2020 from "./header/Header2020";
+import HeaderTop2020 from "./header/HeaderTop2020";
 
 const FullLayout = () => {
   const location = useLocation();
@@ -66,8 +66,8 @@ const FullLayout = () => {
         }}>
           {shouldShowHeader && (
             <>
-              <HeaderTop />
-              <Header />
+              <HeaderTop2020 />
+              <Header2020 />
             </>
           )}
           {/********Middle Content**********/}

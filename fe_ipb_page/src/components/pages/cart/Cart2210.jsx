@@ -358,14 +358,14 @@
 import React, { useState, useEffect } from 'react';
 import { Popconfirm, Button, Input } from 'antd';
 import axios from 'axios';
-import styles from './Cart.module.css';
+import styles from './Cart2210.module.css';
 import { logInState } from "../../state/loginState";
 import { useRecoilState } from 'recoil';
 import { avigate, useNavigate } from 'react-router-dom';
 
 const { Search } = Input;
 
-function Cart(props) {
+function Cart2210(props) {
   const [cartData, setCartData] = useState([]);
   const [logInData, setLogInData] = useRecoilState(logInState);
   const [addOrder, setAddOrder] = useState(false);
@@ -724,7 +724,7 @@ function Cart(props) {
           style={{ position: 'static', zIndex: 1 }}
         />
       </div>
-      <div style={{ overflowX: 'auto', maxHeight: '490px' }}>
+      <div style={{ overflowX: 'auto', maxHeight: '469px'}}>
         <table className={styles.table}>
           <thead>
             <tr>
@@ -740,7 +740,7 @@ function Cart(props) {
                     // okText="아니요"
                     // cancelText="예"
                     onConfirm={() => handleAddOrder(logInData.store_id)}
-                    onCancel={() => handleAddOrder(logInData.store_id)}
+                    // onCancel={() => handleAddOrder(logInData.store_id)}
                   >
                     <Button type="primary" ghost>구매</Button>
                   </Popconfirm>
@@ -842,4 +842,4 @@ function Cart(props) {
   );
 }
 
-export default Cart;
+export default Cart2210;

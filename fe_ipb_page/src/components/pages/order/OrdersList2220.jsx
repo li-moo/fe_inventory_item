@@ -260,12 +260,12 @@ import { Row, Col } from 'react-bootstrap';
 import axios from 'axios';
 import { logInState } from '../../state/loginState';
 import { useRecoilState } from 'recoil';
-import styles from './OrdersList.module.css';
-import StoreOrdersDetail from './StoreOrdersDetail';
+import styles from './OrdersList2220.module.css';
+import StoreOrdersDetail2220 from './StoreOrdersDetail2220';
 
 const { Search } = Input;
 
-function OrdersList() {
+function OrdersList2220() {
   const [loginData, setLoginData] = useRecoilState(logInState);
   const [storeOrdersDetailData, setStoreOrdersDetailData] = useState([]);
   const [selectedId, setSelectedId] = useState(null);
@@ -333,7 +333,7 @@ function OrdersList() {
       {/* <Divider /> */}
       <Row>
         <Col sm={4} className="bg-gray-300">
-          <div style={{ overflowX: 'auto', maxHeight: '490px' }}>
+        <div style={{ overflowX: 'auto', maxHeight: '469px'}}>
             <table className={styles.table}>
               <thead>
                 <tr>
@@ -366,7 +366,7 @@ function OrdersList() {
         </Col>
         <Col sm={8} className="bg-gray-600">
           {selectedId && (
-            <StoreOrdersDetail selectedId={selectedId} ordersStatus={ordersStatus} />
+            <StoreOrdersDetail2220 selectedId={selectedId} ordersStatus={ordersStatus} />
           )}
         </Col>
       </Row>
@@ -374,4 +374,4 @@ function OrdersList() {
   );
 }
 
-export default OrdersList;
+export default OrdersList2220;

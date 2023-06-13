@@ -406,7 +406,7 @@ export default StoreExpsave;
 //           />
 //         </div>
 //       </div>
-//       <div style={{ overflowX: 'auto', maxHeight: '490px' }}>
+//        <div style={{ overflowX: 'auto', maxHeight: '469px' }}>
 //         <table className={styles.table}>
 //           <thead>
 //             <tr>

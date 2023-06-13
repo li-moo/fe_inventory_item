@@ -5,12 +5,12 @@ import { HiOutlineBell } from 'react-icons/hi';
 import { logInState } from '../state/loginState';
 import { useRecoilState } from 'recoil';
 import { alarmState } from '../state/alarmState';
-import styles from './DropDown.module.css'
+import styles from './DropDown2020.module.css'
 import { Navigate, useNavigate } from 'react-router-dom';
 import { FiAlertCircle } from "react-icons/fi";
 import { Modal } from 'antd';
 
-function DropDown({ direction, ...args }) {
+function DropDown2020({ direction, ...args }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [loginData, setLoginData] = useRecoilState(logInState);
   const [messages, setMessages] = useState([]);
@@ -182,7 +182,7 @@ function DropDown({ direction, ...args }) {
   const handleConfirmationOk = () => {
     setIsConfirmationVisible(false);
     navigate('/order');
-    setReadMessageLOW(true);
+    // setReadMessageLOW(true);
     for (let i = 0; i < cartListLowProductData.length; i++) {
       console.log("handleConfirmationOk>>안",cartListLowProductData[i].product_name);
     }
@@ -256,6 +256,7 @@ function DropDown({ direction, ...args }) {
                         onClick={() => {
                           handleNavigateLOW();
                           setDropdownOpen(!dropdownOpen);
+                          setReadMessageLOW(true);
                         }}
                       >
                         {readMessageLOW ? (
@@ -301,11 +302,11 @@ function DropDown({ direction, ...args }) {
   );
 }
 
-DropDown.propTypes = {
+DropDown2020.propTypes = {
   direction: PropTypes.string,
 };
 
-export default DropDown;
+export default DropDown2020;
 
 
 // import React, { useState } from "react";
