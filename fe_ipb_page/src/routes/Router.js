@@ -119,9 +119,9 @@ const FullLayout = lazy(() => import("../layouts/FullLayout.js"));
 
 /***** Pages ****/
 
-const Starter = lazy(() => import("../views/Starter.js"));
+const Starter2020 = lazy(() => import("../views/Starter2020.js"));
 const About = lazy(() => import("../views/About.js"));
-const Login = lazy(() => import("../components/pages/login/Login.js"));
+const Login0010 = lazy(() => import("../components/pages/login/Login0010.js"));
 const Staff = lazy(() => import("../components/pages/staff/Staff.js"))
 const StaffAdd = lazy(() => import("../components/pages/staff/StaffAdd.jsx"))
 const StaffUpdate = lazy(() => import("../components/pages/staff/StaffUpdate.jsx"))
@@ -177,8 +177,8 @@ const ThemeRoutes = [
     element: <FullLayout />,
     children: [
       { path: "/", element: <Navigate to="/starter" /> },
-      { path: "/starter", exact: true, element: <Starter /> },
-      { path: "/login", exact: true, element: <Login /> },
+      { path: "/starter", exact: true, element: <Starter2020 /> },
+      { path: "/login", exact: true, element: <Login0010 /> },
       { path: "/staff", exact: true, element: <Staff /> },
       { path: "/staff/add", exact: true, element: <StaffAdd /> },
       { path: "/staff/update/:id", exact: true, element: <StaffUpdate /> },

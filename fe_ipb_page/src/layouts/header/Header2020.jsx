@@ -259,9 +259,9 @@ import {
 } from "reactstrap";
 import { Link } from "react-router-dom";
 // import { Icon } from "react-bootstrap-icons";
-import styles from "./Header.module.css";
+import styles from "./Header2020.module.css";
 
-const Header = () => {
+const Header2020 = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   const [isHovered, setIsHovered] = React.useState(false);
   const [isOrderClicked, setIsOrderClicked] = useState(false);
@@ -460,4 +460,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Header2020;

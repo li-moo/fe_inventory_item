@@ -21,7 +21,7 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { message, Modal } from "antd";
-import style from "./HeaderTop.module.css"
+import style from "./HeaderTop2020.module.css"
 import {
   RiLogoutBoxRLine,
   RiSunFill,
@@ -47,7 +47,7 @@ import DropDown from '../../components/sse/DropDown';
 //   );
 // }
 
-const HeaderTop = () => {
+const HeaderTop2020 = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   const [dropdownOpen, setDropdownOpen] = React.useState(false);
 
@@ -272,4 +272,4 @@ const HeaderTop = () => {
 };
 
 
-export default HeaderTop;
+export default HeaderTop2020;

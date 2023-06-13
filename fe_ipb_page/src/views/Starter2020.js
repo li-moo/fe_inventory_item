@@ -11,9 +11,9 @@ import { logInState } from '../components/state/loginState';
 import MiniBoard from '../components/pages/main-board/MiniBoard';
 import MiniBoardExp from '../components/pages/main-board/MiniBoardExp';
 import ApexChart from 'react-apexcharts';
-import style from "./Starter.module.css"
+import style from "./Starter2020.module.css"
 
-const Starter = () => {
+const Starter2020 = () => {
   const navigate = useNavigate();
   const [logInData, setLogInData] = useRecoilState(logInState);
   const [visible, setVisible] = useState(true);
@@ -276,4 +276,4 @@ const Starter = () => {
   );
 };
 
-export default Starter;
+export default Starter2020;

@@ -1,4 +1,4 @@
- import React, { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import axios from 'axios';
 import { Button, Form, Input, message, Alert} from "antd";
 import { logInState } from '../../state/loginState';
@@ -7,7 +7,7 @@ import { useRecoilState } from 'recoil';
 // import { Alert } from "reactstrap";
 import { Navigate, useNavigate } from 'react-router-dom';
 
-export default function Login() {
+export default function Login0010() {
 
   // 로그인데이터를 logInState라는 변수명으로 받아온 데이터를 저장 
   const [logInData, setLogInData] = useRecoilState(logInState);
@@ -163,4 +163,4 @@ export default function Login() {
   );
 }
 
-// export default Login;
+// export default Login0010;
