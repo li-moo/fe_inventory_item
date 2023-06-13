@@ -28,11 +28,20 @@
   border-right: 1px solid #e4e4e4;
   font-size: 13px;
   padding: 0px 3px;
+  width: 140px;
 }
 
 .table th:nth-child(2),
 .table td:nth-child(2) {
   padding-left: 10px;
+  width: 280px;
+}
+.table th:nth-child(3),
+.table td:nth-child(3) {
+  text-align: center;
+  font-size: 13px;
+  width: 50px;
+  padding-right: 15px;
 }
 
 .table th:last-child {
