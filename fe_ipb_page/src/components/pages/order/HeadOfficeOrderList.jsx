@@ -132,8 +132,8 @@ import { Row, Col } from 'react-bootstrap';
 import axios from 'axios';
 import { logInState } from '../../state/loginState';
 import { useRecoilState } from 'recoil';
-import styles from './OrdersList.module.css';
-import StoreOrdersDetail from './StoreOrdersDetail';
+import styles from './OrdersList2220.module.css';
+import StoreOrdersDetail from './StoreOrdersDetail2220';
 
 function HeadOfficeOrdersList() {
 

@@ -206,12 +206,12 @@
 // export default StoreOrdersDetail;
 import React, { useEffect, useState } from 'react';
   import axios from 'axios';
-  import styles from './StoreOrdersDetail.module.css';
+  import styles from './StoreOrdersDetail2220.module.css';
   import { logInState } from '../../state/loginState';
   import { useRecoilState } from 'recoil';
   import { Popconfirm, Button, Menu } from 'antd';
 
-  function StoreOrdersDetail(props) {
+  function StoreOrdersDetail2220(props) {
     const [storeOrdersDetailListData, setStoreOrdersDetailListData] = useState([]);
     const [loginData, setLoginData] = useRecoilState(logInState);
     const [groupedOrders, setGroupedOrders] = useState({});
@@ -409,4 +409,4 @@ import React, { useEffect, useState } from 'react';
     );
   }
 
-  export default StoreOrdersDetail;
+  export default StoreOrdersDetail2220;

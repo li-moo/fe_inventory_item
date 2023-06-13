@@ -70,7 +70,7 @@ import { Table, Input, Pagination } from 'antd';
 
 const { Search } = Input;
 
-const MiniBoard = () => {
+const MiniBoard2020 = () => {
   const [boardData, setBoardData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -140,5 +140,5 @@ const MiniBoard = () => {
   );
 };
 
-export default MiniBoard;
+export default MiniBoard2020;
 

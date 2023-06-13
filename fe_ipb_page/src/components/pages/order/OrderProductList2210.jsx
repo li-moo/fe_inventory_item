@@ -336,12 +336,12 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { logInState } from "../../state/loginState";
 import { useRecoilState } from 'recoil';
-import styles from './OrderProductList.module.css';
+import styles from './OrderProductList2210.module.css';
 import { SearchOutlined } from '@ant-design/icons';
 
 const { Search } = Input;
 
-function OrderProductList(props) {
+function OrderProductList2210(props) {
   const [productData, setProductData] = useState([]);
   const [logInData, setLogInData] = useRecoilState(logInState);
   const [storeProductData, setStoreProductData] = useState([]);
@@ -659,4 +659,4 @@ function OrderProductList(props) {
   );
 }
 
-export default OrderProductList;
+export default OrderProductList2210;
