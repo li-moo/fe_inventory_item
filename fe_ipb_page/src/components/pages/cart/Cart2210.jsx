@@ -362,6 +362,9 @@ import styles from './Cart2210.module.css';
 import { logInState } from "../../state/loginState";
 import { useRecoilState } from 'recoil';
 import { avigate, useNavigate } from 'react-router-dom';
+import { TbTruckDelivery } from "react-icons/tb";
+import { RiDeleteBinLine } from "react-icons/ri";
+
 
 const { Search } = Input;
 
@@ -742,7 +745,9 @@ function Cart2210(props) {
                     onConfirm={() => handleAddOrder(logInData.store_id)}
                     // onCancel={() => handleAddOrder(logInData.store_id)}
                   >
-                    <Button type="primary" ghost>구매</Button>
+                    <Button type="primary" ghost>
+                      < TbTruckDelivery size={{ width: '10px'}}/>
+                      </Button>
                   </Popconfirm>
                   // <p>true</p>
                 ) : (
@@ -758,7 +763,9 @@ function Cart2210(props) {
                     onConfirm={() => handleMaxOrder()}
                     onCancel={() => handleAddOrder(logInData.store_id)}
                   >
-                    <Button type="primary" danger ghost>구매</Button>
+                    <Button type="primary" danger ghost>
+                    < TbTruckDelivery size={{ width: '10px'}}/>
+                      </Button>
                   </Popconfirm>
                   // <p>false</p>
                 )}
@@ -826,8 +833,9 @@ function Cart2210(props) {
                   >
                     <Button classNames={styles.conBtn}
                       style={{ position: 'static', zIndex: 1 }}
+                      danger
                     >
-                      <a>삭제</a>
+                      <RiDeleteBinLine  size={{ width: '0.1px'}}/>
                     </Button>
                   </Popconfirm>
                 </td>
