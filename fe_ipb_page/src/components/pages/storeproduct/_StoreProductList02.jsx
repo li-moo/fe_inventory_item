@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import { logInState } from '../../state/loginState';
 
-function StoreProductList02() {
+function _StoreProductList02() {
 
   const [storeProductData, setStoreProductData] = useState([]);
   const [logInData, setLogInData] = useRecoilState(logInState);
@@ -105,4 +105,4 @@ function StoreProductList02() {
   );
 }
 
-export default StoreProductList02;
+export default _StoreProductList02;

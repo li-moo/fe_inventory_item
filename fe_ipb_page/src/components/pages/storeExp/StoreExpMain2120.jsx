@@ -2,15 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import { logInState } from '../../state/loginState';
-import styles from './StoreExp.module.css';
+import styles from './StoreExp2120.module.css';
 import axios from 'axios';
 import { Divider, Input, Modal, Popconfirm, Button } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
-import StoreExp from './StoreExp';
-import StoreExpZero from './StoreExpZero';
-import StoreExpThree from './StoreExpThree';
-import StoreExpFive from './StoreExpFive';
-import StoreExpSeven from './StoreExpSeven';
+import StoreExp from './StoreExp2120';
+import StoreExpZero2120 from './StoreExpZero2120';
+import StoreExpThree2120 from './StoreExpThree2120';
+import StoreExpFive2120 from './StoreExpFive2120';
+import StoreExpSeven2120 from './StoreExpSeven2120';
 
 const { Search } = Input;
 
@@ -204,21 +204,21 @@ function StoreExpMain() {
         />
       }
       {activeTab === 'zero' &&
-        <StoreExpZero
+        <StoreExpZero2120
           isClick={isClick}
           setIsClick={setIsClick}
         />
       }
       {activeTab === 'three' &&
-        <StoreExpThree
+        <StoreExpThree2120
         />
       }
       {activeTab === 'five' &&
-        <StoreExpFive
+        <StoreExpFive2120
         />
       }
       {activeTab === 'seven' &&
-        <StoreExpSeven
+        <StoreExpSeven2120
         />
       }
 

@@ -120,15 +120,15 @@ const StaffAdd = lazy(() => import("../components/pages/staff/StaffAdd.jsx"));
 const StaffUpdate = lazy(() => import("../components/pages/staff/StaffUpdate.jsx"));
 const Weather = lazy(() => import("../components/pages/weather/Weather.jsx"));
 const HeadOfficeOrderList = lazy(() => import("../components/pages/order/HeadOfficeOrderList.jsx"));
-const StoreProductDetail = lazy(() => import("../components/pages/storeproduct/StoreProductDetail.jsx"));
+const StoreProductDetail2112 = lazy(() => import("../components/pages/storeproduct/StoreProductDetail2112.jsx"));
 const Event = lazy(() => import("../components/pages/event/Event.jsx"));
 const EventAdd = lazy(() => import("../components/pages/event/EventAdd.jsx"))
 const EventList = lazy(() => import("../components/pages/event/EventList.jsx"));
 const EventDetail = lazy(() => import("../components/pages/event/EventDetail.jsx"))
 const Orders = lazy(() => import("../components/pages/order/Orders.jsx"));
 const OrdersList = lazy(() => import("../components/pages/order/OrdersList.jsx"));
-const StoreProductList01 = lazy(() => import("../components/pages/storeproduct/StoreProductList.jsx"));
-const StoreExp = lazy(() => import("../components/pages/storeproduct/StoreExp.jsx"));
+const StoreProductList2110 = lazy(() => import("../components/pages/storeproduct/StoreProductList2110.jsx"));
+const _StoreExp = lazy(() => import("../components/pages/storeproduct/_StoreExp.jsx"));
 const Store = lazy(() => import("../components/pages/store/Store.jsx"));
 const StoreAdd = lazy(() => import("../components/pages/store/StoreAdd.jsx"));
 const StoreDetail = lazy(() => import("../components/pages/store/StoreDetail.jsx"));
@@ -168,12 +168,12 @@ const ThemeRoutes = [
       { path: "/staff/update/:id", exact: true, element: <StaffUpdate /> },
       { path: "/weather", exact: true, element: <Weather /> },
       { path: "/headofficeorderlist", exact: true, element: <HeadOfficeOrderList /> },
-      { path: "/storeproduct/detail/:id", exact: true, element: <StoreProductDetail /> },
+      { path: "/storeproduct/detail/:id", exact: true, element: <StoreProductDetail2112 /> },
       { path: "/event", exact: true, element: <Event /> },
       { path: "/order", exact: true, element: <Orders /> },
       { path: "/orderslist", exact: true, element: <OrdersList /> },
-      { path: "/storeproductlist", exact: true, element: <StoreProductList01 /> },
-      { path: "/storeexp", exact: true, element: <StoreExp /> },
+      { path: "/storeproductlist", exact: true, element: <StoreProductList2110 /> },
+      { path: "/storeexp", exact: true, element: <_StoreExp /> },
       { path: "/store", exact: true, element: <Store /> },
       { path: "/store/add", exact: true, element: <StoreAdd /> },
       { path: "/storedetail/:id", exact: true, element: <StoreDetail /> },

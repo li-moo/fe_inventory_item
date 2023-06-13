@@ -133,18 +133,18 @@ const ProductInfoList = lazy(() => import("../components/pages/product/ProductIn
 const ProductInfoDetail = lazy(() => import("../components/pages/product/ProductInfoDetail.jsx"))
 // const ProductDetail = lazy(() => import("../components/pages/product/ProductDetaile.jsx"))
 const ProductDetail = lazy(() => import("../components/pages/product/ProductDetail.jsx"))
-const StoreProductDetail = lazy(() => import("../components/pages/storeproduct/StoreProductDetail.jsx"))
+const StoreProductDetail2112 = lazy(() => import("../components/pages/storeproduct/StoreProductDetail2112.jsx"))
 const Event = lazy(() => import("../components/pages/event/Event.jsx"))
 const Orders = lazy(() => import("../components/pages/order/Orders.jsx"))
 const OrdersList = lazy(() => import("../components/pages/order/OrdersList.jsx"))
 const StoreAutoOrdersList = lazy(() => import("../components/pages/order/StoreAutoOrdersList.jsx"))
-const StoreProductList01 = lazy(() => import("../components/pages/storeproduct/StoreProductList.jsx"))
+const StoreProductList2110 = lazy(() => import("../components/pages/storeproduct/StoreProductList2110.jsx"))
 // const StoreExp = lazy(() => import("../components/pages/storeproduct/StoreExp.jsx"))
-const StoreExpMain = lazy(() => import("../components/pages/storeExp/StoreExpMain.jsx"))
-const StoreExpZero = lazy(() => import("../components/pages/storeExp/StoreExpZero.jsx"))
-const StoreExpThree = lazy(() => import("../components/pages/storeExp/StoreExpThree.jsx"))
-const StoreExpFive = lazy(() => import("../components/pages/storeExp/StoreExpFive.jsx"))
-const StoreExpSeven = lazy(() => import("../components/pages/storeExp/StoreExpSeven.jsx"))
+const StoreExpMain2120 = lazy(() => import("../components/pages/storeExp/StoreExpMain2120.jsx"))
+const StoreExpZero = lazy(() => import("../components/pages/storeExp/StoreExpZero2120.jsx"))
+const StoreExpThree = lazy(() => import("../components/pages/storeExp/StoreExpThree2120.jsx"))
+const StoreExpFive = lazy(() => import("../components/pages/storeExp/StoreExpFive2120.jsx"))
+const StoreExpSeven = lazy(() => import("../components/pages/storeExp/StoreExpSeven2120.jsx"))
 const HeadOfficeOrderList = lazy(() => import("../components/pages/order/HeadOfficeOrderList.jsx"))
 const Store = lazy(() => import("../components/pages/store/Store.jsx"))
 const StoreAdd = lazy(() => import("../components/pages/store/StoreAdd.jsx"))
@@ -189,14 +189,14 @@ const ThemeRoutes = [
       { path: "/productinfo/detail/:id", exact: true, element: <ProductInfoDetail /> },
       { path: "/product/add", exact: true, element: <ProductAdd /> },
       { path: "/product/detail/:id", exact: true, element: <ProductDetail /> },
-      { path: "/storeproduct/detail/:id", exact: true, element: <StoreProductDetail /> },
+      { path: "/storeproduct/detail/:id", exact: true, element: <StoreProductDetail2112 /> },
       { path: "/event", exact: true, element: <Event /> },
       { path: "/order", exact: true, element: <Orders /> },
       { path: "/orderslist", exact: true, element: <OrdersList /> },
       { path: "/storeautoorders", exact: true, element: <StoreAutoOrdersList /> },
-      { path: "/storeproductlist", exact: true, element: <StoreProductList01 /> },
+      { path: "/storeproductlist", exact: true, element: <StoreProductList2110 /> },
       // { path: "/storeexp", exact: true, element: <StoreExp /> },
-      { path: "/storeexp", exact: true, element: <StoreExpMain /> },
+      { path: "/storeexp", exact: true, element: <StoreExpMain2120 /> },
       { path: "/storeexp/0", exact: true, element: <StoreExpZero/> },
       { path: "/storeexp/3", exact: true, element: <StoreExpThree /> },
       { path: "/storeexp/5", exact: true, element: <StoreExpFive /> },

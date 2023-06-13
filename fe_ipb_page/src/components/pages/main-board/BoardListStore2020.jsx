@@ -6,7 +6,7 @@ import { logInState } from "../../state/loginState";
 
 const { Search } = Input;
 
-function BoardListStore() {
+function BoardListStore2020() {
   const [boardData, setBoardData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [logInData, setLogInData] = useRecoilState(logInState);
@@ -77,4 +77,4 @@ function BoardListStore() {
   );
 }
 
-export default BoardListStore;
+export default BoardListStore2020;

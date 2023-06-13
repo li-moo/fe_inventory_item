@@ -107,11 +107,11 @@ import { logInState } from '../../state/loginState';
 import axios from 'axios';
 import { Input, Table } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
-import './MiniBoardExp.css';
+import './MiniBoardExp2020.css';
 
 const { Search } = Input;
 
-function MiniBoardExp() {
+function MiniBoardExp2020() {
   const [storeProductData, setStoreProductData] = useState([]);
   const [logInData, setLogInData] = useRecoilState(logInState);
   const [searchTerm, setSearchTerm] = useState('');
@@ -217,7 +217,7 @@ function MiniBoardExp() {
   );
 }
 
-export default MiniBoardExp;
+export default MiniBoardExp2020;
 
 
 

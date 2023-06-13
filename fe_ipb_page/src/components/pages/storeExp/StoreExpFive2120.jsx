@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import { logInState } from '../../state/loginState';
-import styles from './StoreExp.module.css';
+import styles from './StoreExp2120.module.css';
 import axios from 'axios';
 import { Divider, Input, Modal, Popconfirm, Button, Tabs } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
@@ -11,7 +11,7 @@ const { TabPane } = Tabs;
 
 const { Search } = Input;
 
-function StoreExp() {
+function StoreExpFive2120() {
   const [storeProductData, setStoreProductData] = useState([]);
   const [logInData, setLogInData] = useRecoilState(logInState);
   const [searchTerm, setSearchTerm] = useState('');
@@ -333,4 +333,4 @@ function StoreExp() {
     </>
   );
 }
-export default StoreExp;
+export default StoreExpFive2120;
