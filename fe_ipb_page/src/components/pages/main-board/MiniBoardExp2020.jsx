@@ -169,8 +169,8 @@ function MiniBoardExp2020() {
       title: '상품 이름',
       dataIndex: 'product_name',
       render: (text, record) => (
-        <Link to={`/product/detail/${record.id}`} className="link">
-          ({record.brand}) {text}
+        <Link to={`/storeproduct/detail/${record.id}`} className="link">
+          [{record.brand}] {text}
         </Link>
       )
     },
