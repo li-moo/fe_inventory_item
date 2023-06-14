@@ -766,6 +766,7 @@ function StoreExp() {
     const url_be_disposeBtn = `${process.env.REACT_APP_BE_API}/storeproduct/qntzero`;
 
     console.log("폐기버튼안>id:", id);
+    console.log("폐기버튼안>id:", qnt);
 
     axios(url_be_disposeBtn,
       {
