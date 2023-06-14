@@ -868,6 +868,7 @@ function StoreExp() {
               <th>상품 이름</th>
               <th>보관방법</th>
               <th>재고</th>
+              <th>원가</th>
               <th>판매가</th>
               <th>유통기한{' '}(잔여일)</th>
               {/* <th>잔여 일</th> */}
@@ -889,6 +890,7 @@ function StoreExp() {
                     </td>
                     <td></td>
                     <td>{addComma(item.qnt)}</td>
+                    <td>{addComma(item.cost)}</td>
                     <td>{addComma(item.price)}</td>
                     <td>
                       <div className={styles.expTd}>
@@ -934,6 +936,7 @@ function StoreExp() {
                     </td>
                     <td>{item.storage}</td>
                     <td>{addComma(item.qnt)}</td>
+                    <td>{addComma(item.cost)}</td>
                     <td>{addComma(item.price)}</td>
                     <td>
                       <div className={styles.expTd}>
