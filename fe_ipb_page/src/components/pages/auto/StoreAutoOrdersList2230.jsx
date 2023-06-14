@@ -24,7 +24,7 @@ function StoreAutoOrdersList2230() {
     axios
       .get(url_be)
       .then((res) => {
-        console.log("res:", res);
+        console.log("res>>:", res.data);
         setStoreAutoOrdersData(res.data);
       })
       .catch((err) => console.log("storeProdutList/err", err));
@@ -136,7 +136,7 @@ function StoreAutoOrdersList2230() {
 
             <tr key={item.id}>
               <td>{item.product_code}</td>
-              <td>{item.product_name}</td>
+              <td>[{item.brand}]{item.product_name}</td>
               <td>{addComma(item.product_cost)}</td>
               <td>{addComma(item.product_price)}</td>
               <td className="fifth">
