@@ -638,7 +638,7 @@ function OrderProductList2210(props) {
                     <Button
                     style={{position: 'static', zIndex: 1 }}
                     >
-                      <BsCart4 />
+                      <BsCart4 size={{ width: '4px'}} />
                     </Button>
                   </Popconfirm>
                 </td>
