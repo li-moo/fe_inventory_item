@@ -109,14 +109,16 @@
 }
 .table th:nth-child(7){
   text-align: center;
-  width: 135px;
+  width: 260px;
+  /* padding-left: 50px; */
   /* background-color: tomato; */
-  margin-right: 5%;
+  /* margin-right: 5%; */
 }
 
 .table td:nth-child(7) {
   text-align: right;
   width: 260px;
+  
   /* background-color: aliceblue; */
   /* margin-right: 5%; */
 }
