@@ -58,15 +58,15 @@ function Orders2210() {
           <div className={styles.line}>
             <div className={styles.infoFlex}>
               <div style={{width: '30px'}}><CiShoppingCart size={{ width: '4px'}} /></div>
-              <div>: 발주 예정 목록에 담기</div>
+              <div>: 발주예정 목록에 담기</div>
             </div>
             <div className={styles.infoFlex}>
               <div style={{width: '30px'}}><CiDeliveryTruck size={{ width: '4px'}} /></div>
-              <div>: 발주하기</div>
+              <div>: 발주예정 목록에 담긴 상품 발주하기</div>
             </div>
             <div className={styles.infoFlex}>
               <div style={{width: '30px'}}><CiTrash size={{ width: '4px'}} /></div>
-              <div>: 발주 예정 목록에서 삭제하기</div>
+              <div>: 발주예정 목록에서 삭제하기</div>
             </div>
           </div>
             <div>

@@ -243,7 +243,7 @@ function StoreProductDetail2112() {
                 <li>
                   <div className={styles.left}>
                     {/* <img src={product.imgname} alt={product.detail} /> */}
-                    <img src={product.imgname} alt={product.detail} />
+                    <img className={styles.storeProImg} src={product.imgname} alt={product.detail} />
                     {/* <p>SKU - QR code</p> */}
                     {!product._auto && (
                       <Button onClick={info}>
@@ -273,10 +273,18 @@ function StoreProductDetail2112() {
                         <p>{product.product_code}</p>
                         <p>{product.brand}</p>
                         <p>{product.storage}</p>
-                        <p>{product.cost}</p>
-                        <p>{product.store_price}</p>
+                        {/* <p>{product.cost}</p> */}
+                        {/* <p>{product.store_price}</p> */}
+                        {product.cost && (
+                          <p>{product.cost.toLocaleString()}</p>
+                        )}
+                        {product.store_price && (
+                          <p>{product.store_price.toLocaleString()}</p>
+                        )}
                         <p>{product.exp}</p>
-                        <p>{product.qnt}</p>
+                        {product.qnt && (
+                          <p>{product.qnt.toLocaleString()}</p>
+                        )}
                         {product.safe_qnt !== null && (
                           <p>{product.safe_qnt}</p>
                         )}

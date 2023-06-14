@@ -217,8 +217,9 @@ const HeaderTop = () => {
       </div>
 
       <div className="hstack gap-2">
+        <div>안녕</div>
         <Button
-          color="white"
+          // color="white"
           size="sm"
           className="d-sm-block d-md-none"
           onClick={Handletoggle}
@@ -227,7 +228,8 @@ const HeaderTop = () => {
           {isOpen ? (
             <i className="bi bi-x"></i>
           ) : (
-            <i className="bi bi-three-dots-vertical"></i>
+            // <i className="bi bi-three-dots-vertical"></i>
+            <i className="bi bi-arrow-down-circle"></i>
           )}
         </Button>
       </div>

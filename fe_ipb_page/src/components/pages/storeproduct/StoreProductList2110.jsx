@@ -363,7 +363,8 @@ function StoreProductList2110() {
                   </Link>
                 </td>
                 <td>{item.storage}</td>
-                <td>{addComma(item.qnt)}</td>
+                {/* <td>{addComma(item.qnt)}</td> */}
+                <td>{addComma(item.sp_qnt)}</td>
                 <td>{addComma(item.cost)}</td>
                 <td>{addComma(item.price)}</td>
                 <td>{item.exp}</td>

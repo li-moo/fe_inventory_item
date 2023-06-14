@@ -37,13 +37,13 @@ function StoreExpMain() {
         <div>
           <div>오늘 날짜는 {todayDate} 입니다. </div>
           <div >매일매일 확인해서 제품들을 관리 해주세요. </div>
-          <div className={styles.infoFlex}>
-          <div style={{width: '30px'}}><CiTrash size={{ width: '4px'}}/> </div>
-          <div>: 버튼을 누르면 폐기됩니다.</div>
-          </div>
           <div className={styles.policyStatement}>
           <div className={styles.line}>
-            컬러인덱스 기준
+            설명
+          </div>
+          <div className={styles.infoFlex}>
+            <p style={{width: '30px'}}><CiTrash size={{ width: '4px'}}/> </p>
+          <div>: 버튼을 누르면 폐기됩니다.</div>
           </div>
             <div>
             <p>전체: 유통기한이 31일 이하인 상품입니다. </p>
