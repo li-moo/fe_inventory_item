@@ -204,7 +204,10 @@
 // }
 
 // export default StoreOrdersDetail;
-import React, { useEffect, useState } from 'react';
+
+
+
+  import React, { useEffect, useState } from 'react';
   import axios from 'axios';
   import styles from './StoreOrdersDetail2220.module.css';
   import { logInState } from '../../state/loginState';
@@ -319,8 +322,8 @@ import React, { useEffect, useState } from 'react';
     };
 
     return (
-      <div>
-        <div style={{ overflowX: 'auto', maxHeight: '469px'}}>
+      <div className={styles.container}>
+        <div style={{ width: '100%', margin: '0px', padding: '0px'}}>
           <div className={styles.tabContainer}>
             <Menu mode="horizontal" selectedKeys={[showAllData ? 'all' : selectedGroupId.toString()]}>
               <Menu.Item key="all" onClick={handleShowAllData}>
@@ -337,73 +340,75 @@ import React, { useEffect, useState } from 'react';
               </Menu.Item>
             </Menu>
           </div>
-          <table className={styles.table}>
-            <thead>
-              <tr>
-                <th>SKU</th>
-                <th>상품이름</th>
-                <th>발주수량</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              {(showAllData
-                ? Object.values(groupedOrders).flat()
-                : groupedOrders[selectedGroupId] || [])?.map((item) => (
-                <tr key={item.id}>
-                  <td>{item.product_code}</td>
-                  <td>[{item.product_info_brand}]{item.product_name}</td>
-                  <td>
-                    {item.orders_status === "배송준비중" ? (
-                      <input
-                      type="number"
-                      value={item.qnt}
-                      style={{ width: '60px' }}
-                      className={styles.roundedInput}
-                      onChange={(e) => {
-                        const newQuantity = parseInt(e.target.value) || item.qnt - 1;
-                        if (!isNaN(newQuantity) && newQuantity >= 0) {
-                          const updatedOrders = Object.keys(groupedOrders).reduce((result, key) => {
-                            const updatedGroup = groupedOrders[key].map((order) => {
-                              if (order.id === item.id) {
-                                return { ...order, qnt: newQuantity };
-                              }
-                              return order;
-                            });
-                            result[key] = updatedGroup;
-                            return result;
-                          }, {});
-                    
-                          setGroupedOrders(updatedOrders);
-                        }
-                        const tarId = item.id;
-                        const tarQnt = newQuantity;
-                        const status = item.orders_status;
-                        updateQnt(tarId, tarQnt, status);
-                      }}
-                    />
-                    ) : (
-                      item.qnt
-                    )}
-                  </td>
-                  {item.orders_status === "배송준비중" ? (
-                    <td>
-                      <Popconfirm
-                        title="발주내역을 삭제 하시겠습니까?"
-                        onConfirm={() => deleteOrder(item.id)}
-                        okText="네"
-                        cancelText="아니오"
-                      >
-                        <Button style={{ position: 'static', zIndex: 1 }}>삭제</Button>
-                      </Popconfirm>
-                    </td>
-                  ) : (
-                    ''
-                  )}
+          <div style={{ overflowX: 'auto', maxHeight: '469px', margin: '0px', padding: '0px'}}>
+            <table className={styles.table}>
+              <thead>
+                <tr>
+                  <th>SKU</th>
+                  <th>상품이름</th>
+                  <th>발주수량</th>
+                  <th></th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {(showAllData
+                  ? Object.values(groupedOrders).flat()
+                  : groupedOrders[selectedGroupId] || [])?.map((item) => (
+                  <tr key={item.id}>
+                    <td>{item.product_code}</td>
+                    <td>[{item.product_info_brand}]{item.product_name}</td>
+                    <td>
+                      {item.orders_status === "배송준비중" ? (
+                        <input
+                        type="number"
+                        value={item.qnt}
+                        style={{ width: '60px' }}
+                        className={styles.roundedInput}
+                        onChange={(e) => {
+                          const newQuantity = parseInt(e.target.value) || item.qnt - 1;
+                          if (!isNaN(newQuantity) && newQuantity >= 0) {
+                            const updatedOrders = Object.keys(groupedOrders).reduce((result, key) => {
+                              const updatedGroup = groupedOrders[key].map((order) => {
+                                if (order.id === item.id) {
+                                  return { ...order, qnt: newQuantity };
+                                }
+                                return order;
+                              });
+                              result[key] = updatedGroup;
+                              return result;
+                            }, {});
+                      
+                            setGroupedOrders(updatedOrders);
+                          }
+                          const tarId = item.id;
+                          const tarQnt = newQuantity;
+                          const status = item.orders_status;
+                          updateQnt(tarId, tarQnt, status);
+                        }}
+                      />
+                      ) : (
+                        item.qnt
+                      )}
+                    </td>
+                    {item.orders_status === "배송준비중" ? (
+                      <td>
+                        <Popconfirm
+                          title="발주내역을 삭제 하시겠습니까?"
+                          onConfirm={() => deleteOrder(item.id)}
+                          okText="네"
+                          cancelText="아니오"
+                        >
+                          <Button style={{ position: 'static', zIndex: 1 }}>삭제</Button>
+                        </Popconfirm>
+                      </td>
+                    ) : (
+                      ''
+                    )}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     );

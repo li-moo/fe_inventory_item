@@ -1,0 +1,13 @@
+.table{
+  
+}
+
+.table td:nth-child(2) {
+  text-align: left;
+}
+
+.table td:nth-child(2) a{
+  text-align: left;
+  text-decoration: none;
+  color: black;
+}
