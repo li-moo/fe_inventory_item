@@ -4,13 +4,14 @@ import { useRecoilState } from 'recoil';
 import { logInState } from '../../state/loginState';
 import styles from './StoreExp2120.module.css';
 import axios from 'axios';
-import { Divider, Input, Modal, Popconfirm, Button } from 'antd';
+import { Input, Modal } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import StoreExp from './StoreExp2120';
 import StoreExpZero2120 from './StoreExpZero2120';
 import StoreExpThree2120 from './StoreExpThree2120';
 import StoreExpFive2120 from './StoreExpFive2120';
 import StoreExpSeven2120 from './StoreExpSeven2120';
+import { CiTrash } from "react-icons/ci";
 
 const { Search } = Input;
 
@@ -35,10 +36,14 @@ function StoreExpMain() {
       content: (
         <div>
           <div>오늘 날짜는 {todayDate} 입니다. </div>
-          <div>매일매일 확인해서 제품들을 관리 해주세요 </div>
+          <div >매일매일 확인해서 제품들을 관리 해주세요. </div>
           <div className={styles.policyStatement}>
           <div className={styles.line}>
-            기준
+            설명
+          </div>
+          <div className={styles.infoFlex}>
+            <p style={{width: '30px'}}><CiTrash size={{ width: '4px'}}/> </p>
+          <div>: 버튼을 누르면 폐기됩니다.</div>
           </div>
             <div>
             <p>전체: 유통기한이 31일 이하인 상품입니다. </p>
@@ -127,11 +132,7 @@ function StoreExpMain() {
           </button>
         </div>
         <div className={styles.tabContainer}>
-
-          <div>
-
-          </div>
-
+          <div className={styles.whiteExpDi}>
           <button
             type={activeTab === 'all' ? 'primary' : 'default'}
             onClick={() => handleTabChange('all')}
@@ -143,6 +144,9 @@ function StoreExpMain() {
               <div>전체</div>
             </div>
           </button>
+          </div>
+
+          <div className={styles.redExpDi}>
           <button
             type={activeTab === 'zero' ? 'primary' : 'default'}
             onClick={() => handleTabChange('zero')}
@@ -154,6 +158,9 @@ function StoreExpMain() {
               <div>D-0</div>
             </div>
           </button>
+          </div>
+
+          <div className={styles.yellowExpDi}>
           <button
             type={activeTab === 'three' ? 'primary' : 'default'}
             onClick={() => handleTabChange('three')}
@@ -169,7 +176,10 @@ function StoreExpMain() {
               <div>D-3</div>
             </div>
           </button>
-          <button
+          </div>
+
+            <div className={styles.greenExpDi}>
+            <button
             type={activeTab === 'five' ? 'primary' : 'default'}
             onClick={() => handleTabChange('five')}
             style={{ border: 'none' }}
@@ -180,6 +190,10 @@ function StoreExpMain() {
               <div>D-5</div>
             </div>
           </button>
+            </div>
+
+
+          <div className={styles.blueExpDi}>
           <button
             type={activeTab === 'seven' ? 'primary' : 'default'}
             onClick={() => handleTabChange('seven')}
@@ -191,6 +205,7 @@ function StoreExpMain() {
               <div>D-7</div>
             </div>
           </button>
+          </div>
 
         </div>
 

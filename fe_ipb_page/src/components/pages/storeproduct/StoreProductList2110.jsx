@@ -334,10 +334,11 @@ function StoreProductList2110() {
               <th>자동발주</th>
               <th>SKU</th>
               <th>상품 이름</th>
+              <th>보관방법</th>
               <th onClick={handleSort}>재고</th>
+              <th>원가</th>
               <th>판매가</th>
               <th>유통기한</th>
-              <th>보관방법</th>
             </tr>
           </thead>
           <tbody>
@@ -361,10 +362,12 @@ function StoreProductList2110() {
                     {item.product_name}
                   </Link>
                 </td>
-                <td>{addComma(item.qnt)}</td>
+                <td>{item.storage}</td>
+                {/* <td>{addComma(item.qnt)}</td> */}
+                <td>{addComma(item.sp_qnt)}</td>
+                <td>{addComma(item.cost)}</td>
                 <td>{addComma(item.price)}</td>
                 <td>{item.exp}</td>
-                <td>{item.storage}</td>
               </tr>
             ))}
           </tbody>

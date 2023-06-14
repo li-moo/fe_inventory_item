@@ -674,6 +674,7 @@ import styles from './StoreExp2120.module.css';
 import axios from 'axios';
 import { Divider, Input, Modal, Popconfirm, Button, Tabs } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
+import { CiTrash } from "react-icons/ci";
 
 const { TabPane } = Tabs;
 
@@ -869,6 +870,7 @@ function StoreExp() {
               <th>상품 이름</th>
               <th>보관방법</th>
               <th>재고</th>
+              <th>원가</th>
               <th>판매가</th>
               <th>유통기한{' '}(잔여일)</th>
               {/* <th>잔여 일</th> */}
@@ -890,6 +892,7 @@ function StoreExp() {
                     </td>
                     <td></td>
                     <td>{addComma(item.qnt)}</td>
+                    <td>{addComma(item.cost)}</td>
                     <td>{addComma(item.price)}</td>
                     <td>
                       <div className={styles.expTd}>
@@ -914,7 +917,9 @@ function StoreExp() {
                           okText="네"
                           cancelText="아니오"
                         >
-                          <Button style={{ position: 'static', zIndex: 1 }}>폐기</Button>
+                          <Button  danger className={styles.hoverDanger} style={{ position: 'static', zIndex: 1 }}>
+                            <CiTrash size={{ width: '4px'}}/>
+                            </Button>
                         </Popconfirm>
                       </td>
                     ) : (
@@ -926,7 +931,11 @@ function StoreExp() {
               if (item.addData <= 31) {
                 return (
                   <tr key={item.id}>
-                    <td>{item.product_code}</td>
+                    <td>
+                      <Link to={`/storeproduct/detail/${item.id}`} style={{ textDecoration: "none", color: "inherit" }}>
+                        {item.product_code}
+                      </Link>
+                    </td>
                     <td>
                       <Link to={`/storeproduct/detail/${item.id}`} style={{ textDecoration: "none", color: "inherit" }}>
                         ({item.brand})
@@ -935,6 +944,7 @@ function StoreExp() {
                     </td>
                     <td>{item.storage}</td>
                     <td>{addComma(item.qnt)}</td>
+                    <td>{addComma(item.cost)}</td>
                     <td>{addComma(item.price)}</td>
                     <td>
                       <div className={styles.expTd}>
@@ -960,7 +970,8 @@ function StoreExp() {
                           okText="네"
                           cancelText="아니오"
                         >
-                          <Button style={{ position: 'static', zIndex: 1 }}>폐기</Button>
+                          <Button  danger className={styles.hoverDanger} style={{ position: 'static', zIndex: 1 }}>
+                          <CiTrash size={{ width: '4px'}}/></Button>
                         </Popconfirm>
                       </td>
                     ) : (

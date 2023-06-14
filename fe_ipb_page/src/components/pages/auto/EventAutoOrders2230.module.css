@@ -20,12 +20,21 @@
 
 .table th:first-child,
 .table td:first-child {
+  text-align: left;
+  padding-left: 40px;
+  width: 150px;
+}
+
+.table th:nth-child(2),
+.table td:nth-child(2) {
+  width: 250px;
   text-align: center;
 }
 
-.table th:last-child,
-.table td:last-child {
-  text-align: right;
+.table th:nth-child(3),
+.table td:nth-child(3) {
+  width: 450px;
+  text-align: left;
 }
 
 .table tbody tr:hover {

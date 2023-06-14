@@ -75,7 +75,8 @@ function EventAutoOrders2230() {
       <table className={styles.table}>
         <thead>
           <tr>
-            <th>이벤트 이름</th>
+          <th>이벤트 이름</th>
+            <th>SKU</th>
             <th>상품 이름</th>
             <th>가격</th>
             <th>수량</th>
@@ -89,14 +90,29 @@ function EventAutoOrders2230() {
                 style={{ textDecoration: 'none', color: 'inherit' }}
                 key={item.event_id}
               >{item.name}</Link></td>
-              <td>{item.product_name}</td>
+                 <td>
+                  {/* <Link
+                    to={`/storeproduct/detail/${item.product_id}`}
+                    style={{ textDecoration: "none", color: "inherit" }}
+                  > */}
+                    {item.product_info_id}
+                  {/* </Link> */}
+                 </td>
+              <td>
+              {/* <Link
+                    to={`/storeproduct/detail/${item.product_id}`}
+                    style={{ textDecoration: "none", color: "inherit" }}
+                  > */}
+                    [{item.brand}]{item.product_name}
+                  {/* </Link> */}
+                </td>
               <td>{addComma(item.price)}</td>
               {/* <td>{item.qnt}</td> */}
               <td>
                 <input
                   type="number"
                   value={item.qnt}
-                  style={{ width: '50px' }}
+                  style={{ width: '60px', paddingLeft: '6px' }}
                   className={styles.roundedInput}
                   onChange={(e) => {
                     const newQuantity = parseInt(e.target.value) || item.qnt - 1;

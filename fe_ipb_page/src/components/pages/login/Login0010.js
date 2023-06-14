@@ -2,10 +2,12 @@ import React, { useEffect } from 'react';
 import axios from 'axios';
 import { Button, Form, Input, message, Alert} from "antd";
 import { logInState } from '../../state/loginState';
+import { mainModalExpState } from '../../state/mainModalExpState';
 import { weatherState } from '../../state/weatherState';
 import { useRecoilState } from 'recoil';
 // import { Alert } from "reactstrap";
 import { Navigate, useNavigate } from 'react-router-dom';
+
 
 export default function Login0010() {
 
@@ -13,6 +15,7 @@ export default function Login0010() {
   const [logInData, setLogInData] = useRecoilState(logInState);
   const [weatherData, setWeatherData] = useRecoilState(weatherState);
   const navigate = useNavigate();
+  const [modalReadData, setModalReadData] = useRecoilState(mainModalExpState);
 
   useEffect(() => {
     getWeatherInfo();
@@ -80,6 +83,9 @@ export default function Login0010() {
             // window.location.href = "http://localhost:3000/";
             navigate("/");
             console.log(logInData);
+            setModalReadData({
+              isModalRead: false
+            });
           } else {
             console.log("로그인 실패");
             message.warning('로그인에 실패 하셨습니다. 다시 시도해주세요.');

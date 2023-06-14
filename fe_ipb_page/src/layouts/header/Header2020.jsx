@@ -289,7 +289,7 @@ const Header2020 = () => {
         </div>
         <div className="hstack gap-2">
           <Button
-            color="white"
+            // color="white"
             size="sm"
             className="d-sm-block d-md-none"
             onClick={toggle}
@@ -299,7 +299,7 @@ const Header2020 = () => {
             {isHovered || isOpen ? (
               <i className="bi bi-x"></i>
             ) : (
-              <i className="bi bi-three-dots-vertical"></i>
+              <i className="bi bi-arrow-down-circle"></i>
             )}
           </Button>
         </div>

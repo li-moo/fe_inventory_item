@@ -8,6 +8,7 @@ import { Table, Modal } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { logInState } from '../components/state/loginState';
+import { mainModalExpState } from '../components/state/mainModalExpState';
 import MiniBoard2020 from '../components/pages/main-board/MiniBoard2020';
 import MiniBoardExp2020 from '../components/pages/main-board/MiniBoardExp2020';
 import ApexChart from 'react-apexcharts';
@@ -19,6 +20,20 @@ const Starter2020 = () => {
   const [visible, setVisible] = useState(true);
   const [showButton, setShowButton] = useState(true);
   const [activeChart, setActiveChart] = useState('Sales 1');
+  const [modalReadData, setModalReadData] = useRecoilState(mainModalExpState);
+  const [isModalRead, setIsModalRead] = React.useState(modalReadData.isModalRead);
+
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = String(today.getMonth() + 1).padStart(2, '0');
+  const day = String(today.getDate()).padStart(2, '0');
+  const todayDate = `${year}-${month}-${day}`;
+
+  const subtractDates = (date1, date2) => {
+    const oneDay = 24 * 60 * 60 * 1000;
+    const diffDays = Math.round((new Date(date2) - new Date(date1)) / oneDay);
+    return diffDays;
+  };
 
   useEffect(() => {
     console.log("useEffect/logInData", logInData);
@@ -26,10 +41,10 @@ const Starter2020 = () => {
     if (logInData.isLogIn === false) {
       navigate(`/login`);
     }
-    if (logInData.isLogIn) {
+    if (logInData.isLogIn && modalReadData.isModalRead === false ) {
       expInfo();
     }
-  }, [logInData.isLogIn]);
+  }, [logInData.isLogIn, modalReadData.isModalRead]);
 
   const url_be = `${process.env.REACT_APP_BE_API}/storeproduct/list/${logInData.store_id}`;
 
@@ -39,11 +54,13 @@ const Starter2020 = () => {
       dataIndex: 'product_code',
       key: 'id',
       width: 150,
+      height: 20,
     },
     {
       title: '상품이름',
       dataIndex: 'product_name',
-      width: 300,
+      
+      width: 255,
       // render: (row, text) => {
       //   return (
       //             <p>
@@ -51,32 +68,109 @@ const Starter2020 = () => {
       //             </p>
       //           );
       // }
+      render: (text, record) => (
+        // <>
+        //   [{record.brand}] {text}
+        // </>
+        <>
+          [{record.brand}] {text}
+          
+        </>
+      )
     },
     {
-      title: '유통기한',
+      title: '유통기한(잔여일)',
       dataIndex: 'exp',
+      width: 150,
+      render: (text, record) => (
+        <>
+          <div className={style.expDiv}>
+            <div>
+              {record.addData <= -1 && <p className={style.redExp}></p>}
+              {record.addData > -1 && record.addData <= 3 && <p className={style.yellowExp}></p>}
+              {record.addData > 3 && record.addData <= 5 && <p className={style.greenExp}></p>}
+              {record.addData > 5 && record.addData <= 7 && <p className={style.blueExp}></p>}
+            </div>
+            <div>{text}</div>{' '}<div style={{ color: 'grey' }}>({record.addData})</div>
+          </div>
+        </>
+      )
     },
     {
       title: '재고',
       dataIndex: 'qnt',
+      width: 60,
     },
   ];
+
+  // const expInfo = () => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const res = await axios.get(url_be);
+  //       console.log("res:", res.data);
+  //       return res.data;
+  //     } catch (err) {
+  //       console.log("storeProductList/err", err);
+  //       return [];
+  //     }
+  //   };
+
+  //   fetchData().then((storeProductExpData) => {
+  //     console.log(storeProductExpData);
+  //     const filteredData = storeProductExpData.filter((item) => item.qnt !== 0);
+  //     if (visible) {
+  //       Modal.confirm({
+  //         title: '유통기한 알림',
+  //         content: (
+  //           <div>
+  //             <Table
+  //               dataSource={filteredData.map((item) => ({ ...item, key: item.id }))}
+  //               columns={expColumns}
+  //               pagination={false}
+  //               scroll={{ y: 500 }}
+  //             />
+  //           </div>
+  //         ),
+  //         style: { top: '5%' },
+  //         width: '50%',
+  //         okText: '확인',
+  //         cancelText: '하루 동안 보지 않기',
+  //         onOk() {
+  //           setVisible(false);
+  //         },
+  //         onCancel() {
+  //           setVisible(false);
+  //           setShowButton(false);
+  //           setTimeout(() => {
+  //             setVisible(true);
+  //             setShowButton(true);
+  //           }, 86400000); // 24시간(86400초)
+  //         },
+  //       });
+  //     }
+  //   });
+  // };
 
   const expInfo = () => {
     const fetchData = async () => {
       try {
         const res = await axios.get(url_be);
         console.log("res:", res.data);
-        return res.data;
+        const addData = res.data.map(( item ) => ({
+          ...item,
+          addData: subtractDates(todayDate, item.exp),
+        })).filter((item) => item.addData <= 3 );
+        return addData;
       } catch (err) {
         console.log("storeProductList/err", err);
         return [];
       }
     };
 
+
     fetchData().then((storeProductExpData) => {
       console.log(storeProductExpData);
-      const filteredData = storeProductExpData.filter((item) => item.qnt !== 0);
+      const filteredData = storeProductExpData.filter((item) => item.qnt !== 0 && item.addData <= 3);
       if (visible) {
         Modal.confirm({
           title: '유통기한 알림',
@@ -86,7 +180,7 @@ const Starter2020 = () => {
                 dataSource={filteredData.map((item) => ({ ...item, key: item.id }))}
                 columns={expColumns}
                 pagination={false}
-                scroll={{ y: 500 }}
+                scroll={{ y: 480 }}
               />
             </div>
           ),
@@ -100,10 +194,9 @@ const Starter2020 = () => {
           onCancel() {
             setVisible(false);
             setShowButton(false);
-            setTimeout(() => {
-              setVisible(true);
-              setShowButton(true);
-            }, 86400000); // 24시간(86400초)
+            setModalReadData({
+              isModalRead: true
+            });
           },
         });
       }
