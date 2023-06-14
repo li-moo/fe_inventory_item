@@ -363,7 +363,9 @@ import { logInState } from "../../state/loginState";
 import { useRecoilState } from 'recoil';
 import { avigate, useNavigate } from 'react-router-dom';
 import { TbTruckDelivery } from "react-icons/tb";
-import { RiDeleteBinLine } from "react-icons/ri";
+import { CiTrash } from "react-icons/ci";
+import { CiDeliveryTruck } from "react-icons/ci";
+
 
 
 const { Search } = Input;
@@ -746,7 +748,7 @@ function Cart2210(props) {
                     // onCancel={() => handleAddOrder(logInData.store_id)}
                   >
                     <Button type="primary" ghost>
-                      < TbTruckDelivery size={{ width: '10px'}}/>
+                      < CiDeliveryTruck size={{ width: '10px'}}/>
                       </Button>
                   </Popconfirm>
                   // <p>true</p>
@@ -764,7 +766,7 @@ function Cart2210(props) {
                     onCancel={() => handleAddOrder(logInData.store_id)}
                   >
                     <Button type="primary" danger ghost>
-                    < TbTruckDelivery size={{ width: '10px'}}/>
+                    < CiDeliveryTruck size={{ width: '10px'}}/>
                       </Button>
                   </Popconfirm>
                   // <p>false</p>
@@ -835,7 +837,7 @@ function Cart2210(props) {
                       style={{ position: 'static', zIndex: 1 }}
                       danger
                     >
-                      <RiDeleteBinLine  size={{ width: '0.1px'}}/>
+                      <CiTrash  size={{ width: '0.1px'}}/>
                     </Button>
                   </Popconfirm>
                 </td>

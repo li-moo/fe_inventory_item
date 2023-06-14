@@ -221,3 +221,15 @@
 .linkName {
   text-decoration: none;
 }
+
+.headerContent {
+  display: flex;
+}
+
+.headerContent > h2 {
+  width: 250px;
+}
+
+.infoFlex{
+  display: flex;
+}

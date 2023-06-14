@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { Divider } from "antd";
+import { Divider, Modal } from "antd";
 import { Container, Row, Col } from 'react-bootstrap';
 import OrderProductList2210 from './OrderProductList2210';
 import Cart2210 from '../cart/Cart2210';
 import axios from 'axios';
+import styles from './OrderProductList2210.module.css'
+import { CiShoppingCart } from "react-icons/ci";
+import { CiTrash } from "react-icons/ci";
+import { CiDeliveryTruck } from "react-icons/ci";
 
 
 // Orders라는 부모 컴포넌트에 OrderProductList, Cart 라는 자식 컴포넌트가 있는데,
@@ -44,9 +48,45 @@ function Orders2210() {
 
   }, [isAdd, storeId]);
 
+  const info = () => {
+    Modal.info({
+      title: '발주하기 Tip!',
+      content: (
+        <div>
+          <div>현재고를 보고 재고가 적은 제품들을 발주해주세요 </div>
+          <p>{''}</p>
+          <div className={styles.line}>
+            <div className={styles.infoFlex}>
+              <div style={{width: '30px'}}><CiShoppingCart size={{ width: '4px'}} /></div>
+              <div>: 발주 예정 목록에 담기</div>
+            </div>
+            <div className={styles.infoFlex}>
+              <div style={{width: '30px'}}><CiDeliveryTruck size={{ width: '4px'}} /></div>
+              <div>: 발주하기</div>
+            </div>
+            <div className={styles.infoFlex}>
+              <div style={{width: '30px'}}><CiTrash size={{ width: '4px'}} /></div>
+              <div>: 발주 예정 목록에서 삭제하기</div>
+            </div>
+          </div>
+            <div>
+
+            
+            </div>
+        </div>
+      ),
+      onOk() { },
+    });
+  };
+
   return (
     <div style={{ margin: '0px' }}>
+      <div className={styles.headerContent}>
       <h4>발주하기</h4>
+          <button className={styles.qBtn} onClick={info}>
+            ?
+          </button>
+        </div>
       {/* <Divider /> */}
 
       <Row>
