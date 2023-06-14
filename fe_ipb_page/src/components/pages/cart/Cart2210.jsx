@@ -739,7 +739,7 @@ function Cart2210(props) {
               <th>
                 {orderCartState ? (
                   <Popconfirm
-                    title="구매하시겠습니까?"
+                    title="발주하시겠습니까?"
                     okText="예"
                     cancelText="아니요"
                     // okText="아니요"
@@ -828,7 +828,7 @@ function Cart2210(props) {
                 </td>
                 <td>
                   <Popconfirm
-                    title="삭제시겠습니까??"
+                    title="삭제시겠습니까?"
                     onConfirm={() => handleDeleteCart(item.id)}
                     okText="네"
                     cancelText="아니오"
