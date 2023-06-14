@@ -60,6 +60,8 @@
   border-radius: 10px;
 }
 
+
+
 .left > p{
   /* width: 400px;
   height: auto; */
@@ -146,7 +148,7 @@
 .line::before{
 	content:"";
 	flex-grow:1;
-	margin:0px 16px;
+	margin:0px 13px;
 	background:rgba(0,0,0,0.35);
 	height:1px;
 	font-size:0px;
@@ -155,7 +157,7 @@
 .line::after {
 	content:"";
 	flex-grow:1;
-	margin:0px 16px;
+	margin:0px 13px;
 	background:rgba(0,0,0,0.35);
 	height:1px;
 	font-size:0px;

@@ -618,7 +618,8 @@ function OrderProductList2210(props) {
                     {item.name}
                   </Link>
                 </td>
-                <td>{addComma(item.qnt)}</td>
+                {/* <td>{addComma(item.qnt)}</td> */}
+                <td>{addComma(item.all_qnt)}</td>
                 {/* <td>{item.currentQnt}</td> */}
                 <td>{addComma(item.total_qnt)}</td>
                 <td>{addComma(item.cost)}</td>
@@ -631,7 +632,7 @@ function OrderProductList2210(props) {
 
                 <td>
                   <Popconfirm
-                    title="발주 목록에 상품을 담으시겠습니까??"
+                    title="발주 예정 목록에 상품을 담으시겠습니까??"
                     onConfirm={() => handleAddCart(item.id)}
                     okText="네"
                     cancelText="아니오"
@@ -662,3 +663,4 @@ function OrderProductList2210(props) {
 }
 
 export default OrderProductList2210;
+
