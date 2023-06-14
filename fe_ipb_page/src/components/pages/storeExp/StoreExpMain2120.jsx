@@ -4,7 +4,7 @@ import { useRecoilState } from 'recoil';
 import { logInState } from '../../state/loginState';
 import styles from './StoreExp2120.module.css';
 import axios from 'axios';
-import { Divider, Input, Modal, Popconfirm, Button } from 'antd';
+import { Input, Modal } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import StoreExp from './StoreExp2120';
 import StoreExpZero2120 from './StoreExpZero2120';
@@ -127,11 +127,7 @@ function StoreExpMain() {
           </button>
         </div>
         <div className={styles.tabContainer}>
-
-          <div>
-
-          </div>
-
+          <div className={styles.whiteExpDi}>
           <button
             type={activeTab === 'all' ? 'primary' : 'default'}
             onClick={() => handleTabChange('all')}
@@ -143,6 +139,9 @@ function StoreExpMain() {
               <div>전체</div>
             </div>
           </button>
+          </div>
+
+          <div className={styles.redExpDi}>
           <button
             type={activeTab === 'zero' ? 'primary' : 'default'}
             onClick={() => handleTabChange('zero')}
@@ -154,6 +153,9 @@ function StoreExpMain() {
               <div>D-0</div>
             </div>
           </button>
+          </div>
+
+          <div className={styles.yellowExpDi}>
           <button
             type={activeTab === 'three' ? 'primary' : 'default'}
             onClick={() => handleTabChange('three')}
@@ -169,7 +171,10 @@ function StoreExpMain() {
               <div>D-3</div>
             </div>
           </button>
-          <button
+          </div>
+
+            <div className={styles.greenExpDi}>
+            <button
             type={activeTab === 'five' ? 'primary' : 'default'}
             onClick={() => handleTabChange('five')}
             style={{ border: 'none' }}
@@ -180,6 +185,10 @@ function StoreExpMain() {
               <div>D-5</div>
             </div>
           </button>
+            </div>
+
+
+          <div className={styles.blueExpDi}>
           <button
             type={activeTab === 'seven' ? 'primary' : 'default'}
             onClick={() => handleTabChange('seven')}
@@ -191,6 +200,7 @@ function StoreExpMain() {
               <div>D-7</div>
             </div>
           </button>
+          </div>
 
         </div>
 

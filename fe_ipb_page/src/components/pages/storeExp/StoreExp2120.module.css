@@ -346,27 +346,59 @@
 .tabContainer {
   padding-left: 71%;
   float: right;
+  display: flex;
 }
 
-.tabContainer>button:focus {
+.tabContainer >div>button:focus {
   /* border-bottom: 50px solid #3186fd; */
-  border-top: 3px solid #3186fd;
+  /* border-top: 3px solid #3186fd;
   background-color: #eaeaea;
   padding-top: 3px;
-  border: 1px solid #3186fd;
+  border: 1px solid #3186fd; */
+  /* padding-bottom: 10px; */
 }
 
 
-.tabContainer>button {
+.tabContainer >div>button {
   background-color: #FFFFFF;
   border-radius: 5px 5px 0 0;
 }
 
-.mainHeader {
-  display: flex;
+.whiteExpDi >button{
+  background: linear-gradient(to bottom, #ffffff 90%, #ffffff 10%);
+  transition: background 0.3s ease-in-out;
+}
+
+.whiteExpDi >button:focus {
+  background: linear-gradient(to bottom, #ffffff 90%, #c2c2c2 10%);
+  transition: background 0.3s ease-in-out;
+}
+
+.redExpDi >button:focus {
+  background: linear-gradient(to bottom, #ffffff 90%, red 10%);
+  transition: background 0.3s ease-in-out;
+}
+
+.yellowExpDi >button:focus {
+  background: linear-gradient(to bottom, #ffffff 90%, rgb(255, 200, 0) 10%);
+  transition: background 0.3s ease-in-out;
+}
+
+.greenExpDi >button:focus {
+  background: linear-gradient(to bottom, #ffffff 90%, rgb(44, 164, 0) 10%);
+  transition: background 0.8s ease-in-out;
+}
+
+.blueExpDi >button:focus {
+  background: linear-gradient(to bottom, #ffffff 90%, dodgerblue 10%);
+  transition: background 0.8s ease-in-out;
 }
 
 
+
+.mainHeader {
+  display: flex;
+}
 
 .table {
   width: 100%;
