@@ -1255,7 +1255,6 @@ function StoreExp2120() {
           </tbody>
         </table>
       </div>
-
     </>
   );
 }
