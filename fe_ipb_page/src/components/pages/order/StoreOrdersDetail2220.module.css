@@ -1,17 +1,20 @@
+.container{
+  margin: 0px;
+  padding: 0px;
+}
+
+.tabContainer{
+  background-color: #3186fd;
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+}
+
 .table {
   width: 100%;
   border-collapse: collapse;
   font-size: 15px;
-  background-color: white;
-}
-
-
-.table td {
-  /* padding: 8px; */
-  margin-top: 5px;
-  padding-top: 10px;
-  border-bottom: 1px solid #e4e4e4;
-  /* border-radius: 10px; */
+  background-color: #FFFFFF;
 }
 
 .table th {
@@ -21,32 +24,52 @@
   padding-top: 10px;
   padding-bottom: 10px;
   font-size: 13px;
+  border-bottom: 1px solid #e4e4e4;
+}
+
+.table td {
+  padding: 5px 0px;
+  border-bottom: 1px solid #e4e4e4;
+  /* border-radius: 10px; */
 }
 
 .table th:first-child,
 .table td:first-child {
   text-align: center;
   border-right: 1px solid #e4e4e4;
+  width: 300px;
 }
 
 .table th:nth-child(2){
   text-align: center;
+  width: 400px;
 }
 
 
 .table td:nth-child(2){
   text-align: left;
   padding-left: 10px;
+  width: 400px;
 }
 
-.table th:nth-child(3),
+.table th:nth-child(3){
+  text-align: center;
+  width: 150px;
+}
+
 .table td:nth-child(3){
   text-align: center;
+  width: 150px;
+}
+
+.table td:nth-child(3) input{
+  padding-left: 7px;
 }
 
 .table th:last-child,
 .table td:last-child {
   text-align: center;
+  width: 150px;
 }
 
 

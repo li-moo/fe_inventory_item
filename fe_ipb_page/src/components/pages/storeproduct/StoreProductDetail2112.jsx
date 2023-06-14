@@ -174,7 +174,7 @@ function StoreProductDetail2112() {
 
   const info = () => {
     // 모달이 켜질때마다 상품의 상세 데이터를 받아온다
-    fetch(`${process.env.REACT_APP_BE_API}/product/detail?id=${id}`)
+    fetch(`${process.env.REACT_APP_BE_API}/storeproduct/detail?id=${id}`)
       .then(res => res.json())
       .then(data => {
         console.log("product-detail data modal:", data);

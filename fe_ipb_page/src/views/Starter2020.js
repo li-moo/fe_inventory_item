@@ -213,12 +213,12 @@ const Starter2020 = () => {
   };
 
   const bannerImages = [
-    { image: require('../assets/images/bg/1.jpg'), link: 'http://localhost:3000/#/event/detail/1' },
-    { image: require('../assets/images/bg/2.jpg'), link: 'http://localhost:3000/#/event/detail/57' },
-    { image: require('../assets/images/bg/3.jpg'), link: 'http://localhost:3000/#/event/detail/3' },
-    { image: require('../assets/images/bg/4.jpg'), link: 'http://localhost:3000/#/event/detail/4' },
-    { image: require('../assets/images/bg/5.jpg'), link: 'http://localhost:3000/#/event/detail/4' },
-    { image: require('../assets/images/bg/6.jpg'), link: 'http://localhost:3000/#/event/detail/61' },
+    { image: require('../assets/images/bg/1.jpg')},
+    { image: require('../assets/images/bg/2.jpg')},
+    { image: require('../assets/images/bg/3.jpg')},
+    { image: require('../assets/images/bg/4.jpg')},
+    { image: require('../assets/images/bg/5.jpg')},
+    { image: require('../assets/images/bg/6.jpg')},
   ];
 
   const settings = {
