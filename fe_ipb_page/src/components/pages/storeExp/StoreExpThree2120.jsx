@@ -347,7 +347,7 @@ function StoreExpThree2120() {
 
 
    /// 폐기 버튼
-    const disposeBtn = (id) => {
+    const disposeBtn = (id, qnt) => {
     const url_be_disposeBtn = `${process.env.REACT_APP_BE_API}/storeproduct/qntzero`;
 
     console.log("폐기버튼안>id:", id);
@@ -361,6 +361,7 @@ function StoreExpThree2120() {
         },
         data: {
           id: id,
+          qnt: qnt
         }
       })
       .then(() => {
@@ -495,7 +496,7 @@ function StoreExpThree2120() {
                       <td>
                         <Popconfirm
                           title="이 상품을 폐기를 하시겠습니까??"
-                          onConfirm={() => disposeBtn(item.id)}
+                          onConfirm={() => disposeBtn(item.id, item.qnt)}
                           okText="네"
                           cancelText="아니오"
                         >
