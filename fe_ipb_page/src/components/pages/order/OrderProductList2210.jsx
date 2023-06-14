@@ -339,6 +339,7 @@ import { useRecoilState } from 'recoil';
 import styles from './OrderProductList2210.module.css';
 import { SearchOutlined } from '@ant-design/icons';
 import { BsCart4 } from "react-icons/bs";
+import { CiShoppingCart } from "react-icons/ci";
 
 const { Search } = Input;
 
@@ -630,7 +631,7 @@ function OrderProductList2210(props) {
 
                 <td>
                   <Popconfirm
-                    title="장바구니에 상품을 담으시겠습니까??"
+                    title="발주 목록에 상품을 담으시겠습니까??"
                     onConfirm={() => handleAddCart(item.id)}
                     okText="네"
                     cancelText="아니오"
@@ -638,7 +639,7 @@ function OrderProductList2210(props) {
                     <Button
                     style={{position: 'static', zIndex: 1 }}
                     >
-                      <BsCart4 size={{ width: '4px'}} />
+                      <CiShoppingCart size={{ width: '4px'}} />
                     </Button>
                   </Popconfirm>
                 </td>

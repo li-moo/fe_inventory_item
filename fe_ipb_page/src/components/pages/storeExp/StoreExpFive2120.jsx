@@ -273,7 +273,11 @@ function StoreExpFive2120() {
               if (item.addData > 3 && item.addData <= 5) {
                 return (
                   <tr key={item.id}>
-                    <td>{item.product_code}</td>
+                    <td>
+                      <Link to={`/storeproduct/detail/${item.id}`} style={{ textDecoration: "none", color: "inherit" }}>
+                        {item.product_code}
+                      </Link>
+                      </td>
                     <td>
                       <Link to={`/storeproduct/detail/${item.id}`} style={{ textDecoration: "none", color: "inherit" }}>
                         ({item.brand})

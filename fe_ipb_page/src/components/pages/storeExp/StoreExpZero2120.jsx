@@ -935,6 +935,7 @@ import styles from './StoreExp2120.module.css';
 import axios from 'axios';
 import { Divider, Input, Modal, Popconfirm, Button, Tabs } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
+import { CiTrash } from "react-icons/ci";
 
 const { TabPane } = Tabs;
 
@@ -1175,7 +1176,8 @@ function StoreExp2120() {
                           okText="네"
                           cancelText="아니오"
                         >
-                          <Button style={{ position: 'static', zIndex: 1 }}>폐기</Button>
+                          <Button  danger style={{ position: 'static', zIndex: 1 }}>
+                          <CiTrash size={{ width: '4px'}}/></Button>
                         </Popconfirm>
                       </td>
                     ) : (
@@ -1187,7 +1189,11 @@ function StoreExp2120() {
               if (item.addData <= -1) {
                 return (
                   <tr key={item.id}>
-                    <td>{item.product_code}</td>
+                    <td>
+                      <Link to={`/storeproduct/detail/${item.id}`} style={{ textDecoration: "none", color: "inherit" }}>
+                        {item.product_code}
+                      </Link>
+                    </td>
                     <td>
                       <Link to={`/storeproduct/detail/${item.id}`} style={{ textDecoration: "none", color: "inherit" }}>
                         ({item.brand})
@@ -1221,7 +1227,8 @@ function StoreExp2120() {
                           okText="네"
                           cancelText="아니오"
                         >
-                          <Button style={{ position: 'static', zIndex: 1 }}>폐기</Button>
+                          <Button  danger style={{ position: 'static', zIndex: 1 }}>
+                          <CiTrash size={{ width: '4px'}}/></Button>
                         </Popconfirm>
                       </td>
                     ) : (
