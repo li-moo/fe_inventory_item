@@ -79,7 +79,7 @@ export default function Login0010() {
             })
             console.log("로그인 성공");
             // alert(`${staff.name}님 환영합니다.`);
-            message.success(`${staff.name}님 환영합니다.`, 3);
+            message.success(`점포: ${staff.name}`, 3);
             // window.location.href = "http://localhost:3000/";
             navigate("/");
             console.log(logInData);

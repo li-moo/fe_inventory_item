@@ -6,6 +6,8 @@ import axios from 'axios';
 import { Divider, Input, Modal, Popconfirm, Button } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import styles from './StoreAutoOrdersList2230.module.css';
+import { CiTrash } from "react-icons/ci";
+
 
 const { Search } = Input;
 
@@ -198,7 +200,7 @@ function StoreAutoOrdersList2230() {
                   okText="네"
                   cancelText="아니오"
                 >
-                  <Button>삭제</Button>
+                  <Button danger> <CiTrash size={{ width: '4px'}}/></Button>
                 </Popconfirm>
               </td>
             </tr>

@@ -145,6 +145,7 @@ import styles from './StoreProductDetail2112.module.css';
 const { Title, Text } = Typography;
 const { Row, Col } = Grid;
 const { Item } = Form;
+// const { confirm } = Modal;
 
 function StoreProductDetail2112() {
 
@@ -152,6 +153,37 @@ function StoreProductDetail2112() {
   const navigate = useNavigate();
   const [form] = Form.useForm();
   const [product, setProduct] = useState();
+
+  
+  const onOk = () => {
+    // 54,55 라인에서 사용자가 인풋박스에 입력한 값을 각각 변수에 담습니다
+    const minQnt = document.getElementById('minQnt').value;
+    const qnt = document.getElementById('qnt').value;
+
+    fetch(`${process.env.REACT_APP_BE_API}/storeproduct/auto-order`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        product_code: product.product_code,
+        store_product_id: product.id,
+        min_qnt: minQnt,
+        qnt: qnt,
+      }),
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log('Auto-order response:', data);
+      // 추가로 필요한 작업 수행
+    })
+    .catch(err => console.log(err));
+    message.success(`자동 발주신청이 되었습니다.`, 3);
+  }
+
+  const onCancel = () => {
+    Modal.destroyAll();
+  }
 
 
   useEffect(() => {
@@ -181,6 +213,7 @@ function StoreProductDetail2112() {
         setProduct(data)
       })
       .catch(err => console.log(err))
+
     Modal.info({
       width: '30%',
       maskClosable: true, // 모달 밖 영역을 클릭하면 모달이 닫힙니다
@@ -188,11 +221,23 @@ function StoreProductDetail2112() {
       title: '해당 상품을 자동발주 리스트에 추가하시겠습니까?',
       // 모달 본문
       content: (
+        
+        <>
           <div className={styles.modal}>
-              <input type="number" id="minQnt" placeholder="최소 수량" />
+            <div>
+              <input type="number" id="minQnt" placeholder="최소 수량"/>
+            </div>
+            <div>
               <input type="number" id="qnt" placeholder="기준 수량" />
+            </div>
+            <div>
+            {/* <Button onClick={onOk}>추가</Button>
+            <Button onClick={onCancel}>취소</Button> */}
+            </div>
           </div>
+        </>
       ),
+
       onOk(){
         // 54,55 라인에서 사용자가 인풋박스에 입력한 값을 각각 변수에 담습니다
         const minQnt = document.getElementById('minQnt').value;
@@ -217,15 +262,60 @@ function StoreProductDetail2112() {
         })
         .catch(err => console.log(err));
         message.success(`자동 발주신청이 되었습니다.`, 3);
+      
       },
       onCancel(){
-        // 모달 닫기
         Modal.destroyAll();
       },
       okText: '추가', // 확인 버튼 텍스트 변경
       cancelText: '취소',
     });
   };
+
+  // const info = () => {
+  //   // 모달이 켜질때마다 상품의 상세 데이터를 받아온다
+  //   fetch(`${process.env.REACT_APP_BE_API}/storeproduct/detail?id=${id}`)
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       console.log("product-detail data modal:", data);
+  //       setProduct(data)
+  //     })
+  //     .catch(err => console.log(err))
+
+  //   Modal.info({
+  //     width: '30%',
+  //     maskClosable: true, // 모달 밖 영역을 클릭하면 모달이 닫힙니다
+  //     // 모달 제목
+  //     title: '해당 상품을 자동발주 리스트에 추가하시겠습니까?',
+  //     // 모달 본문
+  //     content: (
+        
+  //       <>
+  //         <div className={styles.modal}>
+  //           <div>
+  //             <input type="number" id="minQnt" placeholder="최소 수량"/>
+  //           </div>
+  //           <div>
+  //             <input type="number" id="qnt" placeholder="기준 수량" />
+  //           </div>
+  //           <div>
+  //           {/* <Button className={styles.modlaAddBtn} onClick={onOk}>추가</Button> */}
+  //           {/* <Button onClick={onCancel}>취소</Button> */}
+  //           </div>
+  //         </div>
+  //       </>
+  //     ),
+
+  //     onOk(){
+  //     },
+  //     onCancel(){
+  //       Modal.destroyAll();
+  //     },
+  //     okText: '취소', // 확인 버튼 텍스트 변경
+  //     cancelText: '취소',
+  //   });
+  // };
+
 
 
   function addComma(num) {

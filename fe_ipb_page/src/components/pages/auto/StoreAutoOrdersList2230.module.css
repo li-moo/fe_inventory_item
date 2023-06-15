@@ -149,6 +149,7 @@
   background-color: #FFFFFF;
   font-weight: bold;
   padding: 18px;
+  border-bottom: 2.5px solid #9e9797
 }
 
 .table th:first-child,

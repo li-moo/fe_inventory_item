@@ -213,6 +213,7 @@
   import { logInState } from '../../state/loginState';
   import { useRecoilState } from 'recoil';
   import { Popconfirm, Button, Menu } from 'antd';
+  import { CiTrash } from "react-icons/ci";
 
   function StoreOrdersDetail2220(props) {
     const [storeOrdersDetailListData, setStoreOrdersDetailListData] = useState([]);
@@ -398,7 +399,7 @@
                           okText="네"
                           cancelText="아니오"
                         >
-                          <Button style={{ position: 'static', zIndex: 1 }}>삭제</Button>
+                          <Button danger style={{ position: 'static', zIndex: 1 }}> <CiTrash size={{ width: '4px'}}/></Button>
                         </Popconfirm>
                       </td>
                     ) : (

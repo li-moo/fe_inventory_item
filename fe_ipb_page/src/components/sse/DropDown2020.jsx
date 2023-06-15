@@ -246,7 +246,7 @@ function DropDown2020({ direction, ...args }) {
                       }}
                     >
                       {readMessageEXP ? (
-                        <td style={{ textDecoration: 'line-through', opacity: '0.5' }}>
+                        <td style={{ textDecoration: 'line-through', opacity: '0.6', color: '#EB1904' }}>
                           {' '}
                           <FiAlertCircle /> {message}
                         </td>
@@ -269,7 +269,7 @@ function DropDown2020({ direction, ...args }) {
                         }}
                       >
                         {readMessageLOW ? (
-                          <td style={{ textDecoration: 'line-through', opacity: '0.5' }}>
+                          <td style={{ textDecoration: 'line-through', opacity: '0.6', color: '#014D00' }}>
                             {' '}
                             <FiAlertCircle /> {message}
                           </td>
