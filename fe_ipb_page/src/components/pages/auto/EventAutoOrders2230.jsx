@@ -70,7 +70,7 @@ function EventAutoOrders2230() {
     <div>
       <div>
         <h4 >이벤트 자동발주</h4>
-        <div style={{ borderBottom: '5px solid #CCCCCC', width: '180px', paddingTop: '2px' }}></div>
+        <div style={{ borderBottom: '5px solid #817D7D', width: '180px', paddingTop: '2px' }}></div>
       </div >
       <table className={styles.table}>
         <thead>

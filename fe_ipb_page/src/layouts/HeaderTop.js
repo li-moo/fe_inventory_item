@@ -119,7 +119,7 @@ const HeaderTop = () => {
           })
           if (staff !== null && staff !== "") {
             console.log("로그인 성공");
-            alert(`${staff.name}님 환영합니다.`);
+            alert(`${staff.name}`);
             // window.location.href = "http://localhost:3000/";
             navigate(`/`);
             console.log(logInData);

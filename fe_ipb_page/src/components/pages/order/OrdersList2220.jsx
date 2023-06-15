@@ -446,13 +446,13 @@ function OrdersList2220() {
   return (
     <>
       <h4 style={{marginLeft: '0px'}}>발주내역</h4>
-      <div style={{ borderBottom: '4px solid #CCCCCC', width: '200px', paddingTop: '2px', marginLeft: '0px'  }}></div>
+      <div style={{ borderBottom: '4px solid #817D7D', width: '200px', paddingTop: '2px', marginLeft: '0px'  }}></div>
       <div className={styles.layout}>
         <div>
           <DatePicker
             placeholder="날짜 선택"
             onChange={handleSearch}
-            style={{ width: 200, marginBottom: 16, paddingTop: '5px' }}
+            style={{ width: '100%x', marginBottom: 7.3, marginTop: '5px' }}
           />
           <div style={{ overflowX: 'auto', maxHeight: '469px'}}>
             <table className={styles.table}>

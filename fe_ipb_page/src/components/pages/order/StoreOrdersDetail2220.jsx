@@ -213,6 +213,7 @@
   import { logInState } from '../../state/loginState';
   import { useRecoilState } from 'recoil';
   import { Popconfirm, Button, Menu } from 'antd';
+  import { CiTrash } from "react-icons/ci";
 
   function StoreOrdersDetail2220(props) {
     const [storeOrdersDetailListData, setStoreOrdersDetailListData] = useState([]);
@@ -340,7 +341,7 @@
               </Menu.Item>
             </Menu>
           </div>
-          <div style={{ overflowX: 'auto', maxHeight: '469px', margin: '0px', padding: '0px'}}>
+          <div style={{ overflowX: 'auto', maxHeight: '465px', margin: '0px', padding: '0px'}}>
             <table className={styles.table}>
               <thead>
                 <tr>
@@ -386,7 +387,7 @@
                           updateQnt(tarId, tarQnt, status);
                         }}
                       />
-                      ) : (
+                      ) : (                
                         item.qnt
                       )}
                     </td>
@@ -398,11 +399,11 @@
                           okText="네"
                           cancelText="아니오"
                         >
-                          <Button style={{ position: 'static', zIndex: 1 }}>삭제</Button>
+                          <Button danger style={{ position: 'static', zIndex: 1 }}> <CiTrash size={{ width: '4px'}}/></Button>
                         </Popconfirm>
                       </td>
                     ) : (
-                      ''
+                      <td style={{ height: '46px' }} ></td>
                     )}
                   </tr>
                 ))}

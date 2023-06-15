@@ -93,6 +93,7 @@
   /* background-color: aqua; */
 }
 
+
 .right div:last-child{
   padding: 0px;
   margin: 0px;
@@ -126,6 +127,11 @@
   flex-direction: column;
 }
 
+.modal > div{
+  display: flex;
+
+}
+
 .modal input{
   width: 100px;
   margin: 10px;
@@ -135,6 +141,13 @@
 
 .modal input:focus{
   outline: none;
+}
+
+.modlaAddBtn{
+  position: fixed;
+  top: 255px;
+  left: 830px;
+  transform: translate(-50%, -50%);
 }
 
 .line {
