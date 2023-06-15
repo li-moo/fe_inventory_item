@@ -757,7 +757,7 @@ function Cart2210(props) {
                     title={(
                       <>
                         <p>본사에 재고가 부족합니다.</p>
-                        <p>가능한 수량만큼만 주문 하시겠습니까?</p>
+                        <div>발주 가능한 수량만큼만 주문하시겠습니까?</div>
                       </>
                     )}
                     okText="네"
@@ -831,7 +831,7 @@ function Cart2210(props) {
                     title="삭제시겠습니까?"
                     onConfirm={() => handleDeleteCart(item.id)}
                     okText="네"
-                    cancelText="아니오"
+                    cancelText="아니요"
                   >
                     <Button classNames={styles.conBtn}
                       style={{ position: 'static', zIndex: 1 }}

@@ -14,7 +14,7 @@
 .meCustom {
   /* margin-right: 11rem; */
   /* 원하는 간격 값으로 조절하세요. */
-  margin-right: 39%;
+  margin-right: 38.7%;
 }
 
 /* 첫 번째 요소에 고유한 스타일을 적용합니다. */
@@ -92,4 +92,8 @@
 
 .dropItemList>div:hover {
   background-color: #f0f0f0;
+}
+
+.mainToggle{
+  color: white;
 }

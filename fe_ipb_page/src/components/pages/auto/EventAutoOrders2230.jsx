@@ -78,7 +78,7 @@ function EventAutoOrders2230() {
           <th>이벤트 이름</th>
             <th>SKU</th>
             <th>상품 이름</th>
-            <th>가격</th>
+            <th>판매가</th>
             <th>수량</th>
           </tr>
         </thead>
@@ -103,7 +103,7 @@ function EventAutoOrders2230() {
                     to={`/storeproduct/detail/${item.product_id}`}
                     style={{ textDecoration: "none", color: "inherit" }}
                   > */}
-                    [{item.brand}]{item.product_name}
+                    [{item.brand}]{' '}{item.product_name}
                   {/* </Link> */}
                 </td>
               <td>{addComma(item.price)}</td>

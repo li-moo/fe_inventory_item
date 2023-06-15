@@ -8,6 +8,8 @@ import { alarmState } from '../state/alarmState';
 import styles from './DropDown2020.module.css'
 import { Navigate, useNavigate } from 'react-router-dom';
 import { FiAlertCircle } from "react-icons/fi";
+import { FaBell } from "react-icons/fa";
+import { BiSolidDoorOpen } from "react-icons/bi";
 import { Modal } from 'antd';
 
 function DropDown2020({ direction, ...args }) {
@@ -31,6 +33,13 @@ function DropDown2020({ direction, ...args }) {
     if (!dropdownOpen) {
       setAlarmData(0);
     }
+  };
+
+  const mainToggle = {
+    // color: 'white',
+    color: '#FFFAEE',
+    fontSize: '17px',
+    fontWeight: 550,
   };
 
   const url = `${process.env.REACT_APP_BE_API}/notifications/expiration/${loginData.store_id}`;
@@ -209,7 +218,7 @@ function DropDown2020({ direction, ...args }) {
           <UncontrolledDropdown isOpen={dropdownOpen} toggle={toggle} direction={direction} id='top-myDrop--i'>
             <DropdownToggle id='top-myDrop--ii' style={{ border: 'none', backgroundColor: '#262627', color: 'grey' }}>
               <div className={styles.BellRed}>
-                <HiOutlineBell />
+                <FaBell style={mainToggle} size={16.5}/>
                 <div>{alarmData > 0 && <p className={styles.alarmRed}></p>}</div>
                 <div>{alarmData === 0 && <p className={styles.alarmBackground}></p>}</div>
               </div>

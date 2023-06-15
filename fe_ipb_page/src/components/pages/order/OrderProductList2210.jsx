@@ -632,10 +632,10 @@ function OrderProductList2210(props) {
 
                 <td>
                   <Popconfirm
-                    title="발주 예정 목록에 상품을 담으시겠습니까??"
+                    title="발주 예정 목록에 상품을 담으시겠습니까?"
                     onConfirm={() => handleAddCart(item.id)}
                     okText="네"
-                    cancelText="아니오"
+                    cancelText="아니요"
                   >
                     <Button
                     style={{position: 'static', zIndex: 1 }}
