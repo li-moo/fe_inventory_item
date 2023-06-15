@@ -143,6 +143,7 @@ function StoreAutoOrdersList2230() {
                 <input
                   type="number"
                   value={item.min_qnt}
+                  className={styles.roundedInput}
                   onChange={(em) => {
                     const newMinQuantity = parseInt(em.target.value) || item.min_qnt - 1;
                     console.log("e.target.value", em.target.value);
@@ -168,6 +169,7 @@ function StoreAutoOrdersList2230() {
                 <input
                   type="number"
                   value={item.qnt}
+                  className={styles.roundedInput}
                   onChange={(e) => {
                     const newQuantity = parseInt(e.target.value) || item.qnt - 1;
                     console.log("e.target.value", e.target.value);

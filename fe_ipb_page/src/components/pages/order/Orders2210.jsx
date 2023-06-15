@@ -53,7 +53,7 @@ function Orders2210() {
       title: '발주하기 Tip!',
       content: (
         <div>
-          <div>현 재고를 보고 재고가 적은 제품들을 발주해 주세요.</div>
+          <div>현 재고를 보고 재고가 적은 제품들을 발주해주세요.</div>
           <p>{''}</p>
           <div className={styles.line}>
             <div className={styles.infoFlex}>

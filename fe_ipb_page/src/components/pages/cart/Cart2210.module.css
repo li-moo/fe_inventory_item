@@ -36,6 +36,11 @@
   padding-left: 10px;
   width: 280px;
 }
+
+.table th:nth-child(3) {
+  margin-right: 10%;
+}
+
 .table th:nth-child(3),
 .table td:nth-child(3) {
   text-align: center;
@@ -44,10 +49,11 @@
   padding-right: 15px;
 }
 
-.table th:last-child {
-  text-align: left;
 
+.table th:nth-child(4) {
+  margin-left: 40px;
 }
+
 
 
 
