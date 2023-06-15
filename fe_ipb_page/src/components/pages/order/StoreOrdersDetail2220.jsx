@@ -340,7 +340,7 @@
               </Menu.Item>
             </Menu>
           </div>
-          <div style={{ overflowX: 'auto', maxHeight: '469px', margin: '0px', padding: '0px'}}>
+          <div style={{ overflowX: 'auto', maxHeight: '465px', margin: '0px', padding: '0px'}}>
             <table className={styles.table}>
               <thead>
                 <tr>
@@ -386,7 +386,7 @@
                           updateQnt(tarId, tarQnt, status);
                         }}
                       />
-                      ) : (
+                      ) : (                
                         item.qnt
                       )}
                     </td>
@@ -402,7 +402,7 @@
                         </Popconfirm>
                       </td>
                     ) : (
-                      ''
+                      <td style={{ height: '46px' }} ></td>
                     )}
                   </tr>
                 ))}

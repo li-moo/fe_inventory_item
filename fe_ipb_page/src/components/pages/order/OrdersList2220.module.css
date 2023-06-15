@@ -1,4 +1,4 @@
-.layout{
+/* .layout{
   display: flex;
   margin-left: 0px;
 }
@@ -28,19 +28,18 @@
 
 .table th,
 .table td {
-  /* padding: 8px; */
   padding: 1px;
   border-bottom: 1px solid #e4e4e4;
-  /* border-radius: 10px; */
+  border-top: 1px solid #e4e4e4;
 }
 
 .table th {
   background-color: #FFFFFF;
   font-weight: bold;
-  /* padding: 11px; */
-  padding-top: 6px;
-  padding-bottom: 6px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   font-size: 13px;
+  border-bottom: 1px solid #e4e4e4;
 }
 
 .table th:first-child,
@@ -52,21 +51,14 @@
   text-align: center;
 }
 
-
-.table td:nth-child(2) {
-  text-align: center;
-}
-
 .table th:last-child{
   padding-right: 10px;
   text-align: right;
 }
 
-
 .table td:last-child {
   text-align: right;
 }
-
 
 .table tbody tr:hover {
   background-color: #f9f9fa;
@@ -84,19 +76,16 @@
 .policyStatement>div {
   display: flex;
   align-items: center;
-
 }
 
 .policyStatement>div>p {
   margin-left: 8px;
 }
 
-
 .searchInput {
   border-radius: 5px;
   padding: 8px;
   border: none;
-  /* outline: none; */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   background-color: #ffffff;
   background-repeat: no-repeat;
@@ -136,11 +125,8 @@
   font-size: 11px;
 }
 
-/* //// */
-
 .table-container {
   max-height: 400px;
-  /* 원하는 높이 설정 */
   overflow-y: auto;
 }
 
@@ -157,5 +143,151 @@
 .table thead th,
 .table tbody td {
   white-space: nowrap;
-  /* 긴 텍스트가 자동으로 줄바꿈되지 않도록 설정 */
+} */
+
+.layout{
+  display: flex;
+  margin-left: 0px;
+}
+
+.layout div:first-child{
+  width: 340px;
+  margin-right: 25px;
+}
+
+.layout div:last-child{
+  width: 1000px;
+  margin: 0px 10px;
+}
+
+.layout div:last-child div:first-child{
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+  background-color: white;
+}
+
+.table th,
+.table td {
+  padding: 1px;
+  border-bottom: 1px solid #9e9797;
+  border-top: 1px solid #ececec;
+}
+
+.table th {
+  background-color: #FFFFFF;
+  font-weight: bold;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 13px;
+  border-bottom: 2px solid #9e9797;
+}
+
+.table th:first-child,
+.table td:first-child {
+  text-align: center;
+}
+
+.table th:nth-child(2) {
+  text-align: center;
+}
+
+.table th:last-child{
+  padding-right: 10px;
+  text-align: right;
+}
+
+.table td:last-child {
+  text-align: right;
+}
+
+.table tbody tr:hover {
+  background-color: #ececec;
+  transition: 0.3s ease-in-out;
+}
+
+.exp-column {
+  background-color: tomato;
+}
+
+.policyStatement {
+  align-items: center;
+}
+
+.policyStatement>div {
+  display: flex;
+  align-items: center;
+}
+
+.policyStatement>div>p {
+  margin-left: 8px;
+}
+
+.searchInput {
+  border-radius: 5px;
+  padding: 8px;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  background-repeat: no-repeat;
+  background-position: 95% center;
+  padding-right: 30px;
+}
+
+.qBtn {
+  display: inline-block;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  background-color: #dadbe6;
+  border: none;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.qBtn:hover {
+  border: 0.5px solid rgb(202, 202, 202);
+}
+
+.pmBtn {
+  display: flex;
+}
+
+.pmBtn>button {
+  border-radius: 20px;
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 50%;
+  font-size: 11px;
+}
+
+.pmBtn>button>a {
+  font-size: 11px;
+}
+
+.table-container {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.table {
+  width: 100%;
+}
+
+.table thead th {
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+}
+
+.table thead th,
+.table tbody td {
+  white-space: nowrap;
 }

@@ -70,8 +70,6 @@ function Orders2210() {
             </div>
           </div>
             <div>
-
-            
             </div>
         </div>
       ),

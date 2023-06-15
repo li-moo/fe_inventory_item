@@ -31,7 +31,7 @@ function StoreAutoOrdersList2230() {
   };
 
   const updateQnt = (tarId, tarQnt, tarMinQnt) => {
-    const url_be_updateQnt = `${process.env.REACT_APP_BE_API}//auto/qnt-change`;
+    const url_be_updateQnt = `${process.env.REACT_APP_BE_API}/auto/qnt-change`;
 
     axios(url_be_updateQnt,
       {
@@ -115,7 +115,7 @@ function StoreAutoOrdersList2230() {
     <>
       <div>
         <h4 >사용자설정 자동발주</h4>
-        <div style={{ borderBottom: '4px solid #CCCCCC', width: '225px', paddingTop: '2px' }}></div>
+        <div style={{ borderBottom: '4px solid #817D7D', width: '225px', paddingTop: '2px' }}></div>
       </div >
 
       {/* <Divider /> */}
