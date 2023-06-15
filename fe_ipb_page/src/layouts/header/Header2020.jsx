@@ -265,6 +265,7 @@ const Header2020 = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   const [isHovered, setIsHovered] = React.useState(false);
   const [isOrderClicked, setIsOrderClicked] = useState(false);
+  const [mouseHover, setMouseHover] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
 
@@ -276,6 +277,17 @@ const Header2020 = () => {
   //   // Handle the logic for creating a delivery address here
   //   console.log("Creating a delivery address...");
   // };
+
+  const mainToggle = {
+    color: '#FFFAEE',
+    fontSize: '16px',
+    fontWeight: 600,
+  };
+
+  const mainToggleHover = {
+    color: 'blue',
+  };
+
 
   return (
     // <div className={style.divHeader}>
@@ -309,7 +321,9 @@ const Header2020 = () => {
             <Collapse navbar isOpen={isOpen}>
               <Nav className="mx-auto" navbar>
                 <UncontrolledDropdown inNavbar nav className={styles.meCustom} >
-                  <DropdownToggle caret nav style={{ color: 'grey' }} >
+                  <DropdownToggle caret nav 
+                  style={mainToggle}
+                   >
                     상품 관리
                   </DropdownToggle>
                   {/* <DropdownMenu end onClick={() => { setDropdownOpen(!dropdownOpen); }}> */}
@@ -345,7 +359,7 @@ const Header2020 = () => {
                   </DropdownMenu>
                 </UncontrolledDropdown>
                 <UncontrolledDropdown inNavbar nav className={styles.meCustom} >
-                  <DropdownToggle caret nav style={{ color: 'grey' }}>
+                  <DropdownToggle caret nav   style={mainToggle}>
                     발주
                   </DropdownToggle>
                   <DropdownMenu end >
@@ -374,7 +388,7 @@ const Header2020 = () => {
                 </UncontrolledDropdown>
 
                 <UncontrolledDropdown inNavbar nav className={styles.meCustom} >
-                  <DropdownToggle caret nav style={{ color: 'grey' }}>
+                  <DropdownToggle caret nav   style={mainToggle}>
                     자동 발주
                   </DropdownToggle>
                   <DropdownMenu end >
@@ -396,7 +410,7 @@ const Header2020 = () => {
                 </UncontrolledDropdown>
 
                 <UncontrolledDropdown inNavbar nav className={styles.meCustom} >
-                  <DropdownToggle caret nav style={{ color: 'grey' }}>
+                  <DropdownToggle caret nav   style={mainToggle}>
                     매출
                   </DropdownToggle>
                   <DropdownMenu end >
@@ -413,7 +427,7 @@ const Header2020 = () => {
                 </UncontrolledDropdown>
 
                 <UncontrolledDropdown inNavbar nav className={styles.meCustom} >
-                  <DropdownToggle caret nav style={{ color: 'grey' }}>
+                  <DropdownToggle caret nav  style={mainToggle}>
                     이벤트
                   </DropdownToggle>
                   <DropdownMenu >
@@ -435,7 +449,7 @@ const Header2020 = () => {
                 </UncontrolledDropdown>
 
                 <UncontrolledDropdown inNavbar nav className={styles.meCustom} >
-                  <DropdownToggle caret nav style={{ color: 'grey' }}>
+                  <DropdownToggle caret nav  style={mainToggle}>
                     게시판
                   </DropdownToggle>
                   <DropdownMenu end >

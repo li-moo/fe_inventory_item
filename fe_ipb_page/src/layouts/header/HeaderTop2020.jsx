@@ -36,6 +36,9 @@ import todayData from '../../components/globalFunction/todayData';
 import CurrentDate from '../../components/globalFunction/CurrentDate';
 // import MyModal from '../components/sse/MyModal';
 import DropDown2020 from '../../components/sse/DropDown2020';
+import { TiHome } from "react-icons/ti";
+import { AiFillHome } from "react-icons/ai";
+import { BiSolidDoorOpen } from "react-icons/bi";
 
 // function MyModal() {
 //   return (
@@ -84,6 +87,13 @@ const HeaderTop2020 = () => {
   const loginCheck = useRecoilValue(logInState);
   // const [isLogin, setIsLogin] = React.useState(logInData.isLogIn);
   const [isLogin, setIsLogin] = React.useState(logInData.isLogIn);
+
+  const mainToggle = {
+    // color: 'white',
+    color: '#FFFAEE',
+    fontSize: '17px',
+    fontWeight: 550,
+  };
 
   const onFinish = (values) => {
 
@@ -227,38 +237,39 @@ const HeaderTop2020 = () => {
 
         <Collapse navbar isOpen={isOpen} style={{ height: '40px' }}>
 
-          <div className={style.leftTab} style={{ width: '60%' }}>
+          <div className={style.leftTab} style={{ width: '60%' }}  >
             <Link to="/starter" className="nav-link" style={{ paddingLeft: '3%' }}>
               {/* {logInData.store_name} */}
-              <RiHome4Line style={{ color: 'grey' }} />
+              <TiHome  style={mainToggle} size={20}/>
             </Link>
             <Link to="/weather" className={`nav-link`} >
-              <div className={style.leftTabTab}>
-                <p style={{ color: 'grey' }}>{getTodayData}</p>
-                <p style={{ color: 'grey' }}><CurrentDate /></p>
+              <div className={style.leftTabTab}  style={mainToggle}>
+                <p >{getTodayData}</p>
+                <p ><CurrentDate /></p>
                 <p>
-                  {weatherData.presentWeather === "Clear" && <RiSunFill style={{ color: 'grey' }} />}
-                  {weatherData.presentWeather === "Rain" && <RiHeavyShowersLine style={{ color: 'grey' }} />}
-                  {weatherData.presentWeather === "Clouds" && <RiSunCloudyFill style={{ color: 'grey' }} />}
-                  {weatherData.presentWeather === "Thunderstorm" && <RiFlashlightFill style={{ color: 'grey' }} />}
-                  {weatherData.presentWeather === "Mist" && <RiMistFill style={{ color: 'grey' }} />}
+                  {weatherData.presentWeather === "Clear" && <RiSunFill  />}
+                  {weatherData.presentWeather === "Rain" && <RiHeavyShowersLine  />}
+                  {weatherData.presentWeather === "Clouds" && <RiSunCloudyFill  />}
+                  {weatherData.presentWeather === "Thunderstorm" && <RiFlashlightFill  />}
+                  {weatherData.presentWeather === "Mist" && <RiMistFill  />}
                 </p>
               </div>
             </Link>
           </div>
 
           <div className={style.rightTab} style={{ width: '39.5%', justifyContent: 'end' }}>
-            <Link to="/starter" className="nav-link" style={{ color: 'grey' }}>
+            <Link to="/starter" className="nav-link"  style={mainToggle}>
               {logInData.store_name}
             </Link>
-            <div id='classDrop'>
+            <div id='classDrop'  >
               <DropDown2020 style={{ position: 'relative', zIndex: 10000 }} />
             </div>
             {
               logInData.isLogIn ?
                 <p className="nav-link" onClick={logOut}>
                   <RiLogoutBoxRLine
-                    style={{ color: 'grey', size: '50px' }}
+                     style={mainToggle}
+                     size={19}
                   />
                 </p>
                 :

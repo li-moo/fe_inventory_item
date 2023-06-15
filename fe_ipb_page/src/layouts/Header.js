@@ -245,7 +245,7 @@ const Header = () => {
             <Collapse navbar isOpen={isOpen}>
               <Nav className="mx-auto" navbar>
                 <UncontrolledDropdown inNavbar nav className={styles.meCustom}>
-                  <DropdownToggle caret nav style={{ color: 'grey'}}>
+                  <DropdownToggle caret nav >
                     상품 관리
                   </DropdownToggle>
                   <DropdownMenu end>
@@ -259,7 +259,7 @@ const Header = () => {
                 </UncontrolledDropdown>
 
                 <UncontrolledDropdown inNavbar nav className={styles.meCustom}>
-                  <DropdownToggle caret nav style={{ color: 'grey'}}>
+                  <DropdownToggle caret nav >
                     발주
                   </DropdownToggle>
                   <DropdownMenu end>
@@ -280,7 +280,7 @@ const Header = () => {
                 </UncontrolledDropdown>
 
                 <UncontrolledDropdown inNavbar nav className={styles.meCustom}>
-                  <DropdownToggle caret nav style={{ color: 'grey'}}>
+                  <DropdownToggle caret nav >
                     자동 발주
                   </DropdownToggle>
                   <DropdownMenu end>
@@ -294,7 +294,7 @@ const Header = () => {
                 </UncontrolledDropdown>
 
                 <UncontrolledDropdown inNavbar nav className={styles.meCustom}>
-                  <DropdownToggle caret nav style={{ color: 'grey'}}>
+                  <DropdownToggle caret nav >
                     매출
                   </DropdownToggle>
                   <DropdownMenu end>
@@ -305,7 +305,7 @@ const Header = () => {
                 </UncontrolledDropdown>
 
                 <UncontrolledDropdown inNavbar nav className={styles.meCustom}>
-                  <DropdownToggle caret nav style={{ color: 'grey'}}>
+                  <DropdownToggle caret nav >
                     이벤트
                   </DropdownToggle>
                   <DropdownMenu end>
@@ -319,7 +319,7 @@ const Header = () => {
                 </UncontrolledDropdown>
 
                 <UncontrolledDropdown inNavbar nav className={styles.meCustom}>
-                  <DropdownToggle caret nav style={{ color: 'grey'}}>
+                  <DropdownToggle caret nav >
                     게시판
                   </DropdownToggle>
                   <DropdownMenu end>

@@ -11,8 +11,8 @@
 
 .alarmRed {
   display: inline-block;
-  width: 5px;
-  height: 5px;
+  width: 5.5px;
+  height: 5.5px;
   border-radius: 50%;
   background-color: red;
 }

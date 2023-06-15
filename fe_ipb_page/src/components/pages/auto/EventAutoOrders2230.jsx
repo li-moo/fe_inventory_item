@@ -103,7 +103,7 @@ function EventAutoOrders2230() {
                     to={`/storeproduct/detail/${item.product_id}`}
                     style={{ textDecoration: "none", color: "inherit" }}
                   > */}
-                    [{item.brand}]{item.product_name}
+                    [{item.brand}]{' '}{item.product_name}
                   {/* </Link> */}
                 </td>
               <td>{addComma(item.price)}</td>
