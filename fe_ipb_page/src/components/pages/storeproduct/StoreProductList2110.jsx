@@ -238,7 +238,6 @@ function StoreProductList2110() {
     }
   };
 
-
   const handleStorageChange = (e) => {
     const selectedStorage = e.target.value;
     if (selectedStorage === "") {
@@ -251,12 +250,10 @@ function StoreProductList2110() {
     }
   };
 
-
   const handleSearch = (value) => {
     console.log(value);
     setSearchTerm(value);
   };
-
 
   const filteredProducts = sortedProductData.filter(
     (item) =>

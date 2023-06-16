@@ -202,7 +202,8 @@ const HeaderTop = () => {
 
   return (
     // <Navbar color="primary" dark expand="md" className={"navbar-custom bg-secondary"} >
-    <Navbar color="primary" dark expand="md" className={"navbar-custom smaller-navbar "} >
+    // <Navbar color="primary" dark expand="md" className={"navbar-custom smaller-navbar "} >
+    <Navbar dark expand="md" className={"navbar-custom smaller-navbar "} style={{ backgroundColor: '#262627'}} >
       <div className="d-flex align-items-center">
         {/* <NavbarBrand href="/" className="d-lg-none">
           <LogoWhite />

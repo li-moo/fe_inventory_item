@@ -29,7 +29,8 @@ const Header = () => {
     // <div className={style.divHeader}>
     // <div className={`${style.divHeader} ${style.navbarCustom} ${style.bgSecondary}`}>
     <div className={`${style.divHeader} ${style.navbarCustom}`}>
-      <Navbar color="primary" dark expand="md">
+      {/* <Navbar color="primary" dark expand="md"> */}
+      <Navbar dark expand="md">
       <div className="d-flex align-items-center">
         <NavbarBrand href="/" className="d-lg-none">
           {/* <LogoWhite /> */}
@@ -59,14 +60,14 @@ const Header = () => {
                   상품 관리
                 </DropdownToggle>
                 <DropdownMenu end>
-                  <DropdownItem>
-                    <Link to="/product">상품조회</Link>
+                  <DropdownItem  >
+                    <Link to="/product" style={{ textDecoration: 'none', color: 'grey' }} >상품조회</Link>
                   </DropdownItem>
-                  <DropdownItem>
-                    <Link to="/product/add">상품등록</Link>
+                  <DropdownItem >
+                    <Link to="/product/add" style={{ textDecoration: 'none', color: 'grey' }} >상품등록</Link>
                   </DropdownItem>
-                  <DropdownItem>
-                    <Link to="/productinfolist">상품기본정보</Link>
+                  <DropdownItem  >
+                    <Link to="/productinfolist" style={{ textDecoration: 'none', color: 'grey' }}>상품기본정보</Link>
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
@@ -76,8 +77,8 @@ const Header = () => {
                   발주
                 </DropdownToggle>
                 <DropdownMenu end>
-                  <DropdownItem>
-                    <Link to="/headofficeorderlist">발주내역조회</Link>
+                  <DropdownItem  >
+                    <Link to="/headofficeorderlist" style={{ textDecoration: 'none', color: 'grey' }} >발주내역조회</Link>
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
@@ -98,8 +99,8 @@ const Header = () => {
                   이벤트
                 </DropdownToggle>
                 <DropdownMenu end>
-                  <DropdownItem>
-                    <Link to="/event">이벤트</Link>
+                  <DropdownItem >
+                    <Link to="/event" style={{ textDecoration: 'none', color: 'grey' }} >이벤트</Link>
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
@@ -109,8 +110,8 @@ const Header = () => {
                   게시판
                 </DropdownToggle>
                 <DropdownMenu end>
-                  <DropdownItem>
-                    <Link to="/board">게시판 </Link>
+                  <DropdownItem >
+                    <Link to="/board" style={{ textDecoration: 'none', color: 'grey' }} >게시판 </Link>
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
@@ -119,12 +120,12 @@ const Header = () => {
                 <DropdownToggle caret nav>
                   점포
                 </DropdownToggle>
-                <DropdownMenu end>
+                <DropdownMenu end >
                   <DropdownItem>
-                    <Link to="/store"> 점포조회 </Link>
+                    <Link to="/store" style={{ textDecoration: 'none', color: 'grey' }} > 점포조회 </Link>
                   </DropdownItem>
-                  <DropdownItem>
-                    <Link to="/store/add"> 점포등록 </Link>
+                  <DropdownItem >
+                    <Link to="/store/add" style={{ textDecoration: 'none', color: 'grey' }} > 점포등록 </Link>
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
@@ -134,11 +135,11 @@ const Header = () => {
                   직원
                 </DropdownToggle>
                 <DropdownMenu end>
-                  <DropdownItem>
-                    <Link to="/staff">직원조회</Link>
+                  <DropdownItem >
+                    <Link to="/staff" style={{ textDecoration: 'none', color: 'grey' }} >직원조회</Link>
                   </DropdownItem>
-                  <DropdownItem>
-                    <Link to="/staff/add">직원등록</Link>
+                  <DropdownItem >
+                    <Link to="/staff/add" style={{ textDecoration: 'none', color: 'grey' }} >직원등록</Link>
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
