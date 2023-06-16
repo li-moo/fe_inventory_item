@@ -13,6 +13,8 @@ npm install
 
 <img src="https://img.shields.io/badge/npm-%23CB3837.svg?&style=for-the-badge&logo=npm&logoColor=white" />
 
+<img src="https://img.shields.io/badge/figma-%23F24E1E.svg?&style=for-the-badge&logo=figma&logoColor=white" /> : https://www.figma.com/file/GyTyx7Yu5t8NpGJ7jP3v0e/BBik?type=design&node-id=0-1&t=mfP8MxxRGvsRS5Dn-0
+
 
 ----
 1. 본사
