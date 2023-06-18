@@ -57,7 +57,7 @@
 <br>
 
 <div align=center>
-	Browsers support
+	<h3> Browsers support </h3>
 </div>
 
 <div align=center>
