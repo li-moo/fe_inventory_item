@@ -72,6 +72,7 @@
 </div>
 
 <div> 🎁 package-json 🎁 </div>
+` ` `
 {
   "callout": {
     "type": "note",
@@ -104,3 +105,4 @@
     "slick-carousel": "^1.8.1"
   }
 }
+` ` ` `
