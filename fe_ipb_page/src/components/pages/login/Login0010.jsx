@@ -101,7 +101,7 @@ export default function Login0010() {
       })
       .catch(function (error) {
         if (error.response) {
-          console.log(error.response);
+
         }
       })
   };

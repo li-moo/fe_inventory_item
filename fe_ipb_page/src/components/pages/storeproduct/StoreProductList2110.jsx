@@ -30,7 +30,9 @@ function StoreProductList2110() {
         setStoreProductData(res.data);
         setSortedProductData(res.data);
       })
-      .catch((err) => console.log("storeProdutList/err", err));
+      .catch((err) => {
+
+      });
   };
 
   const handleSort = () => {

@@ -34,7 +34,9 @@ function OrdersList2220() {
       .then((res) => {
         setStoreOrdersDetailData(res.data);
       })
-      .catch((err) => console.log("storeexp/err", err));
+      .catch((err) => {
+
+      });
   };
 
   const url_be_detail_list = `${process.env.REACT_APP_BE_API}/orders/store-orders-detail-list`;

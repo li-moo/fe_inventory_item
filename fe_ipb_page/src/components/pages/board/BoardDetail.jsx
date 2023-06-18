@@ -25,7 +25,9 @@ function BoardDetail() {
       .then(data => {
         setBoard(data);
       })
-      .catch(err => console.log(err))
+      .catch((err) => {
+
+      });
   }, [id]);
 
   const handleDelete = () => {
@@ -35,7 +37,9 @@ function BoardDetail() {
       .then(() => {
         navigate('/board');
       })
-      .catch(err => console.log(err));
+      .catch((err) => {
+
+      });
   };
 
   const showModalWindow = () => {

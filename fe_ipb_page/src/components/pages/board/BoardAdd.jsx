@@ -32,7 +32,7 @@ function BoardAdd() {
       })
       .catch(function (error) {
         if (error.response) {
-          console.log(error.response);
+
         }
       });
   };

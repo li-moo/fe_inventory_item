@@ -127,7 +127,7 @@ const HeaderTop2020 = () => {
       })
       .catch(function (error) {
         if (error.response) {
-          console.log(error.response);
+
         }
       })
   };

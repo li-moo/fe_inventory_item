@@ -109,7 +109,7 @@ function StoreExp2120() {
       .then(() => {
         setRefreshExpBtn(!refreshExpBtn);
       }).catch(function (error) {
-        console.log("error: ", error);
+
       })
   }
 

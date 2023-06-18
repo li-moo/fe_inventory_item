@@ -74,7 +74,7 @@ function DropDown2020({ direction, ...args }) {
       eventSource.close();
 
       if (e.error) {
-        console.log(e);
+
       }
 
       if (e.target.readyState === EventSource.CLOSED) {
@@ -117,8 +117,6 @@ function DropDown2020({ direction, ...args }) {
       eventSource.close();
 
       if (e.error) {
-        console.log('에러가 발생했습니다.');
-        console.log(e);
       }
       if (e.target.readyState === EventSource.CLOSED) {
         // 종료 시 할 일

@@ -38,7 +38,9 @@ function StoreProductDetail2112() {
       .then(data => {
         // 추가로 필요한 작업 수행
       })
-      .catch(err => console.log(err));
+      .catch((err) => {
+
+      });
     message.success(`자동 발주신청이 되었습니다.`, 3);
   }
 
@@ -53,7 +55,9 @@ function StoreProductDetail2112() {
       .then(data => {
         setProduct(data)
       })
-      .catch(err => console.log(err))
+      .catch((err) => {
+
+      });
   }, [id]);
 
   function addComma(num) {
@@ -68,7 +72,10 @@ function StoreProductDetail2112() {
       .then(data => {
         setProduct(data)
       })
-      .catch(err => console.log(err))
+      .catch((err) => {
+
+      });
+
 
     Modal.info({
       width: '30%',
@@ -114,7 +121,10 @@ function StoreProductDetail2112() {
           .then(res => res.json())
           .then(data => {
           })
-          .catch(err => console.log(err));
+          .catch((err) => {
+
+          });
+
         message.success(`자동 발주신청이 되었습니다.`, 3);
 
       },

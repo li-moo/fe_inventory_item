@@ -32,27 +32,11 @@ function StoreExpSeven2120() {
   // const url_be = process.env.REACT_APP_BE_API + `/storeproduct/list/${logInData.store_id}`;
   const url_be = `${process.env.REACT_APP_BE_API}/storeproduct/listexp/${logInData.store_id}`;
 
-  // const fetchData = () => {
-  //   axios(url_be, {
-  //     method: 'get'
-  //   })
-  //     .then((res) => {
-  //       console.log("storeExp->res.data::", res.data);
-  //       const addData = res.data.map((item) => ({
-  //         ...item,
-  //         addData: subtractDates(todayDate, item.exp),
-  //       }));
-
-  //       setStoreProductData(addData)
-  //     })
-  //     .catch((err) => console.log("storeexp/err", err))
-  // }
   const fetchData = () => {
     axios(url_be, {
       method: 'get'
     })
       .then((res) => {
-        console.log("storeExp->res.data::", res.data);
         const addData = res.data.map((item) => ({
           ...item,
           addData: subtractDates(todayDate, item.exp),
@@ -60,7 +44,9 @@ function StoreExpSeven2120() {
 
         setStoreProductData(addData);
       })
-      .catch((err) => console.log("storeexp/err", err))
+      .catch((err) => {
+
+      });
   }
 
   const subtractDates = (date1, date2) => {
@@ -105,14 +91,10 @@ function StoreExpSeven2120() {
     }
   }
 
-  // console.log("sortedProductssortedProducts>>",sortedProducts);
-
 
   /// 폐기 버튼
   const disposeBtn = (id) => {
     const url_be_disposeBtn = `${process.env.REACT_APP_BE_API}/storeproduct/qntzero`;
-
-    console.log("폐기버튼안>id:", id);
 
     axios(url_be_disposeBtn,
       {
@@ -128,7 +110,7 @@ function StoreExpSeven2120() {
       .then(() => {
         setRefreshExpBtn(!refreshExpBtn);
       }).catch(function (error) {
-        console.log("error: ", error);
+
       })
   }
 

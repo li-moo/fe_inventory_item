@@ -44,7 +44,8 @@ function StoreExpFive2120() {
 
         setStoreProductData(addData);
       })
-      .catch((err) => console.log("storeexp/err", err))
+      .catch((err) => {
+      });
   }
 
   const subtractDates = (date1, date2) => {
@@ -107,7 +108,7 @@ function StoreExpFive2120() {
       .then(() => {
         setRefreshExpBtn(!refreshExpBtn);
       }).catch(function (error) {
-        console.log("error: ", error);
+
       })
   }
 

@@ -38,7 +38,9 @@ function MiniBoardProductlist2020() {
         setStoreProductData(res.data);
         setFilteredProductData(res.data);
       })
-      .catch((err) => console.log("storeProductList/err", err));
+      .catch((err) => {
+
+      });
   };
 
   const handleCategoryChange = (value) => {
