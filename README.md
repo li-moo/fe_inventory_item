@@ -14,17 +14,19 @@
 		<div>서버: https://github.com/AnzioR/inventory_product_balance.git</div>
 	</div>
 </div>
+</br>
 <div  align=center>
 	<h3>개발기간</h3>
 	<div class="callout">
 	  <p> 23/04/20 ~ 23/06/21</p>
 	</div>
 </div>
-
+</br>
 <div align=center>
 	<h3>📚 기술 스택 📚</h3>
 	<p>✨ 플랫폼 & 언어 ✨</p>
 </div>
+</br>
 <div align="center">
 <!-- 	<img src="https://img.shields.io/badge/Java-007396?style=flat&logo=Conda-Forge&logoColor=white" /> -->
 	<p><img src="https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=HTML5&logoColor=white" /></p>
@@ -62,7 +64,6 @@
 <div align=center>
 	<h3> Browsers support </h3>
 </div>
-
 <div align=center>
 	
 | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://gotbahn.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://gotbahn.github.io/browsers-support-badges/)</br>Chrome |
