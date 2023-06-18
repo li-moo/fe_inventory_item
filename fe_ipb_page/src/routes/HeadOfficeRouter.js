@@ -107,7 +107,7 @@ import { Navigate } from "react-router-dom";
 const FullLayout = lazy(() => import("../layouts/HeadOfficeFullLayout.js"));
 
 /***** Pages ****/
-const Login0010 = lazy(() => import("../components/pages/login/Login0010.js"));
+const Login0010 = lazy(() => import("../components/pages/login/Login0010.jsx"));
 const HeadOfficeMain = lazy(() => import("../views/HeadOfficeMain.js"));
 const Product = lazy(() => import("../components/pages/product/Product.jsx"));
 const ProductDetail = lazy(() => import("../components/pages/product/ProductDetail.jsx"));
