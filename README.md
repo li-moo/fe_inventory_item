@@ -75,7 +75,7 @@
 {
   "callout": {
     "type": "note",
-        "@testing-library/jest-dom": "^5.15.0",
+    "@testing-library/jest-dom": "^5.15.0",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "antd": "^5.5.0",
@@ -99,7 +99,7 @@
     "recoil": "^0.7.7",
     "recoil-persist": "^4.2.0",
     "sse": "^0.0.8",
-    "web-vitals": "^1.1.2"
+    "web-vitals": "^1.1.2",
     "react-slick": "^0.29.0",
     "slick-carousel": "^1.8.1"
   }
