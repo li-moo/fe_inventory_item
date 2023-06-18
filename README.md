@@ -1,5 +1,5 @@
 <div align=center>
-	<img src="https://capsule-render.vercel.app/api?type=waving&color=auto&height=200&section=header&text=[ssgInC%KDT]%&fontSize=90" />	
+	<img src="https://capsule-render.vercel.app/api?type=waving&color=auto&height=200&section=header&text=[ssgInC%-KDT]%&fontSize=90" />	
 </div>
 <div  align=center>
 	<h2>재고와 유통기한의 효율적인 관리를 위한 맞춤형 웹페이지 - FE </h2>
