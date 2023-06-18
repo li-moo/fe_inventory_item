@@ -8,12 +8,15 @@
 <div  align=center>
 	<h3>실행방법</h3>
 	<div>
+		<p>1) node 버전 확인 </p>
 		<p><img src="https://img.shields.io/badge/node.js-E34F26?style=flat&logo=node.js&logoColor=white" />: v16.18.0</p>
 	</div>
 	  <div class="callout">
+		  <p>2) package-json 설치</p>
 	  <p>npm install</p>
 	</div>
 	<div>
+		<p>3) 서버 git 주소</p>
 		<div>서버: https://github.com/AnzioR/inventory_product_balance.git</div>
 	</div>
 </div>
