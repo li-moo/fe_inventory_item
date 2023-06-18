@@ -218,7 +218,6 @@ export default function Login0010() {
         })
       });
       const data = await response.json();
-      console.log("login/getWeaterInfo -> data: ", data);
       setWeatherData(data);
     } catch (error) {
       console.error(error);
@@ -247,23 +246,18 @@ export default function Login0010() {
         })
       .then((response) => {
 
-        // localStorage.setItem('token', response);
-        // console.log("localStorage", localStorage)
-
-        console.log("token을 위한 staff>>", response);
-
-        // setTokenData(staff);
+        // console.log("token을 위한 staff>>", response);
 
         localStorage.setItem('access', response.data);
         localStorage.setItem('refresh', response.refresh);
-        console.log("localStorage", localStorage)
+        // console.log("localStorage", localStorage)
 
         const staff = response.data;
         axios.defaults.headers.common['Authorization'] = 'Bearer ' + staff;
-        console.log(staff); // staff 정보를 콘솔에 출력
+        // console.log(staff); // staff 정보를 콘솔에 출력
 
         var token = response.token;
-        console.log("token", token);
+        // console.log("token", token);
         localStorage.setItem("token", token);
 
 
@@ -279,56 +273,26 @@ export default function Login0010() {
             store_name: staff.store_name,
             area: staff.area,
           })
-          console.log("로그인 성공");
-          // alert(`${staff.name}님 환영합니다.`);
           message.success(`점포: ${staff.name}`, 3);
           // window.location.href = "http://localhost:3000/";
           navigate("/");
-          console.log(logInData);
           setModalReadData({
             isModalRead: false
           });
         } else {
-          console.log("로그인 실패");
           message.warning('로그인에 실패 하셨습니다. 다시 시도해주세요.');
         }
       })
       .catch(function (error) {
         if (error.response) {
-          console.log(error.response.data);
-          console.log(error.response.status);
-          console.log(error.response.headers);
+          console.log(error.response);
         }
       })
-    console.log("values.login_id", values.login_id);
-    console.log("values.pwd", values.pwd);
-    console.log("state확인용", logInData);
-    console.log("weatherData", weatherData);
   };
 
-  // console.log("tokenData>>", tokenData);
 
   return (
     <div>
-      {/* <Form
-        // form={form}
-        layout="vertical"
-        onFinish={onFinish}
-      >
-        <Form.Item name="login_id" rules={[{ required: true, message: "아이디를 입력해주세요" }]}>
-          <Input  size="large" placeholder="아이디" />
-        </Form.Item>
-        <Form.Item name="pwd" rules={[{ required: true, message: "비밀번호를 입력해주세요" }]}>
-          <Input placeholder="비밀번호" type="password" size="large" />
-        </Form.Item> */}
-      {/* // 버튼에 로딩 기능 추가 할 생각있으면하겠습니다. loading={isLoading} */}
-      {/* <Button size="large" type="primary" htmlType="submit" className="w-full">
-          로그인
-        </Button>
-        <a className="inline-block mt-2 text-gray-400">
-          비밀번호 찾기
-        </a>
-      </Form> */}
       <Form
         // form={form}
         layout="vertical"

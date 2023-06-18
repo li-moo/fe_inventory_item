@@ -21,8 +21,6 @@ function OrderProductList2210(props) {
 
   // let dataList = [];
 
-  console.log("-->> storeProductData.map.qnt", storeProductData.map.qnt);
-
   // const url_be = "http://43.202.9.215:8080/product/list";
   // const url_be = "http://localhost:8080/product/list";
   // const url_be = `http://localhost:8080/product/list?page=${currentPage}&pageSize=${pageSize}`;
@@ -41,8 +39,6 @@ function OrderProductList2210(props) {
       }
     )
       .then((res) => {
-        console.log("res:", res);
-        console.log("orderProdutList=>res.data:", res.data);
         setProductData(res.data)
         setFilteredProductData(res.data);
 
@@ -73,9 +69,7 @@ function OrderProductList2210(props) {
       }
     ).catch(function (error) {
       if (error.response) {
-        console.log(error.response.data);
-        console.log(error.response.status);
-        console.log(error.response.headers);
+        console.log(error.response);
       }
     })
 

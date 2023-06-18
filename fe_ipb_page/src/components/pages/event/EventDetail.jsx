@@ -8,7 +8,6 @@ function EventDetail() {
   const [event, setEvent] = useState({});
 
   useEffect(() => {
-    console.log(id);
     fetchEventDetails();
   }, [id]);
 

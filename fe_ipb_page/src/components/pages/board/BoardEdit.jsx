@@ -19,7 +19,6 @@ function BoardEdit() {
       .then(res => res.json())
       .then(data => {
         setBoard(data);
-        console.log(">>data:", data);
       })
       .catch(err => console.log(err));
   }, [id]);

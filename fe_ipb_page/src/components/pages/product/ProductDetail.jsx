@@ -16,17 +16,13 @@ function ProductDetail() {
 
 
   useEffect(() => {
-    console.log(id);
     fetch(`${process.env.REACT_APP_BE_API}/product/detail?id=${id}`)
       .then(res => res.json())
       .then(data => {
-        console.log("product-detail data:", data);
         setProduct(data)
       })
       .catch(err => console.log(err))
   }, [id]);
-
-  console.log("product: ", product);
 
   function addComma(num) {
     var regexp = /\B(?=(\d{3})+(?!\d))/g;

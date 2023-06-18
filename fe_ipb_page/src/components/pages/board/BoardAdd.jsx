@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 function BoardAdd() {
   const navigate = useNavigate();
   const [form] = Form.useForm();
-  
+
 
   const onFinish = (values) => {
     const url_be = `${process.env.REACT_APP_BE_API}/board/add`;
@@ -32,9 +32,7 @@ function BoardAdd() {
       })
       .catch(function (error) {
         if (error.response) {
-          console.log(error.response.data);
-          console.log(error.response.status);
-          console.log(error.response.headers);
+          console.log(error.response);
         }
       });
   };
@@ -44,33 +42,33 @@ function BoardAdd() {
       <h2 style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '16px' }}>게시글 작성</h2>
       <Divider />
       <Form form={form} onFinish={onFinish}>
-        
-        <Form.Item 
-          name="title" label="제목" 
+
+        <Form.Item
+          name="title" label="제목"
           rules={[{ required: true, message: '제목을 입력해주세요.' }]}
           labelCol={{ span: 2 }} wrapperCol={{ span: 12 }}
         >
           <Input />
         </Form.Item>
 
-        <Form.Item 
-          name="body_text" label="내용" 
+        <Form.Item
+          name="body_text" label="내용"
           rules={[{ required: true, message: '내용을 입력해주세요.' }]}
           labelCol={{ span: 2 }} wrapperCol={{ span: 12 }}
         >
           <Input.TextArea rows={4} />
         </Form.Item>
 
-        <Form.Item 
-          name="staff_id" label="스태프 아이디" 
+        <Form.Item
+          name="staff_id" label="스태프 아이디"
           rules={[{ required: true, message: '제목을 입력해주세요.' }]}
           labelCol={{ span: 2 }} wrapperCol={{ span: 12 }}
         >
           <Input />
         </Form.Item>
 
-        <Form.Item 
-          name="imgname" label="이미지" 
+        <Form.Item
+          name="imgname" label="이미지"
           rules={[{ required: true, message: '제목을 입력해주세요.' }]}
           labelCol={{ span: 2 }} wrapperCol={{ span: 12 }}
         >

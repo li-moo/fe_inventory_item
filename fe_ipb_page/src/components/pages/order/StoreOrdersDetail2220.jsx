@@ -35,7 +35,6 @@ function StoreOrdersDetail2220(props) {
         },
       })
       .then((res) => {
-        console.log("# Store fetch-list 받은 데이터 res.data>>>", res.data);
         setStoreOrdersDetailListData(res.data);
         // Group ==> orders_type_id -> 1: 일반, 2: 자동, 3:이벤트
         const groupedData = res.data.reduce((result, item) => {
@@ -69,9 +68,7 @@ function StoreOrdersDetail2220(props) {
       },
     }).catch(function (error) {
       if (error.response) {
-        console.log(error.response.data);
-        console.log(error.response.status);
-        console.log(error.response.headers);
+        console.log(error.response);
       }
     });
   };

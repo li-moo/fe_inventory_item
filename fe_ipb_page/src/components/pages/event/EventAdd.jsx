@@ -10,7 +10,7 @@ function EventAdd() {
 
   const [eventTypeOptions, setEventTypeOptions] = useState([]); // 이벤트타입 옵션 목록
   const navigate = useNavigate();
-  
+
   useEffect(() => {
     // 카테고리 옵션 목록을 초기화하는 함수
     const initializeEventTypeOptions = () => {
@@ -44,9 +44,6 @@ function EventAdd() {
     })
       .then(function (response) {
         navigate("/event");
-        console.log(response.data);
-        console.log(response.status);
-        console.log(response.headers);
       })
       .catch(function (error) {
         console.error(error);
@@ -60,7 +57,7 @@ function EventAdd() {
 
       <Form className="w-1/2" onFinish={onFinish}>
         <Form.Item label="이벤트 이름" name="name" labelCol={{ span: 2 }} wrapperCol={{ span: 12 }}>
-          <Input style={{ width: '50%' }}/>
+          <Input style={{ width: '50%' }} />
         </Form.Item>
 
         <Form.Item label="이벤트 타입" name="event_type_id" labelCol={{ span: 2 }} wrapperCol={{ span: 12 }}>
@@ -70,7 +67,7 @@ function EventAdd() {
         </Form.Item>
 
         <Form.Item label="이벤트 배너" name="imgname" labelCol={{ span: 2 }} wrapperCol={{ span: 12 }}>
-          <Input style={{ width: '50%' }}/>
+          <Input style={{ width: '50%' }} />
         </Form.Item>
 
         <Form.Item label="시작 날짜" name="start_date" labelCol={{ span: 2 }} wrapperCol={{ span: 12 }}>

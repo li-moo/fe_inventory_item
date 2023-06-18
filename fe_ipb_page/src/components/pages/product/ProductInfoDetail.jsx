@@ -11,14 +11,12 @@ function ProductInfoDetail() {
   const [isEditing, setIsEditing] = useState(false);
 
   useEffect(() => {
-    console.log(id);
     fetchProductDetails();
   }, [id]);
 
   const fetchProductDetails = async () => {
     try {
       const response = await axios.get(`${process.env.REACT_APP_BE_API}/productInfo/detail?product_code=${id}`);
-      console.log("product-info-detail data:", response.data);
       setProduct(response.data);
     } catch (error) {
       console.log(error);
@@ -28,7 +26,6 @@ function ProductInfoDetail() {
   const updateProduct = async () => {
     try {
       const response = await axios.put(`${process.env.REACT_APP_BE_API}/productInfo/update?product_code=${product.product_code}`, product);
-      console.log("Updated product:", response.data);
       message.success('상품 정보가 성공적으로 업데이트되었습니다.');
       setIsEditing(false);
       fetchProductDetails(); // 페이지 새로고침
@@ -88,7 +85,7 @@ function ProductInfoDetail() {
                   <form>
                     <div className={style.formItem}>
                       <label>이미지</label>
-                      <Input name="imgname" value={product.imgname} onChange={handleInputChange} disabled/>
+                      <Input name="imgname" value={product.imgname} onChange={handleInputChange} disabled />
                     </div>
 
                     <div className={style.formItem}>
@@ -108,12 +105,12 @@ function ProductInfoDetail() {
 
                     <div className={style.formItem}>
                       <label>보관방법</label>
-                      <Input name="storage" value={product.storage} onChange={handleInputChange} disabled/>
+                      <Input name="storage" value={product.storage} onChange={handleInputChange} disabled />
                     </div>
 
                     <div className={style.formItem}>
                       <label>입수</label>
-                      <Input name="box_qnt" value={product.box_qnt} onChange={handleInputChange} disabled/>
+                      <Input name="box_qnt" value={product.box_qnt} onChange={handleInputChange} disabled />
                     </div>
 
                     <div className={style.formItem}>
