@@ -6,7 +6,7 @@
 </div>
 
 <div  align=center>
-	<h3>실행방법</h3>
+	<h3> 실행방법</h3>
 	<div>
 		<p>1) node 버전 확인 </p>
 		<p><img src="https://img.shields.io/badge/node.js-E34F26?style=flat&logo=node.js&logoColor=white" />: v16.18.0</p>
@@ -19,6 +19,10 @@
 		<p>3) 서버 git 주소</p>
 		<div>서버: https://github.com/AnzioR/inventory_product_balance.git</div>
 	</div>
+	<div class="callout">
+	    <p>4) 실행 </p>
+	    <p>npm start</p>
+	  </div>
 </div>
 </br>
 <div  align=center>
