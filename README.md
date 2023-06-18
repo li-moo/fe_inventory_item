@@ -6,15 +6,13 @@
 </div>
 
 <div  align=center>
-	<h4>실행방법</h4>\
+	<h3>실행방법</h3>
 	  <div class="callout">
 	  <p>npm install</p>
 	</div>
 </div>
-
-
 <div  align=center>
-	<h4>개발기간</h4>
+	<h3>개발기간</h3>
 	<div class="callout">
 	  <p> 23/04/20 ~ 23/06/21</p>
 	</div>
