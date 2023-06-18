@@ -121,7 +121,7 @@ const FullLayout = lazy(() => import("../layouts/FullLayout.js"));
 
 const Starter2020 = lazy(() => import("../views/Starter2020.js"));
 const About = lazy(() => import("../views/About.js"));
-const Login0010 = lazy(() => import("../components/pages/login/Login0010.js"));
+const Login0010 = lazy(() => import("../components/pages/login/Login0010.jsx"));
 const Staff = lazy(() => import("../components/pages/staff/Staff.js"))
 const StaffAdd = lazy(() => import("../components/pages/staff/StaffAdd.jsx"))
 const StaffUpdate = lazy(() => import("../components/pages/staff/StaffUpdate.jsx"))
