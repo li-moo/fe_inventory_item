@@ -10,6 +10,9 @@
 	  <div class="callout">
 	  <p>npm install</p>
 	</div>
+	<div>
+		<div>서버: https://github.com/AnzioR/inventory_product_balance.git</div>
+	</div>
 </div>
 <div  align=center>
 	<h3>개발기간</h3>
@@ -65,5 +68,4 @@
 | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://gotbahn.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://gotbahn.github.io/browsers-support-badges/)</br>Chrome |
 | --------- | --------- |
 | last 2 versions | last 2 versions |
-
 </div>
