@@ -27,11 +27,6 @@ const Header2020 = () => {
 
   const handleMouseLeave = () => setIsHovered(false);
 
-  // const createDeliveryAddress = () => {
-  //   // Handle the logic for creating a delivery address here
-  //   console.log("Creating a delivery address...");
-  // };
-
   const mainToggle = {
     color: '#FFFAEE',
     fontSize: '16px',

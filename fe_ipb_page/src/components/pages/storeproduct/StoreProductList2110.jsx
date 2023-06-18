@@ -27,9 +27,6 @@ function StoreProductList2110() {
     axios
       .get(url_be)
       .then((res) => {
-        console.log("res:", res);
-        console.log("storeProdutList=>res.data:", res.data);
-        console.log("storeProdutList의 길이=>res.data.length:", res.data.length);
         setStoreProductData(res.data);
         setSortedProductData(res.data);
       })
@@ -74,7 +71,6 @@ function StoreProductList2110() {
   };
 
   const handleSearch = (value) => {
-    console.log(value);
     setSearchTerm(value);
   };
 

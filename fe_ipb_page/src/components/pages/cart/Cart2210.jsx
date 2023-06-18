@@ -48,7 +48,6 @@ function Cart2210(props) {
       method: 'get'
     })
       .then((res) => {
-        console.log("storeExp->res.data::", res.data);
         setCartData(res.data)
       })
       .catch((err) => console.log("storeexp/err", err))
@@ -172,7 +171,6 @@ function Cart2210(props) {
 
     //setAddOrder(true);
     // handleAddMax();
-    console.log("??/tarQnt", tarQnt);
     setTarNewQnt(tarQnt);
 
   }
@@ -296,12 +294,9 @@ function Cart2210(props) {
                       className={styles.roundedInput}
                       onChange={(e) => {
                         const newQuantity = parseInt(e.target.value) || item.qnt - 1;
-                        console.log("하이요");
-                        console.log("e.target.value", e.target.value);
                         if (!isNaN(newQuantity) && newQuantity > 0) {
                           const updatedCartData = cartData.map((cartItem) => {
                             if (cartItem.id === item.id) {
-                              console.log("이거 실행되긴하나?");
                               return { ...cartItem, qnt: newQuantity };
                             }
                             return cartItem;
@@ -314,7 +309,6 @@ function Cart2210(props) {
                         const tarProductId = item.product_id;
                         const tarQnt = newQuantity;
                         updateQnt(tarId, tarQnt);
-                        console.log("????orderCartState", orderCartState);
                         handleAddMax(tarId, tarQnt, tarProductId);
                       }
                       }

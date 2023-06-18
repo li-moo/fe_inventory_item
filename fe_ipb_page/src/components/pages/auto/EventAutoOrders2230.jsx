@@ -30,7 +30,7 @@ function EventAutoOrders2230() {
       }
     })
       .then((res) => {
-        // console.log("EventAutoOrders->res.data::", res.data);
+
         setEventAutoData(res.data);
       })
       .catch((err) => console.log("storeexp/err", err));

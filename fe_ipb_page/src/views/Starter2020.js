@@ -36,8 +36,6 @@ const Starter2020 = () => {
   };
 
   useEffect(() => {
-    console.log("useEffect/logInData", logInData);
-    console.log("useEffect/logInData.isLogin === false", logInData.isLogIn === false);
     if (logInData.isLogIn === false) {
       navigate(`/login`);
     }
@@ -103,73 +101,22 @@ const Starter2020 = () => {
     },
   ];
 
-  // const expInfo = () => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const res = await axios.get(url_be);
-  //       console.log("res:", res.data);
-  //       return res.data;
-  //     } catch (err) {
-  //       console.log("storeProductList/err", err);
-  //       return [];
-  //     }
-  //   };
-
-  //   fetchData().then((storeProductExpData) => {
-  //     console.log(storeProductExpData);
-  //     const filteredData = storeProductExpData.filter((item) => item.qnt !== 0);
-  //     if (visible) {
-  //       Modal.confirm({
-  //         title: '유통기한 알림',
-  //         content: (
-  //           <div>
-  //             <Table
-  //               dataSource={filteredData.map((item) => ({ ...item, key: item.id }))}
-  //               columns={expColumns}
-  //               pagination={false}
-  //               scroll={{ y: 500 }}
-  //             />
-  //           </div>
-  //         ),
-  //         style: { top: '5%' },
-  //         width: '50%',
-  //         okText: '확인',
-  //         cancelText: '하루 동안 보지 않기',
-  //         onOk() {
-  //           setVisible(false);
-  //         },
-  //         onCancel() {
-  //           setVisible(false);
-  //           setShowButton(false);
-  //           setTimeout(() => {
-  //             setVisible(true);
-  //             setShowButton(true);
-  //           }, 86400000); // 24시간(86400초)
-  //         },
-  //       });
-  //     }
-  //   });
-  // };
-
   const expInfo = () => {
     const fetchData = async () => {
       try {
         const res = await axios.get(url_be);
-        console.log("res:", res.data);
         const addData = res.data.map(( item ) => ({
           ...item,
           addData: subtractDates(todayDate, item.exp),
         })).filter((item) => item.addData <= 3 );
         return addData;
       } catch (err) {
-        console.log("storeProductList/err", err);
         return [];
       }
     };
 
 
     fetchData().then((storeProductExpData) => {
-      console.log(storeProductExpData);
       const filteredData = storeProductExpData.filter((item) => item.qnt !== 0 && item.addData <= 3);
       if (visible) {
         Modal.confirm({

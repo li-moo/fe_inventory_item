@@ -56,16 +56,15 @@ function DropDown2020({ direction, ...args }) {
       },
     });
 
-    eventSource.onopen = function (event) {
-      if (eventSource.readyState === EventSource.OPEN) {
-        console.log('연결 성공');
-      } else {
-        console.log('연결 실패');
-      }
-    };
+    // eventSource.onopen = function (event) {
+    //   if (eventSource.readyState === EventSource.OPEN) {
+    //     console.log('연결 성공');
+    //   } else {
+    //     console.log('연결 실패');
+    //   }
+    // };
 
     eventSource.onmessage = (e) => {
-      console.log(JSON.parse(e.data)[1].data);
       const onmessageData = JSON.parse(e.data)[1].data;
       setMessages((prev) => [...prev, onmessageData]);
       setAlarmData(onmessageData.length);
@@ -75,7 +74,6 @@ function DropDown2020({ direction, ...args }) {
       eventSource.close();
 
       if (e.error) {
-        console.log('에러가 발생했습니다.');
         console.log(e);
       }
 
@@ -96,13 +94,13 @@ function DropDown2020({ direction, ...args }) {
       },
     });
 
-    eventSource.onopen = function (event) {
-      if (eventSource.readyState === EventSource.OPEN) {
-        console.log('연결 성공');
-      } else {
-        console.log('연결 실패');
-      }
-    };
+    // eventSource.onopen = function (event) {
+    //   if (eventSource.readyState === EventSource.OPEN) {
+    //     console.log('연결 성공');
+    //   } else {
+    //     console.log('연결 실패');
+    //   }
+    // };
 
     eventSource.onmessage = (e) => {
       const firstData = JSON.parse(e.data)[1].data;
@@ -113,10 +111,6 @@ function DropDown2020({ direction, ...args }) {
       setCartListData(messageLow);
       setMessagesLowItem((prev) => [...prev, messageLow]);
       setCartListLowProductData(productsLow)
-
-
-
-      console.log("productsLow", productsLow)
     };
 
     eventSource.onerror = (e) => {
@@ -151,12 +145,9 @@ function DropDown2020({ direction, ...args }) {
     navigate('/order');
     // setReadMessageLOW(true);
     for (let i = 0; i < cartListLowProductData.length; i++) {
-      console.log("handleConfirmationOk>>안", cartListLowProductData[i].product_name);
+
     }
   };
-
-
-  console.log("acartListLowProductDataa>>handleConfirmationOk>>안", cartListLowProductData);
 
   for (let i = 0; i < cartListLowProductData.length; i++) {
     <div>

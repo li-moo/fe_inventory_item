@@ -12,8 +12,6 @@ const HeadOfficeMain = () => {
   const [logInData, setLogInData] = useRecoilState(logInState);
 
   useEffect(() => {
-    console.log("useEffect/logInData", logInData);
-    console.log("useEffect/logInData.isLogin === false", logInData.isLogIn === false);
     if (logInData.isLogIn === false) {
       navigate(`/login`);
     }

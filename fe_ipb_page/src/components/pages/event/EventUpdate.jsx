@@ -19,9 +19,6 @@ const EventUpdate = () => {
     id: stateId,
   };
 
-  console.log("EventUpdate안에 id: ", id);
-
-
   const onFinish = async (values) => {
 
     try {

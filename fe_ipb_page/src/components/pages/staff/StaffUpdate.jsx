@@ -12,8 +12,6 @@ const StaffUpdate = () => {
   const navigate = useNavigate();
 
   const handleChange = (e) => {
-    console.log(">>>>>>stateid", e.target.value)
-    console.log(">>>>>>stateid", id)
     // e.target.value = id;
     setStateId(id);
   };
@@ -21,9 +19,6 @@ const StaffUpdate = () => {
   const initialValues = {
     id: stateId,
   };
-
-  console.log("StaffUpdate안에 id: ", id);
-
 
   const onFinish = async (values) => {
 
@@ -35,7 +30,7 @@ const StaffUpdate = () => {
         },
         body: JSON.stringify(values),
       });
-      console.log('업데이트 성공!');
+
     } catch (error) {
       console.error(error);
     }
@@ -49,7 +44,7 @@ const StaffUpdate = () => {
       cancelText: '아니오',
       onOk: deleteStaff,
       onCancel() {
-        console.log('삭제 작업 취소');
+
       },
     })
   };
@@ -70,26 +65,26 @@ const StaffUpdate = () => {
 
   return (
     <>
-      <Form 
+      <Form
         initialValues={initialValues}
         onFinish={onFinish}>
-      <Form.Item label="아이디" name="id" labelCol={{ span: 2 }} wrapperCol={{ span: 12 }}>
-        <Input value={id} onChange={handleChange} readOnly style={{ width: '50%' }}/>
-      </Form.Item>
-      <Form.Item label="비밀번호" name="pwd" labelCol={{ span: 2 }} wrapperCol={{ span: 12 }}>
-        <Input style={{ width: '50%' }}/>
-      </Form.Item>
-      <Form.Item wrapperCol={{ offset: 6, span: 18 }}>
-        <Button type="primary" htmlType="submit">
-          수정하기
-        </Button>
-      </Form.Item>
-      <Form.Item wrapperCol={{ offset: 6, span: 18 }}>
-        <Button type="primary" htmlType="submit" danger onClick={handleDelete} >
-          삭제하기
-        </Button>
-      </Form.Item>
-    </Form>
+        <Form.Item label="아이디" name="id" labelCol={{ span: 2 }} wrapperCol={{ span: 12 }}>
+          <Input value={id} onChange={handleChange} readOnly style={{ width: '50%' }} />
+        </Form.Item>
+        <Form.Item label="비밀번호" name="pwd" labelCol={{ span: 2 }} wrapperCol={{ span: 12 }}>
+          <Input style={{ width: '50%' }} />
+        </Form.Item>
+        <Form.Item wrapperCol={{ offset: 6, span: 18 }}>
+          <Button type="primary" htmlType="submit">
+            수정하기
+          </Button>
+        </Form.Item>
+        <Form.Item wrapperCol={{ offset: 6, span: 18 }}>
+          <Button type="primary" htmlType="submit" danger onClick={handleDelete} >
+            삭제하기
+          </Button>
+        </Form.Item>
+      </Form>
 
       {/* <div>
         <Button type="dashed" htmlType="submit" >
@@ -97,7 +92,7 @@ const StaffUpdate = () => {
         </Button>
       </div> */}
       <div>
-        
+
       </div>
     </>
 

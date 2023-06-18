@@ -62,12 +62,9 @@ const HeaderTop = () => {
     message.info('로그아웃 되었습니다.', 2);
     //alert("로그아웃에 성공했습니다!");
     navigate(`/login`);
-
   }
 
   const getTodayData = todayData(); // 오늘 날짜를 받아온다 20203-05-23
-  // console.log("todayData", getTodayData)
-
 
   const [logInData, setLogInData] = useRecoilState(logInState);
   const [weatherData, setWeatherData] = useRecoilState(weatherState);
@@ -96,7 +93,6 @@ const HeaderTop = () => {
         })
         .then(async function (response) {
           const staff = response.data;
-          console.log(staff); // staff 정보를 콘솔에 출력
           setLogInData({
             ...logInData,
             isLogIn: true,
@@ -111,34 +107,23 @@ const HeaderTop = () => {
             // store_name: staff.store_name,
           })
           if (staff !== null && staff !== "") {
-            console.log("로그인 성공");
             alert(`${staff.name}`);
             // window.location.href = "http://localhost:3000/";
             navigate(`/`);
-            console.log(logInData);
+
           } else {
-            console.log("로그인 실패");
+
           }
         })
       .catch(function (error) {
         if (error.response) {
-          console.log(error.response.data);
-          console.log(error.response.status);
-          console.log(error.response.headers);
+          console.log(error.response);
         }
       })
-      console.log(values.login_id);
-      console.log(values.pwd);
-      console.log("state확인용");
-      console.log(logInData);
-      console.log("1111weatherData", weatherData);
     };
   //
-  console.log("logInData.isLogIn", logInData.isLogIn);
 
   useEffect(() => {
-    console.log("useEffect/logInData", logInData);
-    console.log("useEffect/logInData.isLogin === false", logInData.isLogIn === false);
     if (logInData.isLogIn === false) {
       navigate(`/login`);
     }
@@ -163,11 +148,6 @@ const HeaderTop = () => {
     return () => clearInterval(intervalWeatherInfo); //
   }, []);
 
-  // function sayHello() {
-  //   console.log("++++++++++++++++++++++++++++++");
-  //   console.log("안녕하세요");
-  // }
-  ////
   const getWeatherInfo = async () => {
     try { 
       const response = await fetch(`${process.env.REACT_APP_BE_API}/staff/weather`, {
@@ -181,9 +161,7 @@ const HeaderTop = () => {
         })
       }); 
       const data = await response.json();
-      console.log("data: ", data);
       setWeatherData(data);
-      console.log(">>/>>/weatherDatadata.presentWeather: ", weatherData.presentWeather);
     } catch (error) {
       console.error(error);
     }

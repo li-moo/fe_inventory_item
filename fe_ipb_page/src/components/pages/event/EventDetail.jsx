@@ -14,7 +14,6 @@ function EventDetail() {
   const fetchEventDetails = async () => {
     try {
       const response = await axios.get(`${process.env.REACT_APP_BE_API}/eventdetail/${id}`);
-      console.log("EventDetail data:", response.data);
       setEvent(response.data);
     } catch (error) {
       console.log(error);

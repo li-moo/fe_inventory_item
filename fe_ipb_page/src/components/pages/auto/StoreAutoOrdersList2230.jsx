@@ -87,8 +87,6 @@ function StoreAutoOrdersList2230() {
   const removeBtn = (id) => {
     const url_be_disposeBtn = `${process.env.REACT_APP_BE_API}//auto/delete/${id}`;
 
-    console.log("폐기버튼안>id:", id);
-
     axios(url_be_disposeBtn,
       {
         method: 'delete',
@@ -167,7 +165,6 @@ function StoreAutoOrdersList2230() {
                   className={styles.roundedInput}
                   onChange={(e) => {
                     const newQuantity = parseInt(e.target.value) || item.qnt - 1;
-                    console.log("e.target.value", e.target.value);
                     if (!isNaN(newQuantity) && newQuantity > 0) {
                       const updatedListData = storeAutoOrdersData.map((storeAutoItem) => {
                         if (storeAutoItem.id === item.id) {
