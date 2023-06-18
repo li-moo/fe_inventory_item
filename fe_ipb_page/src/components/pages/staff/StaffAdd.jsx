@@ -17,7 +17,7 @@ function StaffAdd() {
         const response = await axios.get(`${process.env.REACT_APP_BE_API}/storelist`);
         setOptions(response.data);
       } catch (error) {
-        console.log(error);
+
       }
     };
     fetchOptions();
@@ -48,9 +48,6 @@ function StaffAdd() {
     })
       .catch(function (error) {
         if (error.response) {
-          console.log(error.response.data);
-          console.log(error.response.status);
-          console.log(error.response.headers);
         }
       })
   };

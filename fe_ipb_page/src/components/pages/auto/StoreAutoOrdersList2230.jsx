@@ -28,7 +28,9 @@ function StoreAutoOrdersList2230() {
       .then((res) => {
         setStoreAutoOrdersData(res.data);
       })
-      .catch((err) => console.log("storeProdutList/err", err));
+      .catch((err) => {
+
+      });
   };
 
   const updateQnt = (tarId, tarQnt, tarMinQnt) => {
@@ -48,9 +50,9 @@ function StoreAutoOrdersList2230() {
         }
       }
     ).catch(function (error) {
-      console.log("error: ", error);
+
       if (error.response) {
-        console.log(error.response);
+
       }
     })
   }
@@ -72,9 +74,9 @@ function StoreAutoOrdersList2230() {
         },
       }
     ).catch(function (error) {
-      console.log("error: ", error);
+
       if (error.response) {
-        console.log(error.response);
+
       }
     })
   }
@@ -101,7 +103,6 @@ function StoreAutoOrdersList2230() {
       .then(() => {
         fetchData();
       }).catch(function (error) {
-        console.log("error: ", error);
       })
   }
 

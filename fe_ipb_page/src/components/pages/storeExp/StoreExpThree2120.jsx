@@ -37,7 +37,6 @@ function StoreExpThree2120() {
       method: 'get'
     })
       .then((res) => {
-        console.log("storeExp->res.data::", res.data);
         const addData = res.data.map((item) => ({
           ...item,
           addData: subtractDates(todayDate, item.exp),
@@ -45,7 +44,9 @@ function StoreExpThree2120() {
 
         setStoreProductData(addData);
       })
-      .catch((err) => console.log("storeexp/err", err))
+      .catch((err) => {
+
+      });
   }
 
   const subtractDates = (date1, date2) => {
@@ -90,14 +91,9 @@ function StoreExpThree2120() {
     }
   }
 
-  // console.log("sortedProductssortedProducts>>",sortedProducts);
-
-
   /// 폐기 버튼
   const disposeBtn = (id, qnt) => {
     const url_be_disposeBtn = `${process.env.REACT_APP_BE_API}/storeproduct/qntzero`;
-
-    console.log("폐기버튼안>id:", id);
 
     axios(url_be_disposeBtn,
       {
@@ -114,7 +110,6 @@ function StoreExpThree2120() {
       .then(() => {
         setRefreshExpBtn(!refreshExpBtn);
       }).catch(function (error) {
-        console.log("error: ", error);
       })
   }
 

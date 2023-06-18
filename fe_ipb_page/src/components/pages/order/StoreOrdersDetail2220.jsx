@@ -47,7 +47,9 @@ function StoreOrdersDetail2220(props) {
 
         setGroupedOrders(groupedData);
       })
-      .catch((err) => console.log("storeOrdersDetail/err", err));
+      .catch((err) => {
+
+      });
   };
 
   const updateQnt = (tarId, tarQnt) => {
@@ -68,7 +70,7 @@ function StoreOrdersDetail2220(props) {
       },
     }).catch(function (error) {
       if (error.response) {
-        console.log(error.response);
+
       }
     });
   };
@@ -91,8 +93,7 @@ function StoreOrdersDetail2220(props) {
       .then(() => {
         fetchStoreOrdersDetailListData();
       })
-      .catch(function (error) {
-        console.log("error-> StoreOrdersDetail:", error);
+      .catch((err) => {
       });
   };
 

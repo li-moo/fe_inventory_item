@@ -50,7 +50,9 @@ function Cart2210(props) {
       .then((res) => {
         setCartData(res.data)
       })
-      .catch((err) => console.log("storeexp/err", err))
+      .catch((err) => {
+
+      });
     // handleAddMax()
   }
 
@@ -89,7 +91,7 @@ function Cart2210(props) {
       })
       .catch(function (error) {
         if (error.response) {
-          console.log(error.response);
+
         }
       })
     setAddOrder(!addOrder);
@@ -127,7 +129,7 @@ function Cart2210(props) {
       })
       .catch(function (error) {
         if (error.response) {
-          console.log(error.response);
+
         }
       })
     setAddOrder(!addOrder);
@@ -159,7 +161,7 @@ function Cart2210(props) {
       }
     ).catch(function (error) {
       if (error.response) {
-        console.log(error.response);
+
       }
     }
 

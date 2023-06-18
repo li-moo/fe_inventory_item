@@ -16,7 +16,7 @@ function EventDetail() {
       const response = await axios.get(`${process.env.REACT_APP_BE_API}/eventdetail/${id}`);
       setEvent(response.data);
     } catch (error) {
-      console.log(error);
+
     }
   };
 

@@ -20,7 +20,9 @@ function BoardEdit() {
       .then(data => {
         setBoard(data);
       })
-      .catch(err => console.log(err));
+      .catch((err) => {
+
+      });
   }, [id]);
 
   const handleChange = e => {
@@ -49,7 +51,8 @@ function BoardEdit() {
       .then(() => {
         navigate(`/board`);
       })
-      .catch(err => console.log(err));
+      .catch((err) => {
+      });
   };
 
   const handleModalCancel = () => {

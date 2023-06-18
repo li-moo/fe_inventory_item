@@ -44,7 +44,9 @@ function OrderProductList2210(props) {
 
 
       })
-      .catch((err) => console.log("orderproductlist/err", err));
+      .catch((err) => {
+
+      });
     // return retProductList;
   }
 
@@ -69,7 +71,7 @@ function OrderProductList2210(props) {
       }
     ).catch(function (error) {
       if (error.response) {
-        console.log(error.response);
+
       }
     })
 

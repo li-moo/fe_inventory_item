@@ -1,8 +1,8 @@
 import { useRecoilValue } from 'recoil';
 import { logInState } from '../../state/loginState';
 import { weatherState } from '../../state/weatherState';
-import React, {  useState, useEffect } from 'react';
-import { Divider } from "antd"; 
+import React, { useState, useEffect } from 'react';
+import { Divider } from "antd";
 import { useRecoilState } from 'recoil';
 
 export default function Weather() {
@@ -28,19 +28,13 @@ export default function Weather() {
         headers: {
           'Content-Type': 'application/json'
         },
-        body : JSON.stringify({
+        body: JSON.stringify({
           store_id: logInData.store_id,
           area: logInData.area
         })
-      }); 
+      });
       const data = await response.json();
-      console.log("data: ");
       setWeatherdata(data);
-      console.log(data);
-
-      // if(data === null) {
-      //   console.log("??????")
-      // }
 
     } catch (error) {
       console.error(error);
@@ -64,27 +58,27 @@ export default function Weather() {
   //
 
 
-  return(
+  return (
     <>
-    <div>
-      <h2>날씨 정보</h2>
-      <Divider />
-      <p>{logInData.name}님 안녕하세욤!</p>
-      <p>현재 지역: {logInData.area}</p>
-      <p>스토어 아이디: {logInData.store_id}</p>
-      <p>날씨 정보: {weatherdata.presentWeather}</p>
-    {/* {weatherdata.map((weather) => (
+      <div>
+        <h2>날씨 정보</h2>
+        <Divider />
+        <p>{logInData.name}님 안녕하세욤!</p>
+        <p>현재 지역: {logInData.area}</p>
+        <p>스토어 아이디: {logInData.store_id}</p>
+        <p>날씨 정보: {weatherdata.presentWeather}</p>
+        {/* {weatherdata.map((weather) => (
           <div key={weather.id}>
             <div>ID: {weather.id}</div>
           </div>
         ))} */}
-    </div>
-    <div>
-      <h2>오늘 날짜 시간</h2>
-      <Divider />
-      <p>{currentDate.toLocaleDateString()}</p>
-      <p>{currentDate.toLocaleTimeString()}</p>
-    </div>
+      </div>
+      <div>
+        <h2>오늘 날짜 시간</h2>
+        <Divider />
+        <p>{currentDate.toLocaleDateString()}</p>
+        <p>{currentDate.toLocaleTimeString()}</p>
+      </div>
     </>
   );
 }

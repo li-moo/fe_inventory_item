@@ -68,7 +68,7 @@ function ProductInfoAdd() {
     }
     ).catch(function (error) {
       if (error.response) {
-        console.log(error.response);
+
       }
       message.error('상품정보 등록에 실패했습니다');
     })

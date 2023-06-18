@@ -34,7 +34,9 @@ function Orders2210() {
       .then((res) => {
         setCartList(res.data);
       })
-      .catch((err) => console.log("err: ", err));
+      .catch((err) => {
+
+      });
 
   }, [isAdd, storeId]);
 

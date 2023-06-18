@@ -71,14 +71,15 @@ function StoreExpsave() {
       method: 'get'
     })
       .then((res) => {
-        console.log("storeExp->res.data::", res.data);
         const addData = res.data.map((item) => ({
           ...item,
           addData: subtractDates(todayDate, item.exp),
         }));
         setStoreProductData(addData)
       })
-      .catch((err) => console.log("storeexp/err", err))
+      .catch((err) => {
+
+      });
   }
 
   const subtractDates = (date1, date2) => {
@@ -101,7 +102,6 @@ function StoreExpsave() {
     return new Date(a.exp) - new Date(b.exp);
   });
 
-  // console.log("sortedProductssortedProducts>>",sortedProducts);
 
   return (
     <>

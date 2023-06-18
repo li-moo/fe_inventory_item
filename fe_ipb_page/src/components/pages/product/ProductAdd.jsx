@@ -21,7 +21,7 @@ function ProductAdd() {
         const response = await axios.get(`${process.env.REACT_APP_BE_API}/productInfo/list`);
         setOptions(response.data);
       } catch (error) {
-        console.log(error);
+
       }
     };
     fetchOptions();
@@ -52,7 +52,7 @@ function ProductAdd() {
       }
     ).catch(function (error) {
       if (error.response) {
-        console.log(error.response);
+
       }
     })
   };

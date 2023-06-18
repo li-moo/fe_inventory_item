@@ -19,7 +19,7 @@ function ProductInfoDetail() {
       const response = await axios.get(`${process.env.REACT_APP_BE_API}/productInfo/detail?product_code=${id}`);
       setProduct(response.data);
     } catch (error) {
-      console.log(error);
+
     }
   };
 
@@ -30,7 +30,7 @@ function ProductInfoDetail() {
       setIsEditing(false);
       fetchProductDetails(); // 페이지 새로고침
     } catch (error) {
-      console.log(error);
+
       message.error('상품 정보 업데이트에 실패했습니다.');
     }
   };
