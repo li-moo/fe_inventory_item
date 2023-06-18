@@ -100,5 +100,36 @@
     "web-vitals": "^1.1.2"
     "react-slick": "^0.29.0",
     "slick-carousel": "^1.8.1"
-
 ```
+{
+  "callout": {
+    "type": "note",
+        "@testing-library/jest-dom": "^5.15.0",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.8.3",
+    "antd": "^5.5.0",
+    "apexcharts": "^3.29.0",
+    "axios": "^1.4.0",
+    "bootstrap": "^5.1.3",
+    "bootstrap-icons": "^1.7.0",
+    "event-source-polyfill": "^1.0.31",
+    "moment": "^2.29.4",
+    "node-sass": "^6.0.1",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.2",
+    "react-apexcharts": "^1.3.9",
+    "react-bootstrap": "^2.7.4",
+    "react-dom": "^17.0.2",
+    "react-icons": "^4.8.0",
+    "react-router": "^6.11.1",
+    "react-router-dom": "^6.11.1",
+    "react-scripts": "4.0.3",
+    "reactstrap": "^9.0.0",
+    "recoil": "^0.7.7",
+    "recoil-persist": "^4.2.0",
+    "sse": "^0.0.8",
+    "web-vitals": "^1.1.2"
+    "react-slick": "^0.29.0",
+    "slick-carousel": "^1.8.1"
+  }
+}
