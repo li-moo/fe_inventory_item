@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { Button, Divider, Modal, Input, Form } from 'antd';
+import { Divider, Modal, Input, Form } from 'antd';
 
 const { TextArea } = Input;
 
@@ -40,7 +40,7 @@ function BoardEdit() {
 
   const handleModalOk = () => {
     // API 호출하여 게시물 업데이트 수행
-      fetch(`${process.env.REACT_APP_BE_API}/board/update?id=${id}`, {
+    fetch(`${process.env.REACT_APP_BE_API}/board/update?id=${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -64,7 +64,7 @@ function BoardEdit() {
       <p>작성자: {board.name}</p>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <Form.Item label="제목"   value={board.title}>
+          <Form.Item label="제목" value={board.title}>
             <Input
               type="text"
               name="title"
@@ -72,7 +72,7 @@ function BoardEdit() {
               onChange={handleChange}
               className="input"
             />
-        </Form.Item>
+          </Form.Item>
           {/* <Form.Item label="내용" name="body_text" value={board.body_text} onChange={handleChange}>
             <TextArea 
               rows={11} 
@@ -97,9 +97,9 @@ function BoardEdit() {
         </div>
         <button type="submit" className="submit-button">수정 완료</button>
       </form>
-  
+
       {/* Confirmation Modal */}
-      
+
       <Modal
         title="수정 확인"
         visible={isModalVisible}

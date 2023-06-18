@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import { Typography, Image, Grid, Button, Divider, Card, Descriptions, Radio } from 'antd';
+import { Typography, Grid } from 'antd';
 import style from './ProductDetail.module.css';
 
 const { Title, Text } = Typography;

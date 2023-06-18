@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Form, Input, Button, Divider } from 'antd';
 import axios from 'axios';
 import { Link } from "react-router-dom";
@@ -46,23 +46,23 @@ function StoreAdd() {
         onFinish={onFinish}
       >
         <Form.Item label="점포 이름" name="name" labelCol={{ span: 2 }} wrapperCol={{ span: 12 }}>
-          <Input style={{ width: '50%' }}/>
+          <Input style={{ width: '50%' }} />
         </Form.Item>
 
         <Form.Item label="주소" name="location" labelCol={{ span: 2 }} wrapperCol={{ span: 12 }}>
-          <Input style={{ width: '50%' }}/>
+          <Input style={{ width: '50%' }} />
         </Form.Item>
 
         <Form.Item label="전화번호" name="number" labelCol={{ span: 2 }} wrapperCol={{ span: 12 }}>
-          <Input style={{ width: '50%' }} placeholder='예) 02-1234-5678'/>
+          <Input style={{ width: '50%' }} placeholder='예) 02-1234-5678' />
         </Form.Item>
 
         <Form.Item label="지역" name="area" labelCol={{ span: 2 }} wrapperCol={{ span: 12 }}>
-          <Input style={{ width: '50%' }}/>
+          <Input style={{ width: '50%' }} />
         </Form.Item>
-        
+
         <Form.Item label="점포 사진" name="imgname" labelCol={{ span: 2 }} wrapperCol={{ span: 12 }}>
-          <Input style={{ width: '50%' }}/>
+          <Input style={{ width: '50%' }} />
         </Form.Item>
 
         <Form.Item wrapperCol={{ offset: 7, span: 18 }}>
@@ -70,7 +70,7 @@ function StoreAdd() {
             저장
           </Button>
         </Form.Item>
-        
+
       </Form>
 
     </>

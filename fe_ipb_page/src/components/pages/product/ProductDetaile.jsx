@@ -56,7 +56,7 @@ function ProductDetail() {
 
   return (
     <>
-      <div>
+      {/* <div>
         {
           product && (
             <div className={style.productWrap}>
@@ -124,7 +124,7 @@ function ProductDetail() {
 
           )
         }
-      </div>
+      </div> */}
     </>
   );
 }

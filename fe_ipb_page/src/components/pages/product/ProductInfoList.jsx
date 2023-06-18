@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Table, Popconfirm, message, Divider, Button } from 'antd';
+import { Table, Divider, Button } from 'antd';
 import { Link } from 'react-router-dom';
 import styles from './ProductInfoList.module.css';
 
@@ -73,7 +73,7 @@ function ProductInfoList() {
   return (
     <>
       <h2>상품기본정보</h2>
-      <Divider/>
+      <Divider />
       <Button><Link to="/productinfo/add">상품 기본정보 등록</Link></Button>
       <div className={styles.table}>
         <Table dataSource={productData.map((item) => ({ ...item, key: item.id }))} columns={columns} />

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { Button, Modal, Divider, Typography } from "antd";
+import { Button, Modal, Typography } from "antd";
 import { Link } from 'react-router-dom';
-import { Form, Input } from 'antd';
+// import { Form, Input } from 'antd';
 import styles from './BoardDetail.module.css'
 import moment from 'moment';
 import { useRecoilState } from 'recoil';
@@ -56,29 +56,29 @@ function BoardDetail() {
   return (
     <>
       <Typography>
-      <div>
         <div>
-          <Title>{board.title}</Title>
-          <div className={styles.dede}>
-            <p>작성자: {board.name}</p>
-            <p>작성일: {moment(board.write_date).format('YYYY년 MM월 DD일')}</p>
-          </div>
           <div>
-            <img src={board.imgname}/>
-            <Paragraph style={{ width: '65%' }}>
-              {board.body_text}
-            </Paragraph>
+            <Title>{board.title}</Title>
+            <div className={styles.dede}>
+              <p>작성자: {board.name}</p>
+              <p>작성일: {moment(board.write_date).format('YYYY년 MM월 DD일')}</p>
+            </div>
+            <div>
+              <img src={board.imgname} />
+              <Paragraph style={{ width: '65%' }}>
+                {board.body_text}
+              </Paragraph>
+            </div>
           </div>
         </div>
-      </div>
       </Typography>
 
       <div className={styles.Btn3}>
-      <Button type="primary">
-        <Link to={`/board`}>목록으로 </Link>
-      </Button>
+        <Button type="primary">
+          <Link to={`/board`}>목록으로 </Link>
+        </Button>
 
-      {isAuthorized && (
+        {isAuthorized && (
           // 수정 버튼
           <Button type="primary" style={{ marginLeft: '10px' }}>
             <Link to={`/board/edit/${id}`}>수정</Link>

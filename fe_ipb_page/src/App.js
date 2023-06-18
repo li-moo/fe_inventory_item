@@ -3,7 +3,6 @@ import Themeroutes from "./routes/Router";
 import HeadOfficeMain from "./HeadOfficeMain";
 import { useRecoilState } from 'recoil';
 import { logInState } from '../src/components/state/loginState';
-// import 'antd/dist/antd.css';
 
 
 const App = () => {
