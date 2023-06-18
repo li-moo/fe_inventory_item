@@ -20,7 +20,6 @@ function ProductAdd() {
       try {
         const response = await axios.get(`${process.env.REACT_APP_BE_API}/productInfo/list`);
         setOptions(response.data);
-        console.log(response.data);
       } catch (error) {
         console.log(error);
       }
@@ -53,9 +52,7 @@ function ProductAdd() {
       }
     ).catch(function (error) {
       if (error.response) {
-        console.log(error.response.data);
-        console.log(error.response.status);
-        console.log(error.response.headers);
+        console.log(error.response);
       }
     })
   };
@@ -75,54 +72,54 @@ function ProductAdd() {
 
   return (
     <ConfigProvider locale={koKR}>
-    <>
-      <h2>상품등록</h2>
-      <Divider />
+      <>
+        <h2>상품등록</h2>
+        <Divider />
 
-      <Form
-        className='w-1/2'
-        onFinish={onFinish}
-      >
-        <Form.Item label="상품 기본정보" name="product_info_id" labelCol={{ span: 2 }} wrapperCol={{ span: 12 }}>
-          <Select
-            showSearch
-            onSearch={handleSearch}
-            filterOption={false}
-            style={{ width: '50%' }}
-          >
-            {filteredOptions.map((option) => (
-              <Option key={option.product_code} value={option.product_code}>
-                {option.name}
-              </Option>
-            ))}
-          </Select>
-        </Form.Item>
+        <Form
+          className='w-1/2'
+          onFinish={onFinish}
+        >
+          <Form.Item label="상품 기본정보" name="product_info_id" labelCol={{ span: 2 }} wrapperCol={{ span: 12 }}>
+            <Select
+              showSearch
+              onSearch={handleSearch}
+              filterOption={false}
+              style={{ width: '50%' }}
+            >
+              {filteredOptions.map((option) => (
+                <Option key={option.product_code} value={option.product_code}>
+                  {option.name}
+                </Option>
+              ))}
+            </Select>
+          </Form.Item>
 
-        <Form.Item label="수량" name="qnt" labelCol={{ span: 2 }} wrapperCol={{ span: 12 }}>
-          <Input style={{ width: '50%' }}/>
-        </Form.Item>
+          <Form.Item label="수량" name="qnt" labelCol={{ span: 2 }} wrapperCol={{ span: 12 }}>
+            <Input style={{ width: '50%' }} />
+          </Form.Item>
 
-        <Form.Item label="판매가" name="price" labelCol={{ span: 2 }} wrapperCol={{ span: 12 }}>
-          <Input style={{ width: '50%' }}/>
-        </Form.Item>
+          <Form.Item label="판매가" name="price" labelCol={{ span: 2 }} wrapperCol={{ span: 12 }}>
+            <Input style={{ width: '50%' }} />
+          </Form.Item>
 
-        <Form.Item label="원가" name="cost" labelCol={{ span: 2 }} wrapperCol={{ span: 12 }}>
-          <Input style={{ width: '50%' }}/>
-        </Form.Item>
-        
-        <Form.Item label="유통기한" name="exp" labelCol={{ span: 2 }} wrapperCol={{ span: 12 }}>
-          <DatePicker onChange={handleDateChange} locale={moment.locale('ko')} format="YYYY-MM-DD"/>
-        </Form.Item>
+          <Form.Item label="원가" name="cost" labelCol={{ span: 2 }} wrapperCol={{ span: 12 }}>
+            <Input style={{ width: '50%' }} />
+          </Form.Item>
 
-        <Form.Item wrapperCol={{ offset: 7, span: 18 }}>
-          <Button type="primary" htmlType="submit">
-            저장
-          </Button>
-        </Form.Item>
-        
-      </Form>
+          <Form.Item label="유통기한" name="exp" labelCol={{ span: 2 }} wrapperCol={{ span: 12 }}>
+            <DatePicker onChange={handleDateChange} locale={moment.locale('ko')} format="YYYY-MM-DD" />
+          </Form.Item>
 
-    </>
+          <Form.Item wrapperCol={{ offset: 7, span: 18 }}>
+            <Button type="primary" htmlType="submit">
+              저장
+            </Button>
+          </Form.Item>
+
+        </Form>
+
+      </>
     </ConfigProvider>
   );
 }

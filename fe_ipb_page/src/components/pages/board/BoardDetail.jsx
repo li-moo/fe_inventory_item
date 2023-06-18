@@ -24,7 +24,6 @@ function BoardDetail() {
       .then(res => res.json())
       .then(data => {
         setBoard(data);
-        console.log("보드 디테일 data:", data);
       })
       .catch(err => console.log(err))
   }, [id]);

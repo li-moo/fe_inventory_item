@@ -25,8 +25,6 @@ function OrdersList2220() {
     fetchStoreOrdersDetailData();
   }, [isAddOr, setIsAddOr]);
 
-  console.log("fetch 받은 데이터 logInData.store_id>>>", loginData.store_id);
-
   const url_be = `${process.env.REACT_APP_BE_API}/orders/store-orders-date/${loginData.store_id}`;
 
   const fetchStoreOrdersDetailData = () => {

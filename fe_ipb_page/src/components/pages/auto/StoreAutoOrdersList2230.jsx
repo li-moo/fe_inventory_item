@@ -26,7 +26,6 @@ function StoreAutoOrdersList2230() {
     axios
       .get(url_be)
       .then((res) => {
-        console.log("res>>:", res.data);
         setStoreAutoOrdersData(res.data);
       })
       .catch((err) => console.log("storeProdutList/err", err));
@@ -51,9 +50,7 @@ function StoreAutoOrdersList2230() {
     ).catch(function (error) {
       console.log("error: ", error);
       if (error.response) {
-        console.log(error.response.data);
-        console.log(error.response.status);
-        console.log(error.response.headers);
+        console.log(error.response);
       }
     })
   }
@@ -77,12 +74,9 @@ function StoreAutoOrdersList2230() {
     ).catch(function (error) {
       console.log("error: ", error);
       if (error.response) {
-        console.log(error.response.data);
-        console.log(error.response.status);
-        console.log(error.response.headers);
+        console.log(error.response);
       }
     })
-    console.log(tarId);
   }
 
   function addComma(num) {
@@ -92,8 +86,6 @@ function StoreAutoOrdersList2230() {
 
   const removeBtn = (id) => {
     const url_be_disposeBtn = `${process.env.REACT_APP_BE_API}//auto/delete/${id}`;
-
-    console.log("폐기버튼안>id:", id);
 
     axios(url_be_disposeBtn,
       {
@@ -148,7 +140,6 @@ function StoreAutoOrdersList2230() {
                   className={styles.roundedInput}
                   onChange={(em) => {
                     const newMinQuantity = parseInt(em.target.value) || item.min_qnt - 1;
-                    console.log("e.target.value", em.target.value);
                     if (!isNaN(newMinQuantity) && newMinQuantity > 0) {
                       const updatedListData = storeAutoOrdersData.map((storeAutoItem) => {
                         if (storeAutoItem.id === item.id) {
@@ -174,7 +165,6 @@ function StoreAutoOrdersList2230() {
                   className={styles.roundedInput}
                   onChange={(e) => {
                     const newQuantity = parseInt(e.target.value) || item.qnt - 1;
-                    console.log("e.target.value", e.target.value);
                     if (!isNaN(newQuantity) && newQuantity > 0) {
                       const updatedListData = storeAutoOrdersData.map((storeAutoItem) => {
                         if (storeAutoItem.id === item.id) {
@@ -200,7 +190,7 @@ function StoreAutoOrdersList2230() {
                   okText="네"
                   cancelText="아니오"
                 >
-                  <Button danger> <CiTrash size={{ width: '4px'}}/></Button>
+                  <Button danger> <CiTrash size={{ width: '4px' }} /></Button>
                 </Popconfirm>
               </td>
             </tr>

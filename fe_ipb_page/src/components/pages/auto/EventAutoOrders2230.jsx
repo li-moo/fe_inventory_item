@@ -21,17 +21,6 @@ function EventAutoOrders2230() {
     updateQnt();
   }, []);
 
-  // const fetchDataEventAutoOrders = () => {
-  //   axios(url_be, {
-  //     method: 'get'
-  //   })
-  //     .then((res) => {
-  //       console.log("EventAutoOrders->res.data::", res.data);
-  //       setEventAutoData(res.data)
-  //     })
-  //     .catch((err) => console.log("storeexp/err", err))
-  // }
-
   const fetchDataEventAutoOrders = () => {
     const token = localStorage.getItem('token');
 
@@ -41,36 +30,11 @@ function EventAutoOrders2230() {
       }
     })
       .then((res) => {
-        console.log("EventAutoOrders->res.data::", res.data);
+
         setEventAutoData(res.data);
       })
       .catch((err) => console.log("storeexp/err", err));
   };
-
-  // const updateQnt = (tarId, tarQnt) => {
-  //   const url_be_updateQnt = `${process.env.REACT_APP_BE_API}/eventAutoOrders/update`;
-
-  //   axios(url_be_updateQnt,
-  //     {
-  //       method: 'put',
-  //       headers: {
-  //         'Access-Control-Allow-Origin': '*',
-  //         'Content-Type': 'application/json'
-  //       },
-  //       data: {
-  //         id: tarId,
-  //         qnt: tarQnt
-  //       }
-  //     }
-  //   ).catch(function (error) {
-  //     console.log("error: ", error);
-  //     if (error.response) {
-  //       console.log(error.response.data);
-  //       console.log(error.response.status);
-  //       console.log(error.response.headers);
-  //     }
-  //   })
-  // }
 
   const updateQnt = (tarId, tarQnt) => {
     const token = localStorage.getItem('token'); // Retrieve token from local storage
@@ -89,9 +53,7 @@ function EventAutoOrders2230() {
     ).catch(function (error) {
       console.log("error: ", error);
       if (error.response) {
-        console.log(error.response.data);
-        console.log(error.response.status);
-        console.log(error.response.headers);
+        console.log(error.response);
       }
     });
   };
@@ -151,12 +113,9 @@ function EventAutoOrders2230() {
                   className={styles.roundedInput}
                   onChange={(e) => {
                     const newQuantity = parseInt(e.target.value) || item.qnt - 1;
-                    console.log("하이요");
-                    console.log("e.target.value", e.target.value);
                     if (!isNaN(newQuantity) && newQuantity > 0) {
                       const updatedCartData = evnetAutoData.map((eventAutoItem) => {
                         if (eventAutoItem.id === item.id) {
-                          console.log("이거 실행되긴하나?");
                           return { ...eventAutoItem, qnt: newQuantity };
                         }
                         return eventAutoItem;

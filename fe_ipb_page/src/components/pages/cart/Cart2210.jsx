@@ -32,36 +32,14 @@ function Cart2210(props) {
   const day = String(today.getDate()).padStart(2, '0');
   const todayDate = `${year}-${month}-${day}`;
 
-  // useEffect(() => {
-  //   setCartData(props.cartList);
-  //   fetchCartData()
-  //   console.log("useEffect/cartData:", cartData);
-  //   console.log("useEffect/props.cartList:", props.cartList);
-  // }, [props.cartList]);
   useEffect(() => {
-    // setCartData(props.cartList);
     fetchCartData()
 
     // handleDeleteCart();
-
-    // console.log("useEffect/cartData:", cartData);
-    // console.log("useEffect/props.cartList:", props.cartList);
     handleAddMax()
 
 
   }, [props.cartList]);
-
-  // async function fetchData() {
-  //   try {
-  //     const response = await axios.get(`http://localhost:8080/cart/cartlist/${logInData.store_id}`);
-  //     const data = response.data;
-  //     console.log("[GET] cartList/data: ", data);
-  //     setCartData(data);
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
-
 
   const fetchCartData = () => {
     const url_be_cartlist = `${process.env.REACT_APP_BE_API}/cart/cartlist/${logInData.store_id}`;
@@ -70,40 +48,11 @@ function Cart2210(props) {
       method: 'get'
     })
       .then((res) => {
-        console.log("storeExp->res.data::", res.data);
         setCartData(res.data)
       })
       .catch((err) => console.log("storeexp/err", err))
     // handleAddMax()
   }
-
-  // const fetchCartQntData = () => {
-  //   const url_be_cartQnt = "http://localhost:8080/cart/update/";
-  //   // const url_be = "http://43.202.9.215:8080/orders/addorder";
-
-  //   axios(url_be_cartQnt,
-  //     {
-  //       method: 'PUT',
-  //       headers: {
-  //         'Access-Control-Allow-Origin': '*',
-  //         'Content-Type': 'application/json',
-  //         withCredentials: true,
-  //         mode: 'no-cors'
-  //       },
-  //       data: { //post 라면 . . .
-  //         id: cartData.id,
-  //         qnt: cartData.qnt,
-  //       }
-  //     }
-  //   ).catch(function (error) {
-  //     if (error.response) {
-  //       console.log(error.response.data);
-  //       console.log(error.response.status);
-  //       console.log(error.response.headers);
-  //     }
-  //   })
-  //   setAddOrder(true);
-  // }
 
   const handleDeleteCart = async (id) => {
     try {
@@ -140,9 +89,7 @@ function Cart2210(props) {
       })
       .catch(function (error) {
         if (error.response) {
-          console.log(error.response.data);
-          console.log(error.response.status);
-          console.log(error.response.headers);
+          console.log(error.response);
         }
       })
     setAddOrder(!addOrder);
@@ -180,9 +127,7 @@ function Cart2210(props) {
       })
       .catch(function (error) {
         if (error.response) {
-          console.log(error.response.data);
-          console.log(error.response.status);
-          console.log(error.response.headers);
+          console.log(error.response);
         }
       })
     setAddOrder(!addOrder);
@@ -214,9 +159,7 @@ function Cart2210(props) {
       }
     ).catch(function (error) {
       if (error.response) {
-        console.log(error.response.data);
-        console.log(error.response.status);
-        console.log(error.response.headers);
+        console.log(error.response);
       }
     }
 
@@ -228,39 +171,9 @@ function Cart2210(props) {
 
     //setAddOrder(true);
     // handleAddMax();
-    console.log("??/tarQnt", tarQnt);
     setTarNewQnt(tarQnt);
 
   }
-
-  // const increaseQuantity = (item) => {
-  //   const updatedCartData = cartData.map((cartItem) => {
-  //     if (cartItem.id === item.id) {
-  //       return { ...cartItem, qnt: cartItem.qnt + 1 };
-  //     }
-  //     return cartItem;
-  //   });
-  //   setCartData(updatedCartData);
-  //   // props.cartList(updatedCartData); // 업데이트
-  // };
-
-  // const decreaseQuantity = (item) => {
-  //   const updatedCartData = cartData.map((cartItem) => {
-  //     if (cartItem.id === item.id) {
-
-  //       const newQuantity = cartItem.qnt - 1;
-  //       // cartItem.qnt가 0보다 작으면 0으로 설정
-  //       const updatedQuantity = newQuantity < 1 ? 1 : newQuantity;
-  //       return { ...cartItem, qnt: updatedQuantity };
-  //     }
-  //     return cartItem;
-  //   });
-  //   setCartData(updatedCartData);
-  //   // props.cartList(updatedCartData); // 업데이트
-  // };
-
-  // console.log("props.cartList", props.cartList);
-  // console.log(":587 -> cartData", cartData);
 
   const handleSearch = (value) => {
     setSearchTerm(value);
@@ -272,45 +185,21 @@ function Cart2210(props) {
   );
 
   const handleAddMax = (tarId, tarQnt) => {
-    // console.log("handleAddMax 실행되는지 확인");
-    // console.log("props.cartList", props.cartList);
-    // console.log("props.cartList[0]", props.cartList[0]);
-    // console.log("cartData.qnt", cartData.qnt);
 
     const tempCartProductQntList = [];
     for (var i = 0; i < props.cartList.length; i++) {
-      // console.log("되는지 봅세", [i])
-      // console.log("props.cartList[i].product_qnt", props.cartList[i].product_qnt)
       const CartProductQnt = {
         "product_qnt": props.cartList[i].product_qnt,
         "qnt": props.cartList[i].qnt,
         "id": props.cartList[i].id,
       };
-      // console.log("CartProductQnt", CartProductQnt)
       tempCartProductQntList.push(CartProductQnt);
     }
     setPropsCartProductQntList(tempCartProductQntList);
 
-    // console.log(">>>propsCartProductQntList>>", propsCartProductQntList);
-
-
-    // for (var i = 0; i < propsCartProductQntList.length; i++) {
-    //   if (propsCartProductQntList[i].id >= tarId) {
-    //     for (var j = 0; j < propsCartProductQntList.length; j++) {
-    //       // console.log(":::propsCartProductQntList[i]:", propsCartProductQntList[i]);
-    //       if (propsCartProductQntList[i].product_qnt >= tarQnt) {
-    //         setOrderCartState(true); // 본사 재고가 구매하려는 재고량보다 많을 때
-    //       } else {
-    //         setOrderCartState(false); // 본사 재고가 구매하려는 재고량보다 적을 때
-    //       }
-    //     }
-    //   }
-    // }
-
     for (var i = 0; i < propsCartProductQntList.length; i++) {
       if (propsCartProductQntList[i].id === tarId) {
         for (var j = 0; j < propsCartProductQntList.length; j++) {
-          // console.log(":::propsCartProductQntList[i]:", propsCartProductQntList[i]);
           if (propsCartProductQntList[i].product_qnt >= tarQnt) {
             setOrderCartState(true); // 본사 재고가 구매하려는 재고량보다 많을 때
           } else {
@@ -321,44 +210,6 @@ function Cart2210(props) {
     }
 
   }
-
-  // const handleAddMax = (tarId, tarQnt) => {
-  //   // console.log("handleAddMax 실행되는지 확인");
-  //   // console.log("props.cartList", props.cartList);
-  //   // console.log("props.cartList[0]", props.cartList[0]);
-  //   // console.log("cartData.qnt", cartData.qnt);
-
-  //   const tempCartProductQntList = [];
-  //   for (var i = 0; i < props.cartList.length; i++){
-  //     // console.log("되는지 봅세", [i])
-  //     // console.log("props.cartList[i].product_qnt", props.cartList[i].product_qnt)
-  //     const CartProductQnt = {
-  //       "product_qnt": props.cartList[i].product_qnt,
-  //       "qnt": props.cartList[i].qnt,
-  //       "id": props.cartList[i].id,
-  //     };
-  //     // console.log("CartProductQnt", CartProductQnt)
-  //     tempCartProductQntList.push(CartProductQnt);
-  //   }
-  //   setPropsCartProductQntList(tempCartProductQntList);
-
-  //   // console.log(">>>propsCartProductQntList>>", propsCartProductQntList);
-  //   for (var i = 0; i < cartData.length; i++) {
-  //     if (cartData[i].id >= tarId) {
-  //       for (var j = 0; j < cartData.length; j++) {
-  //         // console.log(":::propsCartProductQntList[i]:", propsCartProductQntList[i]);
-  //         // if (cartData[j].product_qnt >= tarQnt) {
-  //           if (cartData[j].product_qnt >= cartData[j].qnt) {
-  //           setOrderCartState(true); // 본사 재고가 구매하려는 재고량보다 많을 때
-  //         } else {
-  //           setOrderCartState(false); // 본사 재고가 구매하려는 재고량보다 적을 때
-  //         }
-  //       }
-  //     } 
-  //   }
-  // }
-
-
 
   return (
     <>
@@ -443,12 +294,9 @@ function Cart2210(props) {
                       className={styles.roundedInput}
                       onChange={(e) => {
                         const newQuantity = parseInt(e.target.value) || item.qnt - 1;
-                        console.log("하이요");
-                        console.log("e.target.value", e.target.value);
                         if (!isNaN(newQuantity) && newQuantity > 0) {
                           const updatedCartData = cartData.map((cartItem) => {
                             if (cartItem.id === item.id) {
-                              console.log("이거 실행되긴하나?");
                               return { ...cartItem, qnt: newQuantity };
                             }
                             return cartItem;
@@ -461,7 +309,6 @@ function Cart2210(props) {
                         const tarProductId = item.product_id;
                         const tarQnt = newQuantity;
                         updateQnt(tarId, tarQnt);
-                        console.log("????orderCartState", orderCartState);
                         handleAddMax(tarId, tarQnt, tarProductId);
                       }
                       }

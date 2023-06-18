@@ -16,7 +16,6 @@ function ProductList() {
       // const response = await fetch('http://43.202.9.215:8080/product/list');
       const data = await response.json();
       setProductData(data);
-      console.log(data);
     } catch (error) {
       console.error(error);
     }
@@ -88,7 +87,7 @@ function ProductList() {
 
   return (
     <>
-      <Table dataSource={productData.map((item) => ({ ...item, key: item.id }))} columns={columns} pagination={false}/>
+      <Table dataSource={productData.map((item) => ({ ...item, key: item.id }))} columns={columns} pagination={false} />
       {/* // productData 배열의 각 요소를 매핑하여 key 속성을 추가한 새로운 객체를 생성
       // 객체 배열을 dataSource 속성에 전달하고
       // columns는 테이블의 컬럼을 정의하는 객체 배열

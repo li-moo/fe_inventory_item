@@ -21,9 +21,6 @@ function BoardListStore() {
       const data = await response.json();
       setBoardData(data);
       setFilteredData(data);
-      console.log("data:: ", data);
-      console.log("boardData", boardData);
-      console.log(">>> boardData.id", boardData.id);
     } catch (error) {
       console.error(error);
     }
@@ -61,9 +58,9 @@ function BoardListStore() {
         <Search
           placeholder="이름으로 검색"
           onSearch={handleSearch}
-          style={{ width: 200, position: 'static', zIndex: 1  }}
+          style={{ width: 200, position: 'static', zIndex: 1 }}
         />
-          {/* {logInData.name && (
+        {/* {logInData.name && (
             <Button type="primary">
                 <Link to="/board/add">글쓰기</Link>
             </Button>

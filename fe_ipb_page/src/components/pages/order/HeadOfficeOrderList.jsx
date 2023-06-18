@@ -20,8 +20,6 @@ function HeadOfficeOrdersList() {
     setSelectedId(id);
     setOrdersStatus(ordersStatus);
     // fetchStoreOrdersDetailListData(ordersDate);
-    console.log("------> ordersDate : ", id);
-    console.log("------> ordersDate : ", id);
   };
 
   useEffect(() => {
@@ -30,8 +28,6 @@ function HeadOfficeOrdersList() {
     // fetchStoreOrdersDetailListData();
   }, [isAddOr, setIsAddOr]);
 
-  console.log("fetch 받은 데이터 logInData.store_id>>>", loginData.store_id);
-
   const url_be = `${process.env.REACT_APP_BE_API}/orders/all`;
 
   const fetchStoreOrdersDetailData = () => {
@@ -39,7 +35,6 @@ function HeadOfficeOrdersList() {
       method: 'get'
     })
       .then((res) => {
-        console.log("> fetchStoreOrdersDetailData > fetch 받은 데이터 res.data>>>", res.data);
         setStoreOrdersDetailData(res.data);
       })
       .catch((err) => console.log("storeexp/err", err))

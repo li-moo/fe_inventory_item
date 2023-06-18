@@ -10,7 +10,7 @@ const columns = [
     title: 'ID',
     dataIndex: 'id',
     key: 'id',
-    width:50,
+    width: 50,
   },
   {
     title: 'Product Name',
@@ -70,32 +70,29 @@ function StoreSalesList() {
 
 
   const combinePriceForSameProductName = (data) => {
-        const combinedData = [];
-        const groupedData = {};
-    
-        data.forEach((item) => {
-          const productName = item.product_name;
-    
-          if (groupedData[productName]) {
-            groupedData[productName].price += item.price;
-            groupedData[productName].total_price += item.price;
-          } else {
-            groupedData[productName] = {
-              ...item,
-              total_price: item.price,
-            };
-          }
-        });
-    
-        Object.keys(groupedData).forEach((productName) => {
-          combinedData.push(groupedData[productName]);
-        });
-    
-        return combinedData;
-      };
+    const combinedData = [];
+    const groupedData = {};
 
-  console.log("logInData:", logInData);
-  console.log("logInData.store_id:", logInData.store_id);
+    data.forEach((item) => {
+      const productName = item.product_name;
+
+      if (groupedData[productName]) {
+        groupedData[productName].price += item.price;
+        groupedData[productName].total_price += item.price;
+      } else {
+        groupedData[productName] = {
+          ...item,
+          total_price: item.price,
+        };
+      }
+    });
+
+    Object.keys(groupedData).forEach((productName) => {
+      combinedData.push(groupedData[productName]);
+    });
+
+    return combinedData;
+  };
 
   const fetchData = async () => {
 
@@ -105,8 +102,6 @@ function StoreSalesList() {
       const data = await response.json();
       setStoreSalesData(data);
       // setFilteredData(data);
-      console.log("여기는 fetchdata입니다")
-      console.log("fetchdata",data);
     } catch (error) {
       console.error(error);
     }
@@ -114,8 +109,8 @@ function StoreSalesList() {
 
   return (
     <>
-      <Table dataSource={storeSalesData} columns={columns} 
-      scroll={{y:1000,}}
+      <Table dataSource={storeSalesData} columns={columns}
+        scroll={{ y: 1000, }}
       />
     </>
   );

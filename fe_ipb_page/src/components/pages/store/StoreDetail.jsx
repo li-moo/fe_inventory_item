@@ -12,37 +12,34 @@ function StoreDetail() {
 
 
   useEffect(() => {
-    console.log(id);
+
     fetch(`${process.env.REACT_APP_BE_API}/storedetail/${id}`)
       .then(res => res.json())
       .then(data => {
-        console.log("store-detail data:", data);
         setStore(data)
-        console.log("store:", store);
       })
       .catch(err => console.log(err))
   }, [id]);
 
-  console.log("store: ", store);
 
   return (
     <>
-          <div>
+      <div>
         {
           store && (
             <div >
-              <img src={store.imgname} alt={store.name}/>
+              <img src={store.imgname} alt={store.name} />
               {/* // 이미지 없음 //  */}
               <h2 >{store.name}</h2>
-              <div >        
+              <div >
                 <p>주소 : {store.location}</p>
                 <p>전화번호 : {store.number}</p>
                 <p>지역 : {store.area}</p>
-              </div> 
+              </div>
             </div>
           )
         }
-    </div>
+      </div>
     </>
   );
 }

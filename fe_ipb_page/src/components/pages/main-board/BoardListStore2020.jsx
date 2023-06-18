@@ -21,9 +21,6 @@ function BoardListStore2020() {
       const data = await response.json();
       setBoardData(data);
       setFilteredData(data);
-      console.log("data:: ", data);
-      console.log("boardData", boardData);
-      console.log(">>> boardData.id", boardData.id);
     } catch (error) {
       console.error(error);
     }

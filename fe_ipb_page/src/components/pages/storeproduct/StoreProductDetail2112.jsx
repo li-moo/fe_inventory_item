@@ -36,7 +36,6 @@ function StoreProductDetail2112() {
     })
       .then(res => res.json())
       .then(data => {
-        console.log('Auto-order response:', data);
         // 추가로 필요한 작업 수행
       })
       .catch(err => console.log(err));
@@ -49,17 +48,13 @@ function StoreProductDetail2112() {
 
 
   useEffect(() => {
-    console.log(id);
     fetch(`${process.env.REACT_APP_BE_API}/storeproduct/detail?id=${id}`)
       .then(res => res.json())
       .then(data => {
-        console.log("storeProduct-detail data:", data);
         setProduct(data)
       })
       .catch(err => console.log(err))
   }, [id]);
-
-  console.log("product: ", product);
 
   function addComma(num) {
     var regexp = /\B(?=(\d{3})+(?!\d))/g;
@@ -71,7 +66,6 @@ function StoreProductDetail2112() {
     fetch(`${process.env.REACT_APP_BE_API}/storeproduct/detail?id=${id}`)
       .then(res => res.json())
       .then(data => {
-        console.log("product-detail data modal:", data);
         setProduct(data)
       })
       .catch(err => console.log(err))
@@ -119,8 +113,6 @@ function StoreProductDetail2112() {
         })
           .then(res => res.json())
           .then(data => {
-            console.log('Auto-order response:', data);
-            // 추가로 필요한 작업 수행
           })
           .catch(err => console.log(err));
         message.success(`자동 발주신청이 되었습니다.`, 3);
@@ -133,52 +125,6 @@ function StoreProductDetail2112() {
       cancelText: '취소',
     });
   };
-
-  // const info = () => {
-  //   // 모달이 켜질때마다 상품의 상세 데이터를 받아온다
-  //   fetch(`${process.env.REACT_APP_BE_API}/storeproduct/detail?id=${id}`)
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       console.log("product-detail data modal:", data);
-  //       setProduct(data)
-  //     })
-  //     .catch(err => console.log(err))
-
-  //   Modal.info({
-  //     width: '30%',
-  //     maskClosable: true, // 모달 밖 영역을 클릭하면 모달이 닫힙니다
-  //     // 모달 제목
-  //     title: '해당 상품을 자동발주 리스트에 추가하시겠습니까?',
-  //     // 모달 본문
-  //     content: (
-
-  //       <>
-  //         <div className={styles.modal}>
-  //           <div>
-  //             <input type="number" id="minQnt" placeholder="최소 수량"/>
-  //           </div>
-  //           <div>
-  //             <input type="number" id="qnt" placeholder="기준 수량" />
-  //           </div>
-  //           <div>
-  //           {/* <Button className={styles.modlaAddBtn} onClick={onOk}>추가</Button> */}
-  //           {/* <Button onClick={onCancel}>취소</Button> */}
-  //           </div>
-  //         </div>
-  //       </>
-  //     ),
-
-  //     onOk(){
-  //     },
-  //     onCancel(){
-  //       Modal.destroyAll();
-  //     },
-  //     okText: '취소', // 확인 버튼 텍스트 변경
-  //     cancelText: '취소',
-  //   });
-  // };
-
-
 
   function addComma(num) {
     var regexp = /\B(?=(\d{3})+(?!\d))/g;

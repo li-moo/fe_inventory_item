@@ -17,28 +17,20 @@ function _StoreProductList02() {
     // Local Storage에서 logInState 객체 가져오기, 키 값을 입력해줘야 함
     // localStorageString는 String 타입입니다
     const localStorageString = localStorage.getItem('recoil-persist');
-    console.log(localStorageString);
 
     // localStorageString 문자열을 JavaScript 객체로 변환
     const localStorageobj = JSON.parse(localStorageString);
-    console.log("localStorage : " + localStorageobj);
 
     // localStorageobj 객체에서 logInState 객체를 꺼냅니다
     const logInStateObj = localStorageobj["logInState"];
-    console.log("logInState : " + logInStateObj);
 
     // logInState 객체의 점포아이디 값을 가져옵니다
     const storeId = logInStateObj["store_id"]
-    console.log("storeId : " + storeId);
-
-    console.log(">>. logInData.store_id : " + logInData.store_id);
 
     try {
       const response = await fetch(`${process.env.REACT_APP_BE_API}/storeproduct/list/${logInData.store_id}`);
       const data = await response.json();
       setStoreProductData(data);
-      console.log(data);
-      console.log(">>>>>.. storeProductData", storeProductData);
     } catch (error) {
       console.error(error);
     }
@@ -95,11 +87,11 @@ function _StoreProductList02() {
 
   return (
     <>
-      <Table 
-        dataSource={storeProductData.map((item) => ({ ...item, key: item.id }))} 
+      <Table
+        dataSource={storeProductData.map((item) => ({ ...item, key: item.id }))}
         columns={columns}
-        scroll={{y:450,}}
-        pagination={{pageSize: 5000,}} 
+        scroll={{ y: 450, }}
+        pagination={{ pageSize: 5000, }}
       />
     </>
   );

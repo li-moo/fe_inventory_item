@@ -20,29 +20,19 @@ function Orders2210() {
 
   const [cartList, setCartList] = useState([]);
   const [isAdd, setIsAdd] = useState(false);
-
   const localStorageString = localStorage.getItem('recoil-persist');
-  console.log(localStorageString);
-
   // localStorageString 문자열을 JavaScript 객체로 변환
   const localStorageobj = JSON.parse(localStorageString);
-  console.log("localStorage : " + localStorageobj);
-
   // localStorageobj 객체에서 logInState 객체를 꺼냅니다
   const logInStateObj = localStorageobj["logInState"];
-  console.log("logInState : " + logInStateObj);
 
   // logInState 객체의 점포아이디 값을 가져옵니다
   const storeId = logInStateObj["store_id"]
-  console.log("storeId : " + storeId);
 
   useEffect(() => {
-    console.log("storeId: ", storeId);
     axios.get(`${process.env.REACT_APP_BE_API}/cart/cartlist/${storeId}`)
       .then((res) => {
-        console.log('Orders/res = ', res);
         setCartList(res.data);
-        console.log(">>>>>>>>>res.data>>>>>...", res.data);
       })
       .catch((err) => console.log("err: ", err));
 
@@ -57,20 +47,20 @@ function Orders2210() {
           <p>{''}</p>
           <div className={styles.line}>
             <div className={styles.infoFlex}>
-              <div style={{width: '30px'}}><CiShoppingCart size={{ width: '4px'}} /></div>
+              <div style={{ width: '30px' }}><CiShoppingCart size={{ width: '4px' }} /></div>
               <div>: 발주 예정 목록에 담기</div>
             </div>
             <div className={styles.infoFlex}>
-              <div style={{width: '30px'}}><CiDeliveryTruck size={{ width: '4px'}} /></div>
+              <div style={{ width: '30px' }}><CiDeliveryTruck size={{ width: '4px' }} /></div>
               <div>: 발주 예정 목록에 담긴 상품 발주하기</div>
             </div>
             <div className={styles.infoFlex}>
-              <div style={{width: '30px'}}><CiTrash size={{ width: '4px'}} /></div>
+              <div style={{ width: '30px' }}><CiTrash size={{ width: '4px' }} /></div>
               <div>: 발주 예정 목록에서 삭제하기</div>
             </div>
           </div>
-            <div>
-            </div>
+          <div>
+          </div>
         </div>
       ),
       onOk() { },
@@ -80,11 +70,11 @@ function Orders2210() {
   return (
     <div style={{ margin: '0px' }}>
       <div className={styles.headerContent}>
-      <h4>발주하기</h4>
-          <button className={styles.qBtn} onClick={info}>
-            ?
-          </button>
-        </div>
+        <h4>발주하기</h4>
+        <button className={styles.qBtn} onClick={info}>
+          ?
+        </button>
+      </div>
       {/* <Divider /> */}
 
       <Row>

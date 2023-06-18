@@ -16,7 +16,6 @@ function StaffAdd() {
       try {
         const response = await axios.get(`${process.env.REACT_APP_BE_API}/storelist`);
         setOptions(response.data);
-        console.log(response.data);
       } catch (error) {
         console.log(error);
       }
@@ -47,15 +46,15 @@ function StaffAdd() {
     ).then(() => {
       navigate("/staff");
     })
-    .catch(function (error) {
-      if (error.response) {
-        console.log(error.response.data);
-        console.log(error.response.status);
-        console.log(error.response.headers);
-      }
-    })
+      .catch(function (error) {
+        if (error.response) {
+          console.log(error.response.data);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        }
+      })
   };
-  
+
   function handleSave() {
     // 알림 메시지 표시
     message.success('저장되었습니다.');
@@ -96,15 +95,15 @@ function StaffAdd() {
         </Form.Item>
 
         <Form.Item label="이름" name="name" labelCol={{ span: 2 }} wrapperCol={{ span: 12 }}>
-          <Input style={{ width: '50%' }}/>
+          <Input style={{ width: '50%' }} />
         </Form.Item>
 
         <Form.Item label="아이디" name="login_id" labelCol={{ span: 2 }} wrapperCol={{ span: 12 }}>
-          <Input style={{ width: '50%' }}/>
+          <Input style={{ width: '50%' }} />
         </Form.Item>
 
         <Form.Item label="패스워드" name="pwd" labelCol={{ span: 2 }} wrapperCol={{ span: 12 }}>
-          <Input style={{ width: '50%' }}/>
+          <Input style={{ width: '50%' }} />
         </Form.Item>
 
         <Form.Item wrapperCol={{ offset: 7, span: 18 }}>
@@ -116,7 +115,7 @@ function StaffAdd() {
         {/* <Link to="/staff" className="min-w-[8rem] link-with-icon">
           <Button> 직원 목록 페이지로 </Button>
         </Link> */}
-        
+
       </Form>
 
     </>

@@ -15,24 +15,10 @@ function ProductInfoList() {
       const response = await fetch(`${process.env.REACT_APP_BE_API}/productInfo/list`);
       const data = await response.json();
       setProductData(data);
-      console.log(data);
     } catch (error) {
       console.error(error);
     }
   };
-
-  // const handleDelete = async (id) => {
-  //   try {
-  //     await fetch(`http://localhost:8080/product/delete/${id}`, {
-  //       method: 'DELETE',
-  //     });
-  //     message.success('상품이 삭제되었습니다.');
-  //     fetchData();
-  //   } catch (error) {
-  //     console.error(error);
-  //     message.error('상품 삭제에 실패하였습니다.');
-  //   }
-  // };
 
   const columns = [
     {

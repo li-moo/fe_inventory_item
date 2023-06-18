@@ -64,13 +64,11 @@ function ProductInfoAdd() {
         }
       }
     ).then(() => {
-        navigate('/productinfolist');
-      }
+      navigate('/productinfolist');
+    }
     ).catch(function (error) {
       if (error.response) {
-        console.log(error.response.data);
-        console.log(error.response.status);
-        console.log(error.response.headers);
+        console.log(error.response);
       }
       message.error('상품정보 등록에 실패했습니다');
     })
@@ -89,21 +87,21 @@ function ProductInfoAdd() {
         onFinish={onFinish}
       >
         <Form.Item label="이미지" name="imgname" labelCol={{ span: 2 }} wrapperCol={{ span: 12 }}>
-          <Input style={{ width: '50%' }}/>
+          <Input style={{ width: '50%' }} />
         </Form.Item>
 
         <Form.Item label="SKU" name="product_code" labelCol={{ span: 2 }} wrapperCol={{ span: 12 }}>
-          <Input style={{ width: '50%' }}/>
+          <Input style={{ width: '50%' }} />
         </Form.Item>
 
         <Form.Item label="상품이름" name="name" labelCol={{ span: 2 }} wrapperCol={{ span: 12 }}>
-          <Input style={{ width: '50%' }}/>
+          <Input style={{ width: '50%' }} />
         </Form.Item>
 
         <Form.Item label="제조사" name="brand" labelCol={{ span: 2 }} wrapperCol={{ span: 12 }}>
-          <Input style={{ width: '50%' }}/>
+          <Input style={{ width: '50%' }} />
         </Form.Item>
-        
+
         <Form.Item label="카테고리" name="category_id" labelCol={{ span: 2 }} wrapperCol={{ span: 12 }}>
           <Select style={{ width: '50%' }}>
             {categoryOptions}
@@ -111,19 +109,19 @@ function ProductInfoAdd() {
         </Form.Item>
 
         <Form.Item label="보관방법" name="storage" labelCol={{ span: 2 }} wrapperCol={{ span: 12 }}>
-          <Input style={{ width: '50%' }}/>
+          <Input style={{ width: '50%' }} />
         </Form.Item>
 
         <Form.Item label="입수" name="box_qnt" labelCol={{ span: 2 }} wrapperCol={{ span: 12 }}>
-          <Input style={{ width: '50%' }}/>
+          <Input style={{ width: '50%' }} />
         </Form.Item>
 
         <Form.Item label="안전재고" name="safe_qnt" labelCol={{ span: 2 }} wrapperCol={{ span: 12 }}>
-          <Input style={{ width: '50%' }}/>
+          <Input style={{ width: '50%' }} />
         </Form.Item>
 
         <Form.Item label="상세설명" name="detail" labelCol={{ span: 2 }} wrapperCol={{ span: 12 }}>
-          <Input style={{ width: '50%' }}/>
+          <Input style={{ width: '50%' }} />
         </Form.Item>
 
         <Form.Item wrapperCol={{ offset: 7, span: 18 }}>
@@ -131,7 +129,7 @@ function ProductInfoAdd() {
             저장
           </Button>
         </Form.Item>
-        
+
       </Form>
 
     </>

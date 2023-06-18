@@ -11,8 +11,6 @@ const EventUpdate = () => {
   const [stateId, setStateId] = useState(id);
 
   const handleChange = (e) => {
-    console.log(">>>>>>eventid", e.target.value)
-    console.log(">>>>>>eventid", id)
     // e.target.value = id;
     setStateId(id);
   };
@@ -20,9 +18,6 @@ const EventUpdate = () => {
   const initialValues = {
     id: stateId,
   };
-
-  console.log("EventUpdate안에 id: ", id);
-
 
   const onFinish = async (values) => {
 
@@ -35,7 +30,6 @@ const EventUpdate = () => {
         },
         body: JSON.stringify(values),
       });
-      console.log('업데이트 성공!');
     } catch (error) {
       console.error(error);
     }
@@ -49,14 +43,13 @@ const EventUpdate = () => {
       cancelText: '아니오',
       onOk: deleteEvent,
       onCancel() {
-        console.log('삭제 작업 취소');
       },
     });
   };
-  
+
   const deleteEvent = async () => {
     try {
-        await fetch(`${process.env.REACT_APP_BE_API}/event/delete?id=${id}`, {
+      await fetch(`${process.env.REACT_APP_BE_API}/event/delete?id=${id}`, {
         method: 'DELETE',
       });
       message.success('게시판이 삭제되었습니다.');
@@ -68,30 +61,30 @@ const EventUpdate = () => {
 
   return (
     <>
-      <Form 
+      <Form
         initialValues={initialValues}
         onFinish={onFinish}>
-      <Form.Item label="아이디" name="title">
-        <Input value={id} onChange={handleChange} readOnly/>
-      </Form.Item>
-      <Form.Item label="비밀번호" name="body_text">
-        <Input />
-      </Form.Item>
-      <Form.Item>
-        <Button type="primary" htmlType="staff_id">
-          수정하기
-        </Button>
-      </Form.Item>
-      <Form.Item>
-        <Button type="dashed" htmlType="submit" >
-        <Link to="/board">뒤로가기</Link> 
-        </Button>
-      </Form.Item>
-    </Form>
+        <Form.Item label="아이디" name="title">
+          <Input value={id} onChange={handleChange} readOnly />
+        </Form.Item>
+        <Form.Item label="비밀번호" name="body_text">
+          <Input />
+        </Form.Item>
+        <Form.Item>
+          <Button type="primary" htmlType="staff_id">
+            수정하기
+          </Button>
+        </Form.Item>
+        <Form.Item>
+          <Button type="dashed" htmlType="submit" >
+            <Link to="/board">뒤로가기</Link>
+          </Button>
+        </Form.Item>
+      </Form>
 
-    <Button type="primary" htmlType="submit" danger onClick={handleDelete}>
-  삭제하기
-</Button>
+      <Button type="primary" htmlType="submit" danger onClick={handleDelete}>
+        삭제하기
+      </Button>
     </>
 
   );

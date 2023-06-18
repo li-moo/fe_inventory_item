@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Table, InputPopconfirm, message , Popconfirm, Input } from 'antd';
+import { Table, InputPopconfirm, message, Popconfirm, Input } from 'antd';
 import { useRecoilState } from 'recoil';
 import { logInState } from '../../state/loginState';
 import { useNavigate } from 'react-router';
@@ -24,8 +24,7 @@ function StaffList() {
       const data = await response.json();
       setstaffData(data);
       setFilteredData(data);
-      console.log(data);
-      console.log(">>>staffData:",staffData);
+
     } catch (error) {
       console.error(error);
     }
@@ -37,7 +36,7 @@ function StaffList() {
     );
     setFilteredData(filtered);
   };
-  
+
   const handleDelete = (id) => {
 
   }
@@ -67,11 +66,8 @@ function StaffList() {
       dataIndex: 'store_id',
     },
   ];
-  
+
   useEffect(() => {
-    console.log("enter StaffList.jsx / useEffect()");
-    console.log("loginData: ", logInData);
-    console.log("loginData.isLogin == false: ", logInData.isLogIn === false);
     checkLogin(logInData, navigate);
 
   }, [])

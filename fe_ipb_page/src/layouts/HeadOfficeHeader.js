@@ -18,11 +18,6 @@ const Header = () => {
 
   const toggle = () => setIsOpen(!isOpen);
 
-  // const createDeliveryAddress = () => {
-  //   // Handle the logic for creating a delivery address here
-  //   console.log("Creating a delivery address...");
-  // };
-
   return (
     // <div className={style.divHeader}>
     // <div className={`${style.divHeader} ${style.navbarCustom} ${style.bgSecondary}`}>
