@@ -6,18 +6,19 @@
 </div>
 
 <div  align=center>
-	<h4>실행방법</h4>
+	<h4>실행방법</h4>\
+	  <div class="callout">
+	  <p>npm install</p>
+	</div>
 </div>
-		```
-		 npm install
-		```
+
 
 <div  align=center>
 	<h4>개발기간</h4>
+	<div class="callout">
+	  <p> 23/04/20 ~ 23/06/21</p>
+	</div>
 </div>
-		```
-		 23/04/20 ~ 23/06/21
-		```
 
 <div align=center>
 	<h3>📚 기술 스택 📚</h3>
