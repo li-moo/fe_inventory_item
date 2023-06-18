@@ -27,11 +27,11 @@
 <div align=center>
 	<img src="https://capsule-render.vercel.app/api?type=waving&color=auto&height=200&section=header&text=KDT%-PROJECT&fontSize=90" />	
 </div>
-<div>
+<div  align=center>
 	<h2>재고와 유통기한의 효율적인 관리를 위한 맞춤형 웹페이지 </h2>
 </div>
 
-<div>
+<div  align=center>
 	<h4>실행방법</h4>
 	<div>
 		```
@@ -39,9 +39,10 @@
 		```
 	</div>
 </div>
-<div>
+
+<div  align=center>
 	<h4>개발기간</h4>
-	<div>
+	<div> [HTML]
 		```
 		 23/04/20 ~ 23/06/21
 		```
