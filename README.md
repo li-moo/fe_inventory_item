@@ -27,6 +27,27 @@
 <div align=center>
 	<img src="https://capsule-render.vercel.app/api?type=waving&color=auto&height=200&section=header&text=KDT%-PROJECT&fontSize=90" />	
 </div>
+<div>
+	<h2>재고와 유통기한의 효율적인 관리를 위한 맞춤형 웹페이지 </h2>
+</div>
+
+<div>
+	<h4>실행방법</h4>
+	<div>
+		```
+		 npm install
+		```
+	</div>
+</div>
+<div>
+	<h4>개발기간</h4>
+	<div>
+		```
+		 23/04/20 ~ 23/06/21
+		```
+	</div>
+</div>
+
 <div align=center>
 	<h3>📚 기술 스택 📚</h3>
 	<p>✨ 플랫폼폼 & 언어 ✨</p>
