@@ -4,7 +4,7 @@ import { useRecoilState } from 'recoil';
 import { logInState } from '../../state/loginState';
 import axios from 'axios';
 import { Table, Select, Input } from 'antd';
-import { SearchOutlined } from '@ant-design/icons';
+// import { SearchOutlined } from '@ant-design/icons';
 import "../main-board/MiniBoardProductlist2020.css"; // CSS import
 
 const { Option } = Select;

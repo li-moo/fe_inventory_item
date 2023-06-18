@@ -40,16 +40,6 @@ import { TiHome } from "react-icons/ti";
 import { AiFillHome } from "react-icons/ai";
 import { BiSolidDoorOpen } from "react-icons/bi";
 
-// function MyModal() {
-//   return (
-//     <div className="modal">
-//       <h2>제목</h2>
-//       <p>날짜</p>
-//       <p>상세 내용</p>
-//     </div>
-//   );
-// }
-
 const HeaderTop2020 = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   const [dropdownOpen, setDropdownOpen] = React.useState(false);
@@ -185,11 +175,6 @@ const HeaderTop2020 = () => {
     return () => clearInterval(intervalWeatherInfo); //
   }, []);
 
-  // function sayHello() {
-  //   console.log("++++++++++++++++++++++++++++++");
-  //   console.log("안녕하세요");
-  // }
-  ////
   const getWeatherInfo = async () => {
     try {
       const response = await fetch(`${process.env.REACT_APP_BE_API}/staff/weather`, {
@@ -240,25 +225,25 @@ const HeaderTop2020 = () => {
           <div className={style.leftTab} style={{ width: '60%' }}  >
             <Link to="/starter" className="nav-link" style={{ paddingLeft: '3%' }}>
               {/* {logInData.store_name} */}
-              <TiHome  style={mainToggle} size={20}/>
+              <TiHome style={mainToggle} size={20} />
             </Link>
             <Link to="/weather" className={`nav-link`} >
-              <div className={style.leftTabTab}  style={mainToggle}>
+              <div className={style.leftTabTab} style={mainToggle}>
                 <p >{getTodayData}</p>
                 <p ><CurrentDate /></p>
                 <p>
-                  {weatherData.presentWeather === "Clear" && <RiSunFill  />}
-                  {weatherData.presentWeather === "Rain" && <RiHeavyShowersLine  />}
-                  {weatherData.presentWeather === "Clouds" && <RiSunCloudyFill  />}
-                  {weatherData.presentWeather === "Thunderstorm" && <RiFlashlightFill  />}
-                  {weatherData.presentWeather === "Mist" && <RiMistFill  />}
+                  {weatherData.presentWeather === "Clear" && <RiSunFill />}
+                  {weatherData.presentWeather === "Rain" && <RiHeavyShowersLine />}
+                  {weatherData.presentWeather === "Clouds" && <RiSunCloudyFill />}
+                  {weatherData.presentWeather === "Thunderstorm" && <RiFlashlightFill />}
+                  {weatherData.presentWeather === "Mist" && <RiMistFill />}
                 </p>
               </div>
             </Link>
           </div>
 
           <div className={style.rightTab} style={{ width: '39.5%', justifyContent: 'end' }}>
-            <Link to="/starter" className="nav-link"  style={mainToggle}>
+            <Link to="/starter" className="nav-link" style={mainToggle}>
               {logInData.store_name}
             </Link>
             <div id='classDrop'  >
@@ -268,8 +253,8 @@ const HeaderTop2020 = () => {
               logInData.isLogIn ?
                 <p className="nav-link" onClick={logOut}>
                   <RiLogoutBoxRLine
-                     style={mainToggle}
-                     size={19}
+                    style={mainToggle}
+                    size={19}
                   />
                 </p>
                 :

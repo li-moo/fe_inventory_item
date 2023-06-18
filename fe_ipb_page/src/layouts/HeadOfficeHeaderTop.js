@@ -5,22 +5,14 @@ import {
   Collapse,
   Nav,
   NavItem,
-  NavbarBrand,
-  // UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  Dropdown,
   Button,
 } from "reactstrap";
-import { ReactComponent as LogoWhite } from "../assets/images/logos/xtremelogowhite.svg";
-import user05 from "../assets/images/users/user05.jpg";
 import { logInState } from "../components/state/loginState";
 import { weatherState } from "../components/state/weatherState";
 import { useRecoilState, useRecoilValue } from 'recoil';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { message, Modal} from "antd";
+import { message } from "antd";
 import  style from "./HeaderTop.module.css"
 import { 
   RiLogoutBoxRLine, 
@@ -31,10 +23,8 @@ import {
   RiHome4Line,
   RiMistFill
 } from "react-icons/ri";
-import { HiOutlineBell } from "react-icons/hi";
 import todayData from '../components/globalFunction/todayData';
 import CurrentDate from '../components/globalFunction/CurrentDate';
-import MyModal from '../components/sse/MyModal';
 import DropDown2020 from '../components/sse/DropDown2020';
 
 // function MyModal() {

@@ -9,10 +9,8 @@ import {
   DropdownMenu,
   DropdownItem,
   Button,
-  Container,
 } from "reactstrap";
 import { Link } from "react-router-dom";
-// import { Icon } from "react-bootstrap-icons";
 import style from "./Header.module.css";
 
 const Header = () => {

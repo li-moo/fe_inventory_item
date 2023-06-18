@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Table, Input, Button } from 'antd';
+import { Table, Input } from 'antd';
 import { useRecoilState } from 'recoil';
 import { logInState } from "../../state/loginState";
 

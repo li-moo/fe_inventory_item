@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import style from './EventDetail.module.css';
 
@@ -22,13 +22,13 @@ function EventDetail() {
     }
   };
 
-  return ( 
+  return (
     <div>
-      {event && 
+      {event &&
         <div className={style.eventWrap}>
           <h2>{event.name}</h2>
           <h4>기간 {event.start_date} ~ {event.end_date}</h4>
-          <img src={event.imgname}/>
+          <img src={event.imgname} />
         </div>
       }
     </div>
