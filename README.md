@@ -47,6 +47,8 @@
 		 23/04/20 ~ 23/06/21
 		```
 	</div>
+	```plaintext
+	여기에 코드를 입력하세요.
 </div>
 
 <div align=center>
@@ -58,6 +60,7 @@
 	<img src="https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=HTML5&logoColor=white" />
 	<img src="https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=CSS3&logoColor=white" />
 	<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=JavaScript&logoColor=white" />
+	<img src="https://img.shields.io/badge/React-0769AD?style=flat&logo=React&logoColor=white" />
 <!-- 	<img src="https://img.shields.io/badge/jQuery-0769AD?style=flat&logo=jQuery&logoColor=white" /> -->
 	<br>
 <!-- 	<img src="https://img.shields.io/badge/Spring-6DB33F?style=flat&logo=Spring&logoColor=white" />
