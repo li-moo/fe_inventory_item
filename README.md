@@ -7,6 +7,10 @@
 
 <div  align=center>
 	<h3>실행방법</h3>
+	<div>
+		<p>node -v</p>
+		<p>v16.18.0</p>
+	</div>
 	  <div class="callout">
 	  <p>npm install</p>
 	</div>
